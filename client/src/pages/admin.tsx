@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { Plus, Edit, Trash2, Save, X } from "lucide-react";
+import { Plus, Edit, Trash2, Save, X, Upload, Image, Users, BarChart3, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,9 +10,13 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { destinationsApi, toursApi, travelTipsApi, planningResourcesApi } from "@/lib/api";
 import type { Destination, Tour, TravelTip, PlanningResource } from "@/types";
+import DashboardWidgets from "@/components/admin/dashboard-widgets";
+import InlineEditor from "@/components/admin/inline-editor";
+import RoleManager from "@/components/admin/role-manager";
+import MediaManager from "@/components/admin/media-manager";
 
 export default function Admin() {
-  const [activeTab, setActiveTab] = useState("destinations");
+  const [activeTab, setActiveTab] = useState("dashboard");
   const [editingItem, setEditingItem] = useState<any>(null);
   const [isCreating, setIsCreating] = useState(false);
   const { toast } = useToast();
