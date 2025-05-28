@@ -26,17 +26,17 @@ export default function Admin() {
 
   const { data: tours = [], isLoading: loadingTours } = useQuery({
     queryKey: ["/api/tours"],
-    queryFn: toursApi.getAll,
+    queryFn: () => toursApi.getAll(),
   });
 
   const { data: travelTips = [], isLoading: loadingTips } = useQuery({
     queryKey: ["/api/travel-tips"],
-    queryFn: travelTipsApi.getAll,
+    queryFn: () => travelTipsApi.getAll(),
   });
 
   const { data: planningResources = [], isLoading: loadingResources } = useQuery({
     queryKey: ["/api/planning-resources"],
-    queryFn: planningResourcesApi.getAll,
+    queryFn: () => planningResourcesApi.getAll(),
   });
 
   const handleEdit = (item: any) => {

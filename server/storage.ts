@@ -28,6 +28,8 @@ export interface IStorage {
   getDestination(id: number): Promise<Destination | undefined>;
   getDestinationBySlug(slug: string): Promise<Destination | undefined>;
   createDestination(destination: InsertDestination): Promise<Destination>;
+  updateDestination(id: number, destination: InsertDestination): Promise<Destination | undefined>;
+  deleteDestination(id: number): Promise<boolean>;
   
   // Tours
   getTours(): Promise<Tour[]>;
@@ -36,6 +38,8 @@ export interface IStorage {
   getPopularTours(): Promise<Tour[]>;
   getToursByCategory(category: string): Promise<Tour[]>;
   createTour(tour: InsertTour): Promise<Tour>;
+  updateTour(id: number, tour: InsertTour): Promise<Tour | undefined>;
+  deleteTour(id: number): Promise<boolean>;
   
   // Travel Tips
   getTravelTips(): Promise<TravelTip[]>;
@@ -405,6 +409,19 @@ export class DbStorage implements IStorage {
     return result[0];
   }
 
+  async updateDestination(id: number, destination: InsertDestination): Promise<Destination | undefined> {
+    const result = await db.update(destinations)
+      .set(destination)
+      .where(eq(destinations.id, id))
+      .returning();
+    return result[0];
+  }
+
+  async deleteDestination(id: number): Promise<boolean> {
+    const result = await db.delete(destinations).where(eq(destinations.id, id));
+    return result.rowCount > 0;
+  }
+
   // Tours
   async getTours(): Promise<Tour[]> {
     return await db.select().from(tours);
@@ -431,6 +448,19 @@ export class DbStorage implements IStorage {
   async createTour(tour: InsertTour): Promise<Tour> {
     const result = await db.insert(tours).values(tour).returning();
     return result[0];
+  }
+
+  async updateTour(id: number, tour: InsertTour): Promise<Tour | undefined> {
+    const result = await db.update(tours)
+      .set(tour)
+      .where(eq(tours.id, id))
+      .returning();
+    return result[0];
+  }
+
+  async deleteTour(id: number): Promise<boolean> {
+    const result = await db.delete(tours).where(eq(tours.id, id));
+    return result.rowCount > 0;
   }
 
   // Travel Tips
