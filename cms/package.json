@@ -1,0 +1,29 @@
+{
+  "name": "egypt-travel-cms",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Egypt Travel CMS built with Strapi",
+  "scripts": {
+    "build": "strapi build",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/strapi": "4.25.9",
+    "@strapi/plugin-users-permissions": "4.25.9",
+    "@strapi/plugin-i18n": "4.25.9",
+    "@strapi/plugin-graphql": "4.25.9",
+    "pg": "^8.11.3"
+  },
+  "author": {
+    "name": "Egypt Travel Team"
+  },
+  "strapi": {
+    "uuid": "egypt-travel-cms"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  }
+}
