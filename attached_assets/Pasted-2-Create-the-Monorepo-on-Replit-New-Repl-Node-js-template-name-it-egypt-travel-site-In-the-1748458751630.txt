@@ -1,0 +1,180 @@
+2 – Create the Monorepo on Replit
+New Repl → “Node.js” template → name it egypt-travel-site.
+
+In the shell:
+
+bash
+Copy
+Edit
+npm i -g pnpm
+pnpm init -y
+Add workspaces to package.json:
+
+json
+Copy
+Edit
+{
+  "workspaces": ["frontend", "backend"]
+}
+Important for Replit runtime: install concurrently & pm2 so one Run button starts both apps:
+
+bash
+Copy
+Edit
+pnpm add -D concurrently pm2
+3 – Bootstrap Strapi (/backend)
+bash
+Copy
+Edit
+pnpm create strapi-app backend --quickstart --no-run
+Strapi will scaffold but not run (we’ll run both apps together later).
+
+Strapi content-types (collections)
+Collection	Core fields
+Page (generic)	title, slug, richTextBody (MDX), heroImage, excerpt, SEO meta, silo (enum: Destinations/Planning…)
+Destination	name, slug, intro, fullContent, region (enum), gallery [], seoMeta
+Tour	name, slug, length, priceFrom, highlights [], itinerary (repeatable component), seoMeta
+BlogPost	title, slug, author, excerpt, coverImage, body (richText), tags [], seoMeta
+GlobalSettings (single)	logo, navLinks [], footerLinks [], socialLinks []
+
+Tip: Use Strapi’s component feature for reusable blocks like “Included / Excluded” lists or call-to-action banners.
+
+After Strapi builds you can run the admin once with:
+
+bash
+Copy
+Edit
+cd backend && pnpm strapi dev
+Create your Super Admin user, then stop the process (Ctrl+C).
+
+4 – Bootstrap Next.js (/frontend)
+bash
+Copy
+Edit
+pnpm create next-app frontend --ts --eslint --tailwind --import-alias "@/*"
+cd frontend
+pnpm add @headlessui/react axios qs           # content fetch helpers
+pnpm add -D @tailwindcss/typography           # nice prose styling
+Tailwind config
+tailwind.config.ts
+
+ts
+Copy
+Edit
+import type { Config } from "tailwindcss";
+export default <Partial<Config>>{
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  theme: {
+    extend: {
+      colors: {
+        "teal-oasis": "var(--teal-oasis)",
+        "champagne-sand": "var(--champagne-sand)",
+        "gold-accent": "var(--gold-accent)",
+        "cool-limestone": "var(--cool-limestone)",
+        "onyx-text": "var(--onyx-text)",
+        "accent-coral": "var(--accent-coral)",
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/typography")],
+};
+src/styles/globals.css
+
+css
+Copy
+Edit
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --teal-oasis:#2D6A6C;
+  --champagne-sand:#EFE1D6;
+  --gold-accent:#C8A96A;
+  --cool-limestone:#E4DED4;
+  --onyx-text:#1E1E1E;
+  --accent-coral:#E76F51;
+}
+
+html { scroll-behavior:smooth; }
+body { @apply bg-champagne-sand text-onyx-text leading-relaxed;}
+5 – Folder & Route map (aligns 1-to-1 with your silo)
+bash
+Copy
+Edit
+frontend/
+ └─ src/
+    ├─ app/
+    │   ├─ layout.tsx         # global shell & SEO defaults
+    │   ├─ page.tsx           # Homepage
+    │   ├─ destinations/
+    │   │    ├─ page.tsx      # Destinations hub
+    │   │    └─ [slug]/page.tsx
+    │   ├─ travel-planning/...
+    │   ├─ things-to-do/...
+    │   ├─ tours-itineraries/...
+    │   ├─ accommodations/...
+    │   ├─ culture-history/...
+    │   └─ travel-tips/...
+    ├─ lib/                    # CMS fetchers
+    │   └─ api.ts
+    ├─ components/
+    │   ├─ NavBar.tsx
+    │   ├─ Footer.tsx
+    │   ├─ Breadcrumbs.tsx
+    │   ├─ Seo.tsx            # wrapper for <head>
+    │   └─ RichText.tsx       # render MDX from Strapi
+    └─ types/strapi.d.ts
+lib/api.ts (quick REST helper)
+
+ts
+Copy
+Edit
+import axios from "axios";
+const api = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_CMS_URL || "http://localhost:1337/api",
+});
+export async function getBySlug(type:string, slug:string, populate="deep") {
+  const res = await api.get(`/${type}`, { params: { filters:{slug}, populate }});
+  return res.data.data[0].attributes;
+}
+6 – Static Data Fetching & Incremental Rebuilds
+In each dynamic route:
+
+ts
+Copy
+Edit
+export const dynamic = "error";           // Next 14 SSG
+export async function generateStaticParams() {
+  const { data } = await api.get("/destinations", { params:{ fields:["slug"] }});
+  return data.data.map((d:any)=>({ slug:d.attributes.slug }));
+}
+
+export async function generateMetadata({ params }) { … }  // SEO per page
+
+export default async function Destination({ params }) {
+  const page = await getBySlug("destinations", params.slug, "heroImage,seoMeta");
+  return <DestinationTemplate data={page} />;
+}
+After editors hit “Publish” in Strapi, call POST /api/revalidate?secret=… (Next.js on-demand revalidation) so new pages deploy instantly.
+
+7 – SEO & Performance kit
+next-sitemap → auto XML + robots.txt.
+
+JSON-LD schemas (Article, TouristDestination, BreadcrumbList).
+
+lazy <Image> component for all media from Strapi.
+
+HTTP 2 + gzip (Replit handles).
+
+Lighthouse budget: CLS < 0.1, LCP < 2.5 s (use hero-image placeholders).
+
+8 – Consistent Branding
+All components pull palette vars; add utility classes in Tailwind (bg-teal-oasis, text-gold-accent …).
+
+Primary buttons: bg-teal-oasis text-white hover:bg-accent-coral.
+
+Heading font: "Playfair Display", serif via Google Fonts; body: system-ui.
+
+Build an <Card> design token for listing tours / posts to guarantee colour & radius consistency.
+
