@@ -132,26 +132,64 @@ export default function Admin() {
       }
 
       if (isCreating) {
-        // Create new item - would need to implement create endpoints
-        toast({
-          title: "Success",
-          description: "Item created successfully!",
-        });
+        // Create new destination
+        if (activeTab === "destinations") {
+          const response = await fetch('/api/destinations', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(editingItem)
+          });
+          
+          if (!response.ok) throw new Error('Failed to create destination');
+          
+          toast({
+            title: "Success",
+            description: "New destination created successfully!",
+          });
+        }
+        
+        // Create new tour
+        if (activeTab === "tours") {
+          const response = await fetch('/api/tours', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(editingItem)
+          });
+          
+          if (!response.ok) throw new Error('Failed to create tour');
+          
+          toast({
+            title: "Success",
+            description: "New tour created successfully!",
+          });
+        }
       } else {
-        // Update existing item - would need to implement update endpoints
-        toast({
-          title: "Success", 
-          description: "Item updated successfully!",
-        });
+        // Update existing item
+        if (activeTab === "destinations") {
+          const response = await fetch(`/api/destinations/${editingItem.id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(editingItem)
+          });
+          
+          if (!response.ok) throw new Error('Failed to update destination');
+          
+          toast({
+            title: "Success", 
+            description: "Destination updated successfully!",
+          });
+        }
       }
 
-      queryClient.invalidateQueries({ queryKey: [`/api/${activeTab.replace('-', '-')}`] });
+      // Refresh the data
+      queryClient.invalidateQueries({ queryKey: [`/api/${activeTab}`] });
       setEditingItem(null);
       setIsCreating(false);
     } catch (error) {
+      console.error('Save error:', error);
       toast({
         title: "Error",
-        description: "Failed to save item",
+        description: "Failed to save. Please try again.",
         variant: "destructive",
       });
     }

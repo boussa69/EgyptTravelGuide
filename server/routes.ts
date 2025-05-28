@@ -152,6 +152,88 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Admin CRUD endpoints for destinations
+  app.post("/api/destinations", async (req, res) => {
+    try {
+      const destination = insertDestinationSchema.parse(req.body);
+      const newDestination = await storage.createDestination(destination);
+      res.status(201).json(newDestination);
+    } catch (error) {
+      console.error("Create destination error:", error);
+      res.status(400).json({ error: "Failed to create destination" });
+    }
+  });
+
+  app.put("/api/destinations/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const destination = insertDestinationSchema.parse(req.body);
+      const updatedDestination = await storage.updateDestination(id, destination);
+      if (!updatedDestination) {
+        return res.status(404).json({ error: "Destination not found" });
+      }
+      res.json(updatedDestination);
+    } catch (error) {
+      console.error("Update destination error:", error);
+      res.status(400).json({ error: "Failed to update destination" });
+    }
+  });
+
+  app.delete("/api/destinations/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await storage.deleteDestination(id);
+      if (!success) {
+        return res.status(404).json({ error: "Destination not found" });
+      }
+      res.json({ message: "Destination deleted successfully" });
+    } catch (error) {
+      console.error("Delete destination error:", error);
+      res.status(400).json({ error: "Failed to delete destination" });
+    }
+  });
+
+  // Admin CRUD endpoints for tours
+  app.post("/api/tours", async (req, res) => {
+    try {
+      const tour = insertTourSchema.parse(req.body);
+      const newTour = await storage.createTour(tour);
+      res.status(201).json(newTour);
+    } catch (error) {
+      console.error("Create tour error:", error);
+      res.status(400).json({ error: "Failed to create tour" });
+    }
+  });
+
+  app.put("/api/tours/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const tour = insertTourSchema.parse(req.body);
+      const updatedTour = await storage.updateTour(id, tour);
+      if (!updatedTour) {
+        return res.status(404).json({ error: "Tour not found" });
+      }
+      res.json(updatedTour);
+    } catch (error) {
+      console.error("Update tour error:", error);
+      res.status(400).json({ error: "Failed to update tour" });
+    }
+  });
+
+  app.delete("/api/tours/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await storage.deleteTour(id);
+      if (!success) {
+        return res.status(404).json({ error: "Tour not found" });
+      }
+      res.json({ message: "Tour deleted successfully" });
+    } catch (error) {
+      console.error("Delete tour error:", error);
+      res.status(400).json({ error: "Failed to delete tour" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
