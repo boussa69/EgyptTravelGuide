@@ -1,0 +1,134 @@
+import { pgTable, text, serial, integer, boolean, timestamp, jsonb } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
+import { z } from "zod";
+
+// Destinations table
+export const destinations = pgTable("destinations", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  slug: text("slug").notNull().unique(),
+  description: text("description").notNull(),
+  shortDescription: text("short_description").notNull(),
+  region: text("region").notNull(), // Cairo, Luxor, Aswan, etc.
+  imageUrl: text("image_url").notNull(),
+  rating: integer("rating").notNull().default(5),
+  reviewCount: integer("review_count").notNull().default(0),
+  priceFrom: integer("price_from").notNull(), // price per day in USD
+  highlights: text("highlights").array().notNull().default([]),
+  attractions: text("attractions").array().notNull().default([]),
+  bestTimeToVisit: text("best_time_to_visit"),
+  transportInfo: text("transport_info"),
+  accommodationInfo: text("accommodation_info"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Tours table
+export const tours = pgTable("tours", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  slug: text("slug").notNull().unique(),
+  description: text("description").notNull(),
+  shortDescription: text("short_description").notNull(),
+  duration: integer("duration").notNull(), // in days
+  price: integer("price").notNull(), // in USD
+  imageUrl: text("image_url").notNull(),
+  category: text("category").notNull(), // Cultural, Adventure, Luxury, Family
+  difficulty: text("difficulty").notNull().default("Easy"), // Easy, Medium, Hard
+  included: text("included").array().notNull().default([]),
+  excluded: text("excluded").array().notNull().default([]),
+  itinerary: jsonb("itinerary").notNull().default([]), // Array of day-by-day activities
+  highlights: text("highlights").array().notNull().default([]),
+  destinationIds: integer("destination_ids").array().notNull().default([]),
+  rating: integer("rating").notNull().default(5),
+  reviewCount: integer("review_count").notNull().default(0),
+  isPopular: boolean("is_popular").notNull().default(false),
+  isLuxury: boolean("is_luxury").notNull().default(false),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Travel tips table
+export const travelTips = pgTable("travel_tips", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  slug: text("slug").notNull().unique(),
+  category: text("category").notNull(), // Transportation, Money, Language, Safety, etc.
+  content: text("content").notNull(),
+  shortDescription: text("short_description").notNull(),
+  icon: text("icon").notNull(), // Lucide icon name
+  tips: text("tips").array().notNull().default([]),
+  isEssential: boolean("is_essential").notNull().default(false),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Planning resources table
+export const planningResources = pgTable("planning_resources", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  slug: text("slug").notNull().unique(),
+  category: text("category").notNull(), // Visa, Weather, Packing, Budget, etc.
+  content: text("content").notNull(),
+  shortDescription: text("short_description").notNull(),
+  icon: text("icon").notNull(), // Lucide icon name
+  keyPoints: text("key_points").array().notNull().default([]),
+  resources: jsonb("resources").notNull().default([]), // Links and additional resources
+  isEssential: boolean("is_essential").notNull().default(false),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Newsletter subscriptions
+export const newsletterSubscriptions = pgTable("newsletter_subscriptions", {
+  id: serial("id").primaryKey(),
+  email: text("email").notNull().unique(),
+  isActive: boolean("is_active").notNull().default(true),
+  subscribedAt: timestamp("subscribed_at").defaultNow(),
+});
+
+// Create insert schemas
+export const insertDestinationSchema = createInsertSchema(destinations).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertTourSchema = createInsertSchema(tours).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertTravelTipSchema = createInsertSchema(travelTips).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertPlanningResourceSchema = createInsertSchema(planningResources).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertNewsletterSubscriptionSchema = createInsertSchema(newsletterSubscriptions).omit({
+  id: true,
+  subscribedAt: true,
+});
+
+// Types
+export type Destination = typeof destinations.$inferSelect;
+export type InsertDestination = z.infer<typeof insertDestinationSchema>;
+
+export type Tour = typeof tours.$inferSelect;
+export type InsertTour = z.infer<typeof insertTourSchema>;
+
+export type TravelTip = typeof travelTips.$inferSelect;
+export type InsertTravelTip = z.infer<typeof insertTravelTipSchema>;
+
+export type PlanningResource = typeof planningResources.$inferSelect;
+export type InsertPlanningResource = z.infer<typeof insertPlanningResourceSchema>;
+
+export type NewsletterSubscription = typeof newsletterSubscriptions.$inferSelect;
+export type InsertNewsletterSubscription = z.infer<typeof insertNewsletterSubscriptionSchema>;
