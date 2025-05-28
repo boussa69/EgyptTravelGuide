@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertNewsletterSubscriptionSchema } from "@shared/schema";
+import { insertNewsletterSubscriptionSchema, insertDestinationSchema, insertTourSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -155,8 +155,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Admin CRUD endpoints for destinations
   app.post("/api/destinations", async (req, res) => {
     try {
-      const destination = insertDestinationSchema.parse(req.body);
+      console.log("Received destination data:", req.body);
+      const destination = req.body;
+      console.log("Creating destination:", destination);
       const newDestination = await storage.createDestination(destination);
+      console.log("Created destination:", newDestination);
       res.status(201).json(newDestination);
     } catch (error) {
       console.error("Create destination error:", error);
