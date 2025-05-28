@@ -334,14 +334,16 @@ export default function Admin() {
           </TabsList>
 
           <div className="mt-6">
-            {!editingItem ? (
+            {!editingItem && activeTab !== "dashboard" && activeTab !== "workflow" && activeTab !== "media" ? (
               <div className="mb-6">
                 <Button onClick={handleCreate} className="bg-teal-600 hover:bg-teal-700">
                   <Plus className="h-4 w-4 mr-2" />
                   Add New {activeTab.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
                 </Button>
               </div>
-            ) : (
+            ) : null}
+            
+            {editingItem ? (
               <Card className="mb-6">
                 <CardHeader>
                   <CardTitle className="flex items-center justify-between">
@@ -362,7 +364,7 @@ export default function Admin() {
                   {activeTab === "destinations" && renderDestinationForm()}
                 </CardContent>
               </Card>
-            )}
+            ) : null}
 
             {/* Dashboard Overview with KPI Widgets */}
             <TabsContent value="dashboard">
