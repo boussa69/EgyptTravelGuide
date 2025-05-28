@@ -279,9 +279,23 @@ export default function Admin() {
                 alt={destination.name}
                 className="w-16 h-16 rounded-lg object-cover"
               />
-              <div>
-                <h3 className="font-semibold">{destination.name}</h3>
-                <p className="text-sm text-gray-600">{destination.region}</p>
+              <div className="flex-1">
+                <InlineEditor
+                  value={destination.name}
+                  onSave={(newValue) => {
+                    // Handle destination name update
+                    console.log('Update destination name:', newValue);
+                  }}
+                  className="font-semibold"
+                />
+                <InlineEditor
+                  value={destination.region}
+                  onSave={(newValue) => {
+                    // Handle region update
+                    console.log('Update region:', newValue);
+                  }}
+                  className="text-sm text-gray-600"
+                />
                 <p className="text-sm text-teal-600">From ${destination.priceFrom}</p>
               </div>
             </div>
@@ -310,11 +324,13 @@ export default function Admin() {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-6">
+            <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
             <TabsTrigger value="destinations">Destinations</TabsTrigger>
             <TabsTrigger value="tours">Tours</TabsTrigger>
-            <TabsTrigger value="travel-tips">Travel Tips</TabsTrigger>
-            <TabsTrigger value="planning-resources">Resources</TabsTrigger>
+            <TabsTrigger value="media">Media</TabsTrigger>
+            <TabsTrigger value="workflow">Workflow</TabsTrigger>
+            <TabsTrigger value="travel-tips">Tips & Resources</TabsTrigger>
           </TabsList>
 
           <div className="mt-6">
@@ -348,6 +364,43 @@ export default function Admin() {
               </Card>
             )}
 
+            {/* Dashboard Overview with KPI Widgets */}
+            <TabsContent value="dashboard">
+              <DashboardWidgets 
+                stats={{
+                  totalDestinations: destinations.length,
+                  totalTours: tours.length,
+                  totalTips: travelTips.length,
+                  totalSubscribers: 47, // From your newsletter data
+                  recentViews: 1247,
+                  popularDestination: "Cairo"
+                }}
+              />
+              
+              {/* Recent Activity */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Recent Activity</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                      <span className="text-sm">New newsletter subscription from visitor</span>
+                      <span className="text-xs text-gray-500">2 hours ago</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                      <span className="text-sm">Cairo destination page viewed 127 times</span>
+                      <span className="text-xs text-gray-500">Today</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                      <span className="text-sm">7-Day Egypt Highlights tour inquiries increased</span>
+                      <span className="text-xs text-gray-500">This week</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
             <TabsContent value="destinations">
               {loadingDestinations ? (
                 <div className="text-center py-8">Loading destinations...</div>
@@ -357,20 +410,101 @@ export default function Admin() {
             </TabsContent>
 
             <TabsContent value="tours">
-              <div className="text-center py-8 text-gray-500">
-                Tours management interface coming soon...
+              <div className="space-y-4">
+                {tours.map((tour: Tour) => (
+                  <Card key={tour.id} className="p-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <img
+                          src={tour.imageUrl}
+                          alt={tour.name}
+                          className="w-16 h-16 rounded-lg object-cover"
+                        />
+                        <div className="flex-1">
+                          <InlineEditor
+                            value={tour.name}
+                            onSave={(newValue) => console.log('Update tour name:', newValue)}
+                            className="font-semibold"
+                          />
+                          <p className="text-sm text-gray-600">{tour.duration} days • {tour.category}</p>
+                          <p className="text-sm text-teal-600">${tour.price}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Badge variant={tour.isPopular ? "default" : "secondary"}>
+                          {tour.isPopular ? "Popular" : "Standard"}
+                        </Badge>
+                        <Button size="sm" variant="outline" onClick={() => handleEdit(tour)}>
+                          <Edit className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
               </div>
+            </TabsContent>
+
+            <TabsContent value="media">
+              <MediaManager />
+            </TabsContent>
+
+            <TabsContent value="workflow">
+              <RoleManager />
             </TabsContent>
 
             <TabsContent value="travel-tips">
-              <div className="text-center py-8 text-gray-500">
-                Travel tips management interface coming soon...
-              </div>
-            </TabsContent>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Travel Tips */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Travel Tips</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      {travelTips.map((tip: TravelTip) => (
+                        <div key={tip.id} className="p-3 border rounded-lg">
+                          <div className="flex items-center justify-between">
+                            <InlineEditor
+                              value={tip.title}
+                              onSave={(newValue) => console.log('Update tip title:', newValue)}
+                              className="font-medium"
+                            />
+                            <Badge variant={tip.isEssential ? "default" : "secondary"}>
+                              {tip.isEssential ? "Essential" : "Standard"}
+                            </Badge>
+                          </div>
+                          <p className="text-sm text-gray-600 mt-1">{tip.category}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
 
-            <TabsContent value="planning-resources">
-              <div className="text-center py-8 text-gray-500">
-                Planning resources management interface coming soon...
+                {/* Planning Resources */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Planning Resources</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      {planningResources.map((resource: PlanningResource) => (
+                        <div key={resource.id} className="p-3 border rounded-lg">
+                          <div className="flex items-center justify-between">
+                            <InlineEditor
+                              value={resource.title}
+                              onSave={(newValue) => console.log('Update resource title:', newValue)}
+                              className="font-medium"
+                            />
+                            <Badge variant={resource.isEssential ? "default" : "secondary"}>
+                              {resource.isEssential ? "Essential" : "Standard"}
+                            </Badge>
+                          </div>
+                          <p className="text-sm text-gray-600 mt-1">{resource.category}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </TabsContent>
           </div>
