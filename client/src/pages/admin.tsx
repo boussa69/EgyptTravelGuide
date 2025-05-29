@@ -43,6 +43,25 @@ export default function Admin() {
     queryFn: () => planningResourcesApi.getAll(),
   });
 
+  // Fetch itinerary data when editing a specific tour
+  const { data: itineraryDays = [], isLoading: loadingItinerary } = useQuery({
+    queryKey: ["/api/tours", editingItem?.tourId, "itinerary"],
+    queryFn: () => fetch(`/api/tours/${editingItem?.tourId}/itinerary`).then(res => res.json()),
+    enabled: !!editingItem?.tourId && editingItem?.type === 'itinerary',
+  });
+
+  const { data: accommodations = [], isLoading: loadingAccommodations } = useQuery({
+    queryKey: ["/api/tours", editingItem?.tourId, "accommodations"],
+    queryFn: () => fetch(`/api/tours/${editingItem?.tourId}/accommodations`).then(res => res.json()),
+    enabled: !!editingItem?.tourId && editingItem?.type === 'itinerary',
+  });
+
+  const { data: faqs = [], isLoading: loadingFaqs } = useQuery({
+    queryKey: ["/api/tours", editingItem?.tourId, "faqs"],
+    queryFn: () => fetch(`/api/tours/${editingItem?.tourId}/faqs`).then(res => res.json()),
+    enabled: !!editingItem?.tourId && editingItem?.type === 'itinerary',
+  });
+
   const handleEdit = (item: any) => {
     setEditingItem({ ...item });
     setIsCreating(false);
@@ -137,6 +156,145 @@ export default function Admin() {
         variant: "destructive",
       });
     }
+  };
+
+  const renderItineraryManager = () => {
+    if (!editingItem || editingItem.type !== 'itinerary') {
+      return <div>No tour selected for editing</div>;
+    }
+
+    const { tourName } = editingItem;
+
+    if (loadingItinerary || loadingAccommodations || loadingFaqs) {
+      return <div className="text-center py-8">Loading itinerary data...</div>;
+    }
+
+    return (
+      <div className="space-y-6">
+        <div className="flex justify-between items-center">
+          <div>
+            <h2 className="text-2xl font-bold">Edit Itinerary: {tourName}</h2>
+            <p className="text-gray-600">Manage daily programs, accommodations, and FAQs</p>
+          </div>
+          <Button 
+            variant="outline" 
+            onClick={() => setActiveTab("itineraries")}
+          >
+            ← Back to Tours
+          </Button>
+        </div>
+
+        <Tabs defaultValue="days" className="w-full">
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="days">Daily Programs ({itineraryDays.length})</TabsTrigger>
+            <TabsTrigger value="accommodations">Accommodations ({accommodations.length})</TabsTrigger>
+            <TabsTrigger value="faqs">FAQs ({faqs.length})</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="days" className="space-y-4">
+            <div className="flex justify-between items-center">
+              <h3 className="text-lg font-semibold">Daily Itinerary</h3>
+              <Button size="sm" className="bg-teal-600 hover:bg-teal-700">
+                <Plus className="w-4 h-4 mr-2" />
+                Add Day
+              </Button>
+            </div>
+            
+            <div className="grid gap-4">
+              {itineraryDays.map((day: any) => (
+                <Card key={day.id} className="p-4">
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <h4 className="font-semibold">Day {day.dayNumber}: {day.title}</h4>
+                      <p className="text-sm text-gray-600">{day.location}</p>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline">
+                        <Edit className="w-4 h-4" />
+                      </Button>
+                      <Button size="sm" variant="outline" className="text-red-600">
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                  <p className="text-sm mb-2">{day.description}</p>
+                  <div className="text-xs text-gray-500">
+                    Activities: {day.activities?.join(', ')}
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="accommodations" className="space-y-4">
+            <div className="flex justify-between items-center">
+              <h3 className="text-lg font-semibold">Accommodation Options</h3>
+              <Button size="sm" className="bg-teal-600 hover:bg-teal-700">
+                <Plus className="w-4 h-4 mr-2" />
+                Add Option
+              </Button>
+            </div>
+            
+            <div className="grid gap-4">
+              {accommodations.map((acc: any) => (
+                <Card key={acc.id} className="p-4">
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <h4 className="font-semibold">{acc.name}</h4>
+                      <p className="text-sm text-gray-600">{acc.type} - ${acc.pricePerPerson}/person</p>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline">
+                        <Edit className="w-4 h-4" />
+                      </Button>
+                      <Button size="sm" variant="outline" className="text-red-600">
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                  <p className="text-sm mb-2">{acc.description}</p>
+                  <div className="text-xs text-gray-500">
+                    Features: {acc.features?.join(', ')}
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="faqs" className="space-y-4">
+            <div className="flex justify-between items-center">
+              <h3 className="text-lg font-semibold">Frequently Asked Questions</h3>
+              <Button size="sm" className="bg-teal-600 hover:bg-teal-700">
+                <Plus className="w-4 h-4 mr-2" />
+                Add FAQ
+              </Button>
+            </div>
+            
+            <div className="grid gap-4">
+              {faqs.map((faq: any) => (
+                <Card key={faq.id} className="p-4">
+                  <div className="flex justify-between items-start mb-3">
+                    <div className="flex-1">
+                      <h4 className="font-semibold">{faq.question}</h4>
+                      <Badge variant="secondary" className="mt-1">{faq.category}</Badge>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline">
+                        <Edit className="w-4 h-4" />
+                      </Button>
+                      <Button size="sm" variant="outline" className="text-red-600">
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600">{faq.answer}</p>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
+    );
   };
 
   const handleCreate = () => {
@@ -767,6 +925,10 @@ export default function Admin() {
 
             <TabsContent value="itineraries">
               {renderItineraryBuilder()}
+            </TabsContent>
+
+            <TabsContent value="itinerary-manager">
+              {renderItineraryManager()}
             </TabsContent>
 
             <TabsContent value="media">
