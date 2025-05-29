@@ -20,6 +20,7 @@ export default function Admin() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [editingItem, setEditingItem] = useState<any>(null);
   const [isCreating, setIsCreating] = useState(false);
+  const [bookingSettings, setBookingSettings] = useState<any>({});
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -66,6 +67,42 @@ export default function Admin() {
   const handleEdit = (item: any) => {
     setEditingItem({ ...item });
     setIsCreating(false);
+    
+    // Load booking settings if editing a tour
+    if (item.type === 'itinerary') {
+      setBookingSettings({
+        nextDeparture: item.nextDeparture,
+        spotsRemaining: item.spotsRemaining,
+        cancellationPolicy: item.cancellationPolicy,
+        maxGroupSize: item.maxGroupSize,
+        minAge: item.minAge
+      });
+    }
+  };
+
+  const handleSaveBookingSettings = async () => {
+    try {
+      const response = await fetch(`/api/tours/${editingItem?.tourId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bookingSettings)
+      });
+      
+      if (!response.ok) throw new Error('Failed to save booking settings');
+      
+      toast({
+        title: "Success",
+        description: "Booking settings saved successfully!",
+      });
+      
+      queryClient.invalidateQueries({ queryKey: ["/api/tours"] });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to save booking settings",
+        variant: "destructive",
+      });
+    }
   };
 
   const renderItineraryBuilder = () => {
