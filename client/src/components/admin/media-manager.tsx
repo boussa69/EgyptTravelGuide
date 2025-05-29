@@ -15,7 +15,7 @@ function formatFileSize(bytes: number): string {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
-function formatDate(dateInput: string | Date | null): string {
+function formatDate(dateInput: string | Date | null | undefined): string {
   if (!dateInput) return 'Unknown';
   const date = new Date(dateInput);
   if (isNaN(date.getTime())) return 'Invalid date';
@@ -93,9 +93,9 @@ export default function MediaManager() {
     }
   });
 
-  const filteredItems = mediaItems.filter(item =>
+  const filteredItems = Array.isArray(mediaItems) ? mediaItems.filter(item =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  ) : [];
 
   const handleUpload = () => {
     fileInputRef.current?.click();
@@ -225,7 +225,7 @@ export default function MediaManager() {
                   {/* Info */}
                   <div className="p-3">
                     <p className="font-medium text-sm truncate">{item.name}</p>
-                    <p className="text-xs text-gray-500">{formatFileSize(item.size)} • {formatDate(item.uploadedAt?.toString())}</p>
+                    <p className="text-xs text-gray-500">{formatFileSize(item.size)} • {formatDate(item.uploadedAt)}</p>
                   </div>
                 </div>
               ))}
@@ -242,7 +242,7 @@ export default function MediaManager() {
                     />
                     <div>
                       <p className="font-medium">{item.name}</p>
-                      <p className="text-sm text-gray-500">{formatFileSize(item.size)} • {formatDate(item.uploadedAt?.toString())}</p>
+                      <p className="text-sm text-gray-500">{formatFileSize(item.size)} • {formatDate(item.uploadedAt)}</p>
                     </div>
                   </div>
                   
