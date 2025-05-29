@@ -420,8 +420,158 @@ export class DbStorage implements IStorage {
       for (const resource of sampleResources) {
         await db.insert(planningResources).values(resource);
       }
+
+      // Create sample itinerary data
+      await this.createSampleItineraryData();
     } catch (error) {
       console.error('Error initializing sample data:', error);
+    }
+  }
+
+  private async createSampleItineraryData() {
+    try {
+      // Sample itinerary for 7-Day Egypt Highlights (tourId: 1)
+      const egyptHighlightsItinerary = [
+        {
+          tourId: 1,
+          dayNumber: 1,
+          title: "Arrival in Cairo",
+          description: "Welcome to Egypt! Airport transfer and hotel check-in.",
+          dailyProgram: "Upon arrival at Cairo International Airport, you'll be met by our representative and transferred to your hotel. After check-in and some time to freshen up, enjoy a welcome dinner featuring authentic Egyptian cuisine while getting acquainted with your fellow travelers.",
+          activities: ["Airport pickup", "Hotel check-in", "Welcome dinner", "Tour briefing"],
+          highlights: ["Meet your tour group", "First taste of Egyptian cuisine", "Cairo city overview"],
+          meals: ["Dinner"],
+          accommodation: "5-star Cairo Hotel",
+          transport: "Private air-conditioned vehicle",
+          location: "Cairo",
+          imageUrl: "https://images.unsplash.com/photo-1539650116574-75c0c6d09d8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          tourId: 1,
+          dayNumber: 2,
+          title: "Pyramids of Giza & Sphinx",
+          description: "Explore the legendary Pyramids and the mysterious Sphinx.",
+          dailyProgram: "Start early with a hearty breakfast before heading to the Giza plateau. Marvel at the Great Pyramid of Khufu, explore the Pyramid of Khafre, and visit the smaller Pyramid of Menkaure. Stand before the enigmatic Sphinx and learn about its fascinating history. Optional camel ride around the pyramids. Visit the Solar Boat Museum before lunch at a local restaurant with pyramid views.",
+          activities: ["Pyramid exploration", "Sphinx visit", "Solar Boat Museum", "Camel ride (optional)", "Panoramic photo stop"],
+          highlights: ["Great Pyramid interior visit", "Sphinx up close", "Panoramic pyramid views", "Solar Boat Museum"],
+          meals: ["Breakfast", "Lunch"],
+          accommodation: "5-star Cairo Hotel",
+          transport: "Private air-conditioned vehicle",
+          location: "Giza",
+          imageUrl: "https://images.unsplash.com/photo-1572252821143-035a024857ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          tourId: 1,
+          dayNumber: 3,
+          title: "Egyptian Museum & Old Cairo",
+          description: "Discover ancient treasures and explore historic Cairo.",
+          dailyProgram: "Begin at the world-renowned Egyptian Museum, home to the largest collection of ancient Egyptian artifacts. See Tutankhamun's treasures, royal mummies, and countless fascinating relics. After lunch, explore Old Cairo visiting the Hanging Church, Ben Ezra Synagogue, and the historic Coptic Quarter. End the day wandering through the vibrant Khan el-Khalili bazaar, perfect for shopping and experiencing local culture.",
+          activities: ["Egyptian Museum tour", "Tutankhamun gallery", "Coptic Cairo exploration", "Khan el-Khalili bazaar", "Local shopping"],
+          highlights: ["Tutankhamun's golden mask", "Royal mummies", "Hanging Church", "Coptic Quarter", "Traditional bazaar"],
+          meals: ["Breakfast", "Lunch"],
+          accommodation: "5-star Cairo Hotel",
+          transport: "Private air-conditioned vehicle",
+          location: "Cairo",
+          imageUrl: "https://images.unsplash.com/photo-1569161414119-56d6ee7a2b8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        }
+      ];
+
+      for (const day of egyptHighlightsItinerary) {
+        await db.insert(itineraryDays).values(day);
+      }
+
+      // Sample accommodation options for 7-Day Egypt Highlights
+      const sampleAccommodationOptions = [
+        {
+          tourId: 1,
+          type: "Standard",
+          name: "4-Star Hotels & Nile Cruise",
+          description: "Comfortable accommodations with essential amenities",
+          features: ["Private bathrooms", "Air conditioning", "Daily breakfast", "City center locations", "Standard Nile cruise cabin"],
+          pricePerPerson: 1299,
+          imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          rating: 4,
+          isPopular: false
+        },
+        {
+          tourId: 1,
+          type: "Deluxe",
+          name: "5-Star Hotels & Deluxe Cruise",
+          description: "Superior comfort with enhanced amenities",
+          features: ["Luxury amenities", "Pool & spa access", "Premium locations", "Concierge service", "Deluxe Nile cruise suite", "Balcony with Nile views"],
+          pricePerPerson: 1899,
+          imageUrl: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          rating: 5,
+          isPopular: true
+        },
+        {
+          tourId: 1,
+          type: "Luxury",
+          name: "Ultra-Luxury Collection",
+          description: "The finest accommodations Egypt has to offer",
+          features: ["Ultra-luxury hotels", "Butler service", "Private transfers", "Exclusive experiences", "Presidential Nile suite", "Private dining options"],
+          pricePerPerson: 2799,
+          imageUrl: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          rating: 5,
+          isPopular: false
+        }
+      ];
+
+      for (const option of sampleAccommodationOptions) {
+        await db.insert(accommodationOptions).values(option);
+      }
+
+      // Sample FAQ items
+      const sampleFaqItems = [
+        {
+          tourId: 1,
+          category: "trip-specific",
+          question: "What's included in the 7-Day Egypt Highlights tour?",
+          answer: "The tour includes all accommodation, daily breakfast, guided tours with expert Egyptologists, entrance fees to all mentioned sites, airport transfers, and transportation in air-conditioned vehicles. International flights are not included.",
+          orderIndex: 1,
+          isExpanded: true
+        },
+        {
+          tourId: 1,
+          category: "trip-specific",
+          question: "Is this tour suitable for families with children?",
+          answer: "Yes! This tour is family-friendly and suitable for children aged 8 and above. We provide engaging explanations that captivate young minds, and the itinerary includes manageable walking distances with rest breaks.",
+          orderIndex: 2,
+          isExpanded: true
+        },
+        {
+          tourId: 1,
+          category: "trip-specific",
+          question: "What should I pack for this tour?",
+          answer: "Pack light, breathable clothing, comfortable walking shoes, sun protection (hat, sunscreen, sunglasses), modest attire for religious sites, and a light jacket for evening Nile cruise. Don't forget your camera and power bank!",
+          orderIndex: 3,
+          isExpanded: false
+        },
+        {
+          tourId: null,
+          category: "general",
+          question: "Do I need a visa to visit Egypt?",
+          answer: "Most nationalities can obtain a tourist visa on arrival at Egyptian airports for $25 USD, or apply for an e-visa online before travel. Your passport must be valid for at least 6 months from your entry date.",
+          orderIndex: 1,
+          isExpanded: false
+        },
+        {
+          tourId: null,
+          category: "general",
+          question: "Is Egypt safe for tourists?",
+          answer: "Yes, Egypt is generally very safe for tourists. Tourist areas are well-protected, and we work with trusted local partners who follow strict safety protocols. Our guides are trained in safety procedures and emergency response.",
+          orderIndex: 2,
+          isExpanded: false
+        }
+      ];
+
+      for (const faq of sampleFaqItems) {
+        await db.insert(faqItems).values(faq);
+      }
+
+      console.log('Sample itinerary data created successfully');
+    } catch (error) {
+      console.error('Error creating sample itinerary data:', error);
     }
   }
 

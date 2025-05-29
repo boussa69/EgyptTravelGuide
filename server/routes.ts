@@ -388,6 +388,155 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Itinerary Builder - Create sample data
+  app.post("/api/tours/:tourId/create-sample-itinerary", async (req, res) => {
+    try {
+      const tourId = parseInt(req.params.tourId);
+      
+      // Sample itinerary days
+      const sampleDays = [
+        {
+          tourId,
+          dayNumber: 1,
+          title: "Arrival in Cairo",
+          description: "Welcome to Egypt! Airport transfer and hotel check-in.",
+          dailyProgram: "Upon arrival at Cairo International Airport, you'll be met by our representative and transferred to your hotel. After check-in and some time to freshen up, enjoy a welcome dinner featuring authentic Egyptian cuisine while getting acquainted with your fellow travelers.",
+          activities: ["Airport pickup", "Hotel check-in", "Welcome dinner", "Tour briefing"],
+          highlights: ["Meet your tour group", "First taste of Egyptian cuisine", "Cairo city overview"],
+          meals: ["Dinner"],
+          accommodation: "5-star Cairo Hotel",
+          transport: "Private air-conditioned vehicle",
+          location: "Cairo",
+          imageUrl: "https://images.unsplash.com/photo-1539650116574-75c0c6d09d8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          tourId,
+          dayNumber: 2,
+          title: "Pyramids of Giza & Sphinx",
+          description: "Explore the legendary Pyramids and the mysterious Sphinx.",
+          dailyProgram: "Start early with a hearty breakfast before heading to the Giza plateau. Marvel at the Great Pyramid of Khufu, explore the Pyramid of Khafre, and visit the smaller Pyramid of Menkaure. Stand before the enigmatic Sphinx and learn about its fascinating history. Optional camel ride around the pyramids. Visit the Solar Boat Museum before lunch at a local restaurant with pyramid views.",
+          activities: ["Pyramid exploration", "Sphinx visit", "Solar Boat Museum", "Camel ride (optional)", "Panoramic photo stop"],
+          highlights: ["Great Pyramid interior visit", "Sphinx up close", "Panoramic pyramid views", "Solar Boat Museum"],
+          meals: ["Breakfast", "Lunch"],
+          accommodation: "5-star Cairo Hotel",
+          transport: "Private air-conditioned vehicle",
+          location: "Giza",
+          imageUrl: "https://images.unsplash.com/photo-1572252821143-035a024857ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          tourId,
+          dayNumber: 3,
+          title: "Egyptian Museum & Old Cairo",
+          description: "Discover ancient treasures and explore historic Cairo.",
+          dailyProgram: "Begin at the world-renowned Egyptian Museum, home to the largest collection of ancient Egyptian artifacts. See Tutankhamun's treasures, royal mummies, and countless fascinating relics. After lunch, explore Old Cairo visiting the Hanging Church, Ben Ezra Synagogue, and the historic Coptic Quarter. End the day wandering through the vibrant Khan el-Khalili bazaar, perfect for shopping and experiencing local culture.",
+          activities: ["Egyptian Museum tour", "Tutankhamun gallery", "Coptic Cairo exploration", "Khan el-Khalili bazaar", "Local shopping"],
+          highlights: ["Tutankhamun's golden mask", "Royal mummies", "Hanging Church", "Coptic Quarter", "Traditional bazaar"],
+          meals: ["Breakfast", "Lunch"],
+          accommodation: "5-star Cairo Hotel",
+          transport: "Private air-conditioned vehicle",
+          location: "Cairo",
+          imageUrl: "https://images.unsplash.com/photo-1569161414119-56d6ee7a2b8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        }
+      ];
+
+      // Create sample accommodation options
+      const sampleAccommodations = [
+        {
+          tourId,
+          type: "Standard",
+          name: "4-Star Hotels & Nile Cruise",
+          description: "Comfortable accommodations with essential amenities",
+          features: ["Private bathrooms", "Air conditioning", "Daily breakfast", "City center locations", "Standard Nile cruise cabin"],
+          pricePerPerson: 1299,
+          imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          rating: 4,
+          isPopular: false
+        },
+        {
+          tourId,
+          type: "Deluxe",
+          name: "5-Star Hotels & Deluxe Cruise",
+          description: "Superior comfort with enhanced amenities",
+          features: ["Luxury amenities", "Pool & spa access", "Premium locations", "Concierge service", "Deluxe Nile cruise suite", "Balcony with Nile views"],
+          pricePerPerson: 1899,
+          imageUrl: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          rating: 5,
+          isPopular: true
+        },
+        {
+          tourId,
+          type: "Luxury",
+          name: "Ultra-Luxury Collection",
+          description: "The finest accommodations Egypt has to offer",
+          features: ["Ultra-luxury hotels", "Butler service", "Private transfers", "Exclusive experiences", "Presidential Nile suite", "Private dining options"],
+          pricePerPerson: 2799,
+          imageUrl: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          rating: 5,
+          isPopular: false
+        }
+      ];
+
+      // Create sample FAQs
+      const sampleFAQs = [
+        {
+          tourId,
+          category: "trip-specific",
+          question: "What's included in this tour?",
+          answer: "The tour includes all accommodation, daily breakfast, guided tours with expert Egyptologists, entrance fees to all mentioned sites, airport transfers, and transportation in air-conditioned vehicles. International flights are not included.",
+          orderIndex: 1,
+          isExpanded: true
+        },
+        {
+          tourId,
+          category: "trip-specific",
+          question: "Is this tour suitable for families with children?",
+          answer: "Yes! This tour is family-friendly and suitable for children aged 8 and above. We provide engaging explanations that captivate young minds, and the itinerary includes manageable walking distances with rest breaks.",
+          orderIndex: 2,
+          isExpanded: true
+        },
+        {
+          tourId,
+          category: "trip-specific",
+          question: "What should I pack for this tour?",
+          answer: "Pack light, breathable clothing, comfortable walking shoes, sun protection (hat, sunscreen, sunglasses), modest attire for religious sites, and a light jacket for evening Nile cruise. Don't forget your camera and power bank!",
+          orderIndex: 3,
+          isExpanded: false
+        }
+      ];
+
+      // Create the data
+      const createdDays = [];
+      for (const day of sampleDays) {
+        const newDay = await storage.createItineraryDay(day);
+        createdDays.push(newDay);
+      }
+
+      const createdAccommodations = [];
+      for (const accommodation of sampleAccommodations) {
+        const newAccommodation = await storage.createAccommodationOption(accommodation);
+        createdAccommodations.push(newAccommodation);
+      }
+
+      const createdFAQs = [];
+      for (const faq of sampleFAQs) {
+        const newFAQ = await storage.createFaqItem(faq);
+        createdFAQs.push(newFAQ);
+      }
+
+      res.json({
+        message: "Sample itinerary data created successfully",
+        data: {
+          days: createdDays,
+          accommodations: createdAccommodations,
+          faqs: createdFAQs
+        }
+      });
+    } catch (error: any) {
+      console.error("Error creating sample itinerary:", error);
+      res.status(400).json({ error: error.message });
+    }
+  });
+
   // Chatbot endpoint
   app.post("/api/chatbot", async (req, res) => {
     try {

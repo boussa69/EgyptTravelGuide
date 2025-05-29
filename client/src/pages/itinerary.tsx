@@ -61,7 +61,26 @@ export default function Itinerary() {
     );
   }
 
-  const days = tour.duration || 7;
+  // Fetch itinerary data
+  const { data: itineraryDays, isLoading: itineraryLoading } = useQuery({
+    queryKey: ["/api/tours", tour?.id, "itinerary"],
+    queryFn: () => fetch(`/api/tours/${tour?.id}/itinerary`).then(res => res.json()),
+    enabled: !!tour?.id,
+  });
+
+  // Fetch accommodation options
+  const { data: accommodationOptions, isLoading: accommodationsLoading } = useQuery({
+    queryKey: ["/api/tours", tour?.id, "accommodations"],
+    queryFn: () => fetch(`/api/tours/${tour?.id}/accommodations`).then(res => res.json()),
+    enabled: !!tour?.id,
+  });
+
+  // Fetch FAQ items
+  const { data: faqs, isLoading: faqsLoading } = useQuery({
+    queryKey: ["/api/tours", tour?.id, "faqs"],
+    queryFn: () => fetch(`/api/tours/${tour?.id}/faqs`).then(res => res.json()),
+    enabled: !!tour?.id,
+  });
 
   const toggleFAQ = (index: number) => {
     setExpandedFAQ(prev => 
@@ -70,73 +89,6 @@ export default function Itinerary() {
         : [...prev, index]
     );
   };
-
-  const mockItinerary = [
-    {
-      day: 1,
-      title: "Arrival in Cairo",
-      highlights: ["Airport transfer", "Hotel check-in", "Welcome dinner"],
-      meals: ["Dinner"],
-      accommodation: "5-star Cairo Hotel",
-      activities: "Airport pickup, welcome briefing"
-    },
-    {
-      day: 2,
-      title: "Pyramids of Giza & Sphinx",
-      highlights: ["Great Pyramid tour", "Sphinx visit", "Camel ride option"],
-      meals: ["Breakfast", "Lunch"],
-      accommodation: "5-star Cairo Hotel",
-      activities: "Full day Giza complex exploration"
-    },
-    {
-      day: 3,
-      title: "Egyptian Museum & Old Cairo",
-      highlights: ["Tutankhamun treasures", "Coptic Cairo", "Khan el-Khalili Bazaar"],
-      meals: ["Breakfast", "Lunch"],
-      accommodation: "5-star Cairo Hotel",
-      activities: "Cultural immersion day"
-    }
-  ];
-
-  const accommodationOptions = [
-    {
-      type: "Standard",
-      name: "4-Star Hotels",
-      price: 1299,
-      features: ["Private bathrooms", "Air conditioning", "Daily breakfast", "City center locations"]
-    },
-    {
-      type: "Deluxe",
-      name: "5-Star Hotels",
-      price: 1899,
-      features: ["Luxury amenities", "Pool & spa access", "Premium locations", "Concierge service"]
-    },
-    {
-      type: "Luxury",
-      name: "Premium Collection",
-      price: 2799,
-      features: ["Ultra-luxury hotels", "Butler service", "Private transfers", "Exclusive experiences"]
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "What's included in the tour price?",
-      answer: "All accommodation, daily breakfast, guided tours, entrance fees, and airport transfers are included."
-    },
-    {
-      question: "What should I pack for Egypt?",
-      answer: "Light, breathable clothing, comfortable walking shoes, sun protection, and modest attire for religious sites."
-    },
-    {
-      question: "Is Egypt safe for tourists?",
-      answer: "Yes, Egypt is generally very safe for tourists. We work with trusted local partners and follow all safety protocols."
-    },
-    {
-      question: "Can the itinerary be customized?",
-      answer: "Absolutely! We can modify the itinerary to match your interests, budget, and travel style."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -244,120 +196,176 @@ export default function Itinerary() {
         {/* Day-by-Day Timeline */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 font-serif">Day-by-Day Itinerary</h2>
-          <div className="space-y-6">
-            {mockItinerary.map((day, index) => (
-              <Card key={day.day} data-day={day.day} className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="flex flex-col lg:flex-row">
-                    <div className="lg:w-1/3 bg-gray-200 h-48 lg:h-auto">
-                      <div className="w-full h-full bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center">
-                        <Camera className="w-12 h-12 text-white" />
+          {itineraryLoading ? (
+            <div className="space-y-6">
+              {[...Array(3)].map((_, i) => (
+                <Card key={i} className="overflow-hidden">
+                  <CardContent className="p-6">
+                    <Skeleton className="h-6 w-32 mb-4" />
+                    <Skeleton className="h-4 w-full mb-2" />
+                    <Skeleton className="h-4 w-3/4" />
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {itineraryDays?.map((day: any) => (
+                <Card key={day.id} data-day={day.dayNumber} className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="flex flex-col lg:flex-row">
+                      <div className="lg:w-1/3 bg-gray-200 h-48 lg:h-auto">
+                        {day.imageUrl ? (
+                          <img 
+                            src={day.imageUrl} 
+                            alt={day.title}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center">
+                            <Camera className="w-12 h-12 text-white" />
+                          </div>
+                        )}
+                      </div>
+                      <div className="lg:w-2/3 p-6">
+                        <div className="flex items-center gap-4 mb-4">
+                          <Badge className="bg-teal-600 text-white">Day {day.dayNumber}</Badge>
+                          <h3 className="text-xl font-bold text-gray-900">{day.title}</h3>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                          <div className="flex items-center gap-2">
+                            <Utensils className="w-4 h-4 text-gold-accent" />
+                            <span className="text-sm text-gray-600">{day.meals?.join(', ') || 'See itinerary'}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Bed className="w-4 h-4 text-gold-accent" />
+                            <span className="text-sm text-gray-600">{day.accommodation || 'Hotel accommodation'}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Car className="w-4 h-4 text-gold-accent" />
+                            <span className="text-sm text-gray-600">{day.transport || 'Private transfer'}</span>
+                          </div>
+                        </div>
+                        <p className="text-gray-700 mb-4">{day.dailyProgram || day.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {day.highlights?.map((highlight: string, i: number) => (
+                            <Badge key={i} variant="outline" className="text-xs">
+                              {highlight}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                    <div className="lg:w-2/3 p-6">
-                      <div className="flex items-center gap-4 mb-4">
-                        <Badge className="bg-teal-600 text-white">Day {day.day}</Badge>
-                        <h3 className="text-xl font-bold text-gray-900">{day.title}</h3>
-                      </div>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                        <div className="flex items-center gap-2">
-                          <Utensils className="w-4 h-4 text-gold-accent" />
-                          <span className="text-sm text-gray-600">{day.meals.join(', ')}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Bed className="w-4 h-4 text-gold-accent" />
-                          <span className="text-sm text-gray-600">{day.accommodation}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Car className="w-4 h-4 text-gold-accent" />
-                          <span className="text-sm text-gray-600">Private transfer</span>
-                        </div>
-                      </div>
-                      <p className="text-gray-700 mb-4">{day.activities}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {day.highlights.map((highlight, i) => (
-                          <Badge key={i} variant="outline" className="text-xs">
-                            {highlight}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Accommodation & Pricing */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 font-serif">Accommodation & Pricing</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {accommodationOptions.map((option, index) => (
-              <Card key={option.type} className={`relative ${index === 1 ? 'ring-2 ring-gold-accent' : ''}`}>
-                {index === 1 && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gold-accent text-white">Most Popular</Badge>
-                  </div>
-                )}
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{option.type}</h3>
-                  <p className="text-gray-600 mb-4">{option.name}</p>
-                  <div className="text-3xl font-bold text-teal-600 mb-4">
-                    ${option.price}
-                    <span className="text-sm font-normal text-gray-600">/person</span>
-                  </div>
-                  <ul className="space-y-2 mb-6">
-                    {option.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                        <CheckCircle className="w-4 h-4 text-teal-600" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button 
-                    className={`w-full ${
-                      index === 1 
-                        ? 'bg-gold-accent hover:bg-gold-accent/90' 
-                        : 'bg-teal-600 hover:bg-teal-700'
-                    }`}
-                  >
-                    Select {option.type}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {accommodationsLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[...Array(3)].map((_, i) => (
+                <Card key={i}>
+                  <CardContent className="p-6">
+                    <Skeleton className="h-6 w-24 mb-4" />
+                    <Skeleton className="h-4 w-32 mb-4" />
+                    <Skeleton className="h-8 w-20 mb-4" />
+                    <div className="space-y-2 mb-6">
+                      {[...Array(4)].map((_, j) => (
+                        <Skeleton key={j} className="h-4 w-full" />
+                      ))}
+                    </div>
+                    <Skeleton className="h-10 w-full" />
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {accommodationOptions?.map((option: any, index: number) => (
+                <Card key={option.id} className={`relative ${option.isPopular ? 'ring-2 ring-gold-accent' : ''}`}>
+                  {option.isPopular && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                      <Badge className="bg-gold-accent text-white">Most Popular</Badge>
+                    </div>
+                  )}
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{option.type}</h3>
+                    <p className="text-gray-600 mb-4">{option.name}</p>
+                    <div className="text-3xl font-bold text-teal-600 mb-4">
+                      ${option.pricePerPerson}
+                      <span className="text-sm font-normal text-gray-600">/person</span>
+                    </div>
+                    <ul className="space-y-2 mb-6">
+                      {option.features?.map((feature: string, i: number) => (
+                        <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
+                          <CheckCircle className="w-4 h-4 text-teal-600" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button 
+                      className={`w-full ${
+                        option.isPopular
+                          ? 'bg-gold-accent hover:bg-gold-accent/90' 
+                          : 'bg-teal-600 hover:bg-teal-700'
+                      }`}
+                    >
+                      Select {option.type}
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* FAQ Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 font-serif">Frequently Asked Questions</h2>
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <Card key={index}>
-                <CardContent className="p-0">
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50"
-                  >
-                    <h3 className="font-semibold text-gray-900">{faq.question}</h3>
-                    {expandedFAQ.includes(index) ? (
-                      <ChevronUp className="w-5 h-5 text-gray-500" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-gray-500" />
+          {faqsLoading ? (
+            <div className="space-y-4">
+              {[...Array(4)].map((_, i) => (
+                <Card key={i}>
+                  <CardContent className="p-6">
+                    <Skeleton className="h-6 w-3/4 mb-4" />
+                    <Skeleton className="h-4 w-full mb-2" />
+                    <Skeleton className="h-4 w-2/3" />
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {faqs?.map((faq: any, index: number) => (
+                <Card key={faq.id || index}>
+                  <CardContent className="p-0">
+                    <button
+                      onClick={() => toggleFAQ(index)}
+                      className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50"
+                    >
+                      <h3 className="font-semibold text-gray-900">{faq.question}</h3>
+                      {expandedFAQ.includes(index) ? (
+                        <ChevronUp className="w-5 h-5 text-gray-500" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-500" />
+                      )}
+                    </button>
+                    {expandedFAQ.includes(index) && (
+                      <div className="px-6 pb-6">
+                        <Separator className="mb-4" />
+                        <p className="text-gray-600">{faq.answer}</p>
+                      </div>
                     )}
-                  </button>
-                  {expandedFAQ.includes(index) && (
-                    <div className="px-6 pb-6">
-                      <Separator className="mb-4" />
-                      <p className="text-gray-600">{faq.answer}</p>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Final CTA Banner */}
