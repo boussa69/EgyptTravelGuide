@@ -15,8 +15,11 @@ function formatFileSize(bytes: number): string {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
+function formatDate(dateInput: string | Date | null): string {
+  if (!dateInput) return 'Unknown';
+  const date = new Date(dateInput);
+  if (isNaN(date.getTime())) return 'Invalid date';
+  
   const now = new Date();
   const diffTime = Math.abs(now.getTime() - date.getTime());
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -222,7 +225,7 @@ export default function MediaManager() {
                   {/* Info */}
                   <div className="p-3">
                     <p className="font-medium text-sm truncate">{item.name}</p>
-                    <p className="text-xs text-gray-500">{formatFileSize(item.size)} • {formatDate(item.uploadedAt)}</p>
+                    <p className="text-xs text-gray-500">{formatFileSize(item.size)} • {formatDate(item.uploadedAt?.toString())}</p>
                   </div>
                 </div>
               ))}
@@ -239,7 +242,7 @@ export default function MediaManager() {
                     />
                     <div>
                       <p className="font-medium">{item.name}</p>
-                      <p className="text-sm text-gray-500">{formatFileSize(item.size)} • {formatDate(item.uploadedAt)}</p>
+                      <p className="text-sm text-gray-500">{formatFileSize(item.size)} • {formatDate(item.uploadedAt?.toString())}</p>
                     </div>
                   </div>
                   
