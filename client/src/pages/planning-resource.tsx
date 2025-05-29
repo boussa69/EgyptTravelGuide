@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart } from "lucide-react";
 import { Link } from "wouter";
 
 const planningData = {
@@ -361,6 +361,143 @@ const planningData = {
         "Pack baby powder to prevent chafing from sand",
         "Bring ziplock bags to protect electronics from sand",
         "Pack comfortable sleepwear for hot nights"
+      ]
+    }
+  },
+  "cultural-etiquette": {
+    title: "Cultural Etiquette Guide",
+    description: "Navigate Egyptian culture with respect and confidence",
+    category: "Culture",
+    lastUpdated: "Updated January 2025",
+    content: {
+      overview: "Egypt has a rich cultural heritage spanning thousands of years. Understanding local customs, religious practices, and social norms will enhance your experience and help you connect respectfully with Egyptian people.",
+      religiousEtiquette: [
+        {
+          context: "Mosque Visits",
+          guidelines: [
+            "Remove shoes before entering",
+            "Dress modestly - cover arms, legs, and hair (women)",
+            "Avoid visiting during prayer times unless invited",
+            "Turn off mobile phones or put on silent",
+            "Don't point feet toward Mecca",
+            "Ask permission before photographing"
+          ],
+          cultural_note: "Mosques are active places of worship. Show the same respect you would in any religious building."
+        },
+        {
+          context: "Islamic Customs",
+          guidelines: [
+            "Don't eat, drink, or smoke in public during Ramadan daylight hours",
+            "Respect prayer times (5 times daily)",
+            "Use your right hand for eating and greeting",
+            "Don't show soles of feet when sitting",
+            "Avoid public displays of affection",
+            "Don't refuse offered hospitality unless absolutely necessary"
+          ],
+          cultural_note: "Egypt is a predominantly Muslim country. These practices are part of daily life."
+        }
+      ],
+      socialEtiquette: [
+        {
+          situation: "Greetings",
+          men: "Handshakes are common. Close friends may embrace.",
+          women: "Wait for women to extend their hand first. Between women, light cheek kisses are normal.",
+          mixed: "Let the woman initiate contact. A smile and verbal greeting is always appropriate.",
+          tip: "Use 'As-salaam alaikum' (peace be upon you) for a warm greeting."
+        },
+        {
+          situation: "Dining",
+          men: "Wait for the host to begin eating. Eat with your right hand.",
+          women: "Same etiquette applies. It's polite to try a little of everything offered.",
+          mixed: "Meals are social events. Expect multiple courses and lots of conversation.",
+          tip: "Leaving a small amount of food shows you were well-fed."
+        },
+        {
+          situation: "Business/Shopping",
+          men: "Bargaining is expected in markets. Start at 50% of asking price.",
+          women: "Same rules apply. Don't be afraid to negotiate respectfully.",
+          mixed: "Building relationships comes before business. Expect tea and conversation.",
+          tip: "Patience is key. Rushing negotiations can be seen as disrespectful."
+        }
+      ],
+      dressGuidelines: [
+        {
+          location: "Religious Sites",
+          requirements: "Full coverage required",
+          men: "Long pants, shirt with sleeves, closed shoes",
+          women: "Long sleeves, long pants/skirt, head covering, closed shoes",
+          notes: "Some sites provide coverings, but bring your own to be safe"
+        },
+        {
+          location: "Urban Areas",
+          requirements: "Conservative dress recommended",
+          men: "Pants/long shorts, t-shirt or collared shirt",
+          women: "Knee-length clothing, covered shoulders, modest necklines",
+          notes: "More relaxed than religious sites but still conservative"
+        },
+        {
+          location: "Beach/Resort Areas",
+          requirements: "Resort wear acceptable within resort grounds",
+          men: "Shorts, t-shirts, swimwear in pool/beach areas",
+          women: "Summer dresses, swimwear in designated areas",
+          notes: "Cover up when leaving resort property"
+        },
+        {
+          location: "Desert Excursions",
+          requirements: "Practical coverage for sun protection",
+          men: "Light, long-sleeved shirts, long pants, hat",
+          women: "Same as men - focus on sun protection over fashion",
+          notes: "Function over form - desert sun is intense"
+        }
+      ],
+      communicationTips: [
+        {
+          topic: "Language",
+          advice: "Learn basic Arabic phrases - Egyptians appreciate the effort",
+          phrases: ["Shukran (Thank you)", "Ahlan wa sahlan (Welcome)", "Ma'a salama (Goodbye)", "Min fadlik (Please)"]
+        },
+        {
+          topic: "Body Language",
+          advice: "Be aware of non-verbal communication differences",
+          points: ["Maintain modest eye contact", "Don't use thumbs up (can be offensive)", "Pointing with index finger is rude - use open hand", "Personal space is typically closer than Western norms"]
+        },
+        {
+          topic: "Photography",
+          advice: "Always ask permission before photographing people",
+          guidelines: ["Never photograph without permission", "Be especially careful with women and children", "Some military/government buildings prohibit photography", "Tip people who pose for photos"]
+        }
+      ],
+      culturalSensitivities: [
+        {
+          topic: "Political Topics",
+          guidance: "Avoid discussing politics, especially criticism of the government",
+          reason: "Political discussions can be sensitive and potentially dangerous"
+        },
+        {
+          topic: "Religious Discussions",
+          guidance: "Respect Islamic beliefs even if you don't share them",
+          reason: "Religion is central to daily life for most Egyptians"
+        },
+        {
+          topic: "Historical Perspectives",
+          guidance: "Be respectful when discussing ancient Egyptian heritage",
+          reason: "Egyptians are proud of their pharaonic heritage alongside their Islamic identity"
+        },
+        {
+          topic: "Economic Differences",
+          guidance: "Be discrete about wealth and expensive items",
+          reason: "Egypt has significant economic disparities"
+        }
+      ],
+      practicalTips: [
+        "Tip generously - service workers rely on tips",
+        "Friday is the holy day - many businesses close",
+        "Ramadan affects daily rhythms - be flexible with schedules",
+        "Tea culture is important - accept when offered",
+        "Haggling is expected in markets but not in fixed-price stores",
+        "Punctuality is less strict than Western standards",
+        "Family is central to Egyptian culture - ask about family",
+        "Hospitality is legendary - you may be invited to homes"
       ]
     }
   }
@@ -904,6 +1041,267 @@ export default function PlanningResource() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Expert Packing Tips</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {resource.content.expertTips.map((tip, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
+                    <CheckCircle2 className="h-5 w-5 text-teal-oasis mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{tip}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "cultural-etiquette") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Cultural Etiquette</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Religious Etiquette */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Heart className="h-6 w-6 text-teal-oasis mr-3" />
+                Religious Etiquette
+              </h3>
+              
+              <div className="space-y-6">
+                {resource.content.religiousEtiquette.map((item, index) => (
+                  <div key={index} className="bg-teal-oasis/5 rounded-lg p-6 border-l-4 border-teal-oasis">
+                    <h4 className="font-bold text-gray-900 mb-4 text-lg">{item.context}</h4>
+                    
+                    <div className="grid md:grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <ul className="space-y-2">
+                          {item.guidelines.map((guideline, i) => (
+                            <li key={i} className="flex items-start text-sm">
+                              <CheckCircle2 className="h-4 w-4 text-teal-oasis mr-2 mt-0.5 flex-shrink-0" />
+                              <span className="text-gray-700">{guideline}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded-r-lg">
+                      <p className="text-sm font-medium text-yellow-800">
+                        💡 {item.cultural_note}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Social Etiquette */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Users className="h-6 w-6 text-teal-oasis mr-3" />
+                Social Etiquette
+              </h3>
+              
+              <div className="space-y-6">
+                {resource.content.socialEtiquette.map((item, index) => (
+                  <div key={index} className="border rounded-lg p-6">
+                    <h4 className="font-bold text-gray-900 mb-4 text-lg">{item.situation}</h4>
+                    
+                    <div className="grid md:grid-cols-3 gap-4 mb-4">
+                      <div className="bg-blue-50 p-3 rounded-lg">
+                        <h5 className="font-semibold text-blue-900 mb-2">For Men</h5>
+                        <p className="text-sm text-blue-800">{item.men}</p>
+                      </div>
+                      
+                      <div className="bg-pink-50 p-3 rounded-lg">
+                        <h5 className="font-semibold text-pink-900 mb-2">For Women</h5>
+                        <p className="text-sm text-pink-800">{item.women}</p>
+                      </div>
+                      
+                      <div className="bg-green-50 p-3 rounded-lg">
+                        <h5 className="font-semibold text-green-900 mb-2">Mixed Groups</h5>
+                        <p className="text-sm text-green-800">{item.mixed}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gold-accent/10 border-l-4 border-gold-accent p-3 rounded-r-lg">
+                      <p className="text-sm font-medium text-gold-accent">
+                        ⭐ {item.tip}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Dress Guidelines */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Shirt className="h-6 w-6 text-teal-oasis mr-3" />
+                Dress Guidelines by Location
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {resource.content.dressGuidelines.map((guide, index) => (
+                  <div key={index} className="border rounded-lg p-4">
+                    <div className="mb-4">
+                      <h4 className="font-bold text-gray-900 text-lg">{guide.location}</h4>
+                      <p className="text-sm text-teal-oasis font-medium">{guide.requirements}</p>
+                    </div>
+                    
+                    <div className="space-y-3 mb-4">
+                      <div className="bg-blue-50 p-3 rounded">
+                        <p className="text-xs font-semibold text-blue-900 mb-1">Men</p>
+                        <p className="text-xs text-blue-800">{guide.men}</p>
+                      </div>
+                      
+                      <div className="bg-pink-50 p-3 rounded">
+                        <p className="text-xs font-semibold text-pink-900 mb-1">Women</p>
+                        <p className="text-xs text-pink-800">{guide.women}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gray-50 p-2 rounded">
+                      <p className="text-xs text-gray-600 italic">{guide.notes}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Communication Tips */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <MessageCircle className="h-6 w-6 text-teal-oasis mr-3" />
+                Communication & Photography
+              </h3>
+              
+              <div className="space-y-6">
+                {resource.content.communicationTips.map((tip, index) => (
+                  <div key={index} className="bg-gray-50 rounded-lg p-6">
+                    <h4 className="font-bold text-gray-900 mb-3 flex items-center">
+                      {tip.topic === 'Language' && <Globe className="h-5 w-5 text-teal-oasis mr-2" />}
+                      {tip.topic === 'Body Language' && <Eye className="h-5 w-5 text-teal-oasis mr-2" />}
+                      {tip.topic === 'Photography' && <Camera className="h-5 w-5 text-teal-oasis mr-2" />}
+                      {tip.topic}
+                    </h4>
+                    <p className="text-gray-700 mb-3">{tip.advice}</p>
+                    
+                    {tip.phrases && (
+                      <div className="bg-white p-3 rounded border">
+                        <p className="text-xs font-semibold text-gray-600 mb-2">Useful Phrases:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {tip.phrases.map((phrase, i) => (
+                            <Badge key={i} variant="outline" className="text-xs">
+                              {phrase}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {tip.points && (
+                      <ul className="space-y-1">
+                        {tip.points.map((point, i) => (
+                          <li key={i} className="flex items-start text-sm">
+                            <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    
+                    {tip.guidelines && (
+                      <ul className="space-y-1">
+                        {tip.guidelines.map((guideline, i) => (
+                          <li key={i} className="flex items-start text-sm">
+                            <AlertTriangle className="h-3 w-3 text-orange-500 mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">{guideline}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Cultural Sensitivities */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <AlertTriangle className="h-6 w-6 text-orange-500 mr-3" />
+                Cultural Sensitivities
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.culturalSensitivities.map((item, index) => (
+                  <div key={index} className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+                    <h4 className="font-semibold text-red-900 mb-2">{item.topic}</h4>
+                    <p className="text-sm text-red-800 mb-2">{item.guidance}</p>
+                    <p className="text-xs text-red-600 italic">{item.reason}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Practical Tips */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <HandHeart className="h-6 w-6 text-teal-oasis mr-3" />
+                Practical Cultural Tips
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.practicalTips.map((tip, index) => (
                   <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
                     <CheckCircle2 className="h-5 w-5 text-teal-oasis mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-gray-700">{tip}</p>
