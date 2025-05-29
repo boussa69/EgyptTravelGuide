@@ -101,22 +101,31 @@ export default function TravelTipsSection() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {tipsData.map(({ icon: Icon, title, tips, color }) => (
-              <div key={title} className="bg-champagne-sand rounded-2xl p-6 border border-cool-limestone hover:shadow-lg transition-shadow">
-                <div className={`w-12 h-12 bg-${color}/10 rounded-2xl flex items-center justify-center mb-4`}>
-                  <Icon className={`w-6 h-6 text-${color}`} />
+            {tipsData.map(({ icon: Icon, title, tips, color }, index) => {
+              const colorClass = color === 'teal-oasis' ? 'text-teal-600' : 
+                                color === 'gold-accent' ? 'text-yellow-600' : 'text-orange-600';
+              const bgColorClass = color === 'teal-oasis' ? 'bg-teal-100' : 
+                                  color === 'gold-accent' ? 'bg-yellow-100' : 'bg-orange-100';
+              const dotColorClass = color === 'teal-oasis' ? 'bg-teal-600' : 
+                                   color === 'gold-accent' ? 'bg-yellow-600' : 'bg-orange-600';
+              
+              return (
+                <div key={title} className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className={`w-12 h-12 ${bgColorClass} rounded-2xl flex items-center justify-center mb-4`}>
+                    <Icon className={`w-6 h-6 ${colorClass}`} />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 font-serif">{title}</h3>
+                  <ul className="space-y-2 text-gray-600 text-sm">
+                    {tips.map((tip, tipIndex) => (
+                      <li key={tipIndex} className="flex items-start">
+                        <span className={`w-1.5 h-1.5 ${dotColorClass} rounded-full mr-2 mt-2 flex-shrink-0`} />
+                        {tip}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3 font-serif">{title}</h3>
-                <ul className="space-y-2 text-gray-600 text-sm">
-                  {tips.map((tip, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className={`w-1.5 h-1.5 bg-${color} rounded-full mr-2 mt-2 flex-shrink-0`} />
-                      {tip}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
