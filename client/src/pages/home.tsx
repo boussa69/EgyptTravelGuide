@@ -5,6 +5,7 @@ import FeaturedTours from "@/components/sections/featured-tours";
 import CultureSection from "@/components/sections/culture-section";
 import TravelTipsSection from "@/components/sections/travel-tips-section";
 import NewsletterCTA from "@/components/sections/newsletter-cta";
+import TravelChatbot from "@/components/chatbot/travel-chatbot";
 
 export default function Home() {
   return (

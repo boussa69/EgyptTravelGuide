@@ -3,6 +3,11 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertNewsletterSubscriptionSchema, insertDestinationSchema, insertTourSchema } from "@shared/schema";
 import { z } from "zod";
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Destinations routes
@@ -270,6 +275,63 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Delete media error:", error);
       res.status(500).json({ error: "Failed to delete media item" });
+    }
+  });
+
+  // Chatbot endpoint
+  app.post("/api/chatbot", async (req, res) => {
+    try {
+      const { message } = req.body;
+      
+      if (!message || typeof message !== 'string') {
+        return res.status(400).json({ error: "Message is required" });
+      }
+
+      // Get current travel data for context
+      const destinations = await storage.getDestinations();
+      const tours = await storage.getTours();
+      const travelTips = await storage.getTravelTips();
+      const planningResources = await storage.getPlanningResources();
+
+      const systemPrompt = `You are an expert Egypt travel companion with deep knowledge of Egyptian culture, history, and travel. You help travelers plan their perfect Egyptian adventure.
+
+CONTEXT - Current available data:
+Destinations: ${destinations.map(d => `${d.name} (${d.region}) - ${d.description.substring(0, 100)}...`).join('; ')}
+
+Tours: ${tours.map(t => `${t.name} (${t.duration}) - ${t.price} - ${t.description.substring(0, 100)}...`).join('; ')}
+
+Travel Tips: ${travelTips.map(t => `${t.title} - ${t.shortDescription}`).join('; ')}
+
+Planning Resources: ${planningResources.map(p => `${p.title} - ${p.shortDescription}`).join('; ')}
+
+INSTRUCTIONS:
+- Provide authentic, helpful information about Egypt travel
+- Use the available destination and tour data when relevant
+- Give practical advice for travel planning
+- Share cultural insights and etiquette tips
+- Recommend specific destinations and tours from the available data
+- Be conversational but informative
+- Focus on Egypt-specific knowledge
+- If asked about places not in the data, provide general Egypt travel advice
+- Keep responses concise but comprehensive
+- Use friendly, encouraging tone`;
+
+      const completion = await openai.chat.completions.create({
+        model: "gpt-4o",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: message }
+        ],
+        max_tokens: 500,
+        temperature: 0.7,
+      });
+
+      const response = completion.choices[0]?.message?.content || "I'm sorry, I couldn't process your request right now. Please try again.";
+
+      res.json({ response });
+    } catch (error) {
+      console.error("Chatbot error:", error);
+      res.status(500).json({ error: "Failed to get response from travel assistant" });
     }
   });
 
