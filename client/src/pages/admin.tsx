@@ -186,9 +186,9 @@ export default function Admin() {
     },
   });
 
-  const handleDeleteItem = (type: string, id: number, tourId: number) => {
+  const handleDeleteItem = (type: string, id: number) => {
     if (confirm('Are you sure you want to delete this item?')) {
-      deleteItineraryItemMutation.mutate({ type, id, tourId });
+      deleteItineraryItemMutation.mutate({ type, id });
     }
   };
 
@@ -268,7 +268,11 @@ export default function Admin() {
           <TabsContent value="days" className="space-y-4">
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-semibold">Daily Itinerary</h3>
-              <Button size="sm" className="bg-teal-600 hover:bg-teal-700">
+              <Button 
+                size="sm" 
+                className="bg-teal-600 hover:bg-teal-700"
+                onClick={() => handleAddItineraryItem('day')}
+              >
                 <Plus className="w-4 h-4 mr-2" />
                 Add Day
               </Button>
@@ -283,10 +287,19 @@ export default function Admin() {
                       <p className="text-sm text-gray-600">{day.location}</p>
                     </div>
                     <div className="flex gap-2">
-                      <Button size="sm" variant="outline">
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        onClick={() => handleEditItineraryItem('day', day)}
+                      >
                         <Edit className="w-4 h-4" />
                       </Button>
-                      <Button size="sm" variant="outline" className="text-red-600">
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="text-red-600"
+                        onClick={() => handleDeleteItem('day', day.id)}
+                      >
                         <Trash2 className="w-4 h-4" />
                       </Button>
                     </div>
@@ -303,7 +316,11 @@ export default function Admin() {
           <TabsContent value="accommodations" className="space-y-4">
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-semibold">Accommodation Options</h3>
-              <Button size="sm" className="bg-teal-600 hover:bg-teal-700">
+              <Button 
+                size="sm" 
+                className="bg-teal-600 hover:bg-teal-700"
+                onClick={() => handleAddItineraryItem('accommodation')}
+              >
                 <Plus className="w-4 h-4 mr-2" />
                 Add Option
               </Button>
