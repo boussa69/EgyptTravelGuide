@@ -5,7 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sun, CheckCircle, Package, Heart, DollarSign, Shield, ArrowDown, MessageCircle, Filter } from "lucide-react";
+import { Sun, CheckCircle, Package, Heart, DollarSign, Shield, ArrowDown, MessageCircle, Filter, Car, CreditCard, Smartphone, Cross, ShoppingBag, Users, UserCheck, Camera } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 
@@ -52,6 +52,62 @@ const quickGuides = [
     description: "Important health tips, safety guidelines, and travel insurance recommendations.",
     category: "Practical",
     slug: "safety-insurance"
+  },
+  {
+    icon: Car,
+    title: "Getting Around",
+    description: "Transportation options including Uber, trains, and domestic flights.",
+    category: "Practical",
+    slug: "getting-around"
+  },
+  {
+    icon: CreditCard,
+    title: "Currency & Payments",
+    description: "Egyptian Pound, ATMs, payment methods, and money exchange tips.",
+    category: "Practical",
+    slug: "currency-payments"
+  },
+  {
+    icon: Smartphone,
+    title: "Connectivity & SIM Cards",
+    description: "Internet access, local SIM cards, and staying connected while traveling.",
+    category: "Practical",
+    slug: "connectivity-sim"
+  },
+  {
+    icon: Cross,
+    title: "Health & Vaccinations",
+    description: "Medical preparation, recommended vaccines, and health precautions.",
+    category: "Practical",
+    slug: "health-vaccinations"
+  },
+  {
+    icon: ShoppingBag,
+    title: "Shopping & Bargaining",
+    description: "Market navigation, bargaining tips, and shopping etiquette.",
+    category: "Culture",
+    slug: "shopping-bargaining"
+  },
+  {
+    icon: Users,
+    title: "Family-Friendly Egypt",
+    description: "Travel advice for families with children and kid-friendly attractions.",
+    category: "Family",
+    slug: "family-friendly"
+  },
+  {
+    icon: UserCheck,
+    title: "Women Travellers' Tips",
+    description: "Safety advice and cultural guidance for female travelers.",
+    category: "Practical",
+    slug: "women-travelers"
+  },
+  {
+    icon: Camera,
+    title: "Photography & Drone Rules",
+    description: "Camera regulations, photography fees, and drone permit requirements.",
+    category: "Adventure",
+    slug: "photography-drones"
   },
 ];
 
