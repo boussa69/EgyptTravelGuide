@@ -350,6 +350,18 @@ export default function Admin() {
             />
           </div>
 
+          <div>
+            <label className="block text-sm font-medium mb-1">Image URL</label>
+            <Input
+              value={editingItineraryItem.imageUrl || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                imageUrl: e.target.value
+              })}
+              placeholder="https://example.com/image.jpg"
+            />
+          </div>
+
           <div className="flex gap-2">
             <Button onClick={handleSaveItineraryItem} className="bg-green-600 hover:bg-green-700">
               <Save className="w-4 h-4 mr-2" />
@@ -414,6 +426,46 @@ export default function Admin() {
               placeholder="Accommodation description"
               rows={3}
             />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Image URL</label>
+            <Input
+              value={editingItineraryItem.imageUrl || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                imageUrl: e.target.value
+              })}
+              placeholder="https://example.com/hotel-image.jpg"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Rating (1-5)</label>
+              <Input
+                type="number"
+                min="1"
+                max="5"
+                value={editingItineraryItem.rating || ''}
+                onChange={(e) => setEditingItineraryItem({
+                  ...editingItineraryItem,
+                  rating: parseInt(e.target.value) || 4
+                })}
+              />
+            </div>
+            <div className="flex items-center space-x-2 pt-6">
+              <input
+                type="checkbox"
+                id="isPopular"
+                checked={editingItineraryItem.isPopular || false}
+                onChange={(e) => setEditingItineraryItem({
+                  ...editingItineraryItem,
+                  isPopular: e.target.checked
+                })}
+              />
+              <label htmlFor="isPopular" className="text-sm font-medium">Popular Option</label>
+            </div>
           </div>
 
           <div className="flex gap-2">
