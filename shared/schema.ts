@@ -44,6 +44,11 @@ export const tours = pgTable("tours", {
   reviewCount: integer("review_count").notNull().default(0),
   isPopular: boolean("is_popular").notNull().default(false),
   isLuxury: boolean("is_luxury").notNull().default(false),
+  nextDeparture: text("next_departure"), // Next departure date
+  spotsRemaining: integer("spots_remaining").default(0),
+  cancellationPolicy: text("cancellation_policy").default("Free cancellation up to 30 days"),
+  maxGroupSize: integer("max_group_size").default(16),
+  minAge: integer("min_age").default(0),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
