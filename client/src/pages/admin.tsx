@@ -232,6 +232,259 @@ export default function Admin() {
     setEditingItineraryItem(newItem);
   };
 
+  // Mutation for saving itinerary items
+  const saveItineraryItemMutation = useMutation({
+    mutationFn: async (itemData: any) => {
+      const { type, id, ...data } = itemData;
+      const endpoint = type === 'day' ? 'itinerary' : type === 'accommodation' ? 'accommodation-options' : 'faqs';
+      
+      if (id) {
+        // Update existing item
+        const response = await fetch(`/api/${endpoint}/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!response.ok) throw new Error('Update failed');
+        return response.json();
+      } else {
+        // Create new item
+        const response = await fetch(`/api/tours/${data.tourId}/${endpoint}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!response.ok) throw new Error('Create failed');
+        return response.json();
+      }
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/tours", editingItem?.tourId] });
+      setEditingItineraryItem(null);
+      toast({
+        title: "Success",
+        description: "Item saved successfully",
+      });
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to save item",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleSaveItineraryItem = () => {
+    saveItineraryItemMutation.mutate(editingItineraryItem);
+  };
+
+  const renderItineraryItemForm = () => {
+    if (!editingItineraryItem) return null;
+
+    const { type } = editingItineraryItem;
+
+    if (type === 'day') {
+      return (
+        <div className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Day Number</label>
+              <Input
+                type="number"
+                value={editingItineraryItem.dayNumber || ''}
+                onChange={(e) => setEditingItineraryItem({
+                  ...editingItineraryItem,
+                  dayNumber: parseInt(e.target.value) || 1
+                })}
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Location</label>
+              <Input
+                value={editingItineraryItem.location || ''}
+                onChange={(e) => setEditingItineraryItem({
+                  ...editingItineraryItem,
+                  location: e.target.value
+                })}
+                placeholder="Cairo, Giza, etc."
+              />
+            </div>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-1">Title</label>
+            <Input
+              value={editingItineraryItem.title || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                title: e.target.value
+              })}
+              placeholder="Day title"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Short Description</label>
+            <Textarea
+              value={editingItineraryItem.description || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                description: e.target.value
+              })}
+              placeholder="Brief description"
+              rows={2}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Daily Program</label>
+            <Textarea
+              value={editingItineraryItem.dailyProgram || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                dailyProgram: e.target.value
+              })}
+              placeholder="Detailed daily program"
+              rows={4}
+            />
+          </div>
+
+          <div className="flex gap-2">
+            <Button onClick={handleSaveItineraryItem} className="bg-green-600 hover:bg-green-700">
+              <Save className="w-4 h-4 mr-2" />
+              Save
+            </Button>
+            <Button variant="outline" onClick={() => setEditingItineraryItem(null)}>
+              Cancel
+            </Button>
+          </div>
+        </div>
+      );
+    }
+
+    if (type === 'accommodation') {
+      return (
+        <div className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Type</label>
+              <Input
+                value={editingItineraryItem.type || ''}
+                onChange={(e) => setEditingItineraryItem({
+                  ...editingItineraryItem,
+                  type: e.target.value
+                })}
+                placeholder="Standard, Deluxe, Luxury"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Price per Person</label>
+              <Input
+                type="number"
+                value={editingItineraryItem.pricePerPerson || ''}
+                onChange={(e) => setEditingItineraryItem({
+                  ...editingItineraryItem,
+                  pricePerPerson: parseInt(e.target.value) || 0
+                })}
+              />
+            </div>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-1">Name</label>
+            <Input
+              value={editingItineraryItem.name || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                name: e.target.value
+              })}
+              placeholder="Accommodation name"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Description</label>
+            <Textarea
+              value={editingItineraryItem.description || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                description: e.target.value
+              })}
+              placeholder="Accommodation description"
+              rows={3}
+            />
+          </div>
+
+          <div className="flex gap-2">
+            <Button onClick={handleSaveItineraryItem} className="bg-green-600 hover:bg-green-700">
+              <Save className="w-4 h-4 mr-2" />
+              Save
+            </Button>
+            <Button variant="outline" onClick={() => setEditingItineraryItem(null)}>
+              Cancel
+            </Button>
+          </div>
+        </div>
+      );
+    }
+
+    if (type === 'faq') {
+      return (
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-1">Category</label>
+            <Input
+              value={editingItineraryItem.category || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                category: e.target.value
+              })}
+              placeholder="general, trip-specific, etc."
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-1">Question</label>
+            <Input
+              value={editingItineraryItem.question || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                question: e.target.value
+              })}
+              placeholder="FAQ question"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Answer</label>
+            <Textarea
+              value={editingItineraryItem.answer || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                answer: e.target.value
+              })}
+              placeholder="FAQ answer"
+              rows={4}
+            />
+          </div>
+
+          <div className="flex gap-2">
+            <Button onClick={handleSaveItineraryItem} className="bg-green-600 hover:bg-green-700">
+              <Save className="w-4 h-4 mr-2" />
+              Save
+            </Button>
+            <Button variant="outline" onClick={() => setEditingItineraryItem(null)}>
+              Cancel
+            </Button>
+          </div>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   const renderItineraryManager = () => {
     if (!editingItem || editingItem.type !== 'itinerary') {
       return <div>No tour selected for editing</div>;
@@ -384,6 +637,32 @@ export default function Admin() {
             </div>
           </TabsContent>
         </Tabs>
+
+        {/* Edit/Add Form Modal */}
+        {editingItineraryItem && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <Card className="w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  {editingItineraryItem.id ? 'Edit' : 'Add'} {
+                    editingItineraryItem.type === 'day' ? 'Itinerary Day' :
+                    editingItineraryItem.type === 'accommodation' ? 'Accommodation' : 'FAQ'
+                  }
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setEditingItineraryItem(null)}
+                  >
+                    <X className="w-4 h-4" />
+                  </Button>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {renderItineraryItemForm()}
+              </CardContent>
+            </Card>
+          </div>
+        )}
       </div>
     );
   };
