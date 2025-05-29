@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp, jsonb } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, jsonb, real } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -97,6 +97,52 @@ export const mediaItems = pgTable("media_items", {
   uploadedAt: timestamp("uploaded_at").defaultNow(),
 });
 
+// Itinerary Days table
+export const itineraryDays = pgTable("itinerary_days", {
+  id: serial("id").primaryKey(),
+  tourId: integer("tour_id").references(() => tours.id).notNull(),
+  dayNumber: integer("day_number").notNull(),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  dailyProgram: text("daily_program").notNull(), // Detailed daily program description
+  activities: text("activities").array().notNull().default([]),
+  highlights: text("highlights").array().notNull().default([]),
+  meals: text("meals").array().notNull().default([]), // breakfast, lunch, dinner
+  accommodation: text("accommodation"),
+  transport: text("transport"),
+  location: text("location"),
+  imageUrl: text("image_url"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Accommodation Options table
+export const accommodationOptions = pgTable("accommodation_options", {
+  id: serial("id").primaryKey(),
+  tourId: integer("tour_id").references(() => tours.id).notNull(),
+  type: text("type").notNull(), // standard, deluxe, luxury
+  name: text("name").notNull(),
+  description: text("description"),
+  features: text("features").array().notNull().default([]),
+  pricePerPerson: integer("price_per_person").notNull(),
+  imageUrl: text("image_url"),
+  rating: integer("rating").default(0),
+  isPopular: boolean("is_popular").default(false),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// FAQ Items table
+export const faqItems = pgTable("faq_items", {
+  id: serial("id").primaryKey(),
+  tourId: integer("tour_id").references(() => tours.id),
+  category: text("category").notNull().default("general"), // trip-specific, general, egypt-travel
+  question: text("question").notNull(),
+  answer: text("answer").notNull(),
+  orderIndex: integer("order_index").default(0),
+  isExpanded: boolean("is_expanded").default(false),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
 // Create insert schemas
 export const insertDestinationSchema = createInsertSchema(destinations).omit({
   id: true,
@@ -132,6 +178,22 @@ export const insertMediaItemSchema = createInsertSchema(mediaItems).omit({
   uploadedAt: true,
 });
 
+export const insertItineraryDaySchema = createInsertSchema(itineraryDays).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertAccommodationOptionSchema = createInsertSchema(accommodationOptions).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertFaqItemSchema = createInsertSchema(faqItems).omit({
+  id: true,
+  createdAt: true,
+});
+
 // Types
 export type Destination = typeof destinations.$inferSelect;
 export type InsertDestination = z.infer<typeof insertDestinationSchema>;
@@ -150,3 +212,12 @@ export type InsertNewsletterSubscription = z.infer<typeof insertNewsletterSubscr
 
 export type MediaItem = typeof mediaItems.$inferSelect;
 export type InsertMediaItem = z.infer<typeof insertMediaItemSchema>;
+
+export type ItineraryDay = typeof itineraryDays.$inferSelect;
+export type InsertItineraryDay = z.infer<typeof insertItineraryDaySchema>;
+
+export type AccommodationOption = typeof accommodationOptions.$inferSelect;
+export type InsertAccommodationOption = z.infer<typeof insertAccommodationOptionSchema>;
+
+export type FaqItem = typeof faqItems.$inferSelect;
+export type InsertFaqItem = z.infer<typeof insertFaqItemSchema>;

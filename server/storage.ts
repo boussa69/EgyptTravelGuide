@@ -65,6 +65,24 @@ export interface IStorage {
   getMediaItem(id: number): Promise<MediaItem | undefined>;
   createMediaItem(mediaItem: InsertMediaItem): Promise<MediaItem>;
   deleteMediaItem(id: number): Promise<boolean>;
+  
+  // Itinerary Builder
+  getItineraryDays(tourId: number): Promise<ItineraryDay[]>;
+  createItineraryDay(day: InsertItineraryDay): Promise<ItineraryDay>;
+  updateItineraryDay(id: number, day: InsertItineraryDay): Promise<ItineraryDay | undefined>;
+  deleteItineraryDay(id: number): Promise<boolean>;
+  
+  // Accommodation Options
+  getAccommodationOptions(tourId: number): Promise<AccommodationOption[]>;
+  createAccommodationOption(option: InsertAccommodationOption): Promise<AccommodationOption>;
+  updateAccommodationOption(id: number, option: InsertAccommodationOption): Promise<AccommodationOption | undefined>;
+  deleteAccommodationOption(id: number): Promise<boolean>;
+  
+  // FAQ Items
+  getFaqItems(tourId?: number): Promise<FaqItem[]>;
+  createFaqItem(faq: InsertFaqItem): Promise<FaqItem>;
+  updateFaqItem(id: number, faq: InsertFaqItem): Promise<FaqItem | undefined>;
+  deleteFaqItem(id: number): Promise<boolean>;
 }
 
 export class DbStorage implements IStorage {
