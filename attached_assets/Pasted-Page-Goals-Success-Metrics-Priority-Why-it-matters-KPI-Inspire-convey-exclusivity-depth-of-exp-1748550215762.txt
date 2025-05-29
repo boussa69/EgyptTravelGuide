@@ -1,0 +1,70 @@
+Page Goals & Success Metrics
+Priority	Why it matters	KPI
+Inspire – convey exclusivity & depth of experience	1st emotional hook	Avg. time-on-page, hero scroll rate
+Inform – answer every practical question	Reduce friction	Scroll-depth to “Pricing & Dates”
+Convert – nudge to enquire / book	Grow sales lead volume	Click-through on “Enquire / Customise”
+
+2 · High-level Architecture
+sql
+Copy
+Edit
+┌─────────────────────────────┐
+│ Sticky Progress Nav (← Day links) │
+└─────────────────────────────┘
+Hero ▸ Trip Snapshot ▸ Day-by-Day Timeline
+▸ Interactive Map ▸ Accommodation & Transport
+▸ Price Matrix + Add-ons ▸ Reviews ▸ FAQ
+▸ Final CTA Banner ▸ Trust & Footer
+Sticky Progress Nav (desktop ≥1024 px): a slender left-hand rail listing
+Day 1 · Cairo → Day 10 · Depart. Highlights the active section as the user scrolls, letting them hop between days instantly.
+
+3 · Section-by-Section Detail
+#	Section	UI Pattern	Key Design Notes
+0	Hero + Trip Snapshot	Full-width carousel with dark Teal overlay (40 %); badge top-left “Small Group · Max 12”	Add a 2-line UVP & a twin CTA pair: “Reserve Spot” (Gold Accent) + “Customise” (outline Teal)
+1	Day-by-Day Timeline	Vertical stacked cards (mobile accordion)	• Numbered day pill in Teal Oasis
+• 3-sec GIF / still of highlight
+• ‘Essentials’ row (meals, hotel, transfer) using icon chips
+2	Interactive Map	Mapbox static for speed + clickable site markers	Clicking a marker scrolls to that day card (smooth anchor)
+3	Accommodation & Transport Gallery	Toggle tabs: Hotels ▸ Cruise ▸ Vehicles	Each card 2:1 image:copy ratio; star icons in Gold Accent; link to room / cabin deckplan modal
+4	Price Matrix & Add-ons	Responsive comparison table	Columns: Standard • Deluxe • Luxury; row-hover highlights; sticky “Book” column on mobile
+5	Reviews / Social Proof	Horizontal scroll cards (Figma “carousel”)	Photo-quote combo; micro-rating chips; split by Solo / Couple / Family
+6	FAQ Accordion	Multi-layer (trip-specific + Egypt general)	Auto-opens first two on load to prove relevance
+7	Final CTA Banner	Full-width, Champagne Sand background, centred text	Headline: “Ready to Cruise the Nile?”; Gold Accent button with subtle pulse animation after 8 s
+
+4 · Visual & Typographic System
+Token	Hex	Usage
+Primary – Teal Oasis	#2D6A6C	Hero overlay, nav rail, headings
+Accent – Gold Accent	#C8A96A	Primary CTAs, table highlights
+Warm Neutral – Champagne Sand	#EFE1D6	Section alternation, banner BG
+Cool Neutral – Cool Limestone	#E4DED4	Card BG, table rows
+Alert / Badge – Accent Coral	#E76F51	Limited badges: “Only 2 seats left”
+Text – Onyx	#1E1E1E	Body, headings on light BG
+Text Reverse – White	#FFFFFF	On Teal hero & nav
+
+Typography: Serif display for H1 / day headings (luxury vibe), clean sans for body (readability). 8 px baseline grid; 1.5 rem line-height.
+
+5 · Interaction & Motion Guidelines
+Event	Motion	Purpose
+Hero CTA Hover	100 ms scale 1.04, gold → deeper gold	Affordance
+Timeline Scroll	Day chip fills Teal as section appears (JS IntersectionObserver)	Progress feedback
+Image Modal	Fade-zoom 0.25 s, overscroll disabled	Premium feel, prevents accidental back-scroll
+Nav Rail	On hover show tooltip with day title (mobile hidden)	Extra context without clutter
+
+6 · Mobile-first / Accessibility-first
+Collapse progress nav into a top horizontal scroll pill bar.
+
+Sticky Price CTA bottom bar (90 % width, Gold Accent; spans above Safari bottom nav).
+
+All icons in <svg role="img"> with visible focus rings (outline-offset:3px).
+
+Verify colour contrast – Gold on Sand is AA for large text, AAA for UI icons.
+
+Lazy-load every image below the fold (loading="lazy" decoding="async").
+
+7 · Conversion Optimisers
+Exit-Intent Modal (desktop only): offer free Egypt packing checklist PDF.
+
+Trip-Countdown Widget after booking: feeds into retention email flow.
+
+“Compare Similar Tours” mini-carousel just above footer to keep undecided users on site.
+
