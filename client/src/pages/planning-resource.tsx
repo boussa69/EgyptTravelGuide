@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe } from "lucide-react";
 import { Link } from "wouter";
 
 const planningData = {
@@ -54,26 +54,88 @@ const planningData = {
   },
   "visa-entry": {
     title: "Visa & Entry Requirements",
-    description: "Everything you need to know about entering Egypt",
+    description: "Complete guide to entering Egypt - visa options, requirements, and entry procedures",
     category: "Practical",
     lastUpdated: "Updated January 2025",
     content: {
-      overview: "Egypt offers multiple visa options for tourists, making entry relatively straightforward for most nationalities.",
+      overview: "Egypt offers multiple visa options for tourists, making entry relatively straightforward for most nationalities. Choose the option that best suits your travel plans and nationality.",
       visaTypes: [
         {
           type: "Visa on Arrival",
           price: "$25 USD",
-          duration: "30 days",
-          requirements: ["Valid passport (6 months validity)", "Return ticket", "Proof of accommodation"],
-          countries: "Most European countries, USA, Canada, Australia, and many others"
+          duration: "30 days (single entry)",
+          processing: "Immediate at airport",
+          description: "The most convenient option for eligible nationalities. Available at Cairo, Hurghada, Luxor, Aswan, and Sharm El Sheikh airports.",
+          requirements: ["Valid passport (minimum 6 months validity)", "Return or onward ticket", "Proof of accommodation", "Cash payment in USD"],
+          countries: ["USA", "Canada", "Australia", "EU countries", "UK", "Japan", "South Korea", "and 40+ other countries"],
+          pros: ["No advance planning needed", "Immediate processing", "Available at major airports"],
+          cons: ["Cash payment only", "Limited to certain airports", "Longer queues possible"],
+          bestFor: "Last-minute travelers and short visits"
         },
         {
-          type: "e-Visa",
-          price: "$25 USD + processing fee",
-          duration: "30 days (single entry) / 90 days (multiple entry)",
-          requirements: ["Valid passport", "Digital passport photo", "Payment by credit card"],
-          processing: "7 days"
+          type: "e-Visa (Online)",
+          price: "$25 USD + $3 service fee",
+          duration: "30 days (single entry) or 90 days (multiple entry)",
+          processing: "3-7 business days",
+          description: "Apply online before travel. Recommended for smoother entry process and advance planning.",
+          requirements: ["Valid passport scan", "Digital passport photo", "Credit/debit card payment", "Email address"],
+          countries: ["Available for 70+ nationalities"],
+          pros: ["Apply from home", "Faster airport processing", "Multiple entry options", "Digital receipt"],
+          cons: ["Advance planning required", "Processing time needed", "Service fees"],
+          bestFor: "Planned trips and multiple entries"
+        },
+        {
+          type: "Embassy Visa",
+          price: "Varies by country ($25-60)",
+          duration: "30-90 days (single/multiple entry)",
+          processing: "5-15 business days",
+          description: "Traditional visa application through Egyptian consulates. Required for some nationalities.",
+          requirements: ["Passport with 6+ months validity", "Completed application form", "Passport photos", "Proof of funds", "Travel insurance"],
+          countries: ["Required for some African and Asian countries"],
+          pros: ["Guaranteed approval if eligible", "Longer validity options", "Official documentation"],
+          cons: ["Longest processing time", "In-person visit required", "Higher cost"],
+          bestFor: "Long-term stays and restricted nationalities"
         }
+      ],
+      entryProcedure: [
+        {
+          step: "Before Departure",
+          tasks: ["Check passport validity (6+ months)", "Obtain visa if required", "Purchase travel insurance", "Prepare required documents"]
+        },
+        {
+          step: "At Egyptian Airport",
+          tasks: ["Complete arrival card", "Present passport and visa", "Immigration interview (brief)", "Collect luggage and proceed to customs"]
+        },
+        {
+          step: "Customs Declaration",
+          tasks: ["Declare items over $200", "No duty on personal items", "Tobacco and alcohol limits apply", "Currency declaration if over $10,000"]
+        }
+      ],
+      importantNotes: [
+        {
+          title: "Passport Requirements",
+          content: "Your passport must be valid for at least 6 months from entry date and have at least one blank page for the visa stamp."
+        },
+        {
+          title: "Prohibited Items",
+          content: "Drones require special permits. Medications should be in original containers with prescriptions. Check latest customs regulations."
+        },
+        {
+          title: "Currency Limits",
+          content: "No limit on foreign currency, but amounts over $10,000 must be declared. Egyptian pounds limited to EGP 5,000."
+        },
+        {
+          title: "COVID-19 Updates",
+          content: "Check current health requirements before travel. Requirements may change based on global health situations."
+        }
+      ],
+      tips: [
+        "Apply for e-Visa at least 7 days before travel",
+        "Keep printed copies of visa confirmation",
+        "Have hotel booking confirmation ready",
+        "Carry sufficient USD cash for visa on arrival",
+        "Download offline maps before arrival",
+        "Register with your embassy if staying long-term"
       ]
     }
   }
@@ -237,6 +299,218 @@ export default function PlanningResource() {
                       <p className="text-sm text-teal-oasis font-medium">{event.dates}</p>
                       <p className="text-sm text-gray-600 mt-1">{event.description}</p>
                     </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "visa-entry") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Visa & Entry</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Visa Types */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Plane className="h-8 w-8 text-teal-oasis mr-3" />
+              Visa Options
+            </h2>
+            
+            {resource.content.visaTypes.map((visa, index) => (
+              <Card key={index} className="overflow-hidden border-l-4 border-teal-oasis">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{visa.type}</h3>
+                      <p className="text-gray-600 mb-4">{visa.description}</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="bg-gold-accent/20 rounded-lg p-3 mb-2">
+                        <p className="font-bold text-gold-accent text-lg">{visa.price}</p>
+                      </div>
+                      <p className="text-sm text-gray-600">{visa.duration}</p>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Clock className="h-4 w-4 text-teal-oasis mr-2" />
+                        Processing Time
+                      </h4>
+                      <p className="text-gray-600">{visa.processing}</p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Globe className="h-4 w-4 text-teal-oasis mr-2" />
+                        Available for
+                      </h4>
+                      <div className="flex flex-wrap gap-1">
+                        {visa.countries.map((country, i) => (
+                          <Badge key={i} variant="outline" className="text-xs">
+                            {country}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-4 mb-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                        <FileText className="h-4 w-4 text-teal-oasis mr-2" />
+                        Requirements
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {visa.requirements.map((req, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            {req}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-green-600 mb-2">Advantages</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {visa.pros.map((pro, i) => (
+                          <li key={i} className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span>
+                            {pro}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-orange-600 mb-2">Considerations</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {visa.cons.map((con, i) => (
+                          <li key={i} className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></span>
+                            {con}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-teal-oasis/10 rounded-lg p-4">
+                    <p className="text-sm font-medium text-teal-oasis">
+                      Best for: {visa.bestFor}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Entry Procedure */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <MapPin className="h-6 w-6 text-teal-oasis mr-3" />
+                Entry Procedure
+              </h3>
+              
+              <div className="space-y-6">
+                {resource.content.entryProcedure.map((step, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-8 h-8 bg-teal-oasis text-white rounded-full flex items-center justify-center font-bold text-sm">
+                      {index + 1}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900 mb-2">{step.step}</h4>
+                      <ul className="text-gray-600 space-y-1">
+                        {step.tasks.map((task, i) => (
+                          <li key={i} className="flex items-center text-sm">
+                            <CheckCircle2 className="h-3 w-3 text-green-500 mr-2" />
+                            {task}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Important Notes */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <AlertTriangle className="h-6 w-6 text-orange-500 mr-3" />
+                Important Information
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {resource.content.importantNotes.map((note, index) => (
+                  <div key={index} className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
+                    <h4 className="font-semibold text-gray-900 mb-2">{note.title}</h4>
+                    <p className="text-sm text-gray-600">{note.content}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Expert Tips */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Expert Tips</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.tips.map((tip, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
+                    <CheckCircle2 className="h-5 w-5 text-teal-oasis mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{tip}</p>
                   </div>
                 ))}
               </div>
