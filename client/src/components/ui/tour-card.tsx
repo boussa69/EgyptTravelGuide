@@ -1,6 +1,7 @@
 import { Star, Clock, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 import type { Tour } from "@/types";
 
 interface TourCardProps {
@@ -71,9 +72,11 @@ export default function TourCard({ tour, featured = false }: TourCardProps) {
         </div>
         
         <div className="flex space-x-4">
-          <Button className="flex-1 bg-teal-oasis text-white hover:bg-accent-coral transition-colors">
-            View Itinerary
-          </Button>
+          <Link href={`/tours/${tour.slug}`} className="flex-1">
+            <Button className="w-full bg-teal-oasis text-white hover:bg-accent-coral transition-colors">
+              View Itinerary
+            </Button>
+          </Link>
           <Button variant="outline" className="border-2 border-teal-oasis text-teal-oasis hover:bg-teal-oasis hover:text-white transition-colors">
             Customize
           </Button>

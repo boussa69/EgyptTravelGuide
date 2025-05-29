@@ -3,6 +3,7 @@ import { toursApi } from "@/lib/api";
 import TourCard from "@/components/ui/tour-card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Link } from "wouter";
 import { Clock, Users, Flame, Crown } from "lucide-react";
 
 const tourCategories = [
@@ -82,12 +83,14 @@ export default function FeaturedTours() {
         </div>
 
         <div className="text-center mt-12">
-          <Button 
-            size="lg"
-            className="bg-gold-accent text-white px-8 py-4 text-lg font-semibold hover:bg-accent-coral transition-colors"
-          >
-            Browse All Tours
-          </Button>
+          <Link href="/tours">
+            <Button 
+              size="lg"
+              className="bg-gold-accent text-white px-8 py-4 text-lg font-semibold hover:bg-accent-coral transition-colors"
+            >
+              Browse All Tours
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
