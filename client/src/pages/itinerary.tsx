@@ -170,15 +170,15 @@ export default function Itinerary() {
               <div className="space-y-3 text-sm">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-teal-600" />
-                  <span>Next departure: March 15</span>
+                  <span>Next departure: {tour.nextDeparture || 'Contact for dates'}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Shield className="w-4 h-4 text-teal-600" />
-                  <span>Free cancellation up to 30 days</span>
+                  <span>{tour.cancellationPolicy || 'Free cancellation up to 30 days'}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Users className="w-4 h-4 text-teal-600" />
-                  <span>Only 3 spots remaining</span>
+                  <span>Only {tour.spotsRemaining || 0} spots remaining</span>
                 </div>
               </div>
               <Button className="w-full mt-6 bg-teal-600 hover:bg-teal-700">

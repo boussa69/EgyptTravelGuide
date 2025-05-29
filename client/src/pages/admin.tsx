@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { Plus, Edit, Trash2, Save, X, Upload, Image, Users, BarChart3, Eye } from "lucide-react";
+import { Plus, Edit, Trash2, Save, X, Upload, Image, Users, BarChart3, Eye, Calendar, Shield } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -602,10 +602,11 @@ export default function Admin() {
         </div>
 
         <Tabs defaultValue="days" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="days">Daily Programs ({itineraryDays.length})</TabsTrigger>
             <TabsTrigger value="accommodations">Accommodations ({accommodations.length})</TabsTrigger>
             <TabsTrigger value="faqs">FAQs ({faqs.length})</TabsTrigger>
+            <TabsTrigger value="booking">Booking Settings</TabsTrigger>
           </TabsList>
 
           <TabsContent value="days" className="space-y-4">
@@ -725,6 +726,106 @@ export default function Admin() {
                 </Card>
               ))}
             </div>
+          </TabsContent>
+
+          <TabsContent value="booking" className="space-y-4">
+            <div className="flex justify-between items-center">
+              <h3 className="text-lg font-semibold">Booking Settings</h3>
+              <Button 
+                size="sm" 
+                className="bg-teal-600 hover:bg-teal-700"
+                onClick={() => handleSaveBookingSettings()}
+              >
+                <Save className="w-4 h-4 mr-2" />
+                Save Settings
+              </Button>
+            </div>
+            
+            <Card className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Next Departure Date</label>
+                  <Input
+                    value={bookingSettings.nextDeparture || ''}
+                    onChange={(e) => setBookingSettings({
+                      ...bookingSettings,
+                      nextDeparture: e.target.value
+                    })}
+                    placeholder="March 15, 2025"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium mb-2">Spots Remaining</label>
+                  <Input
+                    type="number"
+                    value={bookingSettings.spotsRemaining || ''}
+                    onChange={(e) => setBookingSettings({
+                      ...bookingSettings,
+                      spotsRemaining: parseInt(e.target.value) || 0
+                    })}
+                    placeholder="3"
+                  />
+                </div>
+                
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium mb-2">Cancellation Policy</label>
+                  <Textarea
+                    value={bookingSettings.cancellationPolicy || ''}
+                    onChange={(e) => setBookingSettings({
+                      ...bookingSettings,
+                      cancellationPolicy: e.target.value
+                    })}
+                    placeholder="Free cancellation up to 30 days"
+                    rows={2}
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium mb-2">Maximum Group Size</label>
+                  <Input
+                    type="number"
+                    value={bookingSettings.maxGroupSize || ''}
+                    onChange={(e) => setBookingSettings({
+                      ...bookingSettings,
+                      maxGroupSize: parseInt(e.target.value) || 16
+                    })}
+                    placeholder="16"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium mb-2">Minimum Age</label>
+                  <Input
+                    type="number"
+                    value={bookingSettings.minAge || ''}
+                    onChange={(e) => setBookingSettings({
+                      ...bookingSettings,
+                      minAge: parseInt(e.target.value) || 0
+                    })}
+                    placeholder="12"
+                  />
+                </div>
+              </div>
+              
+              <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+                <h4 className="font-medium mb-2">Preview</h4>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-teal-600" />
+                    <span>Next departure: {bookingSettings.nextDeparture || 'Contact for dates'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-teal-600" />
+                    <span>{bookingSettings.cancellationPolicy || 'Free cancellation up to 30 days'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Users className="w-4 h-4 text-teal-600" />
+                    <span>Only {bookingSettings.spotsRemaining || 0} spots remaining</span>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </TabsContent>
         </Tabs>
 
