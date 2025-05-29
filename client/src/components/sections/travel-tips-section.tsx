@@ -64,61 +64,36 @@ const tipsData = [
 ];
 
 export default function TravelTipsSection() {
-  const { data: tips, isLoading, error } = useQuery({
-    queryKey: ["/api/travel-tips"],
-    queryFn: () => travelTipsApi.getAll(),
-  });
-
-  if (error) {
-    return (
-      <div className="text-center py-12">
-        <p className="text-red-600">Failed to load travel tips. Please try again later.</p>
-      </div>
-    );
-  }
-
   return (
     <section id="tips" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            Essential <span className="text-teal-oasis">Travel</span> Tips
+            Essential <span className="text-teal-600">Travel</span> Tips
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Insider knowledge and practical advice to make your Egyptian journey smooth, safe, and unforgettable.
           </p>
         </div>
         
-        {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="space-y-4">
-                <Skeleton className="h-32 w-full rounded-2xl" />
-                <Skeleton className="h-4 w-3/4" />
-                <Skeleton className="h-4 w-1/2" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {tipsData.map((tip, index) => (
+            <div key={tip.title} className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+                <tip.icon className="w-6 h-6 text-blue-600" />
               </div>
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {tipsData.map((tip, index) => (
-              <div key={tip.title} className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
-                  <tip.icon className="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3 font-serif">{tip.title}</h3>
-                <ul className="space-y-2 text-gray-600 text-sm">
-                  {tip.tips.map((tipText, tipIndex) => (
-                    <li key={tipIndex} className="flex items-start">
-                      <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 mt-2 flex-shrink-0" />
-                      {tipText}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        )}
+              <h3 className="text-lg font-bold text-gray-900 mb-3 font-serif">{tip.title}</h3>
+              <ul className="space-y-2 text-gray-600 text-sm">
+                {tip.tips.map((tipText, tipIndex) => (
+                  <li key={tipIndex} className="flex items-start">
+                    <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 mt-2 flex-shrink-0" />
+                    {tipText}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
