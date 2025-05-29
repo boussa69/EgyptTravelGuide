@@ -9,6 +9,7 @@ import Home from "@/pages/home";
 import Destinations from "@/pages/destinations";
 import DestinationDetail from "@/pages/destination-detail";
 import TravelPlanning from "@/pages/travel-planning";
+import PlanningResource from "@/pages/planning-resource";
 import Tours from "@/pages/tours";
 import CultureHistory from "@/pages/culture-history";
 import TravelTips from "@/pages/travel-tips";
@@ -25,6 +26,7 @@ function Router() {
           <Route path="/destinations" component={Destinations} />
           <Route path="/destinations/:slug" component={DestinationDetail} />
           <Route path="/travel-planning" component={TravelPlanning} />
+          <Route path="/planning/:slug" component={PlanningResource} />
           <Route path="/tours" component={Tours} />
           <Route path="/culture-history" component={CultureHistory} />
           <Route path="/travel-tips" component={TravelTips} />
