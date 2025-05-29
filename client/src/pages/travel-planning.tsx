@@ -5,7 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sun, CheckCircle, Package, Heart, DollarSign, Shield, ArrowDown, MessageCircle, Filter, Car, CreditCard, Smartphone, Cross, ShoppingBag, Users, UserCheck, Camera } from "lucide-react";
+import { Sun, CheckCircle, Package, Heart, DollarSign, Shield, ArrowDown, MessageCircle, Filter, Car, CreditCard, Smartphone, Cross, ShoppingBag, Users, UserCheck, Camera, CalendarDays } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 
@@ -108,6 +108,13 @@ const quickGuides = [
     description: "Camera regulations, photography fees, and drone permit requirements.",
     category: "Adventure",
     slug: "photography-drones"
+  },
+  {
+    icon: CalendarDays,
+    title: "Festivals & Public Holidays",
+    description: "Egyptian celebrations, religious holidays, and festival calendar planning.",
+    category: "Culture",
+    slug: "festivals-holidays"
   },
 ];
 
