@@ -362,6 +362,44 @@ export default function Admin() {
             />
           </div>
 
+          <div>
+            <label className="block text-sm font-medium mb-1">Highlights (comma-separated)</label>
+            <Textarea
+              value={editingItineraryItem.highlights?.join(', ') || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                highlights: e.target.value.split(',').map(h => h.trim()).filter(h => h)
+              })}
+              placeholder="Pyramid exploration, Sphinx visit, Panoramic views"
+              rows={2}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Activities (comma-separated)</label>
+            <Textarea
+              value={editingItineraryItem.activities?.join(', ') || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                activities: e.target.value.split(',').map(a => a.trim()).filter(a => a)
+              })}
+              placeholder="Airport pickup, Hotel check-in, Welcome dinner"
+              rows={2}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Meals (comma-separated)</label>
+            <Input
+              value={editingItineraryItem.meals?.join(', ') || ''}
+              onChange={(e) => setEditingItineraryItem({
+                ...editingItineraryItem,
+                meals: e.target.value.split(',').map(m => m.trim()).filter(m => m)
+              })}
+              placeholder="Breakfast, Lunch, Dinner"
+            />
+          </div>
+
           <div className="flex gap-2">
             <Button onClick={handleSaveItineraryItem} className="bg-green-600 hover:bg-green-700">
               <Save className="w-4 h-4 mr-2" />

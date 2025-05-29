@@ -150,32 +150,17 @@ export default function Itinerary() {
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Trip Highlights</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {tour.highlights && Array.isArray(tour.highlights) && tour.highlights.length > 0 
-                  ? tour.highlights.map((highlight: string, index: number) => (
-                      <div key={index} className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0" />
-                        <span className="text-gray-700">{highlight}</span>
-                      </div>
-                    ))
-                  : (
-                  <>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-teal-600" />
-                      <span>Pyramids of Giza & Sphinx</span>
+                {itineraryDays && itineraryDays.length > 0 ? (
+                  itineraryDays.flatMap((day: any) => 
+                    day.highlights && Array.isArray(day.highlights) ? day.highlights : []
+                  ).map((highlight: string, index: number) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0" />
+                      <span className="text-gray-700">{highlight}</span>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-teal-600" />
-                      <span>Valley of the Kings & Karnak Temple</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-teal-600" />
-                      <span>Abu Simbel & Nile Felucca Ride</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-teal-600" />
-                      <span>Egyptian Museum & Khan el-Khalili</span>
-                    </div>
-                  </>
+                  ))
+                ) : (
+                  <div className="text-gray-500 col-span-2">Loading highlights...</div>
                 )}
               </div>
             </div>
