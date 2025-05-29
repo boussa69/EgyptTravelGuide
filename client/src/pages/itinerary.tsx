@@ -28,7 +28,6 @@ import { useState, useEffect } from "react";
 
 export default function Itinerary() {
   const { slug } = useParams();
-
   const [expandedFAQ, setExpandedFAQ] = useState<number[]>([0, 1]);
 
   const { data: tour, isLoading, error } = useQuery({
@@ -36,30 +35,6 @@ export default function Itinerary() {
     queryFn: () => toursApi.getBySlug(slug!),
     enabled: !!slug,
   });
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-red-600 mb-4">Tour Not Found</h1>
-          <p className="text-gray-600">The requested tour could not be found.</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (isLoading || !tour) {
-    return (
-      <div className="min-h-screen bg-white">
-        <Skeleton className="h-96 w-full" />
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <Skeleton className="h-8 w-64 mb-4" />
-          <Skeleton className="h-4 w-full mb-2" />
-          <Skeleton className="h-4 w-3/4" />
-        </div>
-      </div>
-    );
-  }
 
   // Fetch itinerary data
   const { data: itineraryDays, isLoading: itineraryLoading } = useQuery({
@@ -89,6 +64,30 @@ export default function Itinerary() {
         : [...prev, index]
     );
   };
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold text-red-600 mb-4">Tour Not Found</h1>
+          <p className="text-gray-600">The requested tour could not be found.</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (isLoading || !tour) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Skeleton className="h-96 w-full" />
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <Skeleton className="h-8 w-64 mb-4" />
+          <Skeleton className="h-4 w-full mb-2" />
+          <Skeleton className="h-4 w-3/4" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white">
