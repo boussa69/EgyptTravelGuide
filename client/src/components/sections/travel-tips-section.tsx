@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { travelTipsApi } from "@/lib/api";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Car, DollarSign, MessageCircle, Shield, Wifi, Heart } from "lucide-react";
+import { Car, DollarSign, MessageCircle, Shield, Wifi, Heart, ShoppingBag, Users, UserCheck, Camera, Smartphone, Cross, CreditCard, MapPin } from "lucide-react";
 
 const iconMap = {
   "Car": Car,
@@ -15,39 +15,51 @@ const iconMap = {
 const tipsData = [
   {
     icon: Car,
-    title: "Transportation",
+    title: "Getting Around",
     tips: ["Uber and Careem available in major cities", "Domestic flights for long distances", "Train travel between major destinations"],
     color: "teal-oasis"
   },
   {
-    icon: DollarSign,
-    title: "Money & Payments",
+    icon: CreditCard,
+    title: "Currency & Payments",
     tips: ["Egyptian Pound (EGP) is local currency", "Cash preferred for small purchases", "ATMs widely available in cities"],
     color: "gold-accent"
   },
   {
-    icon: MessageCircle,
-    title: "Language & Communication",
-    tips: ["Arabic is official, English widely spoken", "Tourist areas have multilingual staff", "Translation apps are helpful"],
+    icon: Smartphone,
+    title: "Connectivity & SIM Cards",
+    tips: ["WiFi available in hotels and cafes", "Local SIM cards for data access", "4G coverage in major areas"],
     color: "accent-coral"
   },
   {
-    icon: Shield,
-    title: "Safety & Health",
-    tips: ["Egypt is generally safe for tourists", "Stay hydrated and use sunscreen", "Travel insurance recommended"],
+    icon: Cross,
+    title: "Health & Vaccinations",
+    tips: ["No mandatory vaccines for most countries", "Hepatitis A & B recommended", "Travel insurance essential"],
     color: "teal-oasis"
   },
   {
-    icon: Wifi,
-    title: "Internet & Connectivity",
-    tips: ["WiFi available in hotels and cafes", "Local SIM cards for data access", "4G coverage in major areas"],
+    icon: ShoppingBag,
+    title: "Shopping & Bargaining",
+    tips: ["Bargaining expected in markets", "Start at 30-50% of asking price", "Fixed prices in malls and restaurants"],
     color: "gold-accent"
   },
   {
-    icon: Heart,
-    title: "Cultural Etiquette",
-    tips: ["Dress modestly at religious sites", "Remove shoes when entering mosques", "Respect local customs and traditions"],
+    icon: Users,
+    title: "Family-Friendly Egypt",
+    tips: ["Kid-friendly attractions available", "Family rooms in most hotels", "Child discounts at many sites"],
     color: "accent-coral"
+  },
+  {
+    icon: UserCheck,
+    title: "Women Travellers' Tips",
+    tips: ["Dress modestly, especially at religious sites", "Solo female travel is generally safe", "Consider joining group tours"],
+    color: "teal-oasis"
+  },
+  {
+    icon: Camera,
+    title: "Photography & Drone Rules",
+    tips: ["Photography fees at some tourist sites", "Drone permits required", "Respect photography restrictions"],
+    color: "gold-accent"
   }
 ];
 
@@ -88,17 +100,17 @@ export default function TravelTipsSection() {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {tipsData.map(({ icon: Icon, title, tips, color }) => (
-              <div key={title} className="bg-champagne-sand rounded-2xl p-8 border border-cool-limestone">
-                <div className={`w-16 h-16 bg-${color}/10 rounded-2xl flex items-center justify-center mb-6`}>
-                  <Icon className={`w-8 h-8 text-${color}`} />
+              <div key={title} className="bg-champagne-sand rounded-2xl p-6 border border-cool-limestone hover:shadow-lg transition-shadow">
+                <div className={`w-12 h-12 bg-${color}/10 rounded-2xl flex items-center justify-center mb-4`}>
+                  <Icon className={`w-6 h-6 text-${color}`} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 font-serif">{title}</h3>
-                <ul className="space-y-3 text-gray-600">
+                <h3 className="text-lg font-bold text-gray-900 mb-3 font-serif">{title}</h3>
+                <ul className="space-y-2 text-gray-600 text-sm">
                   {tips.map((tip, index) => (
-                    <li key={index} className="flex items-center">
-                      <span className={`w-2 h-2 bg-${color} rounded-full mr-3`} />
+                    <li key={index} className="flex items-start">
+                      <span className={`w-1.5 h-1.5 bg-${color} rounded-full mr-2 mt-2 flex-shrink-0`} />
                       {tip}
                     </li>
                   ))}
