@@ -163,6 +163,22 @@ export default function Admin() {
             description: "New tour created successfully!",
           });
         }
+        
+        // Create new travel tip
+        if (activeTab === "travel-tips") {
+          const response = await fetch('/api/travel-tips', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(editingItem)
+          });
+          
+          if (!response.ok) throw new Error('Failed to create travel tip');
+          
+          toast({
+            title: "Success",
+            description: "New travel tip created successfully!",
+          });
+        }
       } else {
         // Update existing item
         if (activeTab === "destinations") {
@@ -237,6 +253,121 @@ export default function Admin() {
       });
     }
   };
+
+  const renderTourForm = () => (
+    <div className="space-y-4">
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium mb-1">Tour Name</label>
+          <Input
+            value={editingItem?.name || ""}
+            onChange={(e) => setEditingItem({ ...editingItem, name: e.target.value })}
+            placeholder="Tour name"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium mb-1">Category</label>
+          <Input
+            value={editingItem?.category || ""}
+            onChange={(e) => setEditingItem({ ...editingItem, category: e.target.value })}
+            placeholder="Cultural, Adventure, Luxury"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium mb-1">Short Description</label>
+        <Input
+          value={editingItem?.shortDescription || ""}
+          onChange={(e) => setEditingItem({ ...editingItem, shortDescription: e.target.value })}
+          placeholder="Brief tour description"
+        />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium mb-1">Description</label>
+        <Textarea
+          value={editingItem?.description || ""}
+          onChange={(e) => setEditingItem({ ...editingItem, description: e.target.value })}
+          placeholder="Detailed tour description"
+          rows={4}
+        />
+      </div>
+
+      <div className="grid grid-cols-3 gap-4">
+        <div>
+          <label className="block text-sm font-medium mb-1">Duration (days)</label>
+          <Input
+            type="number"
+            min="1"
+            value={editingItem?.duration || 1}
+            onChange={(e) => setEditingItem({ ...editingItem, duration: parseInt(e.target.value) })}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium mb-1">Price ($)</label>
+          <Input
+            type="number"
+            value={editingItem?.price || 0}
+            onChange={(e) => setEditingItem({ ...editingItem, price: parseInt(e.target.value) })}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium mb-1">Difficulty</label>
+          <Input
+            value={editingItem?.difficulty || "Easy"}
+            onChange={(e) => setEditingItem({ ...editingItem, difficulty: e.target.value })}
+            placeholder="Easy, Moderate, Hard"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium mb-1">Image URL</label>
+        <Input
+          value={editingItem?.imageUrl || ""}
+          onChange={(e) => setEditingItem({ ...editingItem, imageUrl: e.target.value })}
+          placeholder="https://..."
+        />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium mb-1">Highlights (comma-separated)</label>
+        <Textarea
+          value={editingItem?.highlights?.join(", ") || ""}
+          onChange={(e) => setEditingItem({ 
+            ...editingItem, 
+            highlights: e.target.value.split(",").map(h => h.trim()).filter(h => h) 
+          })}
+          placeholder="Expert guide, 5-star hotels, All meals included"
+          rows={2}
+        />
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              checked={editingItem?.isPopular || false}
+              onChange={(e) => setEditingItem({ ...editingItem, isPopular: e.target.checked })}
+            />
+            <span className="text-sm font-medium">Popular Tour</span>
+          </label>
+        </div>
+        <div>
+          <label className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              checked={editingItem?.isLuxury || false}
+              onChange={(e) => setEditingItem({ ...editingItem, isLuxury: e.target.checked })}
+            />
+            <span className="text-sm font-medium">Luxury Tour</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  );
 
   const renderDestinationForm = () => (
     <div className="space-y-4">
@@ -446,6 +577,7 @@ export default function Admin() {
                 </CardHeader>
                 <CardContent>
                   {activeTab === "destinations" && renderDestinationForm()}
+                  {activeTab === "tours" && renderTourForm()}
                 </CardContent>
               </Card>
             ) : null}

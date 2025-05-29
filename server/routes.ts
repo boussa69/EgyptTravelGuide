@@ -170,7 +170,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.put("/api/destinations/:id", async (req, res) => {
     try {
       const id = parseInt(req.params.id);
-      const destination = insertDestinationSchema.parse(req.body);
+      const destination = req.body;
       const updatedDestination = await storage.updateDestination(id, destination);
       if (!updatedDestination) {
         return res.status(404).json({ error: "Destination not found" });
@@ -211,7 +211,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.put("/api/tours/:id", async (req, res) => {
     try {
       const id = parseInt(req.params.id);
-      const tour = insertTourSchema.parse(req.body);
+      const tour = req.body;
       const updatedTour = await storage.updateTour(id, tour);
       if (!updatedTour) {
         return res.status(404).json({ error: "Tour not found" });
