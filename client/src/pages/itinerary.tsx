@@ -28,7 +28,7 @@ import { useState, useEffect } from "react";
 
 export default function Itinerary() {
   const { slug } = useParams();
-  const [activeDay, setActiveDay] = useState(1);
+
   const [expandedFAQ, setExpandedFAQ] = useState<number[]>([0, 1]);
 
   const { data: tour, isLoading, error } = useQuery({
@@ -36,26 +36,6 @@ export default function Itinerary() {
     queryFn: () => toursApi.getBySlug(slug!),
     enabled: !!slug,
   });
-
-  // Scroll spy effect for active day
-  useEffect(() => {
-    const handleScroll = () => {
-      const dayElements = document.querySelectorAll('[data-day]');
-      let currentDay = 1;
-      
-      dayElements.forEach((element) => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 200 && rect.bottom >= 200) {
-          currentDay = parseInt(element.getAttribute('data-day') || '1');
-        }
-      });
-      
-      setActiveDay(currentDay);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   if (error) {
     return (
@@ -82,14 +62,6 @@ export default function Itinerary() {
   }
 
   const days = tour.duration || 7;
-  const dayArray = Array.from({ length: days }, (_, i) => i + 1);
-
-  const scrollToDay = (day: number) => {
-    const element = document.querySelector(`[data-day="${day}"]`);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  };
 
   const toggleFAQ = (index: number) => {
     setExpandedFAQ(prev => 
@@ -168,26 +140,6 @@ export default function Itinerary() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Sticky Progress Navigation - Desktop */}
-      <div className="hidden lg:block fixed left-4 top-1/2 transform -translate-y-1/2 z-40">
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-2">
-          <div className="space-y-1">
-            {dayArray.map((day) => (
-              <button
-                key={day}
-                onClick={() => scrollToDay(day)}
-                className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
-                  activeDay === day
-                    ? 'bg-teal-600 text-white'
-                    : 'text-gray-600 hover:bg-gray-100'
-                }`}
-              >
-                Day {day}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* Hero Section */}
       <section className="relative h-96 bg-gradient-to-r from-teal-900 to-teal-700 overflow-hidden">
