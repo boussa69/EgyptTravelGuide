@@ -17,6 +17,7 @@ export default function Home() {
       <CultureSection />
       <TravelTipsSection />
       <NewsletterCTA />
+      <TravelChatbot />
     </div>
   );
 }
