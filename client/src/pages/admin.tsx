@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Plus, Edit, Trash2, Save, X, Upload, Image, Users, BarChart3, Eye } from "lucide-react";
+import { apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -146,6 +147,7 @@ export default function Admin() {
           title: "Success",
           description: "Sample itinerary data created successfully",
         });
+        queryClient.invalidateQueries({ queryKey: ["/api/tours", tourId] });
       } else {
         throw new Error('Failed to create sample data');
       }
@@ -156,6 +158,78 @@ export default function Admin() {
         variant: "destructive",
       });
     }
+  };
+
+  // Mutation for deleting itinerary items
+  const deleteItineraryItemMutation = useMutation({
+    mutationFn: async ({ type, id }: { type: string; id: number }) => {
+      const endpoint = type === 'day' ? 'itinerary' : type === 'accommodation' ? 'accommodation-options' : 'faqs';
+      const response = await fetch(`/api/${endpoint}/${id}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) throw new Error('Delete failed');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/tours", editingItem?.tourId] });
+      toast({
+        title: "Success",
+        description: "Item deleted successfully",
+      });
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to delete item",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleDeleteItem = (type: string, id: number, tourId: number) => {
+    if (confirm('Are you sure you want to delete this item?')) {
+      deleteItineraryItemMutation.mutate({ type, id, tourId });
+    }
+  };
+
+  const [editingItineraryItem, setEditingItineraryItem] = useState<any>(null);
+
+  const handleEditItineraryItem = (type: string, item: any) => {
+    setEditingItineraryItem({ ...item, type });
+  };
+
+  const handleAddItineraryItem = (type: string) => {
+    const newItem = {
+      type,
+      tourId: editingItem.tourId,
+      // Default values based on type
+      ...(type === 'day' && {
+        dayNumber: itineraryDays.length + 1,
+        title: '',
+        description: '',
+        dailyProgram: '',
+        activities: [],
+        highlights: [],
+        meals: [],
+        location: '',
+        imageUrl: ''
+      }),
+      ...(type === 'accommodation' && {
+        type: 'Standard',
+        name: '',
+        description: '',
+        features: [],
+        pricePerPerson: 0,
+        rating: 4
+      }),
+      ...(type === 'faq' && {
+        category: 'general',
+        question: '',
+        answer: '',
+        orderIndex: faqs.length + 1
+      })
+    };
+    setEditingItineraryItem(newItem);
   };
 
   const renderItineraryManager = () => {
