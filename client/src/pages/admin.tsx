@@ -200,6 +200,44 @@ export default function Admin() {
     setIsCreating(false);
   };
 
+  const handleDelete = async (id: number, type: string) => {
+    if (!confirm(`Are you sure you want to delete this ${type}? This action cannot be undone.`)) {
+      return;
+    }
+
+    try {
+      let endpoint = '';
+      if (type === 'destination') {
+        endpoint = `/api/destinations/${id}`;
+      } else if (type === 'tour') {
+        endpoint = `/api/tours/${id}`;
+      }
+
+      const response = await fetch(endpoint, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to delete ${type}`);
+      }
+
+      toast({
+        title: "Success",
+        description: `${type.charAt(0).toUpperCase() + type.slice(1)} deleted successfully!`,
+      });
+
+      // Refresh the data
+      queryClient.invalidateQueries({ queryKey: [`/api/${activeTab}`] });
+    } catch (error) {
+      console.error('Delete error:', error);
+      toast({
+        title: "Error",
+        description: `Failed to delete ${type}. Please try again.`,
+        variant: "destructive",
+      });
+    }
+  };
+
   const renderDestinationForm = () => (
     <div className="space-y-4">
       <div className="grid grid-cols-2 gap-4">
@@ -346,6 +384,14 @@ export default function Admin() {
               >
                 <Edit className="h-4 w-4" />
               </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => handleDelete(destination.id, 'destination')}
+                className="text-red-600 hover:text-red-700"
+              >
+                <Trash2 className="h-4 w-4" />
+              </Button>
             </div>
           </div>
         </Card>
@@ -476,6 +522,14 @@ export default function Admin() {
                         </Badge>
                         <Button size="sm" variant="outline" onClick={() => handleEdit(tour)}>
                           <Edit className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => handleDelete(tour.id, 'tour')}
+                          className="text-red-600 hover:text-red-700"
+                        >
+                          <Trash2 className="h-4 w-4" />
                         </Button>
                       </div>
                     </div>
