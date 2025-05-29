@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle } from "lucide-react";
 import { Link } from "wouter";
 
 const planningData = {
@@ -498,6 +498,160 @@ const planningData = {
         "Punctuality is less strict than Western standards",
         "Family is central to Egyptian culture - ask about family",
         "Hospitality is legendary - you may be invited to homes"
+      ]
+    }
+  },
+  "budget-planning": {
+    title: "Egypt Budget Planning Guide",
+    description: "Plan your finances for an unforgettable Egyptian adventure",
+    category: "Practical",
+    lastUpdated: "Updated January 2025",
+    content: {
+      overview: "Egypt offers exceptional value for travelers, with costs varying significantly based on your travel style and preferences. From budget backpacking to luxury experiences, understanding local pricing helps you plan effectively and get the most from your Egyptian adventure.",
+      budgetCategories: [
+        {
+          category: "Budget Traveler",
+          dailyRange: "$25-40 USD",
+          description: "Hostels, local food, public transport",
+          breakdown: {
+            accommodation: "$8-15/night (hostels, budget hotels)",
+            food: "$8-12/day (street food, local restaurants)",
+            transport: "$3-5/day (public buses, metro)",
+            activities: "$5-8/day (free sites, basic tours)"
+          },
+          tips: ["Stay in hostels or budget hotels", "Eat at local restaurants", "Use public transportation", "Visit free historical sites"]
+        },
+        {
+          category: "Mid-Range Traveler", 
+          dailyRange: "$40-80 USD",
+          description: "3-star hotels, mix of local and tourist restaurants",
+          breakdown: {
+            accommodation: "$20-40/night (3-star hotels, guesthouses)",
+            food: "$15-25/day (mix of local and tourist restaurants)",
+            transport: "$8-15/day (taxis, private transfers)",
+            activities: "$15-25/day (guided tours, entrance fees)"
+          },
+          tips: ["Book 3-star hotels in advance", "Mix street food with restaurant meals", "Use Uber and taxis", "Join group tours for better rates"]
+        },
+        {
+          category: "Luxury Traveler",
+          dailyRange: "$100-300+ USD", 
+          description: "5-star hotels, fine dining, private tours",
+          breakdown: {
+            accommodation: "$80-200+/night (5-star hotels, resorts)",
+            food: "$30-60+/day (fine dining, hotel restaurants)",
+            transport: "$20-50/day (private drivers, domestic flights)",
+            activities: "$40-100+/day (private tours, premium experiences)"
+          },
+          tips: ["Book luxury hotels with Nile views", "Try hotel fine dining experiences", "Hire private guides and drivers", "Book premium experiences like hot air balloons"]
+        }
+      ],
+      costBreakdowns: [
+        {
+          category: "Accommodation",
+          icon: "🏨",
+          items: [
+            { type: "Hostel dorm", price: "$8-15/night", notes: "Shared facilities, backpacker areas" },
+            { type: "Budget hotel", price: "$15-25/night", notes: "Private room, basic amenities" },
+            { type: "Mid-range hotel", price: "$30-60/night", notes: "Good location, pool, breakfast" },
+            { type: "Luxury hotel", price: "$100-300+/night", notes: "5-star service, Nile views, spa" },
+            { type: "Nile cruise", price: "$80-200/night", notes: "All-inclusive, multiple destinations" }
+          ]
+        },
+        {
+          category: "Food & Drinks",
+          icon: "🍽️", 
+          items: [
+            { type: "Street food", price: "$1-3/meal", notes: "Ful, falafel, koshari" },
+            { type: "Local restaurant", price: "$5-10/meal", notes: "Traditional Egyptian cuisine" },
+            { type: "Tourist restaurant", price: "$10-20/meal", notes: "International menu, tourist areas" },
+            { type: "Fine dining", price: "$25-50+/meal", notes: "Hotel restaurants, rooftop dining" },
+            { type: "Coffee/tea", price: "$1-3", notes: "Local cafes, hotel lobbies" },
+            { type: "Bottled water", price: "$0.25-1", notes: "Essential for staying hydrated" }
+          ]
+        },
+        {
+          category: "Transportation",
+          icon: "🚗",
+          items: [
+            { type: "Metro (Cairo)", price: "$0.15-0.30", notes: "Cheapest option in Cairo" },
+            { type: "Public bus", price: "$0.30-1", notes: "Local transport, can be crowded" },
+            { type: "Taxi (local)", price: "$2-8", notes: "Negotiate fare beforehand" },
+            { type: "Uber/Careem", price: "$3-12", notes: "Fixed pricing, air conditioning" },
+            { type: "Train (Cairo-Luxor)", price: "$15-40", notes: "Overnight sleeper available" },
+            { type: "Domestic flight", price: "$80-150", notes: "Cairo to Aswan/Luxor" }
+          ]
+        },
+        {
+          category: "Activities & Sites",
+          icon: "🏛️",
+          items: [
+            { type: "Pyramids of Giza", price: "$13 entry", notes: "Additional fees for inside pyramids" },
+            { type: "Egyptian Museum", price: "$12 entry", notes: "Extra for photography" },
+            { type: "Valley of Kings", price: "$11 entry", notes: "3 tombs included" },
+            { type: "Abu Simbel", price: "$22 entry", notes: "UNESCO World Heritage site" },
+            { type: "Day tour (group)", price: "$30-60", notes: "Transportation and guide included" },
+            { type: "Private guide", price: "$50-100/day", notes: "Personalized experience" },
+            { type: "Hot air balloon", price: "$60-100", notes: "Sunrise over Valley of Kings" },
+            { type: "Nile felucca ride", price: "$10-20", notes: "Traditional sailing boat" }
+          ]
+        }
+      ],
+      moneyTips: [
+        {
+          topic: "Currency & Exchange",
+          advice: "Egyptian Pound (EGP) is the local currency. USD and EUR widely accepted.",
+          details: ["Exchange at banks or authorized dealers", "Keep receipts for currency exchange", "ATMs widely available in cities", "Credit cards accepted in tourist areas"]
+        },
+        {
+          topic: "Tipping Culture",
+          advice: "Tipping (baksheesh) is expected and part of service workers' income.",
+          details: ["Restaurants: 10-15% of bill", "Hotel staff: $1-2 per service", "Tour guides: $5-10 per day", "Drivers: $3-5 per day", "Felucca captains: $2-3 per ride"]
+        },
+        {
+          topic: "Bargaining",
+          advice: "Haggling is expected in markets and with street vendors.",
+          details: ["Start at 50% of asking price", "Be prepared to walk away", "Fixed prices in malls and restaurants", "Tourist areas have higher starting prices"]
+        },
+        {
+          topic: "Payment Methods",
+          advice: "Cash is king, but digital payments are growing.",
+          details: ["Carry small bills for tips", "Credit cards in hotels and tourist restaurants", "Mobile payments available in cities", "Keep emergency cash reserve"]
+        }
+      ],
+      savingTips: [
+        "Visit during shoulder season (Mar-Apr, Oct-Nov) for better prices",
+        "Book accommodation outside main tourist areas",
+        "Eat at local restaurants away from tourist sites",
+        "Use public transport instead of taxis when possible",
+        "Buy a tourist pass for multiple site visits",
+        "Join group tours instead of private tours",
+        "Negotiate package deals for multi-day tours", 
+        "Stay longer to get better hotel rates",
+        "Bring water bottles and refill instead of buying",
+        "Shop at local markets instead of tourist shops"
+      ],
+      budgetAlerts: [
+        {
+          alert: "Tourist Area Markup",
+          description: "Prices near major attractions can be 3-5x higher than local areas",
+          solution: "Walk a few blocks away from main sites for better prices"
+        },
+        {
+          alert: "Hidden Fees",
+          description: "Some tours exclude entrance fees, meals, or tips",
+          solution: "Ask for total cost breakdown before booking"
+        },
+        {
+          alert: "Seasonal Price Surges", 
+          description: "Winter months (Dec-Feb) see 50-100% price increases",
+          solution: "Book early or visit during shoulder seasons"
+        },
+        {
+          alert: "Cash vs Card",
+          description: "Card payments may include service charges",
+          solution: "Compare total costs including fees before choosing payment method"
+        }
       ]
     }
   }
@@ -1305,6 +1459,224 @@ export default function PlanningResource() {
                   <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
                     <CheckCircle2 className="h-5 w-5 text-teal-oasis mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-gray-700">{tip}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "budget-planning") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Budget Planning</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Budget Categories */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Calculator className="h-8 w-8 text-teal-oasis mr-3" />
+              Travel Style Budget Ranges
+            </h2>
+            
+            {resource.content.budgetCategories.map((budget, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{budget.category}</h3>
+                      <p className="text-gray-600 mb-4">{budget.description}</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="bg-gold-accent/20 rounded-lg p-3 mb-2">
+                        <p className="font-bold text-gold-accent text-lg">{budget.dailyRange}</p>
+                        <p className="text-xs text-gray-600">per day</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Daily Breakdown</h4>
+                      <div className="space-y-2">
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-600">Accommodation:</span>
+                          <span className="font-medium">{budget.breakdown.accommodation}</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-600">Food:</span>
+                          <span className="font-medium">{budget.breakdown.food}</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-600">Transport:</span>
+                          <span className="font-medium">{budget.breakdown.transport}</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-600">Activities:</span>
+                          <span className="font-medium">{budget.breakdown.activities}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Money-Saving Tips</h4>
+                      <ul className="space-y-1">
+                        {budget.tips.map((tip, i) => (
+                          <li key={i} className="flex items-start text-sm">
+                            <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">{tip}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Cost Breakdowns */}
+          <div className="space-y-8 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <DollarSign className="h-8 w-8 text-teal-oasis mr-3" />
+              Detailed Cost Breakdowns
+            </h2>
+            
+            {resource.content.costBreakdowns.map((breakdown, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-6">
+                    <div className="text-3xl mr-4">{breakdown.icon}</div>
+                    <h3 className="text-2xl font-bold text-gray-900">{breakdown.category}</h3>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {breakdown.items.map((item, i) => (
+                      <div key={i} className="border rounded-lg p-4">
+                        <div className="flex justify-between items-start mb-2">
+                          <h4 className="font-semibold text-gray-900 text-sm">{item.type}</h4>
+                          <span className="font-bold text-teal-oasis text-sm">{item.price}</span>
+                        </div>
+                        <p className="text-xs text-gray-600">{item.notes}</p>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Money Tips */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <CreditCard className="h-6 w-6 text-teal-oasis mr-3" />
+                Essential Money Tips
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {resource.content.moneyTips.map((tip, index) => (
+                  <div key={index} className="bg-teal-oasis/5 rounded-lg p-6 border-l-4 border-teal-oasis">
+                    <h4 className="font-bold text-gray-900 mb-3">{tip.topic}</h4>
+                    <p className="text-gray-700 mb-3 text-sm">{tip.advice}</p>
+                    
+                    <ul className="space-y-1">
+                      {tip.details.map((detail, i) => (
+                        <li key={i} className="flex items-start text-xs">
+                          <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-600">{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Saving Tips */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <TrendingDown className="h-6 w-6 text-green-600 mr-3" />
+                Top Money-Saving Strategies
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.savingTips.map((tip, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                    <TrendingDown className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{tip}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Budget Alerts */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <AlertCircle className="h-6 w-6 text-orange-500 mr-3" />
+                Budget Alerts & Hidden Costs
+              </h3>
+              
+              <div className="space-y-4">
+                {resource.content.budgetAlerts.map((alert, index) => (
+                  <div key={index} className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-orange-900 mb-1 flex items-center">
+                          <AlertTriangle className="h-4 w-4 mr-2" />
+                          {alert.alert}
+                        </h4>
+                        <p className="text-sm text-orange-800 mb-2">{alert.description}</p>
+                        <p className="text-sm font-medium text-orange-700">
+                          💡 Solution: {alert.solution}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
