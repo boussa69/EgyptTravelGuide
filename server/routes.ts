@@ -237,6 +237,42 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Media endpoints
+  app.get("/api/media", async (req, res) => {
+    try {
+      const mediaItems = await storage.getMediaItems();
+      res.json(mediaItems);
+    } catch (error) {
+      console.error("Get media error:", error);
+      res.status(500).json({ error: "Failed to get media items" });
+    }
+  });
+
+  app.post("/api/media", async (req, res) => {
+    try {
+      const mediaItem = req.body;
+      const result = await storage.createMediaItem(mediaItem);
+      res.status(201).json(result);
+    } catch (error) {
+      console.error("Create media error:", error);
+      res.status(400).json({ error: "Failed to create media item" });
+    }
+  });
+
+  app.delete("/api/media/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await storage.deleteMediaItem(id);
+      if (!success) {
+        return res.status(404).json({ error: "Media item not found" });
+      }
+      res.json({ message: "Media item deleted successfully" });
+    } catch (error) {
+      console.error("Delete media error:", error);
+      res.status(500).json({ error: "Failed to delete media item" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

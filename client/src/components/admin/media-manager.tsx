@@ -1,50 +1,94 @@
 import { useState, useRef } from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Upload, Image, Trash2, Search, Grid, List } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import type { MediaItem } from "@shared/schema";
 
-interface MediaItem {
-  id: number;
-  url: string;
-  name: string;
-  size: string;
-  uploadedAt: string;
-  type: 'image' | 'document';
+function formatFileSize(bytes: number): string {
+  if (bytes === 0) return '0 B';
+  const k = 1024;
+  const sizes = ['B', 'KB', 'MB', 'GB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffTime = Math.abs(now.getTime() - date.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
+  if (diffDays === 1) return '1 day ago';
+  if (diffDays < 7) return `${diffDays} days ago`;
+  if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+  return `${Math.floor(diffDays / 30)} months ago`;
 }
 
 export default function MediaManager() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchTerm, setSearchTerm] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
 
-  // Sample media items from your existing content
-  const [mediaItems] = useState<MediaItem[]>([
-    {
-      id: 1,
-      url: "https://images.unsplash.com/photo-1510759591315-6425cba413fe",
-      name: "cairo-pyramids.jpg",
-      size: "2.3 MB",
-      uploadedAt: "2 days ago",
-      type: 'image'
+  // Fetch media items from database
+  const { data: mediaItems = [], isLoading } = useQuery({
+    queryKey: ['/api/media'],
+    queryFn: () => fetch('/api/media').then(res => res.json()) as Promise<MediaItem[]>
+  });
+
+  // Upload mutation
+  const uploadMutation = useMutation({
+    mutationFn: async (mediaItem: any) => {
+      const response = await fetch('/api/media', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(mediaItem)
+      });
+      if (!response.ok) throw new Error('Upload failed');
+      return response.json();
     },
-    {
-      id: 2,
-      url: "https://images.unsplash.com/photo-1575550959106-5a7defe28b56",
-      name: "luxor-temple.jpg", 
-      size: "1.8 MB",
-      uploadedAt: "3 days ago",
-      type: 'image'
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/media'] });
+      toast({
+        title: "Success",
+        description: "Media uploaded successfully!",
+      });
     },
-    {
-      id: 3,
-      url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5",
-      name: "red-sea-coast.jpg",
-      size: "2.1 MB", 
-      uploadedAt: "1 week ago",
-      type: 'image'
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to upload media",
+        variant: "destructive",
+      });
     }
-  ]);
+  });
+
+  // Delete mutation
+  const deleteMutation = useMutation({
+    mutationFn: async (id: number) => {
+      const response = await fetch(`/api/media/${id}`, { method: 'DELETE' });
+      if (!response.ok) throw new Error('Delete failed');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/media'] });
+      toast({
+        title: "Success",
+        description: "Media deleted successfully!",
+      });
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to delete media",
+        variant: "destructive",
+      });
+    }
+  });
 
   const filteredItems = mediaItems.filter(item =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -54,17 +98,55 @@ export default function MediaManager() {
     fileInputRef.current?.click();
   };
 
-  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
-    if (files) {
-      // Handle file upload logic here
-      console.log('Files selected:', files);
+    if (!files || files.length === 0) return;
+
+    for (const file of Array.from(files)) {
+      if (file.size > 5 * 1024 * 1024) { // 5MB limit
+        toast({
+          title: "Error",
+          description: `File ${file.name} is too large. Maximum size is 5MB.`,
+          variant: "destructive",
+        });
+        continue;
+      }
+
+      try {
+        // Convert file to base64 for storage
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+          const base64 = e.target?.result as string;
+          
+          const mediaItem = {
+            url: base64,
+            name: file.name,
+            size: file.size,
+            type: file.type,
+          };
+
+          await uploadMutation.mutateAsync(mediaItem);
+        };
+        reader.readAsDataURL(file);
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: `Failed to upload ${file.name}`,
+          variant: "destructive",
+        });
+      }
+    }
+
+    // Reset file input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
     }
   };
 
-  const handleDelete = (id: number) => {
-    // Handle deletion logic here
-    console.log('Delete media item:', id);
+  const handleDelete = async (id: number) => {
+    if (window.confirm('Are you sure you want to delete this media item?')) {
+      await deleteMutation.mutateAsync(id);
+    }
   };
 
   return (
@@ -140,7 +222,7 @@ export default function MediaManager() {
                   {/* Info */}
                   <div className="p-3">
                     <p className="font-medium text-sm truncate">{item.name}</p>
-                    <p className="text-xs text-gray-500">{item.size} • {item.uploadedAt}</p>
+                    <p className="text-xs text-gray-500">{formatFileSize(item.size)} • {formatDate(item.uploadedAt)}</p>
                   </div>
                 </div>
               ))}
@@ -157,7 +239,7 @@ export default function MediaManager() {
                     />
                     <div>
                       <p className="font-medium">{item.name}</p>
-                      <p className="text-sm text-gray-500">{item.size} • {item.uploadedAt}</p>
+                      <p className="text-sm text-gray-500">{formatFileSize(item.size)} • {formatDate(item.uploadedAt)}</p>
                     </div>
                   </div>
                   

@@ -519,6 +519,25 @@ export class DbStorage implements IStorage {
   async getNewsletterSubscriptions(): Promise<NewsletterSubscription[]> {
     return await db.select().from(newsletterSubscriptions);
   }
+
+  async getMediaItems(): Promise<MediaItem[]> {
+    return await db.select().from(mediaItems);
+  }
+
+  async getMediaItem(id: number): Promise<MediaItem | undefined> {
+    const result = await db.select().from(mediaItems).where(eq(mediaItems.id, id));
+    return result[0];
+  }
+
+  async createMediaItem(mediaItem: InsertMediaItem): Promise<MediaItem> {
+    const result = await db.insert(mediaItems).values(mediaItem).returning();
+    return result[0];
+  }
+
+  async deleteMediaItem(id: number): Promise<boolean> {
+    const result = await db.delete(mediaItems).where(eq(mediaItems.id, id));
+    return result.rowCount > 0;
+  }
 }
 
 export const storage = new DbStorage();
