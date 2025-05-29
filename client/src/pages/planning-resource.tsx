@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield } from "lucide-react";
 import { Link } from "wouter";
 
 const planningData = {
@@ -136,6 +136,231 @@ const planningData = {
         "Carry sufficient USD cash for visa on arrival",
         "Download offline maps before arrival",
         "Register with your embassy if staying long-term"
+      ]
+    }
+  },
+  "packing-guide": {
+    title: "Egypt Packing Guide",
+    description: "Essential items and smart packing tips for your Egyptian adventure",
+    category: "Practical",
+    lastUpdated: "Updated January 2025",
+    content: {
+      overview: "Packing for Egypt requires balancing comfort, cultural respect, and practicality. The desert climate, religious sites, and cultural norms all influence what you should bring for an optimal travel experience.",
+      essentialCategories: [
+        {
+          category: "Clothing",
+          icon: "👕",
+          description: "Dress modestly while staying comfortable in the heat",
+          items: [
+            {
+              item: "Lightweight, long-sleeved shirts",
+              purpose: "Sun protection and mosque visits",
+              quantity: "3-4 pieces",
+              priority: "Essential"
+            },
+            {
+              item: "Loose-fitting pants/trousers",
+              purpose: "Cultural respect and comfort",
+              quantity: "2-3 pairs",
+              priority: "Essential"
+            },
+            {
+              item: "Modest knee-length shorts",
+              purpose: "Hotel/resort areas only",
+              quantity: "1-2 pairs",
+              priority: "Optional"
+            },
+            {
+              item: "Light cardigan or jacket",
+              purpose: "Air conditioning and desert evenings",
+              quantity: "1 piece",
+              priority: "Recommended"
+            },
+            {
+              item: "Scarf or shawl",
+              purpose: "Mosque visits and sun protection",
+              quantity: "1-2 pieces",
+              priority: "Essential"
+            }
+          ]
+        },
+        {
+          category: "Footwear",
+          icon: "👟",
+          description: "Comfortable walking shoes for various terrains",
+          items: [
+            {
+              item: "Comfortable walking shoes",
+              purpose: "Sightseeing and uneven surfaces",
+              quantity: "1 pair",
+              priority: "Essential"
+            },
+            {
+              item: "Sandals (closed-toe preferred)",
+              purpose: "Hot weather and easy mosque entry",
+              quantity: "1 pair",
+              priority: "Recommended"
+            },
+            {
+              item: "Flip-flops",
+              purpose: "Hotel/beach use",
+              quantity: "1 pair",
+              priority: "Optional"
+            }
+          ]
+        },
+        {
+          category: "Sun Protection",
+          icon: "☀️",
+          description: "Protect yourself from intense desert sun",
+          items: [
+            {
+              item: "High SPF sunscreen (30+)",
+              purpose: "Prevent severe sunburn",
+              quantity: "Large bottle",
+              priority: "Essential"
+            },
+            {
+              item: "Wide-brimmed hat",
+              purpose: "Face and neck protection",
+              quantity: "1 piece",
+              priority: "Essential"
+            },
+            {
+              item: "Polarized sunglasses",
+              purpose: "Eye protection from glare",
+              quantity: "1 pair + backup",
+              priority: "Essential"
+            },
+            {
+              item: "Lip balm with SPF",
+              purpose: "Prevent chapped lips",
+              quantity: "1-2 tubes",
+              priority: "Recommended"
+            }
+          ]
+        },
+        {
+          category: "Health & Hygiene",
+          icon: "🏥",
+          description: "Stay healthy and comfortable during travel",
+          items: [
+            {
+              item: "Hand sanitizer",
+              purpose: "Hygiene at tourist sites",
+              quantity: "Travel-size bottles",
+              priority: "Essential"
+            },
+            {
+              item: "Wet wipes",
+              purpose: "Quick cleaning without water",
+              quantity: "Multiple packs",
+              priority: "Recommended"
+            },
+            {
+              item: "Basic first aid kit",
+              purpose: "Minor cuts and stomach issues",
+              quantity: "Small kit",
+              priority: "Recommended"
+            },
+            {
+              item: "Prescription medications",
+              purpose: "Personal health needs",
+              quantity: "Full trip supply + extra",
+              priority: "Essential"
+            },
+            {
+              item: "Probiotics",
+              purpose: "Digestive health adjustment",
+              quantity: "2-week supply",
+              priority: "Optional"
+            }
+          ]
+        },
+        {
+          category: "Electronics & Documentation",
+          icon: "📱",
+          description: "Stay connected and organized",
+          items: [
+            {
+              item: "Universal power adapter",
+              purpose: "Charge devices (Type C/F plugs)",
+              quantity: "1-2 adapters",
+              priority: "Essential"
+            },
+            {
+              item: "Portable power bank",
+              purpose: "Long sightseeing days",
+              quantity: "High capacity",
+              priority: "Recommended"
+            },
+            {
+              item: "Waterproof phone case",
+              purpose: "Sand and water protection",
+              quantity: "1 case",
+              priority: "Recommended"
+            },
+            {
+              item: "Passport photocopies",
+              purpose: "Backup identification",
+              quantity: "3-4 copies",
+              priority: "Essential"
+            },
+            {
+              item: "Travel insurance documents",
+              purpose: "Emergency medical coverage",
+              quantity: "Physical + digital copies",
+              priority: "Essential"
+            }
+          ]
+        }
+      ],
+      seasonalTips: [
+        {
+          season: "Winter (Dec-Feb)",
+          temperature: "Cool evenings, warm days",
+          additions: ["Light jacket", "Long pants for evenings", "Closed shoes"],
+          considerations: "Pack layers for temperature variations"
+        },
+        {
+          season: "Spring/Fall (Mar-May, Sep-Nov)",
+          temperature: "Perfect weather",
+          additions: ["Light layers", "Comfortable walking gear"],
+          considerations: "Ideal packing season - focus on comfort"
+        },
+        {
+          season: "Summer (Jun-Aug)",
+          temperature: "Extremely hot",
+          additions: ["Extra sun protection", "Cooling towels", "Electrolyte supplements"],
+          considerations: "Minimize outdoor gear, maximize sun protection"
+        }
+      ],
+      culturalGuidelines: [
+        {
+          rule: "Mosque Visits",
+          requirements: "Cover arms, legs, and hair (women). Remove shoes.",
+          packingTip: "Bring a large scarf and wear slip-on shoes"
+        },
+        {
+          rule: "Conservative Dress",
+          requirements: "Modest clothing in public areas outside resorts.",
+          packingTip: "Pack loose, long clothing even in summer"
+        },
+        {
+          rule: "Religious Sites",
+          requirements: "Respectful attire required at all historical sites.",
+          packingTip: "Keep shoulders and knees covered"
+        }
+      ],
+      expertTips: [
+        "Pack light-colored clothing to reflect heat",
+        "Bring more underwear and socks than you think you need",
+        "Pack a small day bag for excursions",
+        "Leave valuable jewelry at home",
+        "Bring a reusable water bottle with filter",
+        "Pack baby powder to prevent chafing from sand",
+        "Bring ziplock bags to protect electronics from sand",
+        "Pack comfortable sleepwear for hot nights"
       ]
     }
   }
@@ -508,6 +733,177 @@ export default function PlanningResource() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Expert Tips</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {resource.content.tips.map((tip, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
+                    <CheckCircle2 className="h-5 w-5 text-teal-oasis mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{tip}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "packing-guide") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Packing Guide</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Essential Categories */}
+          <div className="space-y-8 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Package className="h-8 w-8 text-teal-oasis mr-3" />
+              Essential Items by Category
+            </h2>
+            
+            {resource.content.essentialCategories.map((category, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-6">
+                    <div className="text-3xl mr-4">{category.icon}</div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900">{category.category}</h3>
+                      <p className="text-gray-600">{category.description}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {category.items.map((item, i) => (
+                      <div key={i} className={`p-4 rounded-lg border-l-4 ${
+                        item.priority === 'Essential' ? 'border-red-500 bg-red-50' :
+                        item.priority === 'Recommended' ? 'border-yellow-500 bg-yellow-50' :
+                        'border-green-500 bg-green-50'
+                      }`}>
+                        <div className="flex items-start justify-between mb-2">
+                          <h4 className="font-semibold text-gray-900 text-sm">{item.item}</h4>
+                          <Badge 
+                            variant="outline" 
+                            className={`text-xs ${
+                              item.priority === 'Essential' ? 'border-red-500 text-red-700' :
+                              item.priority === 'Recommended' ? 'border-yellow-500 text-yellow-700' :
+                              'border-green-500 text-green-700'
+                            }`}
+                          >
+                            {item.priority}
+                          </Badge>
+                        </div>
+                        <p className="text-xs text-gray-600 mb-2">{item.purpose}</p>
+                        <p className="text-xs font-medium text-teal-oasis">{item.quantity}</p>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Seasonal Packing Tips */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Thermometer className="h-6 w-6 text-teal-oasis mr-3" />
+                Seasonal Packing Tips
+              </h3>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                {resource.content.seasonalTips.map((season, index) => (
+                  <div key={index} className="bg-teal-oasis/5 rounded-lg p-4">
+                    <h4 className="font-bold text-gray-900 mb-2">{season.season}</h4>
+                    <p className="text-sm text-teal-oasis font-medium mb-3">{season.temperature}</p>
+                    
+                    <div className="mb-3">
+                      <p className="text-xs font-semibold text-gray-700 mb-1">Additional Items:</p>
+                      <ul className="text-xs text-gray-600">
+                        {season.additions.map((addition, i) => (
+                          <li key={i} className="flex items-center">
+                            <CheckCircle2 className="h-3 w-3 text-green-500 mr-1" />
+                            {addition}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <p className="text-xs text-gray-600 italic">{season.considerations}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Cultural Guidelines */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Shield className="h-6 w-6 text-teal-oasis mr-3" />
+                Cultural Dress Guidelines
+              </h3>
+              
+              <div className="space-y-4">
+                {resource.content.culturalGuidelines.map((guideline, index) => (
+                  <div key={index} className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-gray-900 mb-1">{guideline.rule}</h4>
+                        <p className="text-sm text-gray-600 mb-2">{guideline.requirements}</p>
+                        <p className="text-sm font-medium text-orange-700">
+                          💡 {guideline.packingTip}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Expert Packing Tips */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Expert Packing Tips</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.expertTips.map((tip, index) => (
                   <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
                     <CheckCircle2 className="h-5 w-5 text-teal-oasis mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-gray-700">{tip}</p>
