@@ -278,6 +278,116 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Itinerary Builder Routes
+  app.get("/api/tours/:tourId/itinerary", async (req, res) => {
+    try {
+      const tourId = parseInt(req.params.tourId);
+      const days = await storage.getItineraryDays(tourId);
+      res.json(days);
+    } catch (error: any) {
+      console.error("Error fetching itinerary:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/tours/:tourId/itinerary", async (req, res) => {
+    try {
+      const tourId = parseInt(req.params.tourId);
+      const dayData = { ...req.body, tourId };
+      const newDay = await storage.createItineraryDay(dayData);
+      res.json(newDay);
+    } catch (error: any) {
+      console.error("Error creating itinerary day:", error);
+      res.status(400).json({ error: error.message });
+    }
+  });
+
+  app.put("/api/itinerary/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const updatedDay = await storage.updateItineraryDay(id, req.body);
+      if (updatedDay) {
+        res.json(updatedDay);
+      } else {
+        res.status(404).json({ error: "Itinerary day not found" });
+      }
+    } catch (error: any) {
+      console.error("Error updating itinerary day:", error);
+      res.status(400).json({ error: error.message });
+    }
+  });
+
+  app.delete("/api/itinerary/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const deleted = await storage.deleteItineraryDay(id);
+      if (deleted) {
+        res.json({ success: true });
+      } else {
+        res.status(404).json({ error: "Itinerary day not found" });
+      }
+    } catch (error: any) {
+      console.error("Error deleting itinerary day:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Accommodation Options Routes
+  app.get("/api/tours/:tourId/accommodations", async (req, res) => {
+    try {
+      const tourId = parseInt(req.params.tourId);
+      const options = await storage.getAccommodationOptions(tourId);
+      res.json(options);
+    } catch (error: any) {
+      console.error("Error fetching accommodation options:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/tours/:tourId/accommodations", async (req, res) => {
+    try {
+      const tourId = parseInt(req.params.tourId);
+      const optionData = { ...req.body, tourId };
+      const newOption = await storage.createAccommodationOption(optionData);
+      res.json(newOption);
+    } catch (error: any) {
+      console.error("Error creating accommodation option:", error);
+      res.status(400).json({ error: error.message });
+    }
+  });
+
+  // FAQ Routes
+  app.get("/api/tours/:tourId/faqs", async (req, res) => {
+    try {
+      const tourId = parseInt(req.params.tourId);
+      const faqs = await storage.getFaqItems(tourId);
+      res.json(faqs);
+    } catch (error: any) {
+      console.error("Error fetching FAQs:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/faqs", async (req, res) => {
+    try {
+      const faqs = await storage.getFaqItems();
+      res.json(faqs);
+    } catch (error: any) {
+      console.error("Error fetching general FAQs:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/faqs", async (req, res) => {
+    try {
+      const newFaq = await storage.createFaqItem(req.body);
+      res.json(newFaq);
+    } catch (error: any) {
+      console.error("Error creating FAQ:", error);
+      res.status(400).json({ error: error.message });
+    }
+  });
+
   // Chatbot endpoint
   app.post("/api/chatbot", async (req, res) => {
     try {

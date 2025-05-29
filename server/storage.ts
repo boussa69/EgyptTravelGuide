@@ -5,6 +5,9 @@ import {
   planningResources, 
   newsletterSubscriptions,
   mediaItems,
+  itineraryDays,
+  accommodationOptions,
+  faqItems,
   type Destination, 
   type InsertDestination,
   type Tour,
@@ -16,7 +19,13 @@ import {
   type NewsletterSubscription,
   type InsertNewsletterSubscription,
   type MediaItem,
-  type InsertMediaItem
+  type InsertMediaItem,
+  type ItineraryDay,
+  type InsertItineraryDay,
+  type AccommodationOption,
+  type InsertAccommodationOption,
+  type FaqItem,
+  type InsertFaqItem
 } from "@shared/schema";
 import { drizzle } from 'drizzle-orm/neon-http';
 import { neon } from '@neondatabase/serverless';
@@ -555,6 +564,141 @@ export class DbStorage implements IStorage {
   async deleteMediaItem(id: number): Promise<boolean> {
     const result = await db.delete(mediaItems).where(eq(mediaItems.id, id));
     return result.rowCount > 0;
+  }
+
+  // Itinerary Builder Methods
+  async getItineraryDays(tourId: number): Promise<ItineraryDay[]> {
+    try {
+      return await db
+        .select()
+        .from(itineraryDays)
+        .where(eq(itineraryDays.tourId, tourId))
+        .orderBy(itineraryDays.dayNumber);
+    } catch (error) {
+      console.error("Error fetching itinerary days:", error);
+      return [];
+    }
+  }
+
+  async createItineraryDay(day: InsertItineraryDay): Promise<ItineraryDay> {
+    const [newDay] = await db.insert(itineraryDays).values(day).returning();
+    return newDay;
+  }
+
+  async updateItineraryDay(id: number, day: InsertItineraryDay): Promise<ItineraryDay | undefined> {
+    try {
+      const [updatedDay] = await db
+        .update(itineraryDays)
+        .set({ ...day, updatedAt: new Date() })
+        .where(eq(itineraryDays.id, id))
+        .returning();
+      return updatedDay;
+    } catch (error) {
+      console.error("Error updating itinerary day:", error);
+      return undefined;
+    }
+  }
+
+  async deleteItineraryDay(id: number): Promise<boolean> {
+    try {
+      const result = await db.delete(itineraryDays).where(eq(itineraryDays.id, id));
+      return result.rowCount > 0;
+    } catch (error) {
+      console.error("Error deleting itinerary day:", error);
+      return false;
+    }
+  }
+
+  // Accommodation Options Methods
+  async getAccommodationOptions(tourId: number): Promise<AccommodationOption[]> {
+    try {
+      return await db
+        .select()
+        .from(accommodationOptions)
+        .where(eq(accommodationOptions.tourId, tourId));
+    } catch (error) {
+      console.error("Error fetching accommodation options:", error);
+      return [];
+    }
+  }
+
+  async createAccommodationOption(option: InsertAccommodationOption): Promise<AccommodationOption> {
+    const [newOption] = await db.insert(accommodationOptions).values(option).returning();
+    return newOption;
+  }
+
+  async updateAccommodationOption(id: number, option: InsertAccommodationOption): Promise<AccommodationOption | undefined> {
+    try {
+      const [updatedOption] = await db
+        .update(accommodationOptions)
+        .set(option)
+        .where(eq(accommodationOptions.id, id))
+        .returning();
+      return updatedOption;
+    } catch (error) {
+      console.error("Error updating accommodation option:", error);
+      return undefined;
+    }
+  }
+
+  async deleteAccommodationOption(id: number): Promise<boolean> {
+    try {
+      const result = await db.delete(accommodationOptions).where(eq(accommodationOptions.id, id));
+      return result.rowCount > 0;
+    } catch (error) {
+      console.error("Error deleting accommodation option:", error);
+      return false;
+    }
+  }
+
+  // FAQ Items Methods
+  async getFaqItems(tourId?: number): Promise<FaqItem[]> {
+    try {
+      if (tourId) {
+        return await db
+          .select()
+          .from(faqItems)
+          .where(eq(faqItems.tourId, tourId))
+          .orderBy(faqItems.orderIndex);
+      } else {
+        return await db
+          .select()
+          .from(faqItems)
+          .orderBy(faqItems.orderIndex);
+      }
+    } catch (error) {
+      console.error("Error fetching FAQ items:", error);
+      return [];
+    }
+  }
+
+  async createFaqItem(faq: InsertFaqItem): Promise<FaqItem> {
+    const [newFaq] = await db.insert(faqItems).values(faq).returning();
+    return newFaq;
+  }
+
+  async updateFaqItem(id: number, faq: InsertFaqItem): Promise<FaqItem | undefined> {
+    try {
+      const [updatedFaq] = await db
+        .update(faqItems)
+        .set(faq)
+        .where(eq(faqItems.id, id))
+        .returning();
+      return updatedFaq;
+    } catch (error) {
+      console.error("Error updating FAQ item:", error);
+      return undefined;
+    }
+  }
+
+  async deleteFaqItem(id: number): Promise<boolean> {
+    try {
+      const result = await db.delete(faqItems).where(eq(faqItems.id, id));
+      return result.rowCount > 0;
+    } catch (error) {
+      console.error("Error deleting FAQ item:", error);
+      return false;
+    }
   }
 }
 
