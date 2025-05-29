@@ -48,6 +48,97 @@ export default function Admin() {
     setIsCreating(false);
   };
 
+  const renderItineraryBuilder = () => {
+    return (
+      <div className="space-y-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-2xl font-bold">Itinerary Builder</h2>
+          <Button onClick={() => setActiveTab("itinerary-tour-selector")}>
+            <Plus className="w-4 h-4 mr-2" />
+            Build New Itinerary
+          </Button>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+          {tours.map((tour: Tour) => (
+            <Card key={tour.id} className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg">{tour.name}</CardTitle>
+                <p className="text-sm text-gray-600">{tour.category}</p>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => handleManageItinerary(tour.id, tour.name)}
+                  >
+                    <Edit className="w-4 h-4 mr-2" />
+                    Manage Itinerary
+                  </Button>
+                  
+                  <div className="flex gap-2">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => handleViewItinerary(tour.slug)}
+                    >
+                      <Eye className="w-4 h-4 mr-1" />
+                      Preview
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => handleCreateSampleData(tour.id)}
+                    >
+                      <Plus className="w-4 h-4 mr-1" />
+                      Sample Data
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  const handleManageItinerary = (tourId: number, tourName: string) => {
+    setEditingItem({ tourId, tourName, type: 'itinerary' });
+    setActiveTab("itinerary-manager");
+  };
+
+  const handleViewItinerary = (slug: string) => {
+    window.open(`/tours/${slug}`, '_blank');
+  };
+
+  const handleCreateSampleData = async (tourId: number) => {
+    try {
+      const response = await fetch(`/api/tours/${tourId}/create-sample-itinerary`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      
+      if (response.ok) {
+        toast({
+          title: "Success",
+          description: "Sample itinerary data created successfully",
+        });
+      } else {
+        throw new Error('Failed to create sample data');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to create sample data",
+        variant: "destructive",
+      });
+    }
+  };
+
   const handleCreate = () => {
     const newItem = getEmptyItem(activeTab);
     setEditingItem(newItem);
@@ -542,17 +633,18 @@ export default function Admin() {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-6">
+          <TabsList className="grid w-full grid-cols-7">
             <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
             <TabsTrigger value="destinations">Destinations</TabsTrigger>
             <TabsTrigger value="tours">Tours</TabsTrigger>
+            <TabsTrigger value="itineraries">Itineraries</TabsTrigger>
             <TabsTrigger value="media">Media</TabsTrigger>
             <TabsTrigger value="workflow">Workflow</TabsTrigger>
             <TabsTrigger value="travel-tips">Tips & Resources</TabsTrigger>
           </TabsList>
 
           <div className="mt-6">
-            {!editingItem && activeTab !== "dashboard" && activeTab !== "workflow" && activeTab !== "media" ? (
+            {!editingItem && activeTab !== "dashboard" && activeTab !== "workflow" && activeTab !== "media" && activeTab !== "itineraries" ? (
               <div className="mb-6">
                 <Button onClick={handleCreate} className="bg-teal-600 hover:bg-teal-700">
                   <Plus className="h-4 w-4 mr-2" />
@@ -671,6 +763,10 @@ export default function Admin() {
                   </Card>
                 ))}
               </div>
+            </TabsContent>
+
+            <TabsContent value="itineraries">
+              {renderItineraryBuilder()}
             </TabsContent>
 
             <TabsContent value="media">
