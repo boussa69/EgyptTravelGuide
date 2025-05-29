@@ -87,6 +87,16 @@ export const newsletterSubscriptions = pgTable("newsletter_subscriptions", {
   subscribedAt: timestamp("subscribed_at").defaultNow(),
 });
 
+// Media items table
+export const mediaItems = pgTable("media_items", {
+  id: serial("id").primaryKey(),
+  url: text("url").notNull(),
+  name: text("name").notNull(),
+  size: integer("size").notNull(), // Size in bytes
+  type: text("type").notNull(), // image/jpeg, image/png, etc.
+  uploadedAt: timestamp("uploaded_at").defaultNow(),
+});
+
 // Create insert schemas
 export const insertDestinationSchema = createInsertSchema(destinations).omit({
   id: true,
@@ -117,6 +127,11 @@ export const insertNewsletterSubscriptionSchema = createInsertSchema(newsletterS
   subscribedAt: true,
 });
 
+export const insertMediaItemSchema = createInsertSchema(mediaItems).omit({
+  id: true,
+  uploadedAt: true,
+});
+
 // Types
 export type Destination = typeof destinations.$inferSelect;
 export type InsertDestination = z.infer<typeof insertDestinationSchema>;
@@ -132,3 +147,6 @@ export type InsertPlanningResource = z.infer<typeof insertPlanningResourceSchema
 
 export type NewsletterSubscription = typeof newsletterSubscriptions.$inferSelect;
 export type InsertNewsletterSubscription = z.infer<typeof insertNewsletterSubscriptionSchema>;
+
+export type MediaItem = typeof mediaItems.$inferSelect;
+export type InsertMediaItem = z.infer<typeof insertMediaItemSchema>;

@@ -123,12 +123,15 @@ export default function Admin() {
     if (!editingItem) return;
 
     try {
-      // Generate slug from name/title if empty
-      if (!editingItem.slug) {
-        editingItem.slug = (editingItem.name || editingItem.title)
+      // Generate unique slug from name/title
+      if (!editingItem.slug || editingItem.slug === '') {
+        const baseSlug = (editingItem.name || editingItem.title)
           .toLowerCase()
           .replace(/[^a-z0-9]+/g, '-')
           .replace(/(^-|-$)/g, '');
+        
+        // Add timestamp to ensure uniqueness
+        editingItem.slug = `${baseSlug}-${Date.now()}`;
       }
 
       if (isCreating) {

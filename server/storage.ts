@@ -4,6 +4,7 @@ import {
   travelTips, 
   planningResources, 
   newsletterSubscriptions,
+  mediaItems,
   type Destination, 
   type InsertDestination,
   type Tour,
@@ -13,7 +14,9 @@ import {
   type PlanningResource,
   type InsertPlanningResource,
   type NewsletterSubscription,
-  type InsertNewsletterSubscription
+  type InsertNewsletterSubscription,
+  type MediaItem,
+  type InsertMediaItem
 } from "@shared/schema";
 import { drizzle } from 'drizzle-orm/neon-http';
 import { neon } from '@neondatabase/serverless';
@@ -56,6 +59,12 @@ export interface IStorage {
   // Newsletter
   subscribeToNewsletter(subscription: InsertNewsletterSubscription): Promise<NewsletterSubscription>;
   getNewsletterSubscriptions(): Promise<NewsletterSubscription[]>;
+  
+  // Media
+  getMediaItems(): Promise<MediaItem[]>;
+  getMediaItem(id: number): Promise<MediaItem | undefined>;
+  createMediaItem(mediaItem: InsertMediaItem): Promise<MediaItem>;
+  deleteMediaItem(id: number): Promise<boolean>;
 }
 
 export class DbStorage implements IStorage {
