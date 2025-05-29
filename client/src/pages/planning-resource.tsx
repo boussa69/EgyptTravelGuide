@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch } from "lucide-react";
 import { Link } from "wouter";
 
 const planningData = {
@@ -652,6 +652,149 @@ const planningData = {
           description: "Card payments may include service charges",
           solution: "Compare total costs including fees before choosing payment method"
         }
+      ]
+    }
+  },
+  "safety-insurance": {
+    title: "Safety & Insurance Guide",
+    description: "Stay safe and protected during your Egyptian adventure",
+    category: "Practical", 
+    lastUpdated: "Updated January 2025",
+    content: {
+      overview: "Egypt is generally safe for tourists, but like any international destination, proper preparation and awareness are essential. Understanding local safety conditions, having appropriate insurance coverage, and knowing emergency procedures will ensure a worry-free journey through this incredible country.",
+      safetyOverview: {
+        generalSafety: "Egypt has a strong tourism police presence and prioritizes visitor safety. Tourist areas are well-monitored, and violent crime against tourists is rare.",
+        currentLevel: "Exercise normal precautions with heightened awareness in certain areas",
+        lastUpdated: "January 2025"
+      },
+      travelInsurance: {
+        essential: true,
+        coverage: [
+          {
+            type: "Medical Coverage",
+            minAmount: "$100,000",
+            importance: "Essential",
+            details: ["Emergency medical treatment", "Hospitalization costs", "Medical evacuation if needed", "Prescription medications"]
+          },
+          {
+            type: "Trip Cancellation",
+            minAmount: "Trip cost value",
+            importance: "Highly Recommended", 
+            details: ["Flight cancellations", "Hotel booking issues", "Family emergencies", "Illness before travel"]
+          },
+          {
+            type: "Personal Property",
+            minAmount: "$2,000-5,000",
+            importance: "Recommended",
+            details: ["Lost luggage compensation", "Stolen electronics", "Travel document replacement", "Personal belongings coverage"]
+          },
+          {
+            type: "Adventure Activities",
+            minAmount: "Varies",
+            importance: "If Applicable",
+            details: ["Desert safari coverage", "Diving/snorkeling", "Hot air balloon rides", "Camel trekking"]
+          }
+        ]
+      },
+      healthSafety: [
+        {
+          category: "Vaccinations",
+          required: ["No mandatory vaccinations for most countries"],
+          recommended: ["Hepatitis A", "Hepatitis B", "Typhoid", "Tetanus/Diphtheria", "Polio (if traveling from endemic areas)"],
+          notes: "Consult your doctor 4-6 weeks before travel"
+        },
+        {
+          category: "Health Precautions",
+          required: ["Travel insurance with medical coverage"],
+          recommended: ["Hand sanitizer", "Basic first aid kit", "Prescription medications", "Probiotics for digestive health"],
+          notes: "Drink bottled water and eat at reputable establishments"
+        },
+        {
+          category: "Medical Facilities",
+          required: ["Know location of nearest hospital"],
+          recommended: ["Private hospitals in tourist areas", "24/7 pharmacies", "Tourist police contact", "Embassy contact information"],
+          notes: "Major cities have excellent private medical facilities"
+        }
+      ],
+      personalSafety: [
+        {
+          situation: "General Security",
+          precautions: ["Stay in tourist areas especially at night", "Use licensed tour operators", "Keep copies of important documents", "Register with your embassy"],
+          risks: ["Petty theft in crowded areas", "Overcharging by vendors", "Unlicensed tour operators"],
+          tips: ["Travel in groups when possible", "Use hotel safes for valuables", "Keep emergency cash separate"]
+        },
+        {
+          situation: "Transportation Safety",
+          precautions: ["Use reputable transport companies", "Avoid overcrowded vehicles", "Wear seatbelts when available", "Check vehicle condition before desert trips"],
+          risks: ["Traffic accidents", "Unreliable vehicles", "Getting lost in desert areas"],
+          tips: ["Book transport through hotels", "Use GPS navigation", "Inform others of travel plans"]
+        },
+        {
+          situation: "Tourist Scams",
+          precautions: ["Research common scams beforehand", "Agree on prices before services", "Use official tour operators", "Be cautious of overly friendly strangers"],
+          risks: ["Overcharging", "Fake tour guides", "Jewelry/papyrus scams", "False emergency scenarios"],
+          tips: ["Walk away from high-pressure sales", "Get recommendations from hotels", "Trust your instincts"]
+        }
+      ],
+      emergencyInfo: [
+        {
+          service: "Police",
+          number: "122",
+          notes: "Tourist Police available in major destinations"
+        },
+        {
+          service: "Ambulance", 
+          number: "123",
+          notes: "Private ambulance services also available"
+        },
+        {
+          service: "Fire Department",
+          number: "180",
+          notes: "Emergency services in Arabic and some English"
+        },
+        {
+          service: "Tourist Hotline",
+          number: "126",
+          notes: "24/7 assistance for tourists in multiple languages"
+        }
+      ],
+      areaSpecificTips: [
+        {
+          area: "Cairo",
+          safetyLevel: "Moderate",
+          tips: ["Avoid demonstrations and large crowds", "Use ride-hailing apps instead of street taxis", "Stay alert in Khan el-Khalili bazaar", "Keep valuables secure in crowded areas"],
+          avoidAreas: ["Some outer suburbs at night", "Unlit areas after dark"]
+        },
+        {
+          area: "Luxor/Aswan",
+          safetyLevel: "Good",
+          tips: ["Hot weather precautions essential", "Stay hydrated during site visits", "Use licensed Nile cruise operators", "Respect photography restrictions"],
+          avoidAreas: ["Remote desert areas without guides"]
+        },
+        {
+          area: "Red Sea Coast",
+          safetyLevel: "Very Good", 
+          tips: ["Follow diving safety protocols", "Use reef-safe sunscreen", "Stay within resort security areas", "Be cautious of strong currents"],
+          avoidAreas: ["Remote beaches without lifeguards"]
+        },
+        {
+          area: "Western Desert",
+          safetyLevel: "Requires Caution",
+          tips: ["Always travel with experienced guides", "Carry emergency communication devices", "Inform authorities of travel plans", "Bring extra water and supplies"],
+          avoidAreas: ["Border areas", "Unguided desert excursions"]
+        }
+      ],
+      travelTips: [
+        "Register with your embassy upon arrival",
+        "Keep emergency contacts easily accessible", 
+        "Carry travel insurance documents at all times",
+        "Learn basic Arabic phrases for emergencies",
+        "Download offline maps before traveling",
+        "Keep local emergency numbers in your phone",
+        "Inform family of your daily itinerary",
+        "Carry a whistle for emergency situations",
+        "Know the location of your country's embassy",
+        "Keep a charged power bank for communication"
       ]
     }
   }
@@ -1677,6 +1820,329 @@ export default function PlanningResource() {
                         </p>
                       </div>
                     </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "safety-insurance") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Safety & Insurance</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Safety Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Shield className="h-6 w-6 text-green-600 mr-3" />
+                Current Safety Status
+              </h3>
+              
+              <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg mb-4">
+                <h4 className="font-semibold text-green-900 mb-2">General Safety Assessment</h4>
+                <p className="text-sm text-green-800 mb-2">{resource.content.safetyOverview.generalSafety}</p>
+                <p className="text-sm font-medium text-green-700">
+                  Current Level: {resource.content.safetyOverview.currentLevel}
+                </p>
+              </div>
+              
+              <p className="text-xs text-gray-600">Last Updated: {resource.content.safetyOverview.lastUpdated}</p>
+            </CardContent>
+          </Card>
+
+          {/* Travel Insurance */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <FileSearch className="h-6 w-6 text-teal-oasis mr-3" />
+                Travel Insurance Requirements
+              </h3>
+              
+              {resource.content.travelInsurance.essential && (
+                <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg mb-6">
+                  <h4 className="font-semibold text-red-900 mb-1 flex items-center">
+                    <AlertTriangle className="h-4 w-4 mr-2" />
+                    Travel Insurance is Essential
+                  </h4>
+                  <p className="text-sm text-red-800">
+                    Comprehensive travel insurance is strongly recommended for all visitors to Egypt.
+                  </p>
+                </div>
+              )}
+
+              <div className="grid gap-6">
+                {resource.content.travelInsurance.coverage.map((coverage, index) => (
+                  <div key={index} className="border rounded-lg p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h4 className="font-bold text-gray-900 text-lg">{coverage.type}</h4>
+                        <Badge 
+                          variant={coverage.importance === "Essential" ? "destructive" : 
+                                  coverage.importance === "Highly Recommended" ? "default" : "secondary"}
+                          className="mt-1"
+                        >
+                          {coverage.importance}
+                        </Badge>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-bold text-teal-oasis">{coverage.minAmount}</p>
+                        <p className="text-xs text-gray-600">minimum coverage</p>
+                      </div>
+                    </div>
+                    
+                    <ul className="space-y-1">
+                      {coverage.details.map((detail, i) => (
+                        <li key={i} className="flex items-start text-sm">
+                          <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                          <span className="text-gray-700">{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Health & Safety */}
+          <div className="space-y-6 mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Cross className="h-8 w-8 text-red-500 mr-3" />
+              Health & Medical Safety
+            </h2>
+            
+            {resource.content.healthSafety.map((health, index) => (
+              <Card key={index}>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{health.category}</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6 mb-4">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 text-red-700">Required</h4>
+                      <ul className="space-y-1">
+                        {health.required.map((req, i) => (
+                          <li key={i} className="flex items-start text-sm">
+                            <AlertTriangle className="h-3 w-3 text-red-500 mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">{req}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 text-green-700">Recommended</h4>
+                      <ul className="space-y-1">
+                        {health.recommended.map((rec, i) => (
+                          <li key={i} className="flex items-start text-sm">
+                            <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">{rec}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r-lg">
+                    <p className="text-sm text-blue-800">
+                      <strong>Note:</strong> {health.notes}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Personal Safety */}
+          <div className="space-y-6 mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Shield className="h-8 w-8 text-teal-oasis mr-3" />
+              Personal Safety Guidelines
+            </h2>
+            
+            {resource.content.personalSafety.map((safety, index) => (
+              <Card key={index}>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{safety.situation}</h3>
+                  
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <CheckCircle2 className="h-4 w-4 text-green-600 mr-2" />
+                        Precautions
+                      </h4>
+                      <ul className="space-y-1">
+                        {safety.precautions.map((precaution, i) => (
+                          <li key={i} className="text-sm text-gray-700">• {precaution}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <AlertTriangle className="h-4 w-4 text-orange-500 mr-2" />
+                        Common Risks
+                      </h4>
+                      <ul className="space-y-1">
+                        {safety.risks.map((risk, i) => (
+                          <li key={i} className="text-sm text-gray-700">• {risk}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Heart className="h-4 w-4 text-blue-600 mr-2" />
+                        Pro Tips
+                      </h4>
+                      <ul className="space-y-1">
+                        {safety.tips.map((tip, i) => (
+                          <li key={i} className="text-sm text-gray-700">• {tip}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Emergency Contacts */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Phone className="h-6 w-6 text-red-500 mr-3" />
+                Emergency Contact Numbers
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.emergencyInfo.map((emergency, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-red-50">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-bold text-red-900">{emergency.service}</h4>
+                      <span className="font-bold text-2xl text-red-700">{emergency.number}</span>
+                    </div>
+                    <p className="text-sm text-red-800">{emergency.notes}</p>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-4 bg-yellow-50 border-l-4 border-yellow-500 p-3 rounded-r-lg">
+                <p className="text-sm text-yellow-800">
+                  <strong>Tip:</strong> Save these numbers in your phone before traveling and keep a written copy as backup.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Area-Specific Safety */}
+          <div className="space-y-6 mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <MapPin className="h-8 w-8 text-teal-oasis mr-3" />
+              Area-Specific Safety Tips
+            </h2>
+            
+            {resource.content.areaSpecificTips.map((area, index) => (
+              <Card key={index}>
+                <CardContent className="p-6">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">{area.area}</h3>
+                    <Badge 
+                      variant={area.safetyLevel === "Very Good" ? "default" : 
+                              area.safetyLevel === "Good" ? "secondary" : 
+                              area.safetyLevel === "Moderate" ? "outline" : "destructive"}
+                    >
+                      {area.safetyLevel}
+                    </Badge>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Safety Tips</h4>
+                      <ul className="space-y-1">
+                        {area.tips.map((tip, i) => (
+                          <li key={i} className="flex items-start text-sm">
+                            <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">{tip}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Areas to Avoid</h4>
+                      <ul className="space-y-1">
+                        {area.avoidAreas.map((avoid, i) => (
+                          <li key={i} className="flex items-start text-sm">
+                            <AlertTriangle className="h-3 w-3 text-red-500 mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">{avoid}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Essential Travel Tips */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Heart className="h-6 w-6 text-teal-oasis mr-3" />
+                Essential Safety Tips
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.travelTips.map((tip, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg border-l-4 border-teal-oasis">
+                    <CheckCircle2 className="h-5 w-5 text-teal-oasis mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{tip}</p>
                   </div>
                 ))}
               </div>
