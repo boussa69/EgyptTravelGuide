@@ -12,6 +12,8 @@ import TravelPlanning from "@/pages/travel-planning";
 import PlanningResource from "@/pages/planning-resource";
 import Tours from "@/pages/tours";
 import Itinerary from "@/pages/itinerary";
+import Booking from "@/pages/booking";
+import BookingConfirmation from "@/pages/booking-confirmation";
 import CultureHistory from "@/pages/culture-history";
 import TravelTips from "@/pages/travel-tips";
 import Admin from "@/pages/admin";
@@ -30,6 +32,8 @@ function Router() {
           <Route path="/planning/:slug" component={PlanningResource} />
           <Route path="/tours" component={Tours} />
           <Route path="/tours/:slug" component={Itinerary} />
+          <Route path="/booking" component={Booking} />
+          <Route path="/booking-confirmation" component={BookingConfirmation} />
           <Route path="/culture-history" component={CultureHistory} />
           <Route path="/travel-tips" component={TravelTips} />
           <Route path="/admin" component={Admin} />

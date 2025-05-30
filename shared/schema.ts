@@ -148,6 +148,26 @@ export const faqItems = pgTable("faq_items", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+// Bookings table
+export const bookings = pgTable("bookings", {
+  id: serial("id").primaryKey(),
+  confirmationNumber: text("confirmation_number").notNull().unique(),
+  tourId: integer("tour_id").references(() => tours.id).notNull(),
+  departureDate: text("departure_date").notNull(),
+  accommodationType: text("accommodation_type").notNull(),
+  travelers: integer("travelers").notNull(),
+  totalAmount: integer("total_amount").notNull(), // in cents
+  status: text("status").notNull().default("confirmed"), // pending, confirmed, cancelled
+  guestFirstName: text("guest_first_name").notNull(),
+  guestLastName: text("guest_last_name").notNull(),
+  guestEmail: text("guest_email").notNull(),
+  guestPhone: text("guest_phone").notNull(),
+  specialRequests: text("special_requests"),
+  paymentId: text("payment_id"), // Stripe payment intent ID
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
 // Create insert schemas
 export const insertDestinationSchema = createInsertSchema(destinations).omit({
   id: true,
@@ -226,3 +246,12 @@ export type InsertAccommodationOption = z.infer<typeof insertAccommodationOption
 
 export type FaqItem = typeof faqItems.$inferSelect;
 export type InsertFaqItem = z.infer<typeof insertFaqItemSchema>;
+
+export const insertBookingSchema = createInsertSchema(bookings).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export type Booking = typeof bookings.$inferSelect;
+export type InsertBooking = z.infer<typeof insertBookingSchema>;
