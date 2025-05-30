@@ -8,6 +8,7 @@ import {
   itineraryDays,
   accommodationOptions,
   faqItems,
+  bookings,
   type Destination, 
   type InsertDestination,
   type Tour,
@@ -92,6 +93,11 @@ export interface IStorage {
   createFaqItem(faq: InsertFaqItem): Promise<FaqItem>;
   updateFaqItem(id: number, faq: InsertFaqItem): Promise<FaqItem | undefined>;
   deleteFaqItem(id: number): Promise<boolean>;
+  
+  // Bookings
+  getBookings(): Promise<Booking[]>;
+  getBookingByConfirmation(confirmationNumber: string): Promise<Booking | undefined>;
+  createBooking(booking: InsertBooking): Promise<Booking>;
 }
 
 export class DbStorage implements IStorage {
@@ -848,6 +854,37 @@ export class DbStorage implements IStorage {
     } catch (error) {
       console.error("Error deleting FAQ item:", error);
       return false;
+    }
+  }
+
+  async getBookings(): Promise<Booking[]> {
+    try {
+      return await db.select().from(bookings).orderBy(desc(bookings.createdAt));
+    } catch (error) {
+      console.error("Error fetching bookings:", error);
+      return [];
+    }
+  }
+
+  async getBookingByConfirmation(confirmationNumber: string): Promise<Booking | undefined> {
+    try {
+      const result = await db.select().from(bookings)
+        .where(eq(bookings.confirmationNumber, confirmationNumber))
+        .limit(1);
+      return result[0];
+    } catch (error) {
+      console.error("Error fetching booking by confirmation:", error);
+      return undefined;
+    }
+  }
+
+  async createBooking(booking: InsertBooking): Promise<Booking> {
+    try {
+      const result = await db.insert(bookings).values(booking).returning();
+      return result[0];
+    } catch (error) {
+      console.error("Error creating booking:", error);
+      throw error;
     }
   }
 }
