@@ -185,8 +185,7 @@ export default function Itinerary() {
               <Button 
                 className="w-full mt-6 bg-teal-600 hover:bg-teal-700"
                 onClick={() => {
-                  console.log('Navigating to booking with slug:', slug);
-                  navigate(`/booking?tour=${slug}`);
+                  window.location.href = `/booking?tour=${slug}`;
                 }}
               >
                 Book Now
