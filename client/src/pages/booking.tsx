@@ -22,7 +22,8 @@ export default function Booking() {
   const { toast } = useToast();
   
   // Get tour slug from URL params
-  const tourSlug = new URLSearchParams(location.split('?')[1] || '').get('tour') || '';
+  const searchParams = new URLSearchParams(location.includes('?') ? location.split('?')[1] : '');
+  const tourSlug = searchParams.get('tour') || '';
   
   const [currentStep, setCurrentStep] = useState(1);
   const [bookingData, setBookingData] = useState({
