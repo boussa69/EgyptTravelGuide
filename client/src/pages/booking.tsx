@@ -25,6 +25,10 @@ export default function Booking() {
   const searchParams = new URLSearchParams(location.includes('?') ? location.split('?')[1] : '');
   const tourSlug = searchParams.get('tour') || '';
   
+  // Debug logging
+  console.log('Booking page - location:', location);
+  console.log('Booking page - tourSlug:', tourSlug);
+  
   const [currentStep, setCurrentStep] = useState(1);
   const [bookingData, setBookingData] = useState({
     selectedDate: '',
