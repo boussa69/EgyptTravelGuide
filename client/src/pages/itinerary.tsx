@@ -1,4 +1,4 @@
-import { useParams } from "wouter";
+import { useParams, useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { toursApi } from "@/lib/api";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -28,6 +28,7 @@ import { useState, useEffect } from "react";
 
 export default function Itinerary() {
   const { slug } = useParams();
+  const [location, navigate] = useLocation();
   const [expandedFAQ, setExpandedFAQ] = useState<number[]>([0, 1]);
 
   const { data: tour, isLoading, error } = useQuery({
@@ -181,8 +182,11 @@ export default function Itinerary() {
                   <span>Only {tour.spotsRemaining || 0} spots remaining</span>
                 </div>
               </div>
-              <Button className="w-full mt-6 bg-teal-600 hover:bg-teal-700">
-                Check Availability
+              <Button 
+                className="w-full mt-6 bg-teal-600 hover:bg-teal-700"
+                onClick={() => navigate(`/booking?tour=${slug}`)}
+              >
+                Book Now
               </Button>
             </div>
           </div>

@@ -594,6 +594,45 @@ INSTRUCTIONS:
     }
   });
 
+  // Booking routes
+  app.post("/api/bookings", async (req, res) => {
+    try {
+      const bookingData = {
+        ...req.body,
+        confirmationNumber: "EGY-" + Math.random().toString(36).substr(2, 9).toUpperCase()
+      };
+      const booking = await storage.createBooking(bookingData);
+      res.json(booking);
+    } catch (error: any) {
+      console.error("Error creating booking:", error);
+      res.status(400).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/bookings", async (req, res) => {
+    try {
+      const bookings = await storage.getBookings();
+      res.json(bookings);
+    } catch (error: any) {
+      console.error("Error fetching bookings:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/bookings/:confirmationNumber", async (req, res) => {
+    try {
+      const booking = await storage.getBookingByConfirmation(req.params.confirmationNumber);
+      if (booking) {
+        res.json(booking);
+      } else {
+        res.status(404).json({ error: "Booking not found" });
+      }
+    } catch (error: any) {
+      console.error("Error fetching booking:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
