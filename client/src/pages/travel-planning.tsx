@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sun, CheckCircle, Package, Heart, DollarSign, Shield, ArrowDown, MessageCircle, Filter, Car, CreditCard, Smartphone, Cross, ShoppingBag, Users, UserCheck, Camera, CalendarDays } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 
 const quickGuides = [
@@ -131,6 +131,22 @@ export default function TravelPlanning() {
     activeFilter === "All" || guide.category === activeFilter
   );
 
+  // Handle anchor navigation
+  useEffect(() => {
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }
+      }, 100);
+    }
+  }, []);
+
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -195,7 +211,8 @@ export default function TravelPlanning() {
           <div className="grid gap-8 mb-16" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
             {filteredGuides.map((guide, index) => (
               <Card 
-                key={guide.title} 
+                key={guide.title}
+                id={guide.slug}
                 className="group relative bg-white rounded-xl border-0 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] cursor-pointer"
                 style={{ 
                   boxShadow: '0 8px 20px rgba(0,0,0,0.06)',
