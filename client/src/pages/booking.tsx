@@ -45,7 +45,7 @@ export default function Booking() {
 
   // Fetch tour data
   const { data: tour, isLoading: tourLoading } = useQuery<Tour>({
-    queryKey: ['/api/tours', tourSlug],
+    queryKey: [`/api/tours/${tourSlug}`],
     enabled: !!tourSlug,
   });
 
