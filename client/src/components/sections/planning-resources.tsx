@@ -40,8 +40,8 @@ export default function PlanningResources() {
         </div>
         
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[...Array(4)].map((_, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+            {[...Array(5)].map((_, i) => (
               <div key={i} className="space-y-4">
                 <Skeleton className="h-32 w-full rounded-2xl" />
                 <Skeleton className="h-4 w-3/4" />
@@ -50,7 +50,7 @@ export default function PlanningResources() {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
             {quickTips.map((tip, index) => (
               <PlanningCard key={tip.title} {...tip} />
             ))}

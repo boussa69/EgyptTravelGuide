@@ -36,6 +36,8 @@ export default function PlanningCard({ icon: Icon, title, description }: Plannin
         return "/planning/packing-guide";
       case "Cultural Etiquette":
         return "/planning/cultural-etiquette";
+      case "Getting Around":
+        return "/planning/getting-around";
       default:
         return "/planning";
     }
