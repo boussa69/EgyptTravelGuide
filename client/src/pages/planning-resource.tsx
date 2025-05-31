@@ -7427,6 +7427,420 @@ export default function PlanningResource() {
     );
   }
 
+  if (slug === "family-friendly-egypt") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Family-Friendly Egypt</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              Updated January 2025
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              Family-Friendly Egypt
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Essential guide for families traveling to Egypt with children of all ages
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Overview</h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Egypt offers an extraordinary educational and adventure experience for families. From exploring ancient pyramids to sailing the Nile, children can witness history come alive while creating unforgettable memories. This comprehensive guide provides practical advice for traveling with children, recommended family-friendly attractions, safety considerations, and tips to ensure a smooth and enjoyable Egyptian adventure for the whole family.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Best Family Destinations */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Best Family Destinations</h2>
+              
+              <div className="space-y-6">
+                <div className="border rounded-lg p-6 bg-gradient-to-r from-blue-50 to-teal-50">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900">Giza Pyramids & Sphinx</h3>
+                    <Badge variant="outline" className="bg-white text-teal-oasis border-teal-oasis">
+                      All ages
+                    </Badge>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-blue-600 mb-3 flex items-center">
+                        <Star className="h-4 w-4 mr-2" />
+                        Highlights
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                          Interactive pyramid exploration
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                          Camel rides
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                          Sound & Light show
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                          Children's archaeological activities
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-green-600 mb-3 flex items-center">
+                        <Lightbulb className="h-4 w-4 mr-2" />
+                        Family Tips
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          Visit early morning to avoid crowds
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          Bring sun protection
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          Book family-friendly guided tours
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          Allow 3-4 hours for full experience
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border rounded-lg p-6 bg-gradient-to-r from-blue-50 to-teal-50">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900">Egyptian Museum, Cairo</h3>
+                    <Badge variant="outline" className="bg-white text-teal-oasis border-teal-oasis">
+                      Ages 6+
+                    </Badge>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-blue-600 mb-3 flex items-center">
+                        <Star className="h-4 w-4 mr-2" />
+                        Highlights
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                          Tutankhamun treasures
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                          Mummy rooms
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                          Interactive exhibits
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                          Educational workshops
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-green-600 mb-3 flex items-center">
+                        <Lightbulb className="h-4 w-4 mr-2" />
+                        Family Tips
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          Use audio guides for children
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          Focus on key exhibits to avoid fatigue
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          Visit during weekday mornings
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          Combine with nearby attractions
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "women-travellers-tips") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Women Travellers' Guide</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              Updated January 2025
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              Women Travellers' Guide to Egypt
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Essential safety tips, cultural guidance, and practical advice for women exploring Egypt confidently and respectfully
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Overview</h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Egypt is an incredible destination for women travelers, offering rich history, stunning landscapes, and warm hospitality. While the experience can be rewarding, understanding local customs, safety considerations, and practical tips will help ensure a confident and enjoyable journey. This guide provides comprehensive advice for solo female travelers and women traveling in groups.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Cultural Considerations */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Cultural Considerations & Dress Code</h2>
+              
+              <div className="space-y-6">
+                <div className="border rounded-lg p-6 bg-gradient-to-r from-rose-50 to-pink-50">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Religious Sites (Mosques, Churches)</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-rose-600 mb-3 flex items-center">
+                        <Shield className="h-4 w-4 mr-2" />
+                        Requirements
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-rose-500 mr-2 mt-1 flex-shrink-0" />
+                          Cover shoulders, arms, and legs completely
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-rose-500 mr-2 mt-1 flex-shrink-0" />
+                          Long pants or maxi skirts (no shorts or mini skirts)
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-rose-500 mr-2 mt-1 flex-shrink-0" />
+                          Loose-fitting clothing that doesn't reveal body shape
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-rose-500 mr-2 mt-1 flex-shrink-0" />
+                          Headscarf for mosque visits (often provided at entrance)
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-rose-500 mr-2 mt-1 flex-shrink-0" />
+                          Remove shoes before entering prayer areas
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-pink-600 mb-3 flex items-center">
+                        <Lightbulb className="h-4 w-4 mr-2" />
+                        Pro Tips
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-2 mt-2"></span>
+                          Carry a lightweight scarf for quick coverage
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-2 mt-2"></span>
+                          Wear easily removable shoes
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-2 mt-2"></span>
+                          Respect photography restrictions
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border rounded-lg p-6 bg-gradient-to-r from-rose-50 to-pink-50">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">General Sightseeing</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-rose-600 mb-3 flex items-center">
+                        <Shield className="h-4 w-4 mr-2" />
+                        Requirements
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-rose-500 mr-2 mt-1 flex-shrink-0" />
+                          Modest clothing covering shoulders and knees
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-rose-500 mr-2 mt-1 flex-shrink-0" />
+                          Loose-fitting tops and bottoms
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-rose-500 mr-2 mt-1 flex-shrink-0" />
+                          Lightweight, breathable fabrics
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-rose-500 mr-2 mt-1 flex-shrink-0" />
+                          Comfortable closed-toe shoes for walking
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-rose-500 mr-2 mt-1 flex-shrink-0" />
+                          Sun hat and sunglasses
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-pink-600 mb-3 flex items-center">
+                        <Lightbulb className="h-4 w-4 mr-2" />
+                        Pro Tips
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-2 mt-2"></span>
+                          Choose light colors to reflect heat
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-2 mt-2"></span>
+                          Layer clothing for air-conditioned spaces
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-2 mt-2"></span>
+                          Avoid tight or revealing clothing
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Safety Guidelines */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Safety Guidelines</h2>
+              
+              <div className="space-y-6">
+                <div className="border rounded-lg p-6 bg-gradient-to-r from-blue-50 to-indigo-50">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                    <Shield className="h-6 w-6 text-blue-600 mr-3" />
+                    Personal Safety
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-blue-600 mb-3">Safety Guidelines</h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-blue-500 mr-2 mt-1 flex-shrink-0" />
+                          Trust your instincts and remove yourself from uncomfortable situations
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-blue-500 mr-2 mt-1 flex-shrink-0" />
+                          Avoid walking alone at night, especially in quiet areas
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-blue-500 mr-2 mt-1 flex-shrink-0" />
+                          Keep copies of important documents in separate locations
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-blue-500 mr-2 mt-1 flex-shrink-0" />
+                          Share your itinerary with family or friends
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle2 className="h-3 w-3 text-blue-500 mr-2 mt-1 flex-shrink-0" />
+                          Use reputable tour companies and guides
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-orange-600 mb-3">Potential Risks</h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-3 w-3 text-orange-500 mr-2 mt-1 flex-shrink-0" />
+                          Harassment in crowded tourist areas
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-3 w-3 text-orange-500 mr-2 mt-1 flex-shrink-0" />
+                          Persistent vendors and touts
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-3 w-3 text-orange-500 mr-2 mt-1 flex-shrink-0" />
+                          Pickpocketing in busy markets
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // Default layout for other resources
   return (
     <div className="min-h-screen bg-cool-limestone py-12">
