@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "planning_resources",
+  "info": {
+    "singularName": "planning-resource",
+    "pluralName": "planning-resources",
+    "displayName": "Planning Resource",
+    "description": "Travel planning guides and resources"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "excerpt": {
+      "type": "text",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["practical", "cultural", "safety", "budget", "health"],
+      "required": true,
+      "default": "practical"
+    },
+    "icon": {
+      "type": "string",
+      "required": false
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "lastUpdated": {
+      "type": "datetime",
+      "required": false
+    },
+    "priority": {
+      "type": "integer",
+      "min": 1,
+      "max": 10,
+      "default": 5
+    },
+    "isEssential": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

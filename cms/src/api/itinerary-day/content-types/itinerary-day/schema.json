@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "itinerary_days",
+  "info": {
+    "singularName": "itinerary-day",
+    "pluralName": "itinerary-days",
+    "displayName": "Itinerary Day",
+    "description": "Daily itinerary for tours"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "dayNumber": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "description": {
+      "type": "richtext",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "activities": {
+      "type": "json",
+      "required": false
+    },
+    "meals": {
+      "type": "json",
+      "required": false
+    },
+    "accommodation": {
+      "type": "string",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "tour": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tour.tour",
+      "inversedBy": "itineraryDays"
+    }
+  }
+}

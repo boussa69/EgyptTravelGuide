@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accommodation_options",
+  "info": {
+    "singularName": "accommodation-option",
+    "pluralName": "accommodation-options",
+    "displayName": "Accommodation Option",
+    "description": "Accommodation options for tours"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["budget", "standard", "luxury", "premium"],
+      "required": true,
+      "default": "standard"
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "pricePerNight": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "amenities": {
+      "type": "json",
+      "required": false
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "rating": {
+      "type": "decimal",
+      "min": 0,
+      "max": 5,
+      "default": 4
+    },
+    "isPopular": {
+      "type": "boolean",
+      "default": false
+    },
+    "tour": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tour.tour",
+      "inversedBy": "accommodationOptions"
+    }
+  }
+}
