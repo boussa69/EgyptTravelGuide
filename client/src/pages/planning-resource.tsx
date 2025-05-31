@@ -7881,6 +7881,290 @@ export default function PlanningResource() {
     );
   }
 
+  if (slug === "photography-drone-rules") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Photography & Drone Rules</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              Updated January 2025
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              Photography & Drone Rules in Egypt
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Complete guide to photography regulations, drone laws, and legal requirements for travelers in Egypt
+            </p>
+          </div>
+
+          {/* Critical Drone Warning */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <div className="flex items-center mb-4">
+                  <AlertTriangle className="h-6 w-6 text-red-600 mr-3" />
+                  <h2 className="text-2xl font-bold text-red-700">Critical: Drone Operations Prohibited</h2>
+                </div>
+                <p className="text-red-700 text-lg mb-4">
+                  Egypt has extremely strict drone regulations. Tourist drone operations are generally prohibited without complex government permits that take months to obtain and cost thousands of dollars.
+                </p>
+                <div className="bg-red-100 p-4 rounded-lg">
+                  <h3 className="font-bold text-red-800 mb-2">Severe Penalties Include:</h3>
+                  <ul className="text-red-800 space-y-1 text-sm">
+                    <li>• Immediate equipment confiscation</li>
+                    <li>• Heavy fines (up to $3,000 USD)</li>
+                    <li>• Deportation from Egypt</li>
+                    <li>• Criminal prosecution under aviation law</li>
+                    <li>• Permanent travel ban from Egypt</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Photography Regulations */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+                <Camera className="h-8 w-8 text-teal-oasis mr-3" />
+                Photography Regulations
+              </h2>
+              
+              <div className="space-y-6">
+                <div className="border rounded-lg p-6 bg-gradient-to-r from-green-50 to-green-100">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">Personal Tourism Photography</h3>
+                    <Badge variant="outline" className="bg-white text-green-600 border-green-300">Generally Permitted</Badge>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-green-600 mb-3">Allowed Locations</h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li>• Most tourist attractions and monuments</li>
+                        <li>• Public squares and traditional markets</li>
+                        <li>• Nile River and corniche walkways</li>
+                        <li>• Hotel and resort areas</li>
+                        <li>• Desert landscapes and oases</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-green-700 mb-3">Important Notes</h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li>• Camera fees: 50-300 EGP at monuments</li>
+                        <li>• Flash photography often prohibited</li>
+                        <li>• Some tombs charge additional fees</li>
+                        <li>• Always ask before photographing people</li>
+                        <li>• Mummy rooms usually prohibit photography</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border rounded-lg p-6 bg-gradient-to-r from-red-50 to-red-100">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">Prohibited Photography</h3>
+                    <Badge variant="outline" className="bg-white text-red-600 border-red-300">Strictly Forbidden</Badge>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-red-600 mb-3">Forbidden Subjects</h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li>• Military installations and personnel</li>
+                        <li>• Government buildings and officials</li>
+                        <li>• Bridges and strategic infrastructure</li>
+                        <li>• Airport security and customs areas</li>
+                        <li>• Police stations and checkpoints</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-red-700 mb-3">Consequences</h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li>• Immediate camera/phone confiscation</li>
+                        <li>• Detention for security questioning</li>
+                        <li>• Forced deletion of all images</li>
+                        <li>• Possible legal prosecution</li>
+                        <li>• Diplomatic intervention may be required</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border rounded-lg p-6 bg-gradient-to-r from-yellow-50 to-yellow-100">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">Commercial Photography</h3>
+                    <Badge variant="outline" className="bg-white text-yellow-600 border-yellow-300">Permit Required</Badge>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-yellow-600 mb-3">Requirements</h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li>• Ministry of Tourism permit mandatory</li>
+                        <li>• 15-30 day advance application</li>
+                        <li>• Professional equipment declaration</li>
+                        <li>• Higher fees for commercial shoots</li>
+                        <li>• Guide escort may be required</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-yellow-700 mb-3">Process</h4>
+                      <ul className="text-sm text-gray-600 space-y-2">
+                        <li>• Submit detailed shooting plan</li>
+                        <li>• Pay substantial permit fees</li>
+                        <li>• Customs clearance for equipment</li>
+                        <li>• Limited shooting hours enforced</li>
+                        <li>• Final approval at each location</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Practical Guidelines */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+                <Lightbulb className="h-8 w-8 text-teal-oasis mr-3" />
+                Safe Photography Practices
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
+                    Recommended Practices
+                  </h3>
+                  <ul className="space-y-3 text-sm text-gray-600">
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Research site-specific photography rules beforehand
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Carry small bills for camera fees (50-300 EGP)
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Always ask permission before photographing locals
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Respect religious customs and modest dress codes
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Use hotel safes for expensive camera equipment
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Keep cameras discreet in sensitive areas
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Backup photos to cloud storage daily
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                    <AlertTriangle className="h-5 w-5 text-red-600 mr-2" />
+                    Critical Mistakes to Avoid
+                  </h3>
+                  <ul className="space-y-3 text-sm text-gray-600">
+                    <li className="flex items-start">
+                      <AlertTriangle className="h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Never bring drones without proper permits
+                    </li>
+                    <li className="flex items-start">
+                      <AlertTriangle className="h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Don't photograph military or police personnel
+                    </li>
+                    <li className="flex items-start">
+                      <AlertTriangle className="h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Avoid photographing bridges or government buildings
+                    </li>
+                    <li className="flex items-start">
+                      <AlertTriangle className="h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Never ignore no-photography signs or barriers
+                    </li>
+                    <li className="flex items-start">
+                      <AlertTriangle className="h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Don't use flash in prohibited museum areas
+                    </li>
+                    <li className="flex items-start">
+                      <AlertTriangle className="h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Avoid declaring personal equipment as professional
+                    </li>
+                    <li className="flex items-start">
+                      <AlertTriangle className="h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Don't assume all tourist areas allow photography
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Official Contacts */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+                <Phone className="h-8 w-8 text-teal-oasis mr-3" />
+                Official Information & Permits
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-bold text-blue-700 mb-4">Ministry of Tourism & Antiquities</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li><strong>Photography Permits:</strong> +20 2 2735 8515</li>
+                    <li><strong>Email:</strong> info@tourism.gov.eg</li>
+                    <li><strong>Address:</strong> Misr Travel Tower, Abbassia, Cairo</li>
+                    <li><strong>Processing Time:</strong> 15-30 business days</li>
+                    <li><strong>Commercial Fees:</strong> $200-2000 USD depending on scope</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-red-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-bold text-red-700 mb-4">Egyptian Civil Aviation Authority</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li><strong>Drone Permits:</strong> +20 2 2267 4274</li>
+                    <li><strong>Email:</strong> info@civilaviation.gov.eg</li>
+                    <li><strong>Address:</strong> Cairo International Airport</li>
+                    <li><strong>Processing Time:</strong> 60-90 business days</li>
+                    <li><strong>Status:</strong> Tourist permits rarely approved</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // Default layout for other resources
   return (
     <div className="min-h-screen bg-cool-limestone py-12">
