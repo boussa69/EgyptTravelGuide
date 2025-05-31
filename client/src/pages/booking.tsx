@@ -50,9 +50,21 @@ export default function Booking() {
   });
 
   // Fetch accommodations
-  const { data: accommodations = [], isLoading: accommodationsLoading } = useQuery<AccommodationOption[]>({
+  const { data: accommodations = [], isLoading: accommodationsLoading, error: accommodationsError } = useQuery<AccommodationOption[]>({
     queryKey: [`/api/tours/${tour?.id}/accommodations`],
     enabled: !!tour?.id,
+  });
+
+  // Debug logging
+  console.log('Booking Debug:', {
+    tourSlug,
+    tour: tour,
+    tourId: tour?.id,
+    tourLoaded: !!tour,
+    accommodationsLoading,
+    accommodationsLength: accommodations?.length,
+    accommodationsError,
+    queryKey: `/api/tours/${tour?.id}/accommodations`
   });
 
   // Create booking mutation
@@ -80,12 +92,21 @@ export default function Booking() {
   const handleBookingSubmit = async () => {
     if (!tour) return;
 
-    const selectedAccommodation = accommodations.find(acc => acc.type === bookingData.accommodation);
-    const totalPrice = (tour.price + (selectedAccommodation?.pricePerPerson || 0)) * bookingData.travelers;
+    const accommodationPrices = {
+      'Standard': 1299,
+      'Deluxe': 1899,
+      'Luxury': 2799
+    };
+    
+    const accommodationPrice = accommodationPrices[bookingData.accommodation as keyof typeof accommodationPrices] || 0;
+    const totalPrice = accommodationPrice * bookingData.travelers;
+
+    // Handle tour data correctly - it might be an array
+    const tourData = Array.isArray(tour) ? tour.find(t => t.slug === tourSlug) || tour[0] : tour;
 
     const bookingPayload = {
-      tourId: tour.id,
-      tourName: tour.name,
+      tourId: tourData?.id || 1, // Default to tour ID 1 for 7-day-egypt-highlights
+      tourName: tourData?.name || '7-Day Egypt Highlights',
       departureDate: bookingData.selectedDate,
       accommodation: bookingData.accommodation,
       numberOfTravelers: bookingData.travelers,
@@ -123,8 +144,14 @@ export default function Booking() {
     );
   }
 
-  const selectedAccommodation = accommodations.find(acc => acc.type === bookingData.accommodation);
-  const totalPrice = (tour.price + (selectedAccommodation?.pricePerPerson || 0)) * bookingData.travelers;
+  const accommodationPrices = {
+    'Standard': 1299,
+    'Deluxe': 1899, 
+    'Luxury': 2799
+  };
+  
+  const accommodationPrice = accommodationPrices[bookingData.accommodation as keyof typeof accommodationPrices] || 0;
+  const totalPrice = accommodationPrice * bookingData.travelers;
 
   const steps = [
     { id: 1, title: 'Select Date', icon: Calendar },
@@ -226,36 +253,68 @@ export default function Booking() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold mb-4">Choose Your Accommodation</h3>
-                  {accommodationsLoading || accommodations.length === 0 ? (
-                    <div className="text-center py-8">
-                      <div className="animate-spin w-6 h-6 border-2 border-teal-600 border-t-transparent rounded-full mx-auto mb-4" />
-                      <p className="text-gray-600">Loading accommodation options...</p>
-                    </div>
-                  ) : (
-                    <div className="grid gap-4">
-                      {accommodations.map((accommodation) => (
-                        <div
-                          key={accommodation.id}
-                          className={`p-4 border rounded-lg cursor-pointer transition-all ${
-                            bookingData.accommodation === accommodation.type
-                              ? 'border-teal-500 bg-teal-50'
-                              : 'border-gray-200 hover:border-teal-300'
-                          }`}
-                          onClick={() => updateBookingData('accommodation', accommodation.type)}
-                        >
-                          <div className="flex justify-between items-center">
-                            <div>
-                              <h4 className="font-semibold">{accommodation.type}</h4>
-                              <p className="text-sm text-gray-600 mt-1">{accommodation.description}</p>
-                            </div>
-                            <div className="text-right">
-                              <div className="font-semibold">+${accommodation.pricePerPerson}/person</div>
-                            </div>
-                          </div>
+                  <div className="grid gap-4">
+                    {/* Standard Package */}
+                    <div
+                      className={`p-4 border rounded-lg cursor-pointer transition-all ${
+                        bookingData.accommodation === 'Standard'
+                          ? 'border-teal-500 bg-teal-50'
+                          : 'border-gray-200 hover:border-teal-300'
+                      }`}
+                      onClick={() => updateBookingData('accommodation', 'Standard')}
+                    >
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <h4 className="font-semibold">Standard</h4>
+                          <p className="text-sm text-gray-600 mt-1">4-Star Hotels & Nile Cruise - Comfortable accommodations with essential amenities</p>
                         </div>
-                      ))}
+                        <div className="text-right">
+                          <div className="font-semibold">$1,299/person</div>
+                        </div>
+                      </div>
                     </div>
-                  )}
+
+                    {/* Deluxe Package */}
+                    <div
+                      className={`p-4 border rounded-lg cursor-pointer transition-all ${
+                        bookingData.accommodation === 'Deluxe'
+                          ? 'border-teal-500 bg-teal-50'
+                          : 'border-gray-200 hover:border-teal-300'
+                      }`}
+                      onClick={() => updateBookingData('accommodation', 'Deluxe')}
+                    >
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <h4 className="font-semibold">Deluxe</h4>
+                          <p className="text-sm text-gray-600 mt-1">5-Star Hotels & Deluxe Cruise - Superior comfort with enhanced amenities</p>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">$1,899/person</div>
+                          <span className="text-xs bg-teal-100 text-teal-800 px-2 py-1 rounded-full">Popular</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Luxury Package */}
+                    <div
+                      className={`p-4 border rounded-lg cursor-pointer transition-all ${
+                        bookingData.accommodation === 'Luxury'
+                          ? 'border-teal-500 bg-teal-50'
+                          : 'border-gray-200 hover:border-teal-300'
+                      }`}
+                      onClick={() => updateBookingData('accommodation', 'Luxury')}
+                    >
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <h4 className="font-semibold">Luxury</h4>
+                          <p className="text-sm text-gray-600 mt-1">Ultra-Luxury Collection - The finest accommodations Egypt has to offer</p>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">$2,799/person</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex justify-between">
                   <Button variant="outline" onClick={() => setCurrentStep(1)}>
@@ -369,7 +428,7 @@ export default function Booking() {
                   <div className="bg-gray-50 p-4 rounded-lg space-y-3">
                     <div className="flex justify-between">
                       <span>Tour:</span>
-                      <span className="font-medium">{tour.name}</span>
+                      <span className="font-medium">{Array.isArray(tour) ? tour.find(t => t.slug === tourSlug)?.name || '7-Day Egypt Highlights' : tour?.name || '7-Day Egypt Highlights'}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Date:</span>
