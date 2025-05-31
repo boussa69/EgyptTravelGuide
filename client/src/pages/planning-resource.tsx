@@ -3622,7 +3622,7 @@ export default function PlanningResource() {
             <CardContent className="p-6">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Special Events & Considerations</h3>
               <div className="space-y-4">
-                {resource.content.specialEvents?.map((event: any, index: number) => (
+                {(resource.content as any)?.specialEvents?.map((event: any, index: number) => (
                   <div key={index} className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
                     <Calendar className="h-5 w-5 text-teal-oasis mt-0.5 flex-shrink-0" />
                     <div>
