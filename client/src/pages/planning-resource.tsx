@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star, Syringe, Activity, Pill, Plus } from "lucide-react";
 import { Link } from "wouter";
 
 const planningData = {
@@ -1629,6 +1629,431 @@ const planningData = {
         "Download offline maps of your accommodation area",
         "Consider satellite messenger for remote areas",
         "Inform family/friends of your communication plan"
+      ]
+    }
+  },
+  "health-vaccinations": {
+    title: "Health & Vaccinations for Egypt",
+    description: "Essential health information, vaccination requirements, and medical guidance for safe travel to Egypt",
+    category: "Health & Safety",
+    lastUpdated: "Updated January 2025",
+    content: {
+      overview: "Proper health preparation is crucial for a safe and enjoyable trip to Egypt. This comprehensive guide covers vaccination requirements, health precautions, medical facilities, and practical health tips to keep you healthy throughout your Egyptian adventure.",
+      vaccinations: {
+        required: [
+          {
+            vaccine: "Yellow Fever",
+            requirement: "Required if arriving from yellow fever endemic areas",
+            description: "Mandatory for travelers coming from countries with risk of yellow fever transmission",
+            validityPeriod: "10 years",
+            timing: "At least 10 days before travel",
+            notes: "Certificate required at border. Check current list of endemic countries."
+          }
+        ],
+        recommended: [
+          {
+            vaccine: "Hepatitis A",
+            priority: "Highly Recommended",
+            description: "Protection against hepatitis A virus from contaminated food and water",
+            dosing: "2 doses, 6-12 months apart",
+            timing: "First dose at least 2 weeks before travel",
+            duration: "Lifelong protection after complete series"
+          },
+          {
+            vaccine: "Hepatitis B",
+            priority: "Recommended",
+            description: "Protection against hepatitis B virus transmitted through blood and bodily fluids",
+            dosing: "3 doses over 6 months",
+            timing: "Start series at least 6 months before travel",
+            duration: "Lifelong protection"
+          },
+          {
+            vaccine: "Typhoid",
+            priority: "Recommended",
+            description: "Protection against typhoid fever from contaminated food and water",
+            dosing: "Single injection or oral capsules",
+            timing: "At least 2 weeks before travel",
+            duration: "2-3 years"
+          },
+          {
+            vaccine: "Meningococcal ACWY",
+            priority: "Consider for High-Risk",
+            description: "Protection against meningococcal disease, especially during hajj season",
+            dosing: "Single dose",
+            timing: "At least 2 weeks before travel",
+            duration: "5 years"
+          },
+          {
+            vaccine: "Rabies (Pre-exposure)",
+            priority: "Consider for Extended Travel",
+            description: "Pre-exposure prophylaxis for travelers with animal contact risk",
+            dosing: "3 doses over 3-4 weeks",
+            timing: "Complete series before travel",
+            duration: "2+ years"
+          }
+        ],
+        routine: [
+          {
+            vaccine: "COVID-19",
+            status: "Up to date recommended",
+            notes: "Check current entry requirements and booster recommendations"
+          },
+          {
+            vaccine: "Influenza",
+            status: "Annual vaccination recommended",
+            notes: "Especially important for travel during flu season"
+          },
+          {
+            vaccine: "MMR (Measles, Mumps, Rubella)",
+            status: "Ensure up to date",
+            notes: "Particularly important due to global measles outbreaks"
+          },
+          {
+            vaccine: "Tdap (Tetanus, Diphtheria, Pertussis)",
+            status: "Every 10 years",
+            notes: "Consider booster if more than 5 years since last dose"
+          }
+        ]
+      },
+      healthRisks: [
+        {
+          risk: "Traveler's Diarrhea",
+          likelihood: "Common (20-40% of travelers)",
+          severity: "Mild to Moderate",
+          description: "Most common travel-related illness caused by bacteria, viruses, or parasites",
+          prevention: [
+            "Drink only bottled or properly treated water",
+            "Avoid tap water, ice cubes, and fountain drinks",
+            "Eat hot, freshly cooked food",
+            "Avoid raw or undercooked foods",
+            "Peel fruits yourself",
+            "Avoid street vendor food unless clearly safe"
+          ],
+          treatment: [
+            "Stay hydrated with oral rehydration solution",
+            "Continue eating bland foods when possible",
+            "Consider anti-diarrheal medication for comfort",
+            "Seek medical care if severe or persistent",
+            "Antibiotics may be needed for bacterial causes"
+          ]
+        },
+        {
+          risk: "Heat-Related Illness",
+          likelihood: "Moderate (varies by season)",
+          severity: "Mild to Severe",
+          description: "Heat exhaustion and heat stroke from high temperatures and sun exposure",
+          prevention: [
+            "Stay hydrated with plenty of water",
+            "Avoid alcohol and caffeine in heat",
+            "Wear light-colored, loose-fitting clothing",
+            "Use broad-spectrum sunscreen SPF 30+",
+            "Seek shade during peak hours (10 AM - 4 PM)",
+            "Take frequent breaks in air conditioning"
+          ],
+          treatment: [
+            "Move to cool, shaded area immediately",
+            "Remove excess clothing",
+            "Apply cool water to skin",
+            "Drink cool fluids if conscious",
+            "Seek immediate medical care for heat stroke",
+            "Monitor for confusion or altered mental state"
+          ]
+        },
+        {
+          risk: "Respiratory Infections",
+          likelihood: "Low to Moderate",
+          severity: "Mild to Moderate",
+          description: "Common cold, flu, or other respiratory infections in crowded areas",
+          prevention: [
+            "Practice good hand hygiene",
+            "Avoid close contact with sick individuals",
+            "Consider wearing masks in crowded areas",
+            "Stay up to date with vaccinations",
+            "Maintain good general health",
+            "Get adequate sleep and nutrition"
+          ],
+          treatment: [
+            "Rest and increase fluid intake",
+            "Use over-the-counter medications for symptoms",
+            "Seek medical care if symptoms worsen",
+            "Isolate if contagious",
+            "Monitor for complications",
+            "Consider prescription antivirals if indicated"
+          ]
+        },
+        {
+          risk: "Insect-Borne Diseases",
+          likelihood: "Low (seasonal variation)",
+          severity: "Mild to Severe",
+          description: "Mosquito-borne illnesses including dengue, chikungunya, and Zika (rare in Egypt)",
+          prevention: [
+            "Use EPA-approved insect repellent",
+            "Wear long sleeves and pants at dawn/dusk",
+            "Stay in air-conditioned or screened areas",
+            "Use bed nets if needed",
+            "Remove standing water around accommodation",
+            "Consider permethrin-treated clothing"
+          ],
+          treatment: [
+            "Seek medical evaluation for fever",
+            "Supportive care with rest and fluids",
+            "Avoid aspirin for fever (dengue risk)",
+            "Monitor for warning signs",
+            "Follow up with healthcare provider",
+            "Report illness to health authorities if needed"
+          ]
+        }
+      ],
+      medicalFacilities: [
+        {
+          type: "Private International Hospitals",
+          quality: "Excellent",
+          locations: "Cairo, Alexandria, major cities",
+          services: ["Emergency care", "Specialist consultations", "Surgery", "Diagnostics"],
+          languages: "English, Arabic, some French/German",
+          insurance: "Most international insurance accepted",
+          examples: [
+            "Cairo Medical Center",
+            "Nile Badrawi Hospital",
+            "Dar Al Fouad Hospital",
+            "Alexandria Medical Center"
+          ],
+          notes: "Highest quality care but most expensive option"
+        },
+        {
+          type: "Public Hospitals",
+          quality: "Variable",
+          locations: "All cities and towns",
+          services: ["Emergency care", "Basic medical services", "Surgery"],
+          languages: "Primarily Arabic",
+          insurance: "Limited international acceptance",
+          examples: [
+            "Qasr Al Aini Hospital",
+            "Ain Shams University Hospital",
+            "Alexandria Main University Hospital"
+          ],
+          notes: "More affordable but may have language barriers and longer waits"
+        },
+        {
+          type: "Tourist Police Medical Units",
+          quality: "Basic",
+          locations: "Major tourist areas",
+          services: ["First aid", "Basic treatment", "Medical referrals"],
+          languages: "English, Arabic",
+          insurance: "Varies",
+          examples: [
+            "Giza Tourist Police",
+            "Luxor Tourist Medical Center",
+            "Sharm El Sheikh Medical Unit"
+          ],
+          notes: "Convenient for minor issues in tourist areas"
+        },
+        {
+          type: "Pharmacies",
+          quality: "Good",
+          locations: "Widespread in cities",
+          services: ["Prescription medications", "Over-the-counter drugs", "Basic consultation"],
+          languages: "Some English in tourist areas",
+          insurance: "Cash payment typically required",
+          examples: [
+            "Seif Pharmacies",
+            "El Ezaby Pharmacies",
+            "Care Pharmacies"
+          ],
+          notes: "Many medications available without prescription"
+        }
+      ],
+      healthInsurance: {
+        importance: "Essential for all travelers",
+        coverage: [
+          "Emergency medical treatment",
+          "Hospitalization",
+          "Medical evacuation",
+          "Prescription medications",
+          "Emergency dental care",
+          "Repatriation of remains"
+        ],
+        considerations: [
+          "Verify coverage includes Egypt",
+          "Check policy limits and deductibles",
+          "Understand pre-authorization requirements",
+          "Ensure adventure activities are covered",
+          "Keep insurance documents accessible",
+          "Know how to contact assistance services"
+        ],
+        recommendations: [
+          "Choose comprehensive travel medical insurance",
+          "Consider policies with medical evacuation",
+          "Verify coverage for pre-existing conditions",
+          "Check if regular health insurance covers travel",
+          "Consider longer-term policies for extended stays",
+          "Review exclusions carefully"
+        ]
+      },
+      medications: {
+        prescriptions: [
+          "Bring adequate supply for entire trip plus extra",
+          "Keep medications in original containers with labels",
+          "Carry prescription letter from doctor",
+          "Research import restrictions for controlled substances",
+          "Pack medications in carry-on luggage",
+          "Bring copies of prescriptions"
+        ],
+        travelKit: [
+          {
+            category: "Gastrointestinal",
+            items: [
+              "Anti-diarrheal medication (loperamide)",
+              "Oral rehydration salts",
+              "Probiotics",
+              "Antacid tablets",
+              "Anti-nausea medication"
+            ]
+          },
+          {
+            category: "Pain and Fever",
+            items: [
+              "Acetaminophen/paracetamol",
+              "Ibuprofen",
+              "Aspirin (if not contraindicated)",
+              "Topical pain relief cream"
+            ]
+          },
+          {
+            category: "Respiratory",
+            items: [
+              "Cough suppressant",
+              "Throat lozenges",
+              "Decongestant",
+              "Antihistamine for allergies"
+            ]
+          },
+          {
+            category: "Topical Care",
+            items: [
+              "Broad-spectrum sunscreen SPF 30+",
+              "Insect repellent with DEET",
+              "Antiseptic cream",
+              "Hydrocortisone cream",
+              "Lip balm with SPF"
+            ]
+          },
+          {
+            category: "First Aid",
+            items: [
+              "Adhesive bandages",
+              "Gauze pads and tape",
+              "Antiseptic wipes",
+              "Thermometer",
+              "Tweezers",
+              "Disposable gloves"
+            ]
+          }
+        ]
+      },
+      foodWaterSafety: {
+        waterGuidelines: [
+          "Drink only bottled water from sealed containers",
+          "Avoid tap water, even for brushing teeth",
+          "Use bottled water for ice cubes",
+          "Be cautious with fountain drinks and fresh juices",
+          "Consider water purification tablets as backup",
+          "Check bottle seals are intact before purchasing"
+        ],
+        foodSafety: [
+          "Choose hot, freshly cooked meals",
+          "Avoid buffets that have been sitting out",
+          "Eat fruits you can peel yourself",
+          "Avoid raw vegetables unless you can peel them",
+          "Be cautious with dairy products",
+          "Avoid street food unless clearly safe and popular"
+        ],
+        restaurantTips: [
+          "Choose busy restaurants with high turnover",
+          "Observe food handling practices",
+          "Ensure meat is thoroughly cooked",
+          "Avoid rare or undercooked dishes",
+          "Be cautious with seafood, especially shellfish",
+          "Trust your instincts about food safety"
+        ]
+      },
+      emergencyContacts: [
+        {
+          service: "Emergency Services",
+          number: "122 (Police), 123 (Ambulance), 180 (Fire)",
+          availability: "24/7",
+          notes: "Arabic language, limited English"
+        },
+        {
+          service: "Tourist Police",
+          number: "126",
+          availability: "24/7",
+          notes: "English speaking, specifically for tourists"
+        },
+        {
+          service: "US Embassy Cairo",
+          number: "+20 2 2797-3300",
+          availability: "Business hours, emergency after hours",
+          notes: "American Citizen Services"
+        },
+        {
+          service: "British Embassy Cairo",
+          number: "+20 2 2791-6000",
+          availability: "Business hours, emergency after hours",
+          notes: "British Consular Services"
+        },
+        {
+          service: "International SOS",
+          number: "Check your insurance card",
+          availability: "24/7",
+          notes: "Medical assistance and evacuation services"
+        }
+      ],
+      specialConsiderations: [
+        {
+          category: "Pregnant Travelers",
+          advice: [
+            "Consult healthcare provider before travel",
+            "Ensure vaccinations are pregnancy-safe",
+            "Consider malaria risk in some border areas",
+            "Stay extra vigilant about food and water safety",
+            "Have comprehensive travel insurance",
+            "Know location of quality medical facilities"
+          ]
+        },
+        {
+          category: "Travelers with Chronic Conditions",
+          advice: [
+            "Bring detailed medical summary and contact information",
+            "Ensure adequate medication supply plus extra",
+            "Research medical facilities that treat your condition",
+            "Consider medical alert bracelet",
+            "Verify insurance coverage for existing conditions",
+            "Plan for medication storage (refrigeration, etc.)"
+          ]
+        },
+        {
+          category: "Elderly Travelers",
+          advice: [
+            "Schedule pre-travel medical consultation",
+            "Consider pneumonia and shingles vaccinations",
+            "Plan for mobility and accessibility needs",
+            "Ensure medications are clearly labeled",
+            "Consider travel with medical companion",
+            "Research geriatric-friendly medical facilities"
+          ]
+        },
+        {
+          category: "Adventure Travelers",
+          advice: [
+            "Consider rabies pre-exposure prophylaxis",
+            "Ensure insurance covers adventure activities",
+            "Bring enhanced first aid supplies",
+            "Know evacuation procedures for remote areas",
+            "Consider satellite communication device",
+            "Research rescue services availability"
+          ]
+        }
       ]
     }
   }
@@ -3806,6 +4231,375 @@ export default function PlanningResource() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "health-vaccinations") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Health & Vaccinations</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Vaccinations */}
+          <div className="space-y-8 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Syringe className="h-8 w-8 text-teal-oasis mr-3" />
+              Vaccination Requirements
+            </h2>
+
+            {/* Required Vaccinations */}
+            <Card className="border-l-4 border-red-500">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <AlertTriangle className="h-6 w-6 text-red-500 mr-3" />
+                  Required Vaccinations
+                </h3>
+                
+                {resource.content.vaccinations.required.map((vaccine, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-red-50 mb-4">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-bold text-gray-900">{vaccine.vaccine}</h4>
+                      <Badge variant="destructive">Required</Badge>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3">{vaccine.description}</p>
+                    <div className="grid md:grid-cols-3 gap-4 mb-3">
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900">Timing</p>
+                        <p className="text-sm text-gray-600">{vaccine.timing}</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900">Validity</p>
+                        <p className="text-sm text-gray-600">{vaccine.validityPeriod}</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900">Requirement</p>
+                        <p className="text-sm text-gray-600">{vaccine.requirement}</p>
+                      </div>
+                    </div>
+                    <div className="bg-yellow-50 p-3 rounded border-l-4 border-yellow-400">
+                      <p className="text-sm font-semibold text-yellow-800 mb-1">Important:</p>
+                      <p className="text-sm text-gray-700">{vaccine.notes}</p>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+
+            {/* Recommended Vaccinations */}
+            <Card className="border-l-4 border-blue-500">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <Plus className="h-6 w-6 text-blue-500 mr-3" />
+                  Recommended Vaccinations
+                </h3>
+                
+                <div className="space-y-4">
+                  {resource.content.vaccinations.recommended.map((vaccine, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-blue-50">
+                      <div className="flex items-start justify-between mb-3">
+                        <h4 className="text-lg font-bold text-gray-900">{vaccine.vaccine}</h4>
+                        <Badge variant={
+                          vaccine.priority === 'Highly Recommended' ? 'default' :
+                          vaccine.priority === 'Recommended' ? 'secondary' :
+                          'outline'
+                        }>
+                          {vaccine.priority}
+                        </Badge>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-3">{vaccine.description}</p>
+                      <div className="grid md:grid-cols-3 gap-4">
+                        <div>
+                          <p className="font-semibold text-sm text-gray-900">Dosing</p>
+                          <p className="text-sm text-gray-600">{vaccine.dosing}</p>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm text-gray-900">Timing</p>
+                          <p className="text-sm text-gray-600">{vaccine.timing}</p>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm text-gray-900">Duration</p>
+                          <p className="text-sm text-gray-600">{vaccine.duration}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Routine Vaccinations */}
+            <Card className="border-l-4 border-green-500">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <CheckCircle2 className="h-6 w-6 text-green-500 mr-3" />
+                  Routine Vaccinations (Ensure Up to Date)
+                </h3>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  {resource.content.vaccinations.routine.map((vaccine, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-green-50">
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">{vaccine.vaccine}</h4>
+                      <p className="text-sm font-semibold text-green-800 mb-1">{vaccine.status}</p>
+                      <p className="text-sm text-gray-600">{vaccine.notes}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Health Risks */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Activity className="h-8 w-8 text-teal-oasis mr-3" />
+              Common Health Risks
+            </h2>
+            
+            {resource.content.healthRisks.map((risk, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900">{risk.risk}</h3>
+                    <div className="text-right">
+                      <Badge variant="outline" className="mb-1">{risk.likelihood}</Badge>
+                      <div className={`px-2 py-1 rounded text-xs font-semibold ${
+                        risk.severity.includes('Severe') ? 'bg-red-100 text-red-800' :
+                        risk.severity.includes('Moderate') ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-green-100 text-green-800'
+                      }`}>
+                        {risk.severity}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 mb-6">{risk.description}</p>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Shield className="h-4 w-4 text-green-600 mr-2" />
+                        Prevention
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {risk.prevention.map((item, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Plus className="h-4 w-4 text-blue-600 mr-2" />
+                        Treatment
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {risk.treatment.map((item, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Medical Facilities */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Plus className="h-6 w-6 text-teal-oasis mr-3" />
+                Medical Facilities in Egypt
+              </h3>
+              
+              <div className="space-y-4">
+                {resource.content.medicalFacilities.map((facility, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-bold text-gray-900">{facility.type}</h4>
+                      <div className={`px-3 py-1 rounded text-sm font-semibold ${
+                        facility.quality === 'Excellent' ? 'bg-green-100 text-green-800' :
+                        facility.quality === 'Good' ? 'bg-blue-100 text-blue-800' :
+                        facility.quality === 'Variable' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-gray-100 text-gray-800'
+                      }`}>
+                        {facility.quality}
+                      </div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900 mb-1">Locations:</p>
+                        <p className="text-sm text-gray-600 mb-3">{facility.locations}</p>
+                        
+                        <p className="font-semibold text-sm text-gray-900 mb-1">Languages:</p>
+                        <p className="text-sm text-gray-600 mb-3">{facility.languages}</p>
+                        
+                        <p className="font-semibold text-sm text-gray-900 mb-1">Insurance:</p>
+                        <p className="text-sm text-gray-600">{facility.insurance}</p>
+                      </div>
+                      
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900 mb-1">Services:</p>
+                        <div className="flex flex-wrap gap-1 mb-3">
+                          {facility.services.map((service, i) => (
+                            <Badge key={i} variant="outline" className="text-xs">
+                              {service}
+                            </Badge>
+                          ))}
+                        </div>
+                        
+                        <p className="font-semibold text-sm text-gray-900 mb-1">Examples:</p>
+                        <ul className="text-xs text-gray-600 space-y-1">
+                          {facility.examples.map((example, i) => (
+                            <li key={i}>• {example}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-blue-50 p-3 rounded">
+                      <p className="text-sm text-gray-700">{facility.notes}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Travel Health Kit */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Pill className="h-6 w-6 text-teal-oasis mr-3" />
+                Essential Travel Health Kit
+              </h3>
+              
+              <div className="mb-6">
+                <h4 className="text-lg font-bold text-gray-900 mb-3">Prescription Medications</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {resource.content.medications.prescriptions.map((tip, index) => (
+                    <div key={index} className="flex items-start space-x-3 p-3 bg-red-50 rounded-lg">
+                      <AlertTriangle className="h-4 w-4 text-red-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-gray-700">{tip}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-3">Travel Medicine Kit</h4>
+                <div className="space-y-4">
+                  {resource.content.medications.travelKit.map((category, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-teal-oasis/5">
+                      <h5 className="font-bold text-gray-900 mb-3">{category.category}</h5>
+                      <div className="grid md:grid-cols-2 gap-2">
+                        {category.items.map((item, i) => (
+                          <div key={i} className="flex items-center space-x-2">
+                            <CheckCircle2 className="h-3 w-3 text-teal-oasis" />
+                            <span className="text-sm text-gray-700">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Emergency Contacts */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Phone className="h-6 w-6 text-red-600 mr-3" />
+                Emergency Medical Contacts
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.emergencyContacts.map((contact, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-red-50">
+                    <h4 className="font-bold text-gray-900 mb-2">{contact.service}</h4>
+                    <p className="text-lg font-bold text-red-600 mb-1">{contact.number}</p>
+                    <p className="text-sm text-gray-600 mb-1">{contact.availability}</p>
+                    <p className="text-xs text-gray-600">{contact.notes}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Special Considerations */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Special Considerations</h2>
+            
+            {resource.content.specialConsiderations.map((consideration, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                    <Heart className="h-6 w-6 text-teal-oasis mr-3" />
+                    {consideration.category}
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {consideration.advice.map((advice, i) => (
+                      <div key={i} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
+                        <CheckCircle2 className="h-4 w-4 text-teal-oasis mt-0.5 flex-shrink-0" />
+                        <p className="text-sm text-gray-700">{advice}</p>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
 
           {/* Back Button */}
           <div className="text-center">
