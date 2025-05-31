@@ -3530,7 +3530,7 @@ export default function PlanningResource() {
 
           {/* Seasons Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {resource.content.seasons.map((season, index) => (
+            {resource.content.seasons?.map((season: any, index: number) => (
               <Card key={index} className="overflow-hidden">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
@@ -3548,7 +3548,7 @@ export default function PlanningResource() {
                     <div>
                       <h4 className="font-semibold text-green-600 mb-2">Pros</h4>
                       <ul className="text-sm text-gray-600 space-y-1">
-                        {season.pros.map((pro, i) => (
+                        {season.pros?.map((pro: any, i: number) => (
                           <li key={i} className="flex items-center">
                             <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span>
                             {pro}
@@ -3560,7 +3560,7 @@ export default function PlanningResource() {
                     <div>
                       <h4 className="font-semibold text-orange-600 mb-2">Cons</h4>
                       <ul className="text-sm text-gray-600 space-y-1">
-                        {season.cons.map((con, i) => (
+                        {season.cons?.map((con: any, i: number) => (
                           <li key={i} className="flex items-center">
                             <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></span>
                             {con}
@@ -7174,7 +7174,7 @@ export default function PlanningResource() {
                 </h3>
                 
                 <div className="space-y-6">
-                  {resource.content.safetyGuidelines.emergency_procedures.map((emergency, index) => (
+                  {resource.content.safetyGuidelines?.emergency_procedures?.map((emergency, index) => (
                     <div key={index} className="border rounded-lg p-4 bg-yellow-50">
                       <h4 className="text-lg font-bold text-gray-900 mb-4">{emergency.emergency}</h4>
                       
@@ -7223,7 +7223,7 @@ export default function PlanningResource() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Packing Essentials for Women</h3>
                 
                 <div className="grid md:grid-cols-3 gap-6">
-                  {resource.content.practicalAdvice.packing_essentials.map((category, index) => (
+                  {resource.content.practicalAdvice?.packing_essentials?.map((category, index) => (
                     <div key={index} className="border rounded-lg p-4 bg-teal-oasis/5">
                       <h4 className="text-lg font-bold text-gray-900 mb-3">{category.category}</h4>
                       
@@ -7255,7 +7255,7 @@ export default function PlanningResource() {
 
             {/* Money and Documentation */}
             <div className="grid md:grid-cols-2 gap-6">
-              {resource.content.practicalAdvice.money_and_documentation.map((section, index) => (
+              {resource.content.practicalAdvice?.money_and_documentation?.map((section, index) => (
                 <Card key={index}>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
