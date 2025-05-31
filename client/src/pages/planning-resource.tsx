@@ -3529,9 +3529,9 @@ export default function PlanningResource() {
           </Card>
 
           {/* Seasons Grid */}
-          {resource.content.seasons && (
+          {(resource.content as any)?.seasons && (
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-              {resource.content.seasons.map((season: any, index: number) => (
+              {(resource.content as any).seasons.map((season: any, index: number) => (
               <Card key={index} className="overflow-hidden">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
@@ -3585,6 +3585,7 @@ export default function PlanningResource() {
               </Card>
             ))}
           </div>
+          )}
 
           {/* Monthly Timeline */}
           <Card className="mb-8">
@@ -3596,7 +3597,7 @@ export default function PlanningResource() {
               
               <div className="overflow-x-auto">
                 <div className="grid grid-cols-12 gap-2 min-w-[800px]">
-                  {resource.content.monthlyGuide?.map((month: any, index: number) => (
+                  {(resource.content as any)?.monthlyGuide?.map((month: any, index: number) => (
                     <div key={index} className="text-center">
                       <div className={`p-3 rounded-lg mb-2 ${
                         month.rating === 'Excellent' ? 'bg-green-100 border-2 border-green-500' :
