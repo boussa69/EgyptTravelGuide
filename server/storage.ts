@@ -420,6 +420,72 @@ export class DbStorage implements IStorage {
           keyPoints: ["Visa on arrival available", "E-visa option online", "Passport valid 6+ months"],
           resources: [],
           isEssential: true
+        },
+        {
+          title: "Packing Guide",
+          slug: "packing-guide",
+          category: "Essentials",
+          content: "Essential items for comfort and cultural respect during your Egyptian journey.",
+          shortDescription: "Essential items for comfort and cultural respect during your Egyptian journey.",
+          icon: "Package",
+          keyPoints: ["Modest clothing for religious sites", "Sun protection essentials", "Comfortable walking shoes"],
+          resources: [],
+          isEssential: true
+        },
+        {
+          title: "Cultural Etiquette",
+          slug: "cultural-etiquette",
+          category: "Culture",
+          content: "Understand local customs and traditions for meaningful cultural exchange.",
+          shortDescription: "Understand local customs and traditions for meaningful cultural exchange.",
+          icon: "Heart",
+          keyPoints: ["Respect religious customs", "Appropriate dress codes", "Tipping and bargaining etiquette"],
+          resources: [],
+          isEssential: true
+        },
+        {
+          title: "Family-Friendly Egypt",
+          slug: "family-friendly-egypt",
+          category: "Family Travel",
+          content: "Complete guide to traveling Egypt with children, including kid-friendly attractions, safety tips, and practical advice for families.",
+          shortDescription: "Essential guide for families traveling to Egypt with children of all ages.",
+          icon: "Users",
+          keyPoints: ["Child-friendly attractions", "Safety considerations", "Educational opportunities"],
+          resources: [],
+          isEssential: false
+        },
+        {
+          title: "Women Travellers' Guide to Egypt",
+          slug: "women-travellers-tips",
+          category: "Safety & Culture",
+          content: "Essential safety tips, cultural guidance, and practical advice for women exploring Egypt confidently and respectfully.",
+          shortDescription: "Comprehensive safety and cultural guide for female travelers in Egypt.",
+          icon: "Shield",
+          keyPoints: ["Cultural dress codes", "Safety precautions", "Solo travel tips"],
+          resources: [],
+          isEssential: false
+        },
+        {
+          title: "Health & Vaccinations",
+          slug: "health-vaccinations",
+          category: "Health",
+          content: "Comprehensive health guide including vaccination requirements, health risk assessments, medical facilities directory, and travel health kits for Egypt.",
+          shortDescription: "Complete health and vaccination guide for safe travel to Egypt.",
+          icon: "Heart",
+          keyPoints: ["Required vaccinations", "Health insurance", "Medical facilities"],
+          resources: [],
+          isEssential: false
+        },
+        {
+          title: "Shopping & Bargaining",
+          slug: "shopping-bargaining",
+          category: "Culture",
+          content: "Master the art of Egyptian shopping with our comprehensive guide covering market destinations, bargaining techniques, authentic souvenirs, and shopping safety protocols.",
+          shortDescription: "Complete guide to shopping in Egypt's markets and bazaars.",
+          icon: "ShoppingBag",
+          keyPoints: ["Bargaining techniques", "Authentic souvenirs", "Market safety"],
+          resources: [],
+          isEssential: false
         }
       ];
 
