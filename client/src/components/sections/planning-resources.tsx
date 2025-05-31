@@ -2,13 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { planningResourcesApi } from "@/lib/api";
 import PlanningCard from "@/components/ui/planning-card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Sun, CheckCircle, Package, Heart } from "lucide-react";
+import { Sun, CheckCircle, Package, Heart, Car } from "lucide-react";
 
 const quickTips = [
   { icon: Sun, title: "Best Time to Visit", description: "October to April offers perfect weather for sightseeing" },
   { icon: CheckCircle, title: "Visa & Entry", description: "Easy visa on arrival or e-visa options available for most nationalities." },
   { icon: Package, title: "Packing Guide", description: "Essential items for comfort and cultural respect during your Egyptian journey." },
   { icon: Heart, title: "Cultural Etiquette", description: "Understand local customs and traditions for meaningful cultural exchange." },
+  { icon: Car, title: "Getting Around", description: "Complete guide to transportation options from metros to Nile cruises." },
 ];
 
 export default function PlanningResources() {

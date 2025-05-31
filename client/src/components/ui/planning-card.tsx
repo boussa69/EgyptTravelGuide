@@ -19,6 +19,8 @@ export default function PlanningCard({ icon: Icon, title, description }: Plannin
         return { bg: "bg-accent-coral/10", text: "text-accent-coral" };
       case "Cultural Etiquette":
         return { bg: "bg-gold-accent/10", text: "text-gold-accent" };
+      case "Getting Around":
+        return { bg: "bg-blue-600/10", text: "text-blue-600" };
       default:
         return { bg: "bg-teal-oasis/10", text: "text-teal-oasis" };
     }
