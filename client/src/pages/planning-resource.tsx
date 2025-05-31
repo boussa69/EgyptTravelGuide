@@ -977,6 +977,356 @@ const planningData = {
         "Know your hotel's exact address in Arabic"
       ]
     }
+  },
+  "currency-payments": {
+    title: "Currency & Payments in Egypt",
+    description: "Complete guide to Egyptian currency, payment methods, banking, and financial tips for travelers",
+    category: "Financial",
+    lastUpdated: "Updated January 2025",
+    content: {
+      overview: "Understanding Egypt's currency and payment systems ensures smooth financial transactions during your trip. From cash culture to digital payments, this guide covers everything you need to know about money in Egypt.",
+      currency: {
+        name: "Egyptian Pound (EGP)",
+        symbol: "ج.م or £E",
+        code: "EGP",
+        subdivisions: "1 Pound = 100 Piastres (PT)",
+        exchangeRate: "Check current rates before travel",
+        denominations: {
+          banknotes: ["5", "10", "20", "50", "100", "200"],
+          coins: ["25 PT", "50 PT", "1 EGP"]
+        },
+        recognitionTips: [
+          "Banknotes feature ancient Egyptian monuments and figures",
+          "Arabic numerals used alongside English on newer notes", 
+          "Look for security features like watermarks",
+          "Older notes may be worn but still valid"
+        ]
+      },
+      paymentMethods: [
+        {
+          method: "Cash (Egyptian Pounds)",
+          acceptance: "Universal",
+          recommended: "Essential",
+          details: [
+            "Required for street vendors, local restaurants, and tips",
+            "Small denominations (5, 10, 20 EGP) most useful",
+            "Keep cash secure in multiple locations",
+            "Always have small bills for tipping"
+          ],
+          tips: [
+            "Withdraw from ATMs for best exchange rates",
+            "Check bills for tears - damaged notes may be rejected",
+            "Keep receipts for major cash exchanges",
+            "Bargaining often requires cash payment"
+          ]
+        },
+        {
+          method: "US Dollars",
+          acceptance: "Tourist areas",
+          recommended: "Backup currency",
+          details: [
+            "Accepted at hotels, tour operators, and some shops",
+            "Used for visa fees and major purchases",
+            "Bring clean, newer bills (post-2006)",
+            "Some places prefer USD over credit cards"
+          ],
+          tips: [
+            "Bring small denominations ($1, $5, $10, $20)",
+            "Avoid torn or heavily marked bills",
+            "Keep USD for emergencies and tips",
+            "Exchange rates vary - compare before paying"
+          ]
+        },
+        {
+          method: "Credit Cards",
+          acceptance: "Hotels & tourist establishments",
+          recommended: "Convenient for major purchases",
+          details: [
+            "Visa and Mastercard widely accepted",
+            "Hotels, restaurants, and shops in tourist areas",
+            "May incur foreign transaction fees",
+            "PIN required for most transactions"
+          ],
+          tips: [
+            "Notify bank of travel plans",
+            "Carry backup cards from different banks",
+            "Check foreign transaction fees",
+            "Keep receipts for expense tracking"
+          ]
+        },
+        {
+          method: "Debit Cards",
+          acceptance: "ATMs and some merchants",
+          recommended: "Primary cash source",
+          details: [
+            "Best exchange rates through ATM withdrawals",
+            "Available at banks, hotels, and shopping centers",
+            "Daily withdrawal limits apply",
+            "May charge international fees"
+          ],
+          tips: [
+            "Use bank ATMs when possible",
+            "Withdraw larger amounts to minimize fees",
+            "Cover PIN when entering",
+            "Keep ATM receipts for records"
+          ]
+        }
+      ],
+      exchangeOptions: [
+        {
+          option: "Airport Exchange",
+          rate: "Fair to Poor",
+          convenience: "High",
+          fees: "Higher rates",
+          bestFor: "Small amounts for immediate needs",
+          details: [
+            "Available 24/7 at Cairo Airport",
+            "Convenient but poor exchange rates",
+            "Good for taxi fare and tips",
+            "Keep receipts for departure"
+          ]
+        },
+        {
+          option: "Bank Exchange",
+          rate: "Good",
+          convenience: "Medium",
+          fees: "Low",
+          bestFor: "Large amounts, official rates",
+          details: [
+            "Best official exchange rates",
+            "Requires passport and paperwork",
+            "Banking hours: Sunday-Thursday 9AM-2PM",
+            "Keep all exchange receipts"
+          ]
+        },
+        {
+          option: "ATM Withdrawals",
+          rate: "Best",
+          convenience: "High",
+          fees: "Bank fees apply",
+          bestFor: "Regular cash needs",
+          details: [
+            "Most favorable exchange rates",
+            "Available 24/7 at many locations",
+            "Check daily withdrawal limits",
+            "Use reputable bank ATMs"
+          ]
+        },
+        {
+          option: "Hotel Exchange",
+          rate: "Poor",
+          convenience: "High",
+          fees: "High markup",
+          bestFor: "Emergencies only",
+          details: [
+            "Convenient but expensive",
+            "Available for hotel guests",
+            "Higher rates than banks",
+            "Good for small emergency amounts"
+          ]
+        },
+        {
+          option: "Street Exchangers",
+          rate: "Variable",
+          convenience: "High",
+          fees: "Negotiable",
+          bestFor: "Not recommended",
+          details: [
+            "Unofficial and potentially risky",
+            "Rates may seem better but often fraudulent",
+            "Risk of counterfeit currency",
+            "Illegal in many areas"
+          ]
+        }
+      ],
+      bankingServices: [
+        {
+          service: "ATM Networks",
+          availability: "Widespread",
+          details: [
+            "Major banks: National Bank of Egypt, CIB, HSBC",
+            "Available in cities, tourist areas, and hotels",
+            "Most accept international cards",
+            "English language options available"
+          ],
+          locations: [
+            "Banks and branch offices",
+            "Hotels and resorts",
+            "Shopping malls and centers", 
+            "Tourist attractions",
+            "Airports and train stations"
+          ]
+        },
+        {
+          service: "Money Transfer",
+          availability: "Good in cities",
+          details: [
+            "Western Union widely available",
+            "MoneyGram at select locations",
+            "Bank wire transfers possible",
+            "Requires proper identification"
+          ],
+          requirements: [
+            "Valid passport or ID",
+            "Reference number for pickup",
+            "Sender's information",
+            "Purpose of transfer documentation"
+          ]
+        },
+        {
+          service: "Banking Hours",
+          availability: "Standard schedule",
+          details: [
+            "Sunday-Thursday: 9:00 AM - 2:00 PM",
+            "Some branches: 5:00 PM - 8:00 PM",
+            "Friday-Saturday: Closed",
+            "Ramadan hours may vary"
+          ],
+          exceptions: [
+            "Airport branches may have extended hours",
+            "Hotel exchange services available longer",
+            "ATMs operate 24/7",
+            "Tourist area branches may stay open later"
+          ]
+        }
+      ],
+      tippingGuide: [
+        {
+          service: "Restaurants",
+          amount: "10-15% of bill",
+          notes: "Check if service charge already included",
+          customary: true,
+          details: [
+            "Higher end restaurants: 15-20%",
+            "Local restaurants: 10%",
+            "Café/coffee shops: Round up",
+            "Fast food: Not expected"
+          ]
+        },
+        {
+          service: "Hotels",
+          amount: "20-50 EGP per service",
+          notes: "Daily for housekeeping, per bag for porters",
+          customary: true,
+          details: [
+            "Housekeeping: 20-30 EGP daily",
+            "Porters: 10-20 EGP per bag",
+            "Concierge: 50-100 EGP for special help",
+            "Room service: 10-20 EGP"
+          ]
+        },
+        {
+          service: "Taxis & Drivers",
+          amount: "10% or round up",
+          notes: "For good service, optional for short rides",
+          customary: false,
+          details: [
+            "Private drivers: 50-100 EGP per day",
+            "Taxi drivers: Round up to nearest 5 EGP",
+            "Uber/Careem: Tip through app",
+            "Tour bus drivers: 20-50 EGP"
+          ]
+        },
+        {
+          service: "Tour Guides",
+          amount: "100-200 EGP per day",
+          notes: "Based on group size and service quality",
+          customary: true,
+          details: [
+            "Private guides: 150-300 EGP per day",
+            "Group guides: 50-100 EGP per person",
+            "Site-specific guides: 50-100 EGP",
+            "Multi-day tours: 100-200 EGP daily"
+          ]
+        },
+        {
+          service: "General Services",
+          amount: "5-20 EGP",
+          notes: "Toilet attendants, bag assistance, etc.",
+          customary: true,
+          details: [
+            "Toilet attendants: 2-5 EGP",
+            "Parking attendants: 5-10 EGP",
+            "Photography help: 10-20 EGP",
+            "Temple guards: 10-20 EGP"
+          ]
+        }
+      ],
+      budgetingTips: [
+        "Always carry a mix of cash and cards",
+        "Keep small bills for tips and small purchases",
+        "Budget extra for tipping - it's essential in Egypt",
+        "Notify your bank of travel plans to avoid card blocks",
+        "Take photos of important receipts and documents",
+        "Keep emergency cash in different locations",
+        "Learn basic Arabic numbers for price negotiations",
+        "Check daily ATM withdrawal limits with your bank",
+        "Consider travel-friendly bank accounts with low fees",
+        "Keep some USD cash as backup for emergencies"
+      ],
+      securityTips: [
+        {
+          category: "Cash Security",
+          tips: [
+            "Split cash between wallet, bag, and hotel safe",
+            "Use a money belt for large amounts",
+            "Only carry what you need for the day",
+            "Keep emergency cash hidden separately",
+            "Count change carefully in busy areas",
+            "Avoid displaying large amounts of cash"
+          ]
+        },
+        {
+          category: "Card Security", 
+          tips: [
+            "Cover PIN when entering at ATMs",
+            "Use ATMs inside banks when possible",
+            "Check for card skimming devices",
+            "Monitor account activity regularly",
+            "Report lost cards immediately",
+            "Keep emergency card numbers accessible"
+          ]
+        },
+        {
+          category: "General Precautions",
+          tips: [
+            "Be cautious of overly helpful strangers",
+            "Verify prices before agreeing to purchases",
+            "Keep receipts for major transactions",
+            "Understand the local tipping culture",
+            "Be aware of common tourist scams",
+            "Trust your instincts in financial situations"
+          ]
+        }
+      ],
+      commonScams: [
+        {
+          scam: "Fake Police Checkpoints",
+          description: "Unofficial 'police' demanding to see money or papers",
+          prevention: "Ask for proper identification, go to official police station"
+        },
+        {
+          scam: "Overcharging Tourists",
+          description: "Inflated prices for goods, services, or taxi rides",
+          prevention: "Research normal prices, negotiate beforehand, use meters when available"
+        },
+        {
+          scam: "Currency Exchange Fraud",
+          description: "Street changers offering great rates but providing counterfeit money",
+          prevention: "Use only official exchanges, banks, or ATMs"
+        },
+        {
+          scam: "ATM Assistance Scam",
+          description: "Strangers offering help at ATMs to steal PIN or cards",
+          prevention: "Politely decline help, use ATMs in secure locations"
+        },
+        {
+          scam: "Distraction Theft",
+          description: "Working in groups to distract while accomplice steals wallet",
+          prevention: "Stay alert in crowded areas, keep valuables secure"
+        }
+      ]
+    }
   }
 };
 
@@ -2385,6 +2735,343 @@ export default function PlanningResource() {
                 {resource.content.safetyTips.map((tip, index) => (
                   <div key={index} className="flex items-start space-x-3 p-3 bg-red-50 rounded-lg">
                     <Shield className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{tip}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "currency-payments") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Currency & Payments</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Currency Information */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <CreditCard className="h-6 w-6 text-gold-accent mr-3" />
+                Egyptian Currency
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-gold-accent/10 rounded-lg p-4">
+                  <h4 className="text-lg font-bold text-gray-900 mb-3">{resource.content.currency.name}</h4>
+                  <div className="space-y-2 text-sm">
+                    <p><span className="font-semibold">Symbol:</span> {resource.content.currency.symbol}</p>
+                    <p><span className="font-semibold">Code:</span> {resource.content.currency.code}</p>
+                    <p><span className="font-semibold">Subdivisions:</span> {resource.content.currency.subdivisions}</p>
+                    <p><span className="font-semibold">Exchange Rate:</span> {resource.content.currency.exchangeRate}</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-3">Denominations</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="font-semibold text-sm text-gray-900 mb-1">Banknotes:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {resource.content.currency.denominations.banknotes.map((note, index) => (
+                          <Badge key={index} variant="outline" className="text-xs">
+                            {note} EGP
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm text-gray-900 mb-1">Coins:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {resource.content.currency.denominations.coins.map((coin, index) => (
+                          <Badge key={index} variant="outline" className="text-xs">
+                            {coin}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-3">Recognition Tips</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {resource.content.currency.recognitionTips.map((tip, index) => (
+                    <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
+                      <Eye className="h-4 w-4 text-teal-oasis mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-gray-700">{tip}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Payment Methods */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <CreditCard className="h-8 w-8 text-teal-oasis mr-3" />
+              Payment Methods
+            </h2>
+            
+            {resource.content.paymentMethods.map((method, index) => (
+              <Card key={index} className={`overflow-hidden border-l-4 ${
+                method.recommended === 'Essential' ? 'border-red-500' :
+                method.recommended === 'Backup currency' ? 'border-blue-500' :
+                'border-green-500'
+              }`}>
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{method.method}</h3>
+                      <div className="flex items-center gap-4 mb-4">
+                        <Badge variant={
+                          method.acceptance === 'Universal' ? 'default' :
+                          method.acceptance === 'Tourist areas' ? 'secondary' :
+                          'outline'
+                        }>
+                          {method.acceptance}
+                        </Badge>
+                        <Badge variant={
+                          method.recommended === 'Essential' ? 'destructive' :
+                          method.recommended === 'Backup currency' ? 'secondary' :
+                          'default'
+                        }>
+                          {method.recommended}
+                        </Badge>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Details</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {method.details.map((detail, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Tips</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {method.tips.map((tip, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-teal-oasis rounded-full mr-2 mt-2"></span>
+                            {tip}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Exchange Options */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Calculator className="h-6 w-6 text-teal-oasis mr-3" />
+                Currency Exchange Options
+              </h3>
+              
+              <div className="space-y-4">
+                {resource.content.exchangeOptions.map((option, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                    <div className="flex items-start justify-between mb-4">
+                      <h4 className="text-lg font-bold text-gray-900">{option.option}</h4>
+                      <div className="text-right">
+                        <div className={`px-3 py-1 rounded text-sm font-semibold ${
+                          option.rate === 'Best' ? 'bg-green-100 text-green-800' :
+                          option.rate === 'Good' ? 'bg-blue-100 text-blue-800' :
+                          option.rate === 'Fair to Poor' ? 'bg-yellow-100 text-yellow-800' :
+                          'bg-red-100 text-red-800'
+                        }`}>
+                          {option.rate} Rate
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-3 gap-4 mb-4">
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900">Convenience</p>
+                        <p className="text-sm text-gray-600">{option.convenience}</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900">Fees</p>
+                        <p className="text-sm text-gray-600">{option.fees}</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900">Best For</p>
+                        <p className="text-sm text-gray-600">{option.bestFor}</p>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">Details</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {option.details.map((detail, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2 mt-2"></span>
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Tipping Guide */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <HandHeart className="h-6 w-6 text-teal-oasis mr-3" />
+                Tipping Guide
+              </h3>
+              
+              <div className="space-y-4">
+                {resource.content.tippingGuide.map((tip, index) => (
+                  <div key={index} className={`border rounded-lg p-4 ${
+                    tip.customary ? 'bg-green-50 border-green-200' : 'bg-blue-50 border-blue-200'
+                  }`}>
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-bold text-gray-900">{tip.service}</h4>
+                      <div className="text-right">
+                        <p className="text-lg font-bold text-teal-oasis">{tip.amount}</p>
+                        <Badge variant={tip.customary ? 'default' : 'outline'} className="text-xs">
+                          {tip.customary ? 'Customary' : 'Optional'}
+                        </Badge>
+                      </div>
+                    </div>
+                    
+                    <p className="text-sm text-gray-600 mb-3">{tip.notes}</p>
+                    
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">Specific Guidelines</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {tip.details.map((detail, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-teal-oasis rounded-full mr-2 mt-2"></span>
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Security Tips */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Money Security</h2>
+            
+            {resource.content.securityTips.map((section, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <Shield className="h-6 w-6 text-red-600 mr-3" />
+                    {section.category}
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {section.tips.map((tip, i) => (
+                      <div key={i} className="flex items-start space-x-3 p-3 bg-red-50 rounded-lg">
+                        <Shield className="h-4 w-4 text-red-600 mt-0.5 flex-shrink-0" />
+                        <p className="text-sm text-gray-700">{tip}</p>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Common Scams */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <AlertTriangle className="h-6 w-6 text-orange-600 mr-3" />
+                Common Financial Scams
+              </h3>
+              
+              <div className="space-y-4">
+                {resource.content.commonScams.map((scam, index) => (
+                  <div key={index} className="border-l-4 border-orange-500 bg-orange-50 p-4 rounded-lg">
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">{scam.scam}</h4>
+                    <p className="text-sm text-gray-600 mb-3">{scam.description}</p>
+                    <div className="bg-white p-3 rounded border-l-4 border-green-500">
+                      <p className="text-sm font-semibold text-green-800 mb-1">Prevention:</p>
+                      <p className="text-sm text-gray-700">{scam.prevention}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Budgeting Tips */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Essential Budgeting Tips</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.budgetingTips.map((tip, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-3 bg-gold-accent/5 rounded-lg">
+                    <DollarSign className="h-5 w-5 text-gold-accent mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-gray-700">{tip}</p>
                   </div>
                 ))}
