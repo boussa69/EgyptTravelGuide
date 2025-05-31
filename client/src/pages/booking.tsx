@@ -51,7 +51,7 @@ export default function Booking() {
 
   // Fetch accommodations
   const { data: accommodations = [], isLoading: accommodationsLoading } = useQuery<AccommodationOption[]>({
-    queryKey: ['/api/tours', tour?.id, 'accommodations'],
+    queryKey: [`/api/tours/${tour?.id}/accommodations`],
     enabled: !!tour?.id,
   });
 
