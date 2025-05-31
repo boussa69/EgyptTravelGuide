@@ -1,0 +1,154 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tours",
+  "info": {
+    "singularName": "tour",
+    "pluralName": "tours",
+    "displayName": "Tour",
+    "description": "Egypt travel tours and packages"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "shortDescription": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "duration": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["adventure", "cultural", "luxury", "family", "spiritual", "desert", "nile-cruise"],
+      "required": true,
+      "default": "cultural"
+    },
+    "imageUrl": {
+      "type": "string",
+      "required": false
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "originalPrice": {
+      "type": "decimal",
+      "required": false,
+      "min": 0
+    },
+    "rating": {
+      "type": "decimal",
+      "required": true,
+      "min": 0,
+      "max": 5,
+      "default": 5
+    },
+    "reviewCount": {
+      "type": "integer",
+      "required": true,
+      "min": 0,
+      "default": 0
+    },
+    "highlights": {
+      "type": "json",
+      "required": false
+    },
+    "inclusions": {
+      "type": "json",
+      "required": false
+    },
+    "exclusions": {
+      "type": "json",
+      "required": false
+    },
+    "itinerary": {
+      "type": "json",
+      "required": false
+    },
+    "isPopular": {
+      "type": "boolean",
+      "default": false
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    },
+    "maxGroupSize": {
+      "type": "integer",
+      "min": 1,
+      "default": 12
+    },
+    "difficulty": {
+      "type": "enumeration",
+      "enum": ["easy", "moderate", "challenging"],
+      "default": "easy"
+    },
+    "destination": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::destination.destination",
+      "inversedBy": "tours"
+    },
+    "itineraryDays": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::itinerary-day.itinerary-day",
+      "mappedBy": "tour"
+    },
+    "accommodationOptions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::accommodation-option.accommodation-option",
+      "mappedBy": "tour"
+    },
+    "faqItems": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq-item.faq-item",
+      "mappedBy": "tour"
+    }
+  }
+}
