@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "singularName": "booking",
+    "pluralName": "bookings",
+    "displayName": "Booking",
+    "description": "Tour bookings and reservations"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "confirmationNumber": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "tour": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tour.tour"
+    },
+    "tourId": {
+      "type": "integer",
+      "required": true
+    },
+    "departureDate": {
+      "type": "string",
+      "required": true
+    },
+    "accommodationType": {
+      "type": "string",
+      "required": true
+    },
+    "travelers": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "totalAmount": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["pending", "confirmed", "cancelled"],
+      "default": "confirmed"
+    },
+    "guestFirstName": {
+      "type": "string",
+      "required": true
+    },
+    "guestLastName": {
+      "type": "string",
+      "required": true
+    },
+    "guestEmail": {
+      "type": "email",
+      "required": true
+    },
+    "guestPhone": {
+      "type": "string",
+      "required": true
+    },
+    "specialRequests": {
+      "type": "text",
+      "required": false
+    },
+    "paymentId": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
