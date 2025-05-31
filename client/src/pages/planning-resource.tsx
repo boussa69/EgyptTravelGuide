@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star } from "lucide-react";
 import { Link } from "wouter";
 
 const planningData = {
@@ -1325,6 +1325,310 @@ const planningData = {
           description: "Working in groups to distract while accomplice steals wallet",
           prevention: "Stay alert in crowded areas, keep valuables secure"
         }
+      ]
+    }
+  },
+  "connectivity-sim-cards": {
+    title: "Connectivity & SIM Cards in Egypt",
+    description: "Complete guide to staying connected in Egypt - mobile networks, internet access, and communication options",
+    category: "Technology",
+    lastUpdated: "Updated January 2025",
+    content: {
+      overview: "Staying connected in Egypt is essential for navigation, communication, and sharing your travel experiences. From local SIM cards to WiFi hotspots, this guide covers all your connectivity options with practical tips for seamless communication throughout your Egyptian journey.",
+      mobileNetworks: [
+        {
+          provider: "Vodafone Egypt",
+          marketShare: "40%+",
+          coverage: "Excellent nationwide",
+          strengths: ["Best overall coverage", "Strong 4G network", "Tourist-friendly plans", "English customer service"],
+          weaknesses: ["Premium pricing", "Busy stores in tourist areas"],
+          bestFor: "Travelers prioritizing reliability and coverage",
+          plans: [
+            { name: "Tourist SIM", data: "20GB", validity: "30 days", price: "$10-15", features: ["Local calls", "International SMS", "Social media packages"] },
+            { name: "Prepaid Plus", data: "50GB", validity: "30 days", price: "$20-25", features: ["Unlimited local calls", "International minutes", "High-speed data"] }
+          ]
+        },
+        {
+          provider: "Orange Egypt",
+          marketShare: "30%+",
+          coverage: "Good nationwide",
+          strengths: ["Competitive pricing", "Good data packages", "Wide store network", "Reliable in cities"],
+          weaknesses: ["Weaker rural coverage", "Limited English support"],
+          bestFor: "Budget-conscious travelers in urban areas",
+          plans: [
+            { name: "Orange Tourist", data: "15GB", validity: "30 days", price: "$8-12", features: ["Local calls", "Social media apps", "Tourist hotline"] },
+            { name: "Orange Max", data: "40GB", validity: "30 days", price: "$18-22", features: ["Unlimited calls", "International roaming", "Entertainment packages"] }
+          ]
+        },
+        {
+          provider: "Etisalat Egypt",
+          marketShare: "25%+",
+          coverage: "Good in major cities",
+          strengths: ["Fastest 4G speeds", "Modern network", "Good customer service", "International roaming deals"],
+          weaknesses: ["Limited rural coverage", "Fewer store locations"],
+          bestFor: "Digital nomads and heavy data users",
+          plans: [
+            { name: "We Tourist", data: "25GB", validity: "28 days", price: "$12-16", features: ["High-speed 4G", "International calling", "Mobile hotspot"] },
+            { name: "We Unlimited", data: "Unlimited", validity: "30 days", price: "$25-30", features: ["No throttling", "Premium support", "5G access in Cairo"] }
+          ]
+        }
+      ],
+      simCardPurchase: {
+        requirements: [
+          "Valid passport (original required)",
+          "Tourist visa or entry stamp",
+          "Local address (hotel address acceptable)",
+          "Cash payment (Egyptian pounds or USD)"
+        ],
+        locations: [
+          {
+            type: "Airport Counters",
+            availability: "24/7 at Cairo Airport",
+            pros: ["Immediate activation", "Tourist-specific plans", "English assistance"],
+            cons: ["Higher prices", "Limited plan options", "Long queues"],
+            tips: ["Available in arrival halls", "Expect 20-30% markup", "Ask for tourist packages"]
+          },
+          {
+            type: "Official Stores",
+            availability: "Daily 9AM-9PM",
+            pros: ["Best prices", "Full plan selection", "Official warranty"],
+            cons: ["Language barriers", "Longer activation time", "Documentation required"],
+            tips: ["Bring hotel address", "Use translation apps", "Visit larger stores for English speakers"]
+          },
+          {
+            type: "Authorized Dealers",
+            availability: "Varies by location",
+            pros: ["Convenient locations", "Quick service", "Local knowledge"],
+            cons: ["Unofficial pricing", "Limited support", "Activation issues possible"],
+            tips: ["Verify dealer authenticity", "Compare prices", "Test service before leaving"]
+          }
+        ],
+        activationProcess: [
+          "Purchase SIM card and select plan",
+          "Provide passport and visa documentation",
+          "Complete registration form (Arabic/English)",
+          "Wait for network activation (5-30 minutes)",
+          "Test calls, SMS, and data connectivity",
+          "Save customer service numbers"
+        ]
+      },
+      internetAccess: [
+        {
+          type: "Hotel WiFi",
+          quality: "Good to Excellent",
+          cost: "Usually free",
+          speed: "10-100 Mbps",
+          reliability: "High in 4-5 star hotels",
+          coverage: "Lobby and rooms",
+          tips: [
+            "Ask for WiFi password at check-in",
+            "Test speed in your room before settling",
+            "Lobby often has stronger signal",
+            "Some hotels charge for premium speed"
+          ]
+        },
+        {
+          type: "Café & Restaurant WiFi",
+          quality: "Variable",
+          cost: "Free with purchase",
+          speed: "5-50 Mbps",
+          reliability: "Moderate",
+          coverage: "Dining areas only",
+          tips: [
+            "Ask staff for WiFi credentials",
+            "International chains usually reliable",
+            "Upload photos during meal breaks",
+            "Avoid sensitive browsing on public networks"
+          ]
+        },
+        {
+          type: "Public WiFi Hotspots",
+          quality: "Poor to Fair",
+          cost: "Free",
+          speed: "1-20 Mbps",
+          reliability: "Low",
+          coverage: "Limited areas",
+          tips: [
+            "Available at malls and airports",
+            "Use VPN for security",
+            "Don't access banking or sensitive sites",
+            "Backup option only"
+          ]
+        },
+        {
+          type: "Mobile Hotspot",
+          quality: "Good",
+          cost: "Uses data plan",
+          speed: "20-100 Mbps",
+          reliability: "Depends on network coverage",
+          coverage: "Wherever you have mobile signal",
+          tips: [
+            "Most reliable option for consistent access",
+            "Share with travel companions",
+            "Monitor data usage carefully",
+            "Useful for navigation and translation apps"
+          ]
+        }
+      ],
+      communicationApps: [
+        {
+          category: "Messaging & Voice",
+          apps: [
+            {
+              name: "WhatsApp",
+              popularity: "Universal in Egypt",
+              features: ["Free messaging", "Voice/video calls", "Works on WiFi"],
+              dataUsage: "Low",
+              tips: ["Most Egyptians use WhatsApp", "Works well with local SIM", "Save important contacts"]
+            },
+            {
+              name: "Telegram",
+              popularity: "Growing",
+              features: ["Secure messaging", "File sharing", "Group chats"],
+              dataUsage: "Low",
+              tips: ["Good backup to WhatsApp", "Works in poor connectivity", "Useful for travel groups"]
+            },
+            {
+              name: "Skype",
+              popularity: "International calls",
+              features: ["Video calling", "International rates", "Screen sharing"],
+              dataUsage: "Medium-High",
+              tips: ["Good for long family calls", "Buy credit for phone calls", "Use on WiFi for video"]
+            }
+          ]
+        },
+        {
+          category: "Navigation & Maps",
+          apps: [
+            {
+              name: "Google Maps",
+              popularity: "Essential",
+              features: ["Offline maps", "Navigation", "Business info", "Public transport"],
+              dataUsage: "Medium",
+              tips: ["Download offline maps", "Works with Arabic addresses", "Save important locations"]
+            },
+            {
+              name: "Maps.me",
+              popularity: "Travel favorite",
+              features: ["Fully offline", "Detailed maps", "Points of interest"],
+              dataUsage: "None (offline)",
+              tips: ["Download before travel", "Mark hotels and attractions", "Works without data"]
+            },
+            {
+              name: "Uber/Careem",
+              popularity: "Urban areas",
+              features: ["Ride booking", "GPS tracking", "Cashless payment"],
+              dataUsage: "Low",
+              tips: ["Both apps work in Egypt", "Careem more popular locally", "Save pickup locations"]
+            }
+          ]
+        },
+        {
+          category: "Translation & Language",
+          apps: [
+            {
+              name: "Google Translate",
+              popularity: "Essential for travelers",
+              features: ["Text translation", "Camera translation", "Offline mode", "Voice translation"],
+              dataUsage: "Low (offline mode available)",
+              tips: ["Download Arabic language pack", "Use camera for menu translation", "Voice mode for conversations"]
+            },
+            {
+              name: "Microsoft Translator",
+              popularity: "Professional alternative",
+              features: ["Real-time conversation", "Offline translation", "Phrasebook"],
+              dataUsage: "Low",
+              tips: ["Good for business meetings", "Conversation mode useful", "Download offline packs"]
+            }
+          ]
+        }
+      ],
+      internetSpeeds: {
+        average4G: "20-50 Mbps download, 5-15 Mbps upload",
+        average3G: "2-10 Mbps download, 1-3 Mbps upload",
+        averageWiFi: "10-100 Mbps (varies by provider)",
+        coverage: {
+          urban: "95%+ 4G coverage in Cairo, Alexandria, major cities",
+          rural: "70-80% 3G/4G coverage, improving rapidly",
+          touristAreas: "90%+ coverage at all major attractions",
+          desert: "Limited coverage, satellite options available"
+        }
+      },
+      costs: {
+        dailyEstimates: [
+          { usage: "Light (1GB)", cost: "$1-2", activities: ["Basic messaging", "Navigation", "Social media"] },
+          { usage: "Medium (3-5GB)", cost: "$3-5", activities: ["Video calls", "Photo uploads", "Streaming music"] },
+          { usage: "Heavy (10GB+)", cost: "$8-12", activities: ["Video streaming", "Large file uploads", "Constant hotspot use"] }
+        ],
+        comparisonWithRoaming: [
+          { carrier: "US Carriers", roamingCost: "$10-15/day", localSIMCost: "$8-15/month", savings: "80-90%" },
+          { carrier: "EU Carriers", roamingCost: "$5-10/day", localSIMCost: "$8-15/month", savings: "70-80%" },
+          { carrier: "Other International", roamingCost: "$15-25/day", localSIMCost: "$8-15/month", savings: "85-95%" }
+        ]
+      },
+      practicalTips: [
+        "Buy SIM card within 24 hours of arrival for best activation",
+        "Always carry passport when purchasing SIM cards",
+        "Download offline maps and translation apps before traveling",
+        "Test your SIM card immediately after purchase",
+        "Keep your home country SIM card safe for return",
+        "Consider unlocking your phone before travel",
+        "Use WiFi for large downloads and video calls",
+        "Monitor data usage to avoid unexpected charges",
+        "Save emergency numbers in both Arabic and English",
+        "Purchase data packages rather than pay-per-use rates"
+      ],
+      troubleshooting: [
+        {
+          issue: "SIM Card Not Working",
+          solutions: [
+            "Restart phone after inserting SIM",
+            "Check if phone is unlocked for international use",
+            "Verify network settings (APN configuration)",
+            "Contact customer service with purchase receipt",
+            "Try SIM in another unlocked device"
+          ]
+        },
+        {
+          issue: "Slow Internet Speeds",
+          solutions: [
+            "Check data allowance - may be throttled",
+            "Move to area with better signal strength",
+            "Switch between 3G/4G networks manually",
+            "Clear cache and restart apps",
+            "Use WiFi for data-heavy activities"
+          ]
+        },
+        {
+          issue: "High Data Usage",
+          solutions: [
+            "Turn off automatic app updates",
+            "Disable background app refresh",
+            "Use WiFi whenever available",
+            "Download content for offline use",
+            "Monitor usage in phone settings"
+          ]
+        },
+        {
+          issue: "Cannot Make International Calls",
+          solutions: [
+            "Add international calling package",
+            "Use +20 prefix for Egypt, +country code for others",
+            "Try WhatsApp or Skype calling instead",
+            "Check credit balance on prepaid plans",
+            "Contact customer service for assistance"
+          ]
+        }
+      ],
+      emergencyConnectivity: [
+        "Keep emergency numbers saved in phone contacts",
+        "Write down important numbers on paper backup",
+        "Know nearest embassy/consulate contact information",
+        "Save hotel address and phone number in Arabic",
+        "Keep some credit on home country SIM for emergencies",
+        "Download offline maps of your accommodation area",
+        "Consider satellite messenger for remote areas",
+        "Inform family/friends of your communication plan"
       ]
     }
   }
@@ -3072,6 +3376,430 @@ export default function PlanningResource() {
                 {resource.content.budgetingTips.map((tip, index) => (
                   <div key={index} className="flex items-start space-x-3 p-3 bg-gold-accent/5 rounded-lg">
                     <DollarSign className="h-5 w-5 text-gold-accent mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{tip}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "connectivity-sim-cards") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Connectivity & SIM Cards</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Mobile Networks */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Smartphone className="h-8 w-8 text-teal-oasis mr-3" />
+              Mobile Network Providers
+            </h2>
+            
+            {resource.content.mobileNetworks.map((network, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{network.provider}</h3>
+                      <div className="flex items-center gap-4 mb-4">
+                        <Badge variant="outline">{network.marketShare} Market Share</Badge>
+                        <Badge variant="secondary">{network.coverage}</Badge>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-4">{network.bestFor}</p>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Strengths</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {network.strengths.map((strength, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            {strength}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Considerations</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {network.weaknesses.map((weakness, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2 mt-2"></span>
+                            {weakness}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-3">Popular Plans</h4>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {network.plans.map((plan, i) => (
+                        <div key={i} className="border rounded-lg p-4 bg-teal-oasis/5">
+                          <div className="flex justify-between items-start mb-2">
+                            <h5 className="font-bold text-gray-900">{plan.name}</h5>
+                            <span className="text-lg font-bold text-teal-oasis">{plan.price}</span>
+                          </div>
+                          <p className="text-sm text-gray-600 mb-2">
+                            {plan.data} • {plan.validity}
+                          </p>
+                          <div className="flex flex-wrap gap-1">
+                            {plan.features.map((feature, j) => (
+                              <Badge key={j} variant="outline" className="text-xs">
+                                {feature}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* SIM Card Purchase */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <CreditCard className="h-6 w-6 text-teal-oasis mr-3" />
+                SIM Card Purchase Guide
+              </h3>
+              
+              <div className="mb-6">
+                <h4 className="text-lg font-bold text-gray-900 mb-3">Requirements</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {resource.content.simCardPurchase.requirements.map((req, index) => (
+                    <div key={index} className="flex items-start space-x-3 p-3 bg-blue-50 rounded-lg">
+                      <FileText className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-gray-700">{req}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-lg font-bold text-gray-900 mb-3">Where to Buy</h4>
+                <div className="space-y-4">
+                  {resource.content.simCardPurchase.locations.map((location, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                      <div className="flex items-start justify-between mb-3">
+                        <h5 className="text-lg font-bold text-gray-900">{location.type}</h5>
+                        <Badge variant="outline">{location.availability}</Badge>
+                      </div>
+                      
+                      <div className="grid md:grid-cols-3 gap-4 mb-3">
+                        <div>
+                          <p className="font-semibold text-sm text-green-800 mb-1">Pros:</p>
+                          <ul className="text-xs text-gray-600 space-y-1">
+                            {location.pros.map((pro, i) => (
+                              <li key={i}>• {pro}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm text-orange-800 mb-1">Cons:</p>
+                          <ul className="text-xs text-gray-600 space-y-1">
+                            {location.cons.map((con, i) => (
+                              <li key={i}>• {con}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm text-blue-800 mb-1">Tips:</p>
+                          <ul className="text-xs text-gray-600 space-y-1">
+                            {location.tips.map((tip, i) => (
+                              <li key={i}>• {tip}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-3">Activation Process</h4>
+                <div className="space-y-3">
+                  {resource.content.simCardPurchase.activationProcess.map((step, index) => (
+                    <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
+                      <div className="flex-shrink-0 w-6 h-6 bg-teal-oasis text-white rounded-full flex items-center justify-center text-xs font-bold">
+                        {index + 1}
+                      </div>
+                      <p className="text-sm text-gray-700">{step}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Internet Access Options */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Wifi className="h-6 w-6 text-teal-oasis mr-3" />
+                Internet Access Options
+              </h3>
+              
+              <div className="space-y-4">
+                {resource.content.internetAccess.map((access, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                    <div className="flex items-start justify-between mb-4">
+                      <h4 className="text-lg font-bold text-gray-900">{access.type}</h4>
+                      <div className="text-right text-sm">
+                        <div className={`px-2 py-1 rounded text-xs font-semibold ${
+                          access.quality === 'Excellent' ? 'bg-green-100 text-green-800' :
+                          access.quality === 'Good' ? 'bg-blue-100 text-blue-800' :
+                          access.quality === 'Variable' || access.quality === 'Good to Excellent' ? 'bg-yellow-100 text-yellow-800' :
+                          'bg-red-100 text-red-800'
+                        }`}>
+                          {access.quality}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-4 gap-4 mb-4">
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900">Cost</p>
+                        <p className="text-sm text-gray-600">{access.cost}</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900">Speed</p>
+                        <p className="text-sm text-gray-600">{access.speed}</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900">Reliability</p>
+                        <p className="text-sm text-gray-600">{access.reliability}</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900">Coverage</p>
+                        <p className="text-sm text-gray-600">{access.coverage}</p>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">Tips</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {access.tips.map((tip, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-teal-oasis rounded-full mr-2 mt-2"></span>
+                            {tip}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Communication Apps */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Essential Apps</h2>
+            
+            {resource.content.communicationApps.map((category, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <MessageSquare className="h-6 w-6 text-teal-oasis mr-3" />
+                    {category.category}
+                  </h3>
+                  
+                  <div className="space-y-4">
+                    {category.apps.map((app, i) => (
+                      <div key={i} className="border rounded-lg p-4 bg-teal-oasis/5">
+                        <div className="flex items-start justify-between mb-3">
+                          <div>
+                            <h4 className="text-lg font-bold text-gray-900">{app.name}</h4>
+                            <p className="text-sm text-gray-600">{app.popularity}</p>
+                          </div>
+                          <Badge variant="outline">{app.dataUsage} Data</Badge>
+                        </div>
+                        
+                        <div className="mb-3">
+                          <h5 className="font-semibold text-gray-900 mb-2">Features</h5>
+                          <div className="flex flex-wrap gap-2">
+                            {app.features.map((feature, j) => (
+                              <Badge key={j} variant="secondary" className="text-xs">
+                                {feature}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <h5 className="font-semibold text-gray-900 mb-2">Tips</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {app.tips.map((tip, j) => (
+                              <li key={j} className="flex items-start">
+                                <span className="w-1.5 h-1.5 bg-teal-oasis rounded-full mr-2 mt-2"></span>
+                                {tip}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Costs & Savings */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <DollarSign className="h-6 w-6 text-teal-oasis mr-3" />
+                Data Costs & Savings
+              </h3>
+              
+              <div className="mb-6">
+                <h4 className="text-lg font-bold text-gray-900 mb-3">Daily Data Estimates</h4>
+                <div className="grid md:grid-cols-3 gap-4">
+                  {resource.content.costs.dailyEstimates.map((estimate, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-green-50">
+                      <h5 className="font-bold text-gray-900 mb-2">{estimate.usage}</h5>
+                      <p className="text-lg font-bold text-teal-oasis mb-2">{estimate.cost}/day</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {estimate.activities.map((activity, i) => (
+                          <li key={i}>• {activity}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-3">Roaming vs Local SIM Savings</h4>
+                <div className="space-y-3">
+                  {resource.content.costs.comparisonWithRoaming.map((comparison, index) => (
+                    <div key={index} className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                      <div>
+                        <p className="font-semibold text-gray-900">{comparison.carrier}</p>
+                        <p className="text-sm text-gray-600">
+                          Roaming: {comparison.roamingCost} • Local SIM: {comparison.localSIMCost}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-lg font-bold text-green-600">{comparison.savings}</p>
+                        <p className="text-xs text-gray-600">savings</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Practical Tips */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Essential Tips</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.practicalTips.map((tip, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-3 bg-gold-accent/5 rounded-lg">
+                    <Star className="h-5 w-5 text-gold-accent mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{tip}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Troubleshooting */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Settings className="h-6 w-6 text-teal-oasis mr-3" />
+                Troubleshooting Common Issues
+              </h3>
+              
+              <div className="space-y-4">
+                {resource.content.troubleshooting.map((problem, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-orange-50">
+                    <h4 className="text-lg font-bold text-gray-900 mb-3">{problem.issue}</h4>
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">Solutions:</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {problem.solutions.map((solution, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2 mt-2"></span>
+                            {solution}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Emergency Connectivity */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <AlertTriangle className="h-6 w-6 text-red-600 mr-3" />
+                Emergency Connectivity Backup
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.emergencyConnectivity.map((tip, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-3 bg-red-50 rounded-lg">
+                    <AlertTriangle className="h-4 w-4 text-red-600 mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-gray-700">{tip}</p>
                   </div>
                 ))}
