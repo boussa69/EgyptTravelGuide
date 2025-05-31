@@ -236,7 +236,7 @@ export class DbStorage implements IStorage {
           description: "The bustling capital filled with Islamic art, Coptic heritage, and modern Egyptian culture. Explore the Pyramids of Giza, Islamic Cairo, and the Egyptian Museum.",
           shortDescription: "The bustling capital filled with Islamic art, Coptic heritage, and modern Egyptian culture.",
           region: "Greater Cairo",
-          imageUrl: "https://images.unsplash.com/photo-1510759591315-6425cba413fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+          imageUrl: "/attached_assets/saladin-citadel.jpg",
           rating: 5,
           reviewCount: 2847,
           priceFrom: 89,
