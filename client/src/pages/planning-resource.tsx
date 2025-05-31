@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star, Syringe, Activity, Pill, Plus } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star, Syringe, Activity, Pill, Plus, ShoppingBag, Store, Gem, Coins, TrendingUp, Tag } from "lucide-react";
 import { Link } from "wouter";
 
 const planningData = {
@@ -2052,6 +2052,428 @@ const planningData = {
             "Know evacuation procedures for remote areas",
             "Consider satellite communication device",
             "Research rescue services availability"
+          ]
+        }
+      ]
+    }
+  },
+  "shopping-bargaining": {
+    title: "Shopping & Bargaining in Egypt",
+    description: "Complete guide to Egyptian markets, shopping destinations, bargaining techniques, and authentic souvenirs",
+    category: "Cultural",
+    lastUpdated: "Updated January 2025",
+    content: {
+      overview: "Shopping in Egypt is an adventure that combines ancient traditions with modern commerce. From bustling bazaars to contemporary malls, Egypt offers unique treasures and memorable experiences. Master the art of bargaining and discover authentic Egyptian crafts, spices, and souvenirs.",
+      shoppingDestinations: [
+        {
+          location: "Khan El Khalili Bazaar, Cairo",
+          type: "Traditional Market",
+          atmosphere: "Historic and bustling",
+          specialty: "Traditional crafts, jewelry, textiles",
+          description: "Cairo's most famous bazaar dating back to the 14th century",
+          highlights: [
+            "Traditional Egyptian crafts and artifacts",
+            "Gold and silver jewelry",
+            "Handwoven textiles and carpets", 
+            "Spices and traditional perfumes",
+            "Papyrus artwork and souvenirs"
+          ],
+          bargainingLevel: "High - Start at 30-40% of asking price",
+          tips: [
+            "Visit early morning or late afternoon for better prices",
+            "Compare prices across multiple shops",
+            "Don't show excessive interest initially",
+            "Be prepared to walk away",
+            "Bring cash for better deals"
+          ],
+          location_details: {
+            hours: "9:00 AM - 10:00 PM daily",
+            access: "Metro to Ataba station + short walk",
+            nearby: "Al-Azhar Mosque, Islamic Cairo"
+          }
+        },
+        {
+          location: "Aswan Souk",
+          type: "Traditional Market",
+          atmosphere: "Relaxed Nubian culture",
+          specialty: "Nubian crafts, spices, textiles",
+          description: "Colorful market reflecting Nubian heritage and culture",
+          highlights: [
+            "Authentic Nubian handicrafts",
+            "Colorful textiles and scarves",
+            "Traditional Nubian jewelry",
+            "Henna and natural beauty products",
+            "Local spices and herbs"
+          ],
+          bargainingLevel: "Moderate - Start at 40-50% of asking price",
+          tips: [
+            "Learn basic Nubian greetings",
+            "Appreciate the cultural significance of items",
+            "Support local Nubian artisans",
+            "Ask about the story behind crafts",
+            "Respect cultural traditions"
+          ],
+          location_details: {
+            hours: "8:00 AM - 9:00 PM daily",
+            access: "Walking distance from Nile Corniche",
+            nearby: "Nubian villages, Elephantine Island"
+          }
+        },
+        {
+          location: "Luxor Market",
+          type: "Tourist-focused Market",
+          atmosphere: "Vibrant and tourist-friendly",
+          specialty: "Souvenirs, alabaster, replicas",
+          description: "Convenient market near major tourist attractions",
+          highlights: [
+            "Alabaster statues and artifacts",
+            "Papyrus paintings and scrolls",
+            "Egyptian cotton products",
+            "Replica ancient artifacts",
+            "Traditional Egyptian clothing"
+          ],
+          bargainingLevel: "High - Start at 25-35% of asking price",
+          tips: [
+            "Higher prices due to tourist location",
+            "Quality varies significantly",
+            "Check authenticity certificates",
+            "Compare with other vendors",
+            "Negotiate package deals for multiple items"
+          ],
+          location_details: {
+            hours: "8:00 AM - 11:00 PM daily",
+            access: "Near Valley of the Kings entrance",
+            nearby: "Karnak Temple, Luxor Temple"
+          }
+        },
+        {
+          location: "City Stars Mall, Cairo",
+          type: "Modern Shopping Mall",
+          atmosphere: "Contemporary and air-conditioned",
+          specialty: "International brands, electronics, fashion",
+          description: "Middle East's largest shopping mall with fixed prices",
+          highlights: [
+            "International fashion brands",
+            "Electronics and gadgets",
+            "Food courts and restaurants",
+            "Entertainment facilities",
+            "Local Egyptian brands"
+          ],
+          bargainingLevel: "None - Fixed prices",
+          tips: [
+            "No bargaining in modern malls",
+            "Credit cards widely accepted",
+            "Sales during Ramadan and holidays",
+            "Tax-free shopping for tourists",
+            "Good for air-conditioned shopping"
+          ],
+          location_details: {
+            hours: "10:00 AM - 12:00 AM daily",
+            access: "Metro to Heliopolis + taxi",
+            nearby: "Cairo Airport, New Cairo"
+          }
+        }
+      ],
+      bargainingTechniques: {
+        basicPrinciples: [
+          "Always bargain with a smile and respect",
+          "Start at 25-40% of the initial asking price",
+          "Be prepared to walk away - it's part of the process",
+          "Show genuine interest but not desperation",
+          "Bargain for quality, not just price",
+          "Cash payments often secure better deals"
+        ],
+        stepByStep: [
+          {
+            step: 1,
+            action: "Initial Interest",
+            description: "Browse casually without showing excessive enthusiasm",
+            tips: ["Don't pick up items immediately", "Ask general questions", "Compare multiple items"]
+          },
+          {
+            step: 2,
+            action: "Price Inquiry",
+            description: "Ask for the price while examining the item carefully",
+            tips: ["Check quality and authenticity", "Point out any flaws", "Ask about the material/origin"]
+          },
+          {
+            step: 3,
+            action: "Counter Offer",
+            description: "Make your initial offer at 25-40% of asking price",
+            tips: ["Justify your price with quality concerns", "Mention prices at other shops", "Stay friendly but firm"]
+          },
+          {
+            step: 4,
+            action: "Negotiation",
+            description: "Engage in back-and-forth discussion",
+            tips: ["Increase offer gradually", "Bundle multiple items", "Use cultural compliments appropriately"]
+          },
+          {
+            step: 5,
+            action: "Walking Away",
+            description: "Politely prepare to leave if price isn't acceptable",
+            tips: ["Thank the seller genuinely", "Leave your final offer", "Often they'll call you back"]
+          },
+          {
+            step: 6,
+            action: "Final Agreement",
+            description: "Reach a mutually acceptable price",
+            tips: ["Confirm all details", "Check the item again", "Pay the agreed amount promptly"]
+          }
+        ],
+        culturalTips: [
+          "Learn basic Arabic greetings and numbers",
+          "Show respect for craftsmanship and tradition",
+          "Accept tea or coffee if offered - it's hospitality",
+          "Don't bargain aggressively or rudely",
+          "Understand that bargaining is a social interaction",
+          "Tip: 'Shukran' (thank you) goes a long way"
+        ]
+      },
+      authenticSouvenirs: [
+        {
+          item: "Egyptian Cotton Products",
+          authenticity: "High",
+          priceRange: "50-500 EGP",
+          quality_indicators: [
+            "Long staple cotton feel",
+            "Smooth, lustrous appearance",
+            "Lightweight yet durable",
+            "Egyptian Cotton Authority certification"
+          ],
+          best_places: ["Khan El Khalili", "Cotton specialty shops", "Textile districts"],
+          bargaining_potential: "Moderate",
+          tips: [
+            "Check thread count and weave quality",
+            "Feel the fabric texture",
+            "Look for Egyptian Cotton trademark",
+            "Compare prices across multiple vendors"
+          ]
+        },
+        {
+          item: "Papyrus Artwork",
+          authenticity: "Variable - many fakes",
+          priceRange: "20-300 EGP",
+          quality_indicators: [
+            "Made from genuine papyrus plant",
+            "Rough, fibrous texture",
+            "Natural color variations",
+            "Hand-painted details"
+          ],
+          best_places: ["Papyrus Institute", "Khan El Khalili", "Giza workshops"],
+          bargaining_potential: "High",
+          tips: [
+            "Genuine papyrus can be torn in straight lines",
+            "Avoid banana leaf imitations",
+            "Ask for demonstration of authenticity",
+            "Support certified papyrus makers"
+          ]
+        },
+        {
+          item: "Spices and Herbs",
+          authenticity: "Generally high",
+          priceRange: "10-100 EGP per package",
+          quality_indicators: [
+            "Strong, fresh aroma",
+            "Vibrant natural colors",
+            "Proper packaging and labeling",
+            "No artificial additives"
+          ],
+          best_places: ["Spice markets", "Khan El Khalili", "Local souks"],
+          bargaining_potential: "Moderate",
+          tips: [
+            "Smell before buying",
+            "Check expiration dates",
+            "Buy whole spices when possible",
+            "Ask about grinding services"
+          ]
+        },
+        {
+          item: "Jewelry (Gold/Silver)",
+          authenticity: "Requires expertise",
+          priceRange: "100-5000+ EGP",
+          quality_indicators: [
+            "Proper hallmarking",
+            "Weight corresponds to quoted karat",
+            "Professional craftsmanship",
+            "Government certification"
+          ],
+          best_places: ["Gold Quarter Khan El Khalili", "Licensed jewelry shops", "Hotel jewelry stores"],
+          bargaining_potential: "High for craftsmanship, low for gold weight",
+          tips: [
+            "Verify gold/silver content",
+            "Get written certificates",
+            "Compare market prices for metals",
+            "Negotiate craftsmanship fees separately"
+          ]
+        },
+        {
+          item: "Traditional Textiles",
+          authenticity: "Generally good",
+          priceRange: "30-800 EGP",
+          quality_indicators: [
+            "Hand-woven patterns",
+            "Natural fiber content",
+            "Traditional Egyptian designs",
+            "Quality of dyes and colors"
+          ],
+          best_places: ["Traditional markets", "Weaving cooperatives", "Nubian villages"],
+          bargaining_potential: "High",
+          tips: [
+            "Check for hand-woven vs machine-made",
+            "Feel fabric quality and thickness",
+            "Ask about washing instructions",
+            "Support local artisan cooperatives"
+          ]
+        }
+      ],
+      shoppingSafety: [
+        {
+          concern: "Overcharging",
+          prevention: [
+            "Research typical prices beforehand",
+            "Shop with local guides when possible",
+            "Compare prices across multiple vendors",
+            "Ask fellow travelers for price references",
+            "Use Egyptian pounds to avoid exchange rate manipulation"
+          ],
+          red_flags: [
+            "Prices quoted only in USD/EUR",
+            "Refusal to negotiate at all",
+            "Pressure tactics or time limits",
+            "Claims of 'special friend price'",
+            "Prices significantly higher than elsewhere"
+          ]
+        },
+        {
+          concern: "Counterfeit Goods",
+          prevention: [
+            "Buy from reputable, established shops",
+            "Ask for authenticity certificates",
+            "Learn to identify quality indicators",
+            "Avoid deals that seem too good to be true",
+            "Purchase expensive items from licensed dealers"
+          ],
+          red_flags: [
+            "Extremely low prices for luxury items",
+            "Poor quality materials or construction",
+            "Misspelled brand names or logos",
+            "Vendor reluctance to provide documentation",
+            "Items sold from street corners or alleys"
+          ]
+        },
+        {
+          concern: "Tourist Scams",
+          prevention: [
+            "Shop independently when possible",
+            "Ignore touts and pushy guides",
+            "Don't follow strangers to 'special' shops",
+            "Set clear budget limits beforehand",
+            "Learn basic Arabic numbers and phrases"
+          ],
+          red_flags: [
+            "Unsolicited shopping guides",
+            "Claims of closing sales or final days",
+            "Requests for advance payments",
+            "Pressure to buy immediately",
+            "Stories designed to create urgency"
+          ]
+        }
+      ],
+      paymentMethods: [
+        {
+          method: "Cash (Egyptian Pounds)",
+          acceptance: "Universal",
+          advantages: ["Better bargaining power", "No transaction fees", "Immediate transactions"],
+          disadvantages: ["Theft risk", "Need for exact change", "Currency exchange needed"],
+          tips: [
+            "Always carry small denominations",
+            "Keep cash in multiple locations",
+            "Count change carefully",
+            "Negotiate better rates with cash"
+          ]
+        },
+        {
+          method: "US Dollars",
+          acceptance: "Tourist areas and major purchases",
+          advantages: ["Widely recognized", "Good for expensive items", "No exchange needed initially"],
+          disadvantages: ["Poor exchange rates", "Limited acceptance", "Change given in EGP"],
+          tips: [
+            "Bring clean, newer bills",
+            "Use for major purchases only",
+            "Confirm exchange rate beforehand",
+            "Keep receipts for records"
+          ]
+        },
+        {
+          method: "Credit Cards",
+          acceptance: "Modern shops and malls only",
+          advantages: ["Security", "No cash needed", "Purchase protection"],
+          disadvantages: ["Limited acceptance", "Transaction fees", "No bargaining advantage"],
+          tips: [
+            "Verify card acceptance first",
+            "Check foreign transaction fees",
+            "Keep receipts for verification",
+            "Have cash backup available"
+          ]
+        }
+      ],
+      marketEtiquette: [
+        "Greet vendors politely with 'Ahlan wa sahlan' (welcome)",
+        "Accept hospitality like tea, but don't feel obligated to buy",
+        "Dress modestly, especially in traditional markets",
+        "Don't touch items unless seriously interested",
+        "Be patient - shopping is a social experience",
+        "Show respect for local customs and traditions",
+        "Don't photograph people without permission",
+        "Keep negotiations friendly and respectful",
+        "Thank vendors even if you don't purchase",
+        "Support local artisans and cooperatives when possible"
+      ],
+      seasonalShopping: [
+        {
+          season: "Peak Tourist Season (Oct-Apr)",
+          characteristics: [
+            "Higher prices due to tourist demand",
+            "Better selection and fresher inventory",
+            "More competitive vendor atmosphere",
+            "Extended shopping hours"
+          ],
+          strategies: [
+            "Shop early morning for better service",
+            "Compare prices more carefully",
+            "Consider shopping in less touristy areas",
+            "Book cultural shopping tours in advance"
+          ]
+        },
+        {
+          season: "Low Season (May-Sep)",
+          characteristics: [
+            "Lower prices and better bargaining",
+            "Reduced inventory in some shops",
+            "More personalized attention from vendors",
+            "Shorter operating hours due to heat"
+          ],
+          strategies: [
+            "Take advantage of lower competition",
+            "Shop during cooler morning/evening hours",
+            "Negotiate more aggressively",
+            "Focus on indoor air-conditioned markets"
+          ]
+        },
+        {
+          season: "Ramadan Period",
+          characteristics: [
+            "Modified shopping hours",
+            "Special Ramadan sales and promotions",
+            "Different market atmosphere",
+            "Unique seasonal items available"
+          ],
+          strategies: [
+            "Shop during non-fasting hours",
+            "Respect religious observances",
+            "Look for special Ramadan discounts",
+            "Be patient with adjusted schedules"
           ]
         }
       ]
@@ -4600,6 +5022,448 @@ export default function PlanningResource() {
               </Card>
             ))}
           </div>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "shopping-bargaining") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Shopping & Bargaining</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Shopping Destinations */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Store className="h-8 w-8 text-teal-oasis mr-3" />
+              Top Shopping Destinations
+            </h2>
+            
+            {resource.content.shoppingDestinations.map((destination, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{destination.location}</h3>
+                      <div className="flex items-center space-x-4 mb-3">
+                        <Badge variant="outline">{destination.type}</Badge>
+                        <span className="text-sm text-gray-600">{destination.atmosphere}</span>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm font-semibold text-teal-oasis">{destination.specialty}</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 mb-6">{destination.description}</p>
+                  
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Star className="h-4 w-4 text-gold-accent mr-2" />
+                        Highlights
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {destination.highlights.map((highlight, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Tag className="h-4 w-4 text-blue-600 mr-2" />
+                        Shopping Tips
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {destination.tips.map((tip, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                            {tip}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-teal-oasis/10 p-4 rounded-lg mb-4">
+                    <p className="text-sm font-semibold text-teal-800 mb-1">Bargaining Level:</p>
+                    <p className="text-sm text-gray-700">{destination.bargainingLevel}</p>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-4 text-sm">
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-1">Hours:</p>
+                      <p className="text-gray-600">{destination.location_details.hours}</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-1">Access:</p>
+                      <p className="text-gray-600">{destination.location_details.access}</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-1">Nearby:</p>
+                      <p className="text-gray-600">{destination.location_details.nearby}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Bargaining Techniques */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Coins className="h-8 w-8 text-teal-oasis mr-3" />
+              Master the Art of Bargaining
+            </h2>
+
+            {/* Basic Principles */}
+            <Card className="border-l-4 border-teal-oasis">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Basic Principles</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {resource.content.bargainingTechniques.basicPrinciples.map((principle, index) => (
+                    <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
+                      <CheckCircle2 className="h-4 w-4 text-teal-oasis mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-gray-700">{principle}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Step by Step Guide */}
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Step-by-Step Bargaining Guide</h3>
+                <div className="space-y-4">
+                  {resource.content.bargainingTechniques.stepByStep.map((step, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                      <div className="flex items-start space-x-4">
+                        <div className="flex-shrink-0">
+                          <div className="w-8 h-8 bg-teal-oasis text-white rounded-full flex items-center justify-center font-bold text-sm">
+                            {step.step}
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-lg font-bold text-gray-900 mb-2">{step.action}</h4>
+                          <p className="text-sm text-gray-600 mb-3">{step.description}</p>
+                          <div className="flex flex-wrap gap-2">
+                            {step.tips.map((tip, i) => (
+                              <Badge key={i} variant="outline" className="text-xs">
+                                {tip}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Cultural Tips */}
+            <Card className="border-l-4 border-gold-accent">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <Heart className="h-6 w-6 text-gold-accent mr-3" />
+                  Cultural Considerations
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {resource.content.bargainingTechniques.culturalTips.map((tip, index) => (
+                    <div key={index} className="flex items-start space-x-3 p-3 bg-gold-accent/5 rounded-lg">
+                      <Heart className="h-4 w-4 text-gold-accent mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-gray-700">{tip}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Authentic Souvenirs */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Gem className="h-8 w-8 text-teal-oasis mr-3" />
+              Authentic Egyptian Souvenirs
+            </h2>
+            
+            {resource.content.authenticSouvenirs.map((souvenir, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900">{souvenir.item}</h3>
+                    <div className="text-right">
+                      <div className={`px-3 py-1 rounded text-sm font-semibold mb-2 ${
+                        souvenir.authenticity === 'High' ? 'bg-green-100 text-green-800' :
+                        souvenir.authenticity.includes('Variable') ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-blue-100 text-blue-800'
+                      }`}>
+                        {souvenir.authenticity}
+                      </div>
+                      <p className="text-sm font-semibold text-teal-oasis">{souvenir.priceRange}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-3 gap-6 mb-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Quality Indicators</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {souvenir.quality_indicators.map((indicator, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            {indicator}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Best Places to Buy</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {souvenir.best_places.map((place, i) => (
+                          <li key={i} className="flex items-start">
+                            <MapPin className="h-3 w-3 text-blue-500 mr-2 mt-1 flex-shrink-0" />
+                            {place}
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-3">
+                        <Badge variant="outline" className="text-xs">
+                          {souvenir.bargaining_potential} Bargaining
+                        </Badge>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Shopping Tips</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {souvenir.tips.map((tip, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-teal-oasis rounded-full mr-2 mt-2"></span>
+                            {tip}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Shopping Safety */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Shield className="h-6 w-6 text-teal-oasis mr-3" />
+                Shopping Safety & Scam Prevention
+              </h3>
+              
+              <div className="space-y-6">
+                {resource.content.shoppingSafety.map((safety, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                    <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                      <AlertTriangle className="h-5 w-5 text-red-600 mr-2" />
+                      {safety.concern}
+                    </h4>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h5 className="font-semibold text-green-800 mb-2">Prevention Strategies</h5>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {safety.prevention.map((item, i) => (
+                            <li key={i} className="flex items-start">
+                              <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h5 className="font-semibold text-red-800 mb-2">Red Flags to Watch</h5>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {safety.red_flags.map((flag, i) => (
+                            <li key={i} className="flex items-start">
+                              <AlertTriangle className="h-3 w-3 text-red-500 mr-2 mt-1 flex-shrink-0" />
+                              {flag}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Payment Methods */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <CreditCard className="h-6 w-6 text-teal-oasis mr-3" />
+                Payment Methods & Tips
+              </h3>
+              
+              <div className="space-y-4">
+                {resource.content.paymentMethods.map((method, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-bold text-gray-900">{method.method}</h4>
+                      <Badge variant="outline">{method.acceptance}</Badge>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-3 gap-4 mb-4">
+                      <div>
+                        <h5 className="font-semibold text-green-800 mb-2">Advantages</h5>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {method.advantages.map((advantage, i) => (
+                            <li key={i} className="flex items-start">
+                              <Plus className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                              {advantage}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h5 className="font-semibold text-red-800 mb-2">Disadvantages</h5>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {method.disadvantages.map((disadvantage, i) => (
+                            <li key={i} className="flex items-start">
+                              <AlertTriangle className="h-3 w-3 text-red-500 mr-2 mt-1 flex-shrink-0" />
+                              {disadvantage}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h5 className="font-semibold text-blue-800 mb-2">Tips</h5>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {method.tips.map((tip, i) => (
+                            <li key={i} className="flex items-start">
+                              <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                              {tip}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Market Etiquette */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <HandHeart className="h-6 w-6 text-teal-oasis mr-3" />
+                Market Etiquette & Cultural Respect
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.marketEtiquette.map((rule, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
+                    <HandHeart className="h-4 w-4 text-teal-oasis mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{rule}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Seasonal Shopping */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Calendar className="h-6 w-6 text-teal-oasis mr-3" />
+                Seasonal Shopping Guide
+              </h3>
+              
+              <div className="space-y-6">
+                {resource.content.seasonalShopping.map((season, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                    <h4 className="text-lg font-bold text-gray-900 mb-4">{season.season}</h4>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h5 className="font-semibold text-gray-900 mb-2">Characteristics</h5>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {season.characteristics.map((char, i) => (
+                            <li key={i} className="flex items-start">
+                              <span className="w-1.5 h-1.5 bg-gray-500 rounded-full mr-2 mt-2"></span>
+                              {char}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h5 className="font-semibold text-gray-900 mb-2">Shopping Strategies</h5>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {season.strategies.map((strategy, i) => (
+                            <li key={i} className="flex items-start">
+                              <TrendingUp className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                              {strategy}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Back Button */}
           <div className="text-center">
