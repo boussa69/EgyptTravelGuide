@@ -3529,8 +3529,9 @@ export default function PlanningResource() {
           </Card>
 
           {/* Seasons Grid */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {resource.content.seasons?.map((season: any, index: number) => (
+          {resource.content.seasons && (
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {resource.content.seasons.map((season: any, index: number) => (
               <Card key={index} className="overflow-hidden">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
@@ -3573,7 +3574,7 @@ export default function PlanningResource() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Best Activities</h4>
                     <div className="flex flex-wrap gap-2">
-                      {season.activities.map((activity, i) => (
+                      {season.activities?.map((activity: any, i: number) => (
                         <Badge key={i} variant="outline" className="text-xs">
                           {activity}
                         </Badge>
@@ -3595,7 +3596,7 @@ export default function PlanningResource() {
               
               <div className="overflow-x-auto">
                 <div className="grid grid-cols-12 gap-2 min-w-[800px]">
-                  {resource.content.monthlyGuide.map((month, index) => (
+                  {resource.content.monthlyGuide?.map((month: any, index: number) => (
                     <div key={index} className="text-center">
                       <div className={`p-3 rounded-lg mb-2 ${
                         month.rating === 'Excellent' ? 'bg-green-100 border-2 border-green-500' :
@@ -3620,7 +3621,7 @@ export default function PlanningResource() {
             <CardContent className="p-6">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Special Events & Considerations</h3>
               <div className="space-y-4">
-                {resource.content.specialEvents.map((event, index) => (
+                {resource.content.specialEvents?.map((event: any, index: number) => (
                   <div key={index} className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
                     <Calendar className="h-5 w-5 text-teal-oasis mt-0.5 flex-shrink-0" />
                     <div>
@@ -3690,7 +3691,7 @@ export default function PlanningResource() {
               Visa Options
             </h2>
             
-            {resource.content.visaTypes.map((visa, index) => (
+            {resource.content.visaTypes?.map((visa: any, index: number) => (
               <Card key={index} className="overflow-hidden border-l-4 border-teal-oasis">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
