@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star, Syringe, Activity, Pill, Plus, ShoppingBag, Store, Gem, Coins, TrendingUp, Tag, Baby, GraduationCap, Home, Utensils, Car, Zap } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star, Syringe, Activity, Pill, Plus, ShoppingBag, Store, Gem, Coins, TrendingUp, Tag, Baby, GraduationCap, Home, Utensils, Car, Zap, UserCheck, Lock, Navigation } from "lucide-react";
 import { Link } from "wouter";
 
 const planningData = {
@@ -3005,6 +3005,464 @@ const planningData = {
             "Have evacuation plans and funds available",
             "Keep important documents in hotel safe",
             "Maintain communication with family at home"
+          ]
+        }
+      ]
+    }
+  },
+  "women-travellers-tips": {
+    title: "Women Travellers' Guide to Egypt",
+    description: "Essential safety tips, cultural guidance, and practical advice for women exploring Egypt confidently and respectfully",
+    category: "Safety & Culture",
+    lastUpdated: "Updated January 2025",
+    content: {
+      overview: "Egypt is an incredible destination for women travelers, offering rich history, stunning landscapes, and warm hospitality. While the experience can be rewarding, understanding local customs, safety considerations, and practical tips will help ensure a confident and enjoyable journey. This guide provides comprehensive advice for solo female travelers and women traveling in groups.",
+      culturalConsiderations: {
+        dressingAppropriately: [
+          {
+            setting: "Religious Sites (Mosques, Churches)",
+            requirements: [
+              "Cover shoulders, arms, and legs completely",
+              "Long pants or maxi skirts (no shorts or mini skirts)",
+              "Loose-fitting clothing that doesn't cling to body",
+              "Head covering required for mosques (scarf provided at entrance)",
+              "Remove shoes before entering mosque prayer areas"
+            ],
+            tips: [
+              "Carry a lightweight scarf for unexpected mosque visits",
+              "Maxi dresses with cardigan work well",
+              "Avoid see-through fabrics",
+              "Respect photography restrictions"
+            ]
+          },
+          {
+            setting: "General Tourism (Markets, Streets, Restaurants)",
+            requirements: [
+              "Cover shoulders and avoid low necklines",
+              "Pants, capris, or knee-length skirts acceptable",
+              "Avoid tight-fitting or revealing clothing",
+              "Comfortable closed-toe shoes recommended",
+              "Light layers for air-conditioned spaces"
+            ],
+            tips: [
+              "Loose, flowy clothing is both appropriate and comfortable",
+              "Linen and cotton breathe well in the heat",
+              "Bright colors and patterns are welcome",
+              "Modest doesn't mean boring - express your style respectfully"
+            ]
+          },
+          {
+            setting: "Beach/Resort Areas (Red Sea)",
+            requirements: [
+              "Swimwear appropriate at resort pools and beaches",
+              "Cover up when leaving beach/pool areas",
+              "One-piece suits or modest bikinis preferred",
+              "Beach cover-ups or sarongs essential",
+              "Respect local sensibilities even in tourist areas"
+            ],
+            tips: [
+              "All-inclusive resorts more relaxed about swimwear",
+              "Public beaches may be more conservative",
+              "Bring multiple cover-up options",
+              "Sun protection important regardless of modesty"
+            ]
+          }
+        ],
+        socialInteractions: [
+          {
+            situation: "Interacting with Local Men",
+            guidelines: [
+              "Polite but firm boundaries are respected",
+              "Direct eye contact can be misinterpreted - brief and respectful",
+              "Handshakes not always expected - follow their lead",
+              "Wedding ring (real or fake) can deter unwanted attention",
+              "Confident body language important"
+            ],
+            phrases: [
+              "'La, shukran' (No, thank you) - firm but polite",
+              "'Maafeeish' (Not available/not interested)",
+              "'Khalas' (Enough/stop) - when being persistent",
+              "'Ana mutazawiga' (I am married) - if helpful"
+            ]
+          },
+          {
+            situation: "Shopping and Bargaining",
+            guidelines: [
+              "Women can bargain just as effectively as men",
+              "Don't accept tea/coffee if it makes you uncomfortable",
+              "Bring a friend for moral support if preferred",
+              "Trust your instincts about seller behavior",
+              "Know when to walk away"
+            ],
+            strategies: [
+              "Start conversations about culture, not just business",
+              "Compliment craftsmanship before discussing price",
+              "Use humor appropriately during negotiations",
+              "Don't be afraid to be assertive about your budget"
+            ]
+          },
+          {
+            situation: "Photography Etiquette",
+            guidelines: [
+              "Always ask permission before photographing people",
+              "Some women may not want to be photographed",
+              "Respect 'no photography' signs at religious sites",
+              "Be discrete when taking photos in markets",
+              "Offer to send photos to people you've photographed"
+            ],
+            considerations: [
+              "Tourist areas more accustomed to cameras",
+              "Children's photos require parent permission",
+              "Religious ceremonies may have restrictions",
+              "Street photography requires cultural sensitivity"
+            ]
+          }
+        ]
+      },
+      safetyGuidelines: {
+        personalSafety: [
+          {
+            category: "Accommodation Safety",
+            precautions: [
+              "Book reputable hotels with good reviews from female travelers",
+              "Request rooms on higher floors but not too isolated",
+              "Verify door locks and security features upon arrival",
+              "Keep hotel contact information with you at all times",
+              "Inform hotel staff of your daily plans if traveling solo"
+            ],
+            red_flags: [
+              "Hotels with only male staff and no female guests",
+              "Accommodations that seem uncomfortable with solo female guests",
+              "Rooms with windows that don't lock securely",
+              "Properties without 24-hour reception",
+              "Hotels in areas with poor lighting or isolation"
+            ]
+          },
+          {
+            category: "Transportation Safety",
+            precautions: [
+              "Use reputable taxi companies or hotel-arranged transport",
+              "Sit in back seat of taxis, never front passenger seat",
+              "Share ride details with someone you trust",
+              "Keep phone charged and accessible",
+              "Have destination address written in Arabic"
+            ],
+            options: [
+              "Uber/Careem available in major cities (safer option)",
+              "Hotel transfers most secure but more expensive",
+              "Tourist buses with guides for longer distances",
+              "Women-only train cars available on some routes",
+              "Domestic flights for long distances"
+            ]
+          },
+          {
+            category: "Street Safety",
+            precautions: [
+              "Stay aware of surroundings, especially in crowded areas",
+              "Keep valuables secure and hidden",
+              "Avoid walking alone after dark",
+              "Trust your instincts if situation feels uncomfortable",
+              "Know location of nearest police station or tourist police"
+            ],
+            strategies: [
+              "Walk with confidence and purpose",
+              "Avoid displaying expensive jewelry or electronics",
+              "Keep emergency contacts easily accessible",
+              "Learn basic Arabic phrases for help",
+              "Carry whistle or personal alarm if it makes you feel safer"
+            ]
+          }
+        ],
+        harassment_prevention: [
+          {
+            type: "Verbal Harassment",
+            prevention: [
+              "Ignore catcalls and comments - don't engage",
+              "Wear sunglasses to avoid unwanted eye contact",
+              "Walk with confidence and purpose",
+              "Use headphones to signal you're not available for conversation",
+              "Stay in well-populated, well-lit areas"
+            ],
+            response: [
+              "Don't feel obligated to be polite to harassers",
+              "Firmly say 'La' (No) and continue walking",
+              "Seek help from other women or families nearby",
+              "Enter a shop or restaurant if feeling threatened",
+              "Contact tourist police if harassment persists"
+            ]
+          },
+          {
+            type: "Physical Harassment",
+            prevention: [
+              "Maintain personal space in crowded areas",
+              "Be extra cautious during festivals or crowded events",
+              "Avoid being alone in secluded tourist sites",
+              "Trust your instincts about people and situations",
+              "Consider traveling with a companion for peace of mind"
+            ],
+            response: [
+              "Make noise and draw attention if touched inappropriately",
+              "Firmly tell the person to stop in Arabic: 'Bas!' (Stop!)",
+              "Seek immediate help from nearby people",
+              "Report incidents to tourist police",
+              "Don't blame yourself - it's not your fault"
+            ]
+          }
+        ],
+        emergency_procedures: [
+          {
+            emergency: "Lost or Stolen Documents",
+            immediate_steps: [
+              "Report to local police and get a police report",
+              "Contact your embassy or consulate immediately",
+              "Notify your bank and credit card companies",
+              "Contact accommodation to secure your belongings",
+              "Keep digital copies of important documents accessible"
+            ],
+            prevention: [
+              "Keep passport copies separate from original",
+              "Store digital copies in cloud storage",
+              "Leave copies with someone at home",
+              "Use hotel safe for original documents",
+              "Carry only copies when sightseeing"
+            ]
+          },
+          {
+            emergency: "Medical Emergency",
+            immediate_steps: [
+              "Call 123 for ambulance or go to nearest hospital",
+              "Contact your travel insurance provider",
+              "Notify embassy if serious medical situation",
+              "Have someone contact your emergency contacts",
+              "Keep all medical records and receipts"
+            ],
+            preparation: [
+              "Research hospitals with English-speaking staff",
+              "Carry medical information in Arabic and English",
+              "Pack prescription medications with extra supply",
+              "Know your blood type and any allergies",
+              "Have travel insurance that covers medical evacuation"
+            ]
+          }
+        ]
+      },
+      practicalAdvice: {
+        packing_essentials: [
+          {
+            category: "Clothing Essentials",
+            items: [
+              "Lightweight, loose-fitting long-sleeve shirts",
+              "Comfortable pants and maxi skirts",
+              "Modest dress for dining out",
+              "Large scarf for mosque visits and sun protection",
+              "Comfortable walking shoes with good support",
+              "Sandals that can be easily removed",
+              "Light cardigan for air-conditioned spaces",
+              "Swimwear and cover-ups for beach destinations"
+            ],
+            tips: [
+              "Pack clothes that can be mixed and matched",
+              "Choose wrinkle-resistant fabrics",
+              "Bring one outfit slightly dressier for nice restaurants",
+              "Consider cultural colors - avoid all black in summer heat"
+            ]
+          },
+          {
+            category: "Safety and Health Items",
+            items: [
+              "Personal safety alarm or whistle",
+              "High SPF sunscreen and lip balm",
+              "Wide-brimmed hat and quality sunglasses",
+              "Insect repellent suitable for sensitive skin",
+              "Hand sanitizer and wet wipes",
+              "Basic first aid kit with feminine hygiene products",
+              "Prescription medications with extra supply",
+              "Probiotics for digestive health"
+            ],
+            tips: [
+              "Pack medications in original containers",
+              "Bring period products from home - quality varies locally",
+              "Consider water purification tablets as backup",
+              "Pack extra pairs of contact lenses if you wear them"
+            ]
+          },
+          {
+            category: "Technology and Communication",
+            items: [
+              "Portable phone charger and power bank",
+              "Universal adapter for Egypt (Type C and Type F)",
+              "Offline maps downloaded to phone",
+              "Translation app with Arabic language pack",
+              "Emergency contact list in phone and written backup",
+              "Camera with extra memory cards",
+              "Bluetooth headphones for peaceful travel",
+              "VPN if you need access to blocked websites"
+            ],
+            tips: [
+              "Download important apps before arriving",
+              "Keep phone numbers in both local and international format",
+              "Consider local SIM card for data and calls",
+              "Backup photos to cloud storage regularly"
+            ]
+          }
+        ],
+        money_and_documentation: [
+          {
+            category: "Financial Planning",
+            considerations: [
+              "Carry cash in small denominations for tips and small purchases",
+              "Use ATMs in banks or hotels rather than street machines",
+              "Notify your bank of travel plans to avoid card blocks",
+              "Keep money in multiple locations (not all in one place)",
+              "Budget extra for taxi rides for safety convenience"
+            ],
+            tips: [
+              "Egyptian pounds work better than USD for small purchases",
+              "Tipping is expected - keep small bills handy",
+              "Bargaining is normal in markets but not in restaurants",
+              "Hotel restaurants and tourist sites often accept cards"
+            ]
+          },
+          {
+            category: "Important Documents",
+            essentials: [
+              "Passport with at least 6 months validity",
+              "Visa (if required for your nationality)",
+              "Travel insurance documents",
+              "Hotel confirmations and tour bookings",
+              "Emergency contact information",
+              "Medical information and prescriptions",
+              "Driver's license if planning to rent transportation",
+              "Student ID if applicable for discounts"
+            ],
+            security: [
+              "Keep originals in hotel safe",
+              "Carry copies when sightseeing",
+              "Store digital copies in secure cloud storage",
+              "Share copies with trusted person at home",
+              "Keep emergency cash separate from regular money"
+            ]
+          }
+        ],
+        solo_travel_tips: [
+          "Join group tours for major attractions - safer and more social",
+          "Stay in accommodations with good common areas to meet other travelers",
+          "Check in regularly with family or friends at home",
+          "Consider staying near other female travelers when possible",
+          "Use women-only spaces in trains and some restaurants when available",
+          "Don't be afraid to ask other women for help or advice",
+          "Trust your instincts - if something feels wrong, leave",
+          "Have backup plans for accommodation and transportation",
+          "Learn basic Arabic phrases for common situations",
+          "Consider hiring female guides for more comfortable cultural experiences"
+        ]
+      },
+      empowermentAdvice: {
+        building_confidence: [
+          "Research Egyptian women's achievements and contributions to history",
+          "Learn about strong female figures in Egyptian culture",
+          "Understand that many Egyptian women are educated, professional, and independent",
+          "Connect with local women when opportunities arise naturally",
+          "Remember that you have the right to feel safe and respected",
+          "Don't let fear prevent you from experiencing this incredible culture",
+          "Trust in your own judgment and travel experience",
+          "View challenges as opportunities to grow stronger",
+          "Celebrate your courage in choosing to travel independently",
+          "Know that thousands of women travel to Egypt safely every year"
+        ],
+        cultural_appreciation: [
+          "Learn about Egyptian women's rights movements and progress",
+          "Understand the diversity of experiences among Egyptian women",
+          "Appreciate the balance between tradition and modernity",
+          "Respect different choices about dress and lifestyle",
+          "Engage with local culture without judgment",
+          "Support women-owned businesses when possible",
+          "Learn basic Arabic greetings to show cultural respect",
+          "Ask questions about culture with genuine curiosity",
+          "Share your own culture respectfully when asked",
+          "Leave with greater understanding and appreciation"
+        ],
+        positive_interactions: [
+          "Many Egyptian families are honored to share their culture with visitors",
+          "Egyptian hospitality is legendary - accept kindness graciously",
+          "Women often help other women - don't hesitate to ask for assistance",
+          "Shop owners' families often include strong, business-savvy women",
+          "Hotel staff are generally very protective of female guests",
+          "Tourist guides often have experience helping female travelers feel comfortable",
+          "Many Egyptians speak multiple languages and enjoy cultural exchange",
+          "Genuine compliments about Egyptian culture are always welcome",
+          "Showing interest in history and archaeology is universally appreciated",
+          "Remember that positive interactions far outnumber any negative ones"
+        ]
+      },
+      specificDestinations: [
+        {
+          destination: "Cairo",
+          female_traveler_tips: [
+            "Stay in Zamalek or Garden City for upscale, safer neighborhoods",
+            "Egyptian Museum best visited early morning to avoid crowds",
+            "Khan El Khalili market can be overwhelming - go with confidence",
+            "Coptic Cairo generally very safe and welcoming to women",
+            "Use ride-sharing apps rather than hailing street taxis",
+            "Nile Corniche nice for evening walks but stay in lit areas",
+            "Many cafes welcome women, especially in tourist areas"
+          ],
+          accommodations: [
+            "Four Seasons Nile Plaza - excellent for solo female travelers",
+            "Marriott Mena House - historic with great security",
+            "Villa Belle Epoque - boutique hotel with personal attention",
+            "Steigenberger Hotel El Tahrir - central location with female-friendly staff"
+          ]
+        },
+        {
+          destination: "Luxor",
+          female_traveler_tips: [
+            "Valley of the Kings best visited early with organized tour",
+            "Karnak Temple safe during day but bring water and hat",
+            "Felucca rides on the Nile are generally safe during daylight",
+            "Hot air balloon rides offer stunning views and are well-supervised",
+            "Local women often work in temple souvenir shops - great for authentic interactions",
+            "Luxor Museum excellent and comfortable for solo visitors",
+            "Hotel pools provide respite from heat and sightseeing"
+          ],
+          accommodations: [
+            "Sofitel Winter Palace - historic luxury with excellent security",
+            "Hilton Luxor Resort & Spa - resort setting with family-friendly atmosphere",
+            "Nefertiti Hotel - local charm with attentive staff"
+          ]
+        },
+        {
+          destination: "Aswan",
+          female_traveler_tips: [
+            "Nubian villages welcome visitors and often have women-led crafts",
+            "Philae Temple boat trips safe and beautiful",
+            "Souk generally friendly and less aggressive than Cairo markets",
+            "Felucca captains often include family members for comfort",
+            "High Dam and Unfinished Obelisk good for independent exploration",
+            "Elephantine Island peaceful for solo walking",
+            "Many hotels offer women-only spa services"
+          ],
+          accommodations: [
+            "Sofitel Legend Old Cataract - luxury with impeccable service",
+            "Movenpick Resort Aswan - island location with security",
+            "Nubian Guest House - cultural experience with local family"
+          ]
+        },
+        {
+          destination: "Red Sea (Hurghada/Sharm El Sheikh)",
+          female_traveler_tips: [
+            "Resort areas most comfortable for women travelers",
+            "Beach activities and water sports well-supervised",
+            "Diving instructors used to teaching women and very professional",
+            "Shopping areas in resorts generally hassle-free",
+            "Many spas offer women-only treatments and relaxation areas",
+            "All-inclusive resorts provide comfortable social environments",
+            "Desert safari tours available with mixed groups"
+          ],
+          accommodations: [
+            "Four Seasons Resort Sharm El Sheikh - luxury with excellent facilities",
+            "The Oberoi Sahl Hasheesh - adults-only sophisticated atmosphere",
+            "Steigenberger Coraya Beach - family-friendly with good security"
           ]
         }
       ]
@@ -6461,6 +6919,497 @@ export default function PlanningResource() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "women-travellers-tips") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Women Travellers' Tips</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Cultural Considerations */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <UserCheck className="h-8 w-8 text-teal-oasis mr-3" />
+              Cultural Considerations
+            </h2>
+
+            {/* Dressing Appropriately */}
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <Shirt className="h-6 w-6 text-teal-oasis mr-3" />
+                  Dressing Appropriately
+                </h3>
+                
+                <div className="space-y-6">
+                  {resource.content.culturalConsiderations?.dressingAppropriately?.map((setting, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                      <h4 className="text-lg font-bold text-gray-900 mb-4">{setting.setting}</h4>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <h5 className="font-semibold text-gray-900 mb-2">Requirements</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {setting.requirements.map((req, i) => (
+                              <li key={i} className="flex items-start">
+                                <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                                {req}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h5 className="font-semibold text-gray-900 mb-2">Practical Tips</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {setting.tips.map((tip, i) => (
+                              <li key={i} className="flex items-start">
+                                <Star className="h-3 w-3 text-gold-accent mr-2 mt-1 flex-shrink-0" />
+                                {tip}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Social Interactions */}
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <MessageCircle className="h-6 w-6 text-teal-oasis mr-3" />
+                  Social Interactions
+                </h3>
+                
+                <div className="space-y-6">
+                  {resource.content.culturalConsiderations?.socialInteractions?.map((interaction, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-blue-50">
+                      <h4 className="text-lg font-bold text-gray-900 mb-4">{interaction.situation}</h4>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <h5 className="font-semibold text-blue-800 mb-2">Guidelines</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {interaction.guidelines.map((guideline, i) => (
+                              <li key={i} className="flex items-start">
+                                <CheckCircle2 className="h-3 w-3 text-blue-600 mr-2 mt-1 flex-shrink-0" />
+                                {guideline}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h5 className="font-semibold text-blue-800 mb-2">
+                            {interaction.phrases ? 'Useful Phrases' : interaction.strategies ? 'Strategies' : 'Considerations'}
+                          </h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {(interaction.phrases || interaction.strategies || interaction.considerations || []).map((item, i) => (
+                              <li key={i} className="flex items-start">
+                                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Safety Guidelines */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Shield className="h-8 w-8 text-teal-oasis mr-3" />
+              Safety Guidelines
+            </h2>
+
+            {/* Personal Safety */}
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Personal Safety</h3>
+                
+                <div className="space-y-6">
+                  {resource.content.safetyGuidelines?.personalSafety?.map((safety, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-green-50">
+                      <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                        <Lock className="h-5 w-5 text-green-600 mr-2" />
+                        {safety.category}
+                      </h4>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <h5 className="font-semibold text-green-800 mb-2">Safety Precautions</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {safety.precautions.map((precaution, i) => (
+                              <li key={i} className="flex items-start">
+                                <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                                {precaution}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h5 className="font-semibold text-gray-900 mb-2">
+                            {safety.red_flags ? 'Red Flags' : safety.options ? 'Transportation Options' : 'Safety Strategies'}
+                          </h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {(safety.red_flags || safety.options || safety.strategies || []).map((item, i) => (
+                              <li key={i} className="flex items-start">
+                                {safety.red_flags ? (
+                                  <AlertTriangle className="h-3 w-3 text-red-500 mr-2 mt-1 flex-shrink-0" />
+                                ) : (
+                                  <span className="w-1.5 h-1.5 bg-gray-500 rounded-full mr-2 mt-2"></span>
+                                )}
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Harassment Prevention */}
+            <Card className="border-l-4 border-red-500">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Harassment Prevention & Response</h3>
+                
+                <div className="space-y-6">
+                  {resource.content.safetyGuidelines?.harassment_prevention?.map((harassment, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-red-50">
+                      <h4 className="text-lg font-bold text-gray-900 mb-4">{harassment.type}</h4>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <h5 className="font-semibold text-green-800 mb-2">Prevention</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {harassment.prevention.map((item, i) => (
+                              <li key={i} className="flex items-start">
+                                <Shield className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h5 className="font-semibold text-red-800 mb-2">If It Happens</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {harassment.response.map((item, i) => (
+                              <li key={i} className="flex items-start">
+                                <Zap className="h-3 w-3 text-red-600 mr-2 mt-1 flex-shrink-0" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Emergency Procedures */}
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <Phone className="h-6 w-6 text-red-600 mr-3" />
+                  Emergency Procedures
+                </h3>
+                
+                <div className="space-y-6">
+                  {resource.content.safetyGuidelines.emergency_procedures.map((emergency, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-yellow-50">
+                      <h4 className="text-lg font-bold text-gray-900 mb-4">{emergency.emergency}</h4>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <h5 className="font-semibold text-red-800 mb-2">Immediate Steps</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {emergency.immediate_steps.map((step, i) => (
+                              <li key={i} className="flex items-start">
+                                <Zap className="h-3 w-3 text-red-600 mr-2 mt-1 flex-shrink-0" />
+                                {step}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h5 className="font-semibold text-green-800 mb-2">Prevention</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {emergency.prevention.map((item, i) => (
+                              <li key={i} className="flex items-start">
+                                <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Practical Advice */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Package className="h-8 w-8 text-teal-oasis mr-3" />
+              Practical Advice
+            </h2>
+
+            {/* Packing Essentials */}
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Packing Essentials for Women</h3>
+                
+                <div className="grid md:grid-cols-3 gap-6">
+                  {resource.content.practicalAdvice.packing_essentials.map((category, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-teal-oasis/5">
+                      <h4 className="text-lg font-bold text-gray-900 mb-3">{category.category}</h4>
+                      
+                      <ul className="text-sm text-gray-600 space-y-1 mb-4">
+                        {category.items.map((item, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                      
+                      <div className="bg-white p-3 rounded border-l-4 border-teal-oasis">
+                        <h5 className="font-semibold text-teal-800 mb-1">Tips:</h5>
+                        <ul className="text-xs text-gray-600 space-y-1">
+                          {category.tips.map((tip, i) => (
+                            <li key={i} className="flex items-start">
+                              <span className="w-1 h-1 bg-teal-oasis rounded-full mr-2 mt-1.5"></span>
+                              {tip}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Money and Documentation */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {resource.content.practicalAdvice.money_and_documentation.map((section, index) => (
+                <Card key={index}>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                      {section.category === 'Financial Planning' ? (
+                        <DollarSign className="h-5 w-5 text-teal-oasis mr-2" />
+                      ) : (
+                        <FileText className="h-5 w-5 text-teal-oasis mr-2" />
+                      )}
+                      {section.category}
+                    </h3>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">
+                          {section.considerations ? 'Considerations' : 'Essentials'}
+                        </h4>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {(section.considerations || section.essentials || []).map((item, i) => (
+                            <li key={i} className="flex items-start">
+                              <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">
+                          {section.tips ? 'Tips' : 'Security'}
+                        </h4>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {(section.tips || section.security || []).map((item, i) => (
+                            <li key={i} className="flex items-start">
+                              <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Solo Travel Tips */}
+            <Card className="border-l-4 border-purple-500">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <Navigation className="h-6 w-6 text-purple-600 mr-3" />
+                  Solo Travel Tips
+                </h3>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  {resource.content.practicalAdvice.solo_travel_tips.map((tip, index) => (
+                    <div key={index} className="flex items-start space-x-3 p-3 bg-purple-50 rounded-lg">
+                      <Star className="h-4 w-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-gray-700">{tip}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Empowerment Advice */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Heart className="h-6 w-6 text-teal-oasis mr-3" />
+                Empowerment & Confidence Building
+              </h3>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                <div>
+                  <h4 className="font-semibold text-teal-800 mb-3">Building Confidence</h4>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    {resource.content.empowermentAdvice.building_confidence.map((tip, index) => (
+                      <li key={index} className="flex items-start">
+                        <Heart className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                        {tip}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-teal-800 mb-3">Cultural Appreciation</h4>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    {resource.content.empowermentAdvice.cultural_appreciation.map((tip, index) => (
+                      <li key={index} className="flex items-start">
+                        <Globe className="h-3 w-3 text-gold-accent mr-2 mt-1 flex-shrink-0" />
+                        {tip}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-teal-800 mb-3">Positive Interactions</h4>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    {resource.content.empowermentAdvice.positive_interactions.map((tip, index) => (
+                      <li key={index} className="flex items-start">
+                        <Users className="h-3 w-3 text-blue-500 mr-2 mt-1 flex-shrink-0" />
+                        {tip}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Destination-Specific Tips */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <MapPin className="h-8 w-8 text-teal-oasis mr-3" />
+              Destination-Specific Tips for Women
+            </h2>
+            
+            {resource.content.specificDestinations.map((destination, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{destination.destination}</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Female Traveler Tips</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {destination.female_traveler_tips.map((tip, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                            {tip}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Recommended Accommodations</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {destination.accommodations.map((accommodation, i) => (
+                          <li key={i} className="flex items-start">
+                            <Home className="h-3 w-3 text-gold-accent mr-2 mt-1 flex-shrink-0" />
+                            {accommodation}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
 
           {/* Back Button */}
           <div className="text-center">
