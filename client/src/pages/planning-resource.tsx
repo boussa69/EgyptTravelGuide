@@ -684,6 +684,299 @@ const planningData = {
         "Stay informed about current safety conditions"
       ]
     }
+  },
+  "getting-around": {
+    title: "Getting Around Egypt",
+    description: "Complete guide to transportation, navigation, and moving around Egypt like a local",
+    category: "Transportation",
+    lastUpdated: "Updated January 2025",
+    content: {
+      overview: "Egypt offers diverse transportation options from modern metros to traditional feluccas. Understanding your choices helps you navigate efficiently while experiencing authentic Egyptian culture. This guide covers everything from city transport to inter-city travel.",
+      cityTransportation: [
+        {
+          city: "Cairo",
+          population: "20+ million",
+          mainOptions: [
+            {
+              type: "Cairo Metro",
+              cost: "$0.30-0.50 per ride",
+              pros: ["Fast", "Air-conditioned", "Predictable timing", "Connects major areas"],
+              cons: ["Crowded during rush hour", "Limited coverage", "Arabic signage"],
+              tips: ["Line 1 connects Old Cairo to New Cairo", "Women-only cars available", "Buy tokens at stations", "Avoid rush hours (7-9 AM, 5-7 PM)"],
+              routes: ["Line 1: Helwan to New Marg", "Line 2: Shubra to Monib", "Line 3: Airport to Kit Kat"]
+            },
+            {
+              type: "Taxi (Yellow & White)",
+              cost: "$2-8 per ride",
+              pros: ["Door-to-door service", "Available 24/7", "Good for luggage", "Local drivers"],
+              cons: ["No fixed pricing", "Traffic delays", "Language barriers", "Negotiate required"],
+              tips: ["Agree on price before starting", "Short rides: 20-40 EGP", "Airport trips: 100-200 EGP", "Have destination written in Arabic"]
+            },
+            {
+              type: "Uber/Careem",
+              cost: "$3-12 per ride",
+              pros: ["Fixed pricing", "GPS tracking", "Cashless payment", "English app"],
+              cons: ["Surge pricing", "Driver cancellations", "Limited availability", "Requires internet"],
+              tips: ["Download both apps", "Keep cash backup", "Check driver rating", "Share trip details"]
+            },
+            {
+              type: "Microbus",
+              cost: "$0.20-0.40 per ride",
+              pros: ["Very cheap", "Extensive routes", "Local experience", "Frequent service"],
+              cons: ["Crowded", "No AC", "Confusing routes", "Arabic only"],
+              tips: ["Learn key route numbers", "Have exact change", "Ask locals for help", "Avoid with luggage"]
+            }
+          ]
+        },
+        {
+          city: "Alexandria",
+          population: "5+ million",
+          mainOptions: [
+            {
+              type: "Alexandria Tram",
+              cost: "$0.20-0.30 per ride",
+              pros: ["Historic charm", "Cheap", "Covers main areas", "Cultural experience"],
+              cons: ["Slow", "Old infrastructure", "Limited routes", "Crowding"],
+              tips: ["Blue line covers corniche", "Yellow line to city center", "Buy tickets on board", "Mind the gap"]
+            },
+            {
+              type: "Taxi & Ride Apps",
+              cost: "$2-6 per ride",
+              pros: ["Convenient", "Air-conditioned", "Direct routes", "Good for tourists"],
+              cons: ["More expensive", "Traffic issues", "Negotiate prices", "Limited Uber coverage"],
+              tips: ["White taxis more reliable", "Agree on corniche route pricing", "Use for longer distances", "Have Arabic address ready"]
+            },
+            {
+              type: "Walking & Corniche",
+              cost: "Free",
+              pros: ["Scenic views", "Exercise", "Free", "Discover hidden gems"],
+              cons: ["Distance limitations", "Weather dependent", "Busy sidewalks", "Air quality"],
+              tips: ["Best in morning/evening", "Corniche perfect for walking", "Wear comfortable shoes", "Stay hydrated"]
+            }
+          ]
+        },
+        {
+          city: "Luxor",
+          population: "500,000",
+          mainOptions: [
+            {
+              type: "Bicycle Rental",
+              cost: "$3-5 per day",
+              pros: ["Eco-friendly", "Flexible timing", "Good exercise", "See more areas"],
+              cons: ["Hot weather", "Traffic safety", "Limited night use", "Theft risk"],
+              tips: ["Rent from hotels", "Early morning cycling", "Lock securely", "Avoid main roads"]
+            },
+            {
+              type: "Horse Carriage (Caleche)",
+              cost: "$5-15 per hour",
+              pros: ["Traditional experience", "Tourist-friendly", "Shade provided", "Good for photos"],
+              cons: ["Animal welfare concerns", "Negotiate prices", "Slow transport", "Weather dependent"],
+              tips: ["Check horse condition", "Agree on route first", "Typical rate: 100-200 EGP/hour", "Best for short distances"]
+            },
+            {
+              type: "Taxi & Tuk-tuk",
+              cost: "$1-5 per ride",
+              pros: ["Quick transport", "Local drivers", "Cheap", "Good for luggage"],
+              cons: ["No meters", "Negotiate required", "Quality varies", "Language barriers"],
+              tips: ["Tuk-tuks for short trips", "Taxis for longer journeys", "Have hotel card", "Learn basic Arabic numbers"]
+            }
+          ]
+        }
+      ],
+      intercityTravel: [
+        {
+          method: "Domestic Flights",
+          routes: ["Cairo-Luxor", "Cairo-Aswan", "Cairo-Hurghada", "Cairo-Sharm El Sheikh"],
+          duration: "1-1.5 hours",
+          cost: "$80-200",
+          companies: ["EgyptAir", "Air Cairo", "Nile Air"],
+          pros: ["Fast", "Comfortable", "Skip long drives", "Scenic views"],
+          cons: ["More expensive", "Weather delays", "Airport transfers", "Baggage limits"],
+          tips: [
+            "Book domestic flights in advance for better prices",
+            "EgyptAir most reliable but expensive",
+            "Budget airlines offer good deals",
+            "Check baggage allowances",
+            "Arrive 2 hours early for domestic flights"
+          ]
+        },
+        {
+          method: "First Class Train",
+          routes: ["Cairo-Luxor", "Cairo-Aswan", "Alexandria-Cairo"],
+          duration: "8-14 hours",
+          cost: "$15-40",
+          companies: ["Egyptian National Railways"],
+          pros: ["Comfortable seats", "Air conditioning", "Sleeper options", "Scenic route"],
+          cons: ["Long journey", "Limited routes", "Booking required", "Delays possible"],
+          tips: [
+            "Book first class for comfort",
+            "Sleeper trains available Cairo-Luxor-Aswan",
+            "Bring snacks and water",
+            "Day trains offer better views",
+            "Reserve seats online or at stations"
+          ]
+        },
+        {
+          method: "Tourist Bus",
+          routes: ["Cairo-Luxor", "Cairo-Hurghada", "Luxor-Aswan"],
+          duration: "4-8 hours",
+          cost: "$8-20",
+          companies: ["Go Bus", "East Delta", "Upper Egypt Bus"],
+          pros: ["Affordable", "Air conditioning", "Direct routes", "Comfortable"],
+          cons: ["Fixed schedules", "Road conditions", "Rest stop delays", "Limited legroom"],
+          tips: [
+            "Go Bus most comfortable for tourists",
+            "Book online for guaranteed seats",
+            "VIP buses worth extra cost",
+            "Bring entertainment for long trips",
+            "Check departure terminals in advance"
+          ]
+        },
+        {
+          method: "Private Car/Driver",
+          routes: ["Any destination", "Custom itineraries"],
+          duration: "Varies",
+          cost: "$50-150 per day",
+          companies: ["Local tour operators", "Hotel arrangements"],
+          pros: ["Flexible schedule", "Door-to-door", "Stop anywhere", "Personal guide"],
+          cons: ["Most expensive", "Driver quality varies", "Language barriers", "Negotiation required"],
+          tips: [
+            "Arrange through reputable hotels",
+            "Agree on all costs upfront",
+            "Check driver credentials",
+            "Include fuel and tolls in price",
+            "Get driver contact information"
+          ]
+        }
+      ],
+      navigationTips: [
+        {
+          category: "Digital Navigation",
+          tools: [
+            {
+              app: "Google Maps",
+              pros: ["Offline maps", "Real-time traffic", "Walking directions", "Public transport"],
+              cons: ["Data usage", "GPS accuracy issues", "Limited local business info"],
+              tips: ["Download offline maps before travel", "Use landmarks for reference", "Check transit options"]
+            },
+            {
+              app: "Maps.me",
+              pros: ["Fully offline", "Detailed maps", "Points of interest", "No data required"],
+              cons: ["No real-time traffic", "Limited public transport", "Requires downloads"],
+              tips: ["Download Egypt maps at hotel WiFi", "Mark important locations", "Use for walking navigation"]
+            },
+            {
+              app: "Uber/Careem",
+              pros: ["Built-in navigation", "Driver communication", "Trip tracking", "Price estimates"],
+              cons: ["Requires internet", "Driver dependent", "Not all areas covered"],
+              tips: ["Share trip details", "Have backup transport", "Learn pickup spot names"]
+            }
+          ]
+        },
+        {
+          category: "Traditional Navigation",
+          methods: [
+            {
+              method: "Landmarks",
+              description: "Use major monuments, hotels, and recognizable buildings",
+              examples: ["Cairo Tower", "Egyptian Museum", "Pyramids", "Major hotels"],
+              tips: ["Learn Arabic names of landmarks", "Take photos of important locations", "Use mosque minarets as reference points"]
+            },
+            {
+              method: "Address Cards",
+              description: "Hotel business cards and written addresses in Arabic",
+              examples: ["Hotel business card", "Restaurant addresses", "Tourist site names"],
+              tips: ["Always carry hotel card", "Have destinations written in Arabic", "Take photos of important addresses"]
+            },
+            {
+              method: "Local Help",
+              description: "Ask locals, shop owners, and tourist police for directions",
+              examples: ["Hotel staff", "Tourist police", "Shop owners", "Other tourists"],
+              tips: ["Learn basic Arabic direction words", "Use translation apps", "Ask multiple people for confirmation"]
+            }
+          ]
+        }
+      ],
+      transportationEtiquette: [
+        {
+          situation: "Public Transport",
+          guidelines: [
+            "Offer seats to elderly and women with children",
+            "Keep bags small and close to body",
+            "Have exact change ready",
+            "Respect women-only metro cars",
+            "Avoid eating on public transport",
+            "Keep conversations quiet"
+          ]
+        },
+        {
+          situation: "Taxis & Ride Shares",
+          guidelines: [
+            "Greet driver politely in Arabic ('As-salamu alaykum')",
+            "Confirm destination before starting",
+            "Sit in back seat unless invited to front",
+            "Tip 10-15% for good service",
+            "Keep cash for taxi payments",
+            "Thank driver when exiting"
+          ]
+        },
+        {
+          situation: "Walking & Street Navigation",
+          guidelines: [
+            "Dress modestly, especially in local neighborhoods",
+            "Be aware of traffic - cars don't always stop",
+            "Step aside for prayer times near mosques",
+            "Avoid blocking shop entrances",
+            "Be patient with slower pedestrian pace",
+            "Respect local customs in different areas"
+          ]
+        }
+      ],
+      budgetBreakdown: [
+        {
+          category: "Daily Transportation (Cairo)",
+          budget: "$3-8",
+          breakdown: [
+            { item: "Metro rides (2-3)", cost: "$1-1.50" },
+            { item: "Short taxi/Uber", cost: "$2-4" },
+            { item: "Walking", cost: "$0" },
+            { item: "Microbus rides", cost: "$0.50-1" }
+          ]
+        },
+        {
+          category: "Daily Transportation (Luxor/Aswan)",
+          budget: "$5-15",
+          breakdown: [
+            { item: "Bicycle rental", cost: "$3-5" },
+            { item: "Taxi rides (2-3)", cost: "$2-6" },
+            { item: "Caleche ride", cost: "$5-10" },
+            { item: "Walking tours", cost: "$0" }
+          ]
+        },
+        {
+          category: "Inter-city Travel",
+          budget: "$15-150",
+          breakdown: [
+            { item: "Bus tickets", cost: "$8-20" },
+            { item: "Train tickets", cost: "$15-40" },
+            { item: "Domestic flights", cost: "$80-200" },
+            { item: "Private car/day", cost: "$50-150" }
+          ]
+        }
+      ],
+      safetyTips: [
+        "Always agree on taxi fares before starting the journey",
+        "Keep important phone numbers saved offline",
+        "Carry small bills for public transport and tips",
+        "Be extra cautious crossing busy streets",
+        "Use reputable transport apps when possible",
+        "Keep copies of transport tickets and receipts",
+        "Learn basic Arabic numbers for price negotiations",
+        "Stay alert in crowded public transport",
+        "Have backup transportation options planned",
+        "Know your hotel's exact address in Arabic"
+      ]
+    }
   }
 };
 
@@ -1714,6 +2007,384 @@ export default function PlanningResource() {
                 {resource.content.safetyTips.map((tip, index) => (
                   <div key={index} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
                     <CheckCircle2 className="h-5 w-5 text-teal-oasis mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{tip}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "getting-around") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Getting Around</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* City Transportation */}
+          <div className="space-y-8 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <MapPin className="h-8 w-8 text-teal-oasis mr-3" />
+              City Transportation
+            </h2>
+            
+            {resource.content.cityTransportation.map((city, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-2xl font-bold text-gray-900">{city.city}</h3>
+                    <Badge variant="outline">{city.population}</Badge>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    {city.mainOptions.map((option, i) => (
+                      <div key={i} className="border rounded-lg p-4 bg-gray-50">
+                        <div className="flex items-start justify-between mb-4">
+                          <h4 className="text-lg font-bold text-gray-900">{option.type}</h4>
+                          <span className="text-lg font-bold text-teal-oasis">{option.cost}</span>
+                        </div>
+                        
+                        <div className="grid md:grid-cols-2 gap-4 mb-4">
+                          <div>
+                            <h5 className="font-semibold text-green-600 mb-2">Advantages</h5>
+                            <ul className="text-sm text-gray-600 space-y-1">
+                              {option.pros.map((pro, j) => (
+                                <li key={j} className="flex items-center">
+                                  <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 flex-shrink-0" />
+                                  {pro}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <h5 className="font-semibold text-orange-600 mb-2">Considerations</h5>
+                            <ul className="text-sm text-gray-600 space-y-1">
+                              {option.cons.map((con, j) => (
+                                <li key={j} className="flex items-center">
+                                  <AlertTriangle className="h-3 w-3 text-orange-500 mr-2 flex-shrink-0" />
+                                  {con}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                        
+                        {option.routes && (
+                          <div className="mb-4">
+                            <h5 className="font-semibold text-gray-900 mb-2">Routes</h5>
+                            <div className="flex flex-wrap gap-2">
+                              {option.routes.map((route, j) => (
+                                <Badge key={j} variant="outline" className="text-xs">
+                                  {route}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        
+                        <div>
+                          <h5 className="font-semibold text-gray-900 mb-2">Practical Tips</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {option.tips.map((tip, j) => (
+                              <li key={j} className="flex items-start">
+                                <span className="w-1.5 h-1.5 bg-teal-oasis rounded-full mr-2 mt-2"></span>
+                                {tip}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Inter-city Travel */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Plane className="h-8 w-8 text-teal-oasis mr-3" />
+              Inter-city Travel
+            </h2>
+            
+            {resource.content.intercityTravel.map((travel, index) => (
+              <Card key={index} className="overflow-hidden border-l-4 border-teal-oasis">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{travel.method}</h3>
+                      <p className="text-gray-600 mb-2">Duration: {travel.duration}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {travel.routes.map((route, i) => (
+                          <Badge key={i} variant="outline" className="text-xs">
+                            {route}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="bg-gold-accent/20 rounded-lg p-3 mb-2">
+                        <p className="font-bold text-gold-accent">{travel.cost}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <h4 className="font-semibold text-green-600 mb-3">Advantages</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {travel.pros.map((pro, i) => (
+                          <li key={i} className="flex items-center">
+                            <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 flex-shrink-0" />
+                            {pro}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-orange-600 mb-3">Considerations</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {travel.cons.map((con, i) => (
+                          <li key={i} className="flex items-center">
+                            <AlertTriangle className="h-3 w-3 text-orange-500 mr-2 flex-shrink-0" />
+                            {con}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-3">Travel Tips</h4>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      {travel.tips.map((tip, i) => (
+                        <li key={i} className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-teal-oasis rounded-full mr-2 mt-2"></span>
+                          {tip}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {travel.companies && (
+                    <div className="mt-4 p-3 bg-gray-100 rounded-lg">
+                      <p className="text-sm font-semibold text-gray-900 mb-1">Companies:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {travel.companies.map((company, i) => (
+                          <Badge key={i} variant="secondary" className="text-xs">
+                            {company}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Navigation Tips */}
+          <div className="space-y-8 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Navigation & Getting Help</h2>
+            
+            {resource.content.navigationTips.map((section, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <Globe className="h-6 w-6 text-teal-oasis mr-3" />
+                    {section.category}
+                  </h3>
+                  
+                  <div className="space-y-4">
+                    {section.tools && section.tools.map((tool, i) => (
+                      <div key={i} className="border rounded-lg p-4 bg-blue-50">
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">{tool.app}</h4>
+                        
+                        <div className="grid md:grid-cols-2 gap-4 mb-4">
+                          <div>
+                            <h5 className="font-semibold text-green-600 mb-2">Pros</h5>
+                            <ul className="text-sm text-gray-600 space-y-1">
+                              {tool.pros.map((pro, j) => (
+                                <li key={j} className="flex items-center">
+                                  <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 flex-shrink-0" />
+                                  {pro}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <h5 className="font-semibold text-orange-600 mb-2">Cons</h5>
+                            <ul className="text-sm text-gray-600 space-y-1">
+                              {tool.cons.map((con, j) => (
+                                <li key={j} className="flex items-center">
+                                  <AlertTriangle className="h-3 w-3 text-orange-500 mr-2 flex-shrink-0" />
+                                  {con}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <h5 className="font-semibold text-gray-900 mb-2">Tips</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {tool.tips.map((tip, j) => (
+                              <li key={j} className="flex items-start">
+                                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                                {tip}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
+
+                    {section.methods && section.methods.map((method, i) => (
+                      <div key={i} className="border rounded-lg p-4 bg-green-50">
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">{method.method}</h4>
+                        <p className="text-gray-600 mb-3">{method.description}</p>
+                        
+                        <div className="mb-3">
+                          <h5 className="font-semibold text-gray-900 mb-2">Examples</h5>
+                          <div className="flex flex-wrap gap-2">
+                            {method.examples.map((example, j) => (
+                              <Badge key={j} variant="outline" className="text-xs">
+                                {example}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <h5 className="font-semibold text-gray-900 mb-2">Tips</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {method.tips.map((tip, j) => (
+                              <li key={j} className="flex items-start">
+                                <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 mt-2"></span>
+                                {tip}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Transportation Etiquette */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Heart className="h-6 w-6 text-teal-oasis mr-3" />
+                Transportation Etiquette
+              </h3>
+              
+              <div className="space-y-6">
+                {resource.content.transportationEtiquette.map((etiquette, index) => (
+                  <div key={index}>
+                    <h4 className="text-lg font-bold text-gray-900 mb-3">{etiquette.situation}</h4>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {etiquette.guidelines.map((guideline, i) => (
+                        <div key={i} className="flex items-start space-x-3 p-3 bg-teal-oasis/5 rounded-lg">
+                          <Heart className="h-4 w-4 text-teal-oasis mt-0.5 flex-shrink-0" />
+                          <p className="text-sm text-gray-700">{guideline}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Budget Breakdown */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <DollarSign className="h-6 w-6 text-gold-accent mr-3" />
+                Transportation Budget Guide
+              </h3>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                {resource.content.budgetBreakdown.map((budget, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-gold-accent/5">
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">{budget.category}</h4>
+                    <div className="text-center mb-4">
+                      <p className="text-2xl font-bold text-gold-accent">{budget.budget}</p>
+                      <p className="text-sm text-gray-600">per day</p>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      {budget.breakdown.map((item, i) => (
+                        <div key={i} className="flex justify-between text-sm">
+                          <span className="text-gray-700">{item.item}</span>
+                          <span className="font-semibold text-gray-900">{item.cost}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Safety Tips */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Transportation Safety Tips</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {resource.content.safetyTips.map((tip, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-3 bg-red-50 rounded-lg">
+                    <Shield className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-gray-700">{tip}</p>
                   </div>
                 ))}
