@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star, Syringe, Activity, Pill, Plus, ShoppingBag, Store, Gem, Coins, TrendingUp, Tag, Baby, GraduationCap, Home, Utensils, Car, Zap, UserCheck, Lock, Navigation } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star, Syringe, Activity, Pill, Plus, ShoppingBag, Store, Gem, Coins, TrendingUp, Tag, Baby, GraduationCap, Home, Utensils, Car, Zap, UserCheck, Lock, Navigation, Lightbulb } from "lucide-react";
 import { Link } from "wouter";
 
 const planningData = {
