@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star, Syringe, Activity, Pill, Plus, ShoppingBag, Store, Gem, Coins, TrendingUp, Tag } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star, Syringe, Activity, Pill, Plus, ShoppingBag, Store, Gem, Coins, TrendingUp, Tag, Baby, GraduationCap, Home, Utensils, Car, Zap } from "lucide-react";
 import { Link } from "wouter";
 
 const planningData = {
@@ -2474,6 +2474,537 @@ const planningData = {
             "Respect religious observances",
             "Look for special Ramadan discounts",
             "Be patient with adjusted schedules"
+          ]
+        }
+      ]
+    }
+  },
+  "family-friendly-egypt": {
+    title: "Family-Friendly Egypt Travel Guide",
+    description: "Complete guide for traveling to Egypt with children - attractions, safety, accommodations, and practical tips for memorable family adventures",
+    category: "Family Travel",
+    lastUpdated: "Updated January 2025",
+    content: {
+      overview: "Egypt offers incredible family adventures combining education, entertainment, and cultural immersion. From exploring ancient pyramids to sailing the Nile, Egypt provides unique experiences that captivate children and adults alike. This guide covers everything needed for safe, enjoyable family travel in Egypt.",
+      kidFriendlyAttractions: [
+        {
+          attraction: "Giza Pyramid Complex",
+          location: "Cairo",
+          ageRange: "5+ years",
+          duration: "3-4 hours",
+          highlights: [
+            "Great Pyramid exploration (limited climbing)",
+            "Sphinx photo opportunities",
+            "Camel rides around pyramids",
+            "Solar boat museum",
+            "Interactive visitor center"
+          ],
+          familyTips: [
+            "Visit early morning to avoid heat and crowds",
+            "Bring water and snacks for children",
+            "Camel rides are exciting but supervise young children",
+            "Pyramid interior may be claustrophobic for some kids",
+            "Allow time for rest breaks"
+          ],
+          educational_value: "Ancient engineering, Egyptian history, mathematical concepts",
+          accessibility: "Moderate - uneven terrain, stairs in pyramids",
+          cost: "Moderate to high with camel rides and special entry tickets"
+        },
+        {
+          attraction: "Egyptian Museum",
+          location: "Cairo",
+          ageRange: "6+ years",
+          duration: "2-3 hours",
+          highlights: [
+            "Tutankhamun's treasure collection",
+            "Mummy rooms (additional ticket)",
+            "Interactive displays",
+            "Ancient toys and games exhibit",
+            "Family-friendly guided tours available"
+          ],
+          familyTips: [
+            "Book family-specific guided tours",
+            "Focus on highlights rather than entire museum",
+            "Mummy rooms may frighten young children",
+            "Bring stroller for tired feet",
+            "Museum shop has educational souvenirs"
+          ],
+          educational_value: "Ancient Egyptian civilization, archaeology, art history",
+          accessibility: "Good - elevators available, stroller-friendly",
+          cost: "Low to moderate (mummy rooms extra)"
+        },
+        {
+          attraction: "Luxor's Karnak Temple",
+          location: "Luxor",
+          ageRange: "4+ years",
+          duration: "2-3 hours",
+          highlights: [
+            "Massive stone columns",
+            "Sound and light show (evening)",
+            "Sacred lake",
+            "Hieroglyphic walls",
+            "Open courtyards for children to explore"
+          ],
+          familyTips: [
+            "Sound and light show is magical for kids",
+            "Wear comfortable walking shoes",
+            "Bring flashlight for darker areas",
+            "Create treasure hunt with hieroglyphs",
+            "Evening visits are cooler"
+          ],
+          educational_value: "Ancient religious practices, architecture, storytelling",
+          accessibility: "Moderate - uneven ancient stones",
+          cost: "Low (sound and light show additional)"
+        },
+        {
+          attraction: "Nile River Cruise",
+          location: "Luxor to Aswan",
+          ageRange: "All ages",
+          duration: "3-7 days",
+          highlights: [
+            "Family-friendly cruise ships",
+            "Pool and entertainment areas",
+            "Shore excursions to temples",
+            "Traditional felucca sailing",
+            "Onboard cultural activities"
+          ],
+          familyTips: [
+            "Choose family-oriented cruise lines",
+            "Book connecting rooms or family suites",
+            "Pack motion sickness remedies",
+            "Kids' clubs available on larger ships",
+            "Flexible dining options important"
+          ],
+          educational_value: "Geography, river ecosystems, ancient trade routes",
+          accessibility: "Excellent - elevators, family facilities",
+          cost: "High but all-inclusive"
+        },
+        {
+          attraction: "Red Sea Beaches",
+          location: "Hurghada/Sharm El Sheikh",
+          ageRange: "All ages",
+          duration: "1-7 days",
+          highlights: [
+            "Family resorts with kids' clubs",
+            "Snorkeling in shallow waters",
+            "Glass-bottom boat trips",
+            "Beach activities and water sports",
+            "Marine life observation"
+          ],
+          familyTips: [
+            "Choose family-friendly all-inclusive resorts",
+            "High SPF sunscreen essential",
+            "Life jackets for non-swimmers",
+            "Avoid deep water snorkeling with young kids",
+            "Resort entertainment programs available"
+          ],
+          educational_value: "Marine biology, conservation, geography",
+          accessibility: "Excellent - resort facilities designed for families",
+          cost: "Moderate to high depending on resort"
+        },
+        {
+          attraction: "Aswan High Dam & Philae Temple",
+          location: "Aswan",
+          ageRange: "8+ years",
+          duration: "Half day",
+          highlights: [
+            "Modern engineering marvel",
+            "Boat ride to Philae Temple",
+            "UNESCO World Heritage site",
+            "Lake Nasser views",
+            "Engineering education opportunities"
+          ],
+          familyTips: [
+            "Boat ride is exciting for children",
+            "Combine with Nubian village visit",
+            "Wear sun protection",
+            "Good introduction to modern vs ancient Egypt",
+            "Photo opportunities with family"
+          ],
+          educational_value: "Modern engineering, ancient preservation, geography",
+          accessibility: "Good - boat transport available",
+          cost: "Low to moderate"
+        }
+      ],
+      familyAccommodations: [
+        {
+          type: "Family-Friendly Hotels",
+          features: [
+            "Connecting rooms or family suites",
+            "Kids' clubs and supervised activities",
+            "Children's pools and play areas",
+            "Babysitting services",
+            "Family dining options with kids' menus"
+          ],
+          recommendations: [
+            "Major international hotel chains in Cairo and tourist areas",
+            "All-inclusive Red Sea resorts with family programs",
+            "Nile view hotels with family amenities",
+            "Boutique hotels with family-oriented services"
+          ],
+          tips: [
+            "Book family rooms in advance",
+            "Verify kids' club age requirements",
+            "Check pool safety measures",
+            "Ask about cribs and high chairs",
+            "Confirm family-friendly dining hours"
+          ]
+        },
+        {
+          type: "Nile Cruise Ships",
+          features: [
+            "Family cabins with additional beds",
+            "Children's entertainment programs",
+            "Pool areas suitable for kids",
+            "Flexible meal times",
+            "Educational activities onboard"
+          ],
+          recommendations: [
+            "5-star cruise lines with family programs",
+            "Ships with dedicated kids' areas",
+            "Shorter 3-4 day cruises for families with young children",
+            "Cruise lines offering shore excursion modifications for families"
+          ],
+          tips: [
+            "Choose lower deck cabins for easier access",
+            "Pack motion sickness remedies",
+            "Bring familiar snacks for picky eaters",
+            "Book shore excursions suitable for children",
+            "Consider private balcony rooms for family space"
+          ]
+        },
+        {
+          type: "Beach Resorts",
+          features: [
+            "All-inclusive family packages",
+            "Kids' clubs with age-appropriate programs",
+            "Shallow swimming areas",
+            "Water sports suitable for children",
+            "Entertainment shows and activities"
+          ],
+          recommendations: [
+            "Red Sea resorts in Hurghada and Sharm El Sheikh",
+            "Resorts with family-oriented entertainment",
+            "Properties with multiple restaurant options",
+            "Resorts offering snorkeling lessons for children"
+          ],
+          tips: [
+            "Verify kids' club operating hours",
+            "Check beach safety flags and lifeguard presence",
+            "Book resorts with medical facilities",
+            "Consider resorts with lazy rivers or water slides",
+            "Ensure room refrigerators for storing medications"
+          ]
+        }
+      ],
+      travelSafety: {
+        health_precautions: [
+          {
+            concern: "Food and Water Safety",
+            precautions: [
+              "Stick to bottled water for drinking and teeth brushing",
+              "Avoid ice in drinks unless from reputable hotels",
+              "Choose well-cooked foods from established restaurants",
+              "Pack familiar snacks for picky eaters",
+              "Avoid street food for young children"
+            ],
+            emergency_tips: [
+              "Pack oral rehydration salts for stomach upsets",
+              "Bring familiar medications from home",
+              "Know location of nearest hospital",
+              "Have pediatrician contact information available",
+              "Pack thermometer and basic first aid supplies"
+            ]
+          },
+          {
+            concern: "Sun and Heat Protection",
+            precautions: [
+              "High SPF sunscreen (30+ minimum)",
+              "Protective clothing and wide-brimmed hats",
+              "Sunglasses for children",
+              "Frequent water breaks and shade seeking",
+              "Avoid outdoor activities during peak heat (11am-3pm)"
+            ],
+            emergency_tips: [
+              "Recognize signs of heat exhaustion",
+              "Immediate cooling measures available",
+              "Seek air-conditioned environments during heat",
+              "Electrolyte replacement drinks for active children",
+              "Plan indoor activities during hottest hours"
+            ]
+          },
+          {
+            concern: "Crowd and Site Safety",
+            precautions: [
+              "Keep children close in crowded tourist areas",
+              "Use family meeting points if separated",
+              "Dress children in bright colors for visibility",
+              "Consider child harnesses for very young children",
+              "Teach children basic Arabic phrases for help"
+            ],
+            emergency_tips: [
+              "Have current photos of children available",
+              "Write hotel information in Arabic and English",
+              "Program important numbers into children's phones",
+              "Know location of tourist police in major sites",
+              "Establish clear rules about staying together"
+            ]
+          }
+        ],
+        vaccination_requirements: [
+          "Ensure routine vaccinations are up to date",
+          "Hepatitis A recommended for all travelers",
+          "Typhoid vaccination for longer stays",
+          "Yellow fever only if coming from endemic areas",
+          "Consult pediatrician 4-6 weeks before travel"
+        ],
+        medical_preparation: [
+          "Pack prescription medications with extra supply",
+          "Bring pediatric dosage charts for common medications",
+          "Include motion sickness remedies",
+          "Pack thermometer and basic first aid kit",
+          "Research pediatric medical facilities at destination"
+        ]
+      },
+      practicalTips: {
+        packing_essentials: [
+          {
+            category: "Clothing and Gear",
+            items: [
+              "Lightweight, long-sleeved shirts for sun protection",
+              "Comfortable walking shoes with good support",
+              "Sandals suitable for sand and water",
+              "Wide-brimmed hats and sunglasses",
+              "Light jacket for air-conditioned spaces"
+            ]
+          },
+          {
+            category: "Health and Safety",
+            items: [
+              "High SPF sunscreen and lip balm",
+              "Insect repellent suitable for children",
+              "First aid kit with pediatric medications",
+              "Thermometer and hand sanitizer",
+              "Oral rehydration salts"
+            ]
+          },
+          {
+            category: "Entertainment and Comfort",
+            items: [
+              "Travel games and activity books",
+              "Tablet with downloaded movies and educational content",
+              "Familiar snacks and comfort foods",
+              "Favorite toy or blanket for comfort",
+              "Portable phone chargers and adapters"
+            ]
+          },
+          {
+            category: "Documentation",
+            items: [
+              "Passports with at least 6 months validity",
+              "Visa documents (if required)",
+              "Travel insurance with family coverage",
+              "Medical records and prescription information",
+              "Emergency contact information in Arabic and English"
+            ]
+          }
+        ],
+        transportation_tips: [
+          "Private transfers more comfortable than public transport",
+          "Car seats may not be standard - consider bringing own",
+          "Domestic flights can save time with children",
+          "Train travel offers scenic routes but longer journey times",
+          "Organized tours can handle logistics while families enjoy experiences"
+        ],
+        cultural_preparation: [
+          "Learn basic Arabic phrases together as a family",
+          "Research Egyptian history and mythology before visiting",
+          "Discuss cultural differences and respectful behavior",
+          "Read age-appropriate books about ancient Egypt",
+          "Prepare children for different sights, sounds, and smells"
+        ]
+      },
+      budgetingTips: {
+        cost_breakdown: [
+          {
+            category: "Accommodation",
+            family_considerations: [
+              "Family rooms typically 25-40% more than double rooms",
+              "All-inclusive resorts can provide better value for families",
+              "Connecting rooms offer privacy while keeping family close",
+              "Apartments with kitchenettes help with familiar foods",
+              "Kids under 12 often stay free with parents"
+            ],
+            average_costs: "Family rooms: $80-300/night depending on location and season"
+          },
+          {
+            category: "Transportation",
+            family_considerations: [
+              "Private transfers more expensive but convenient with luggage and kids",
+              "Domestic flights save time but add to budget",
+              "Car rentals with proper car seats challenging",
+              "Tour group transport often family-friendly",
+              "Taxi rides should be negotiated for longer distances"
+            ],
+            average_costs: "Private airport transfers: $20-50, Domestic flights: $100-200 per person"
+          },
+          {
+            category: "Activities and Attractions",
+            family_considerations: [
+              "Children under 6 often free at most attractions",
+              "Student discounts available for older children",
+              "Private guides cost more but provide family-focused experiences",
+              "Sound and light shows popular with children but additional cost",
+              "Beach activities and water sports add up quickly"
+            ],
+            average_costs: "Major site entry: $10-25 per adult, $5-10 per child"
+          },
+          {
+            category: "Food and Dining",
+            family_considerations: [
+              "Hotel restaurants safer but more expensive",
+              "Familiar food chains available in major cities",
+              "All-inclusive packages eliminate meal planning stress",
+              "Room service helpful for early children's bedtimes",
+              "Local markets good for familiar snacks and fruits"
+            ],
+            average_costs: "Family meal at mid-range restaurant: $20-40"
+          }
+        ],
+        money_saving_tips: [
+          "Travel during shoulder seasons for better rates",
+          "Book family packages that include meals and activities",
+          "Stay in apartments with kitchenettes for some meal preparation",
+          "Take advantage of free kids' promotions",
+          "Use hotel pools and facilities rather than paid water parks",
+          "Pack familiar snacks to avoid expensive tourist area food",
+          "Choose all-inclusive resorts for predictable budgeting"
+        ]
+      },
+      ageSpecificGuidance: [
+        {
+          age_group: "Toddlers (2-4 years)",
+          recommendations: [
+            "Short site visits (1-2 hours maximum)",
+            "Stroller essential for tired legs",
+            "Nap schedule accommodation crucial",
+            "Familiar foods and snacks important",
+            "Pool time and play areas priority"
+          ],
+          attractions: [
+            "Pyramid exterior and camel rides",
+            "Nile felucca boat rides",
+            "Beach and pool activities",
+            "Hotel entertainment shows",
+            "Simple temple courtyards"
+          ],
+          challenges: [
+            "Heat intolerance higher",
+            "Frequent bathroom needs",
+            "Irregular eating patterns",
+            "Potential meltdowns in crowds",
+            "Safety concerns with ancient sites"
+          ]
+        },
+        {
+          age_group: "Elementary Age (5-10 years)",
+          recommendations: [
+            "Educational preparation enhances experience",
+            "Treasure hunts and games make sites engaging",
+            "Mix of cultural sites and fun activities",
+            "Hands-on experiences preferred",
+            "Shorter attention spans require variety"
+          ],
+          attractions: [
+            "Pyramid interiors (if not claustrophobic)",
+            "Egyptian Museum highlights",
+            "Interactive temple explorations",
+            "Nile cruise with kids' programs",
+            "Snorkeling in shallow waters"
+          ],
+          challenges: [
+            "May find some sites boring without context",
+            "Need frequent breaks and snacks",
+            "Safety awareness still developing",
+            "Peer influence on interest levels",
+            "Physical stamina varies widely"
+          ]
+        },
+        {
+          age_group: "Tweens/Teens (11+ years)",
+          recommendations: [
+            "Involve in trip planning process",
+            "Photography opportunities important",
+            "Historical context more appreciated",
+            "Adventure activities possible",
+            "Social media sharing considerations"
+          ],
+          attractions: [
+            "All major historical sites",
+            "Adventure activities like desert safaris",
+            "Diving and advanced water sports",
+            "Cultural immersion experiences",
+            "Independent exploration with supervision"
+          ],
+          challenges: [
+            "May prefer peer activities over family time",
+            "Technology expectations in remote areas",
+            "Cultural sensitivity awareness needed",
+            "Body image concerns in conservative culture",
+            "Romantic interest complications"
+          ]
+        }
+      ],
+      emergencyProcedures: [
+        {
+          situation: "Medical Emergency",
+          immediate_actions: [
+            "Contact hotel concierge or tour guide for assistance",
+            "Call tourist police: 126 (available in multiple languages)",
+            "Major hospitals in Cairo: 57357 (Children's Cancer Hospital), Ain Shams University Hospital",
+            "Private hospitals generally better equipped",
+            "Contact travel insurance provider immediately"
+          ],
+          preparation: [
+            "Research pediatric facilities before arrival",
+            "Have insurance policy numbers readily available",
+            "Know location of nearest embassy/consulate",
+            "Keep emergency contacts in Arabic and English",
+            "Pack copies of important medical records"
+          ]
+        },
+        {
+          situation: "Lost Child",
+          immediate_actions: [
+            "Alert tourist police and site security immediately",
+            "Return to last known location",
+            "Use hotel/ship staff for assistance",
+            "Check kids' clubs and entertainment areas",
+            "Contact embassy if situation escalates"
+          ],
+          preparation: [
+            "Dress children in bright, identifiable clothing",
+            "Take daily photos of children's outfits",
+            "Teach children hotel name and room number",
+            "Establish meeting points at major sites",
+            "Consider GPS tracking devices for young children"
+          ]
+        },
+        {
+          situation: "Natural Disaster/Political Unrest",
+          immediate_actions: [
+            "Follow embassy guidelines and travel advisories",
+            "Stay in hotel unless explicitly directed otherwise",
+            "Register with embassy upon arrival",
+            "Monitor reliable news sources",
+            "Prepare for potential evacuation"
+          ],
+          preparation: [
+            "Purchase comprehensive travel insurance",
+            "Register with government travel programs",
+            "Have evacuation plans and funds available",
+            "Keep important documents in hotel safe",
+            "Maintain communication with family at home"
           ]
         }
       ]
@@ -5454,6 +5985,472 @@ export default function PlanningResource() {
                             <li key={i} className="flex items-start">
                               <TrendingUp className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
                               {strategy}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (slug === "family-friendly-egypt") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Tips</Link>
+            <span>/</span>
+            <span className="text-gray-900">Family-Friendly Egypt</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              {resource.lastUpdated}
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              {resource.title}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {resource.description}
+            </p>
+          </div>
+
+          {/* Overview */}
+          <Card className="mb-8">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {resource.content.overview}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Kid-Friendly Attractions */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Baby className="h-8 w-8 text-teal-oasis mr-3" />
+              Kid-Friendly Attractions
+            </h2>
+            
+            {resource.content.kidFriendlyAttractions.map((attraction, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{attraction.attraction}</h3>
+                      <div className="flex items-center space-x-4 mb-3">
+                        <Badge variant="outline">{attraction.location}</Badge>
+                        <span className="text-sm text-teal-oasis font-semibold">{attraction.ageRange}</span>
+                        <span className="text-sm text-gray-600">{attraction.duration}</span>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm font-semibold text-gray-900">{attraction.cost}</p>
+                      <p className="text-xs text-gray-600">{attraction.accessibility}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Star className="h-4 w-4 text-gold-accent mr-2" />
+                        Highlights
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {attraction.highlights.map((highlight, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-gold-accent mr-2 mt-1 flex-shrink-0" />
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Users className="h-4 w-4 text-blue-600 mr-2" />
+                        Family Tips
+                      </h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {attraction.familyTips.map((tip, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                            {tip}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-teal-oasis/10 p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-teal-800 mb-1">Educational Value:</p>
+                    <p className="text-sm text-gray-700">{attraction.educational_value}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Family Accommodations */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Home className="h-8 w-8 text-teal-oasis mr-3" />
+              Family-Friendly Accommodations
+            </h2>
+            
+            {resource.content.familyAccommodations.map((accommodation, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{accommodation.type}</h3>
+                  
+                  <div className="grid md:grid-cols-3 gap-6 mb-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Key Features</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {accommodation.features.map((feature, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Recommendations</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {accommodation.recommendations.map((rec, i) => (
+                          <li key={i} className="flex items-start">
+                            <Star className="h-3 w-3 text-gold-accent mr-2 mt-1 flex-shrink-0" />
+                            {rec}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3">Booking Tips</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {accommodation.tips.map((tip, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2"></span>
+                            {tip}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Travel Safety */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Shield className="h-8 w-8 text-teal-oasis mr-3" />
+              Family Travel Safety
+            </h2>
+
+            {/* Health Precautions */}
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Health & Safety Precautions</h3>
+                
+                <div className="space-y-6">
+                  {resource.content.travelSafety.health_precautions.map((precaution, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                      <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                        <AlertTriangle className="h-5 w-5 text-red-600 mr-2" />
+                        {precaution.concern}
+                      </h4>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <h5 className="font-semibold text-green-800 mb-2">Prevention Measures</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {precaution.precautions.map((item, i) => (
+                              <li key={i} className="flex items-start">
+                                <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h5 className="font-semibold text-red-800 mb-2">Emergency Preparedness</h5>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            {precaution.emergency_tips.map((tip, i) => (
+                              <li key={i} className="flex items-start">
+                                <Plus className="h-3 w-3 text-red-500 mr-2 mt-1 flex-shrink-0" />
+                                {tip}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Medical Preparation */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <Syringe className="h-5 w-5 text-teal-oasis mr-2" />
+                    Vaccination Requirements
+                  </h3>
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    {resource.content.travelSafety.vaccination_requirements.map((req, index) => (
+                      <li key={index} className="flex items-start">
+                        <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                        {req}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <Pill className="h-5 w-5 text-teal-oasis mr-2" />
+                    Medical Preparation
+                  </h3>
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    {resource.content.travelSafety.medical_preparation.map((prep, index) => (
+                      <li key={index} className="flex items-start">
+                        <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                        {prep}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Practical Tips */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Package className="h-8 w-8 text-teal-oasis mr-3" />
+              Practical Family Travel Tips
+            </h2>
+
+            {/* Packing Essentials */}
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Family Packing Essentials</h3>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  {resource.content.practicalTips.packing_essentials.map((category, index) => (
+                    <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                      <h4 className="text-lg font-bold text-gray-900 mb-3">{category.category}</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {category.items.map((item, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-teal-oasis mr-2 mt-1 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Transportation & Cultural Tips */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <Car className="h-5 w-5 text-teal-oasis mr-2" />
+                    Transportation Tips
+                  </h3>
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    {resource.content.practicalTips.transportation_tips.map((tip, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="w-1.5 h-1.5 bg-teal-oasis rounded-full mr-2 mt-2"></span>
+                        {tip}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <GraduationCap className="h-5 w-5 text-teal-oasis mr-2" />
+                    Cultural Preparation
+                  </h3>
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    {resource.content.practicalTips.cultural_preparation.map((prep, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="w-1.5 h-1.5 bg-teal-oasis rounded-full mr-2 mt-2"></span>
+                        {prep}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Budget Planning */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <DollarSign className="h-6 w-6 text-teal-oasis mr-3" />
+                Family Budget Planning
+              </h3>
+              
+              <div className="space-y-6 mb-6">
+                {resource.content.budgetingTips.cost_breakdown.map((category, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                    <h4 className="text-lg font-bold text-gray-900 mb-3">{category.category}</h4>
+                    
+                    <div className="mb-4">
+                      <p className="text-sm font-semibold text-teal-oasis mb-2">{category.average_costs}</p>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {category.family_considerations.map((consideration, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-gray-500 rounded-full mr-2 mt-2"></span>
+                            {consideration}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="bg-green-50 p-4 rounded-lg">
+                <h4 className="text-lg font-bold text-green-800 mb-3">Money-Saving Tips</h4>
+                <div className="grid md:grid-cols-2 gap-2">
+                  {resource.content.budgetingTips.money_saving_tips.map((tip, index) => (
+                    <div key={index} className="flex items-start">
+                      <DollarSign className="h-3 w-3 text-green-600 mr-2 mt-1 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">{tip}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Age-Specific Guidance */}
+          <div className="space-y-6 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+              <Users className="h-8 w-8 text-teal-oasis mr-3" />
+              Age-Specific Travel Guidance
+            </h2>
+            
+            {resource.content.ageSpecificGuidance.map((guidance, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{guidance.age_group}</h3>
+                  
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-3">Recommendations</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {guidance.recommendations.map((rec, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            {rec}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-blue-800 mb-3">Best Attractions</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {guidance.attractions.map((attraction, i) => (
+                          <li key={i} className="flex items-start">
+                            <Star className="h-3 w-3 text-blue-500 mr-2 mt-1 flex-shrink-0" />
+                            {attraction}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-red-800 mb-3">Potential Challenges</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {guidance.challenges.map((challenge, i) => (
+                          <li key={i} className="flex items-start">
+                            <AlertTriangle className="h-3 w-3 text-red-500 mr-2 mt-1 flex-shrink-0" />
+                            {challenge}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Emergency Procedures */}
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Zap className="h-6 w-6 text-red-600 mr-3" />
+                Emergency Procedures
+              </h3>
+              
+              <div className="space-y-6">
+                {resource.content.emergencyProcedures.map((procedure, index) => (
+                  <div key={index} className="border rounded-lg p-4 bg-red-50">
+                    <h4 className="text-lg font-bold text-red-800 mb-4">{procedure.situation}</h4>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h5 className="font-semibold text-gray-900 mb-2">Immediate Actions</h5>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {procedure.immediate_actions.map((action, i) => (
+                            <li key={i} className="flex items-start">
+                              <Zap className="h-3 w-3 text-red-600 mr-2 mt-1 flex-shrink-0" />
+                              {action}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h5 className="font-semibold text-gray-900 mb-2">Preparation</h5>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {procedure.preparation.map((prep, i) => (
+                            <li key={i} className="flex items-start">
+                              <CheckCircle2 className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                              {prep}
                             </li>
                           ))}
                         </ul>
