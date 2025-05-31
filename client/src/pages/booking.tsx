@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Calendar, Users, MapPin, CreditCard, CheckCircle, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
+import type { Tour, AccommodationOption } from '@/../../shared/schema';
 
 export default function Booking() {
   const [location, navigate] = useLocation();
@@ -43,13 +44,13 @@ export default function Booking() {
   });
 
   // Fetch tour data
-  const { data: tour, isLoading: tourLoading } = useQuery({
+  const { data: tour, isLoading: tourLoading } = useQuery<Tour>({
     queryKey: ['/api/tours', tourSlug],
     enabled: !!tourSlug,
   });
 
   // Fetch accommodations
-  const { data: accommodations = [] } = useQuery({
+  const { data: accommodations = [], isLoading: accommodationsLoading } = useQuery<AccommodationOption[]>({
     queryKey: ['/api/tours', tour?.id, 'accommodations'],
     enabled: !!tour?.id,
   });
@@ -80,7 +81,7 @@ export default function Booking() {
     if (!tour) return;
 
     const selectedAccommodation = accommodations.find(acc => acc.type === bookingData.accommodation);
-    const totalPrice = (tour.basePrice + (selectedAccommodation?.pricePerPerson || 0)) * bookingData.travelers;
+    const totalPrice = (tour.price + (selectedAccommodation?.pricePerPerson || 0)) * bookingData.travelers;
 
     const bookingPayload = {
       tourId: tour.id,
@@ -123,7 +124,7 @@ export default function Booking() {
   }
 
   const selectedAccommodation = accommodations.find(acc => acc.type === bookingData.accommodation);
-  const totalPrice = (tour.basePrice + (selectedAccommodation?.pricePerPerson || 0)) * bookingData.travelers;
+  const totalPrice = (tour.price + (selectedAccommodation?.pricePerPerson || 0)) * bookingData.travelers;
 
   const steps = [
     { id: 1, title: 'Select Date', icon: Calendar },
@@ -225,29 +226,36 @@ export default function Booking() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold mb-4">Choose Your Accommodation</h3>
-                  <div className="grid gap-4">
-                    {accommodations.map((accommodation) => (
-                      <div
-                        key={accommodation.id}
-                        className={`p-4 border rounded-lg cursor-pointer transition-all ${
-                          bookingData.accommodation === accommodation.type
-                            ? 'border-teal-500 bg-teal-50'
-                            : 'border-gray-200 hover:border-teal-300'
-                        }`}
-                        onClick={() => updateBookingData('accommodation', accommodation.type)}
-                      >
-                        <div className="flex justify-between items-center">
-                          <div>
-                            <h4 className="font-semibold">{accommodation.type}</h4>
-                            <p className="text-sm text-gray-600 mt-1">{accommodation.description}</p>
-                          </div>
-                          <div className="text-right">
-                            <div className="font-semibold">+${accommodation.pricePerPerson}/person</div>
+                  {accommodationsLoading || accommodations.length === 0 ? (
+                    <div className="text-center py-8">
+                      <div className="animate-spin w-6 h-6 border-2 border-teal-600 border-t-transparent rounded-full mx-auto mb-4" />
+                      <p className="text-gray-600">Loading accommodation options...</p>
+                    </div>
+                  ) : (
+                    <div className="grid gap-4">
+                      {accommodations.map((accommodation) => (
+                        <div
+                          key={accommodation.id}
+                          className={`p-4 border rounded-lg cursor-pointer transition-all ${
+                            bookingData.accommodation === accommodation.type
+                              ? 'border-teal-500 bg-teal-50'
+                              : 'border-gray-200 hover:border-teal-300'
+                          }`}
+                          onClick={() => updateBookingData('accommodation', accommodation.type)}
+                        >
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <h4 className="font-semibold">{accommodation.type}</h4>
+                              <p className="text-sm text-gray-600 mt-1">{accommodation.description}</p>
+                            </div>
+                            <div className="text-right">
+                              <div className="font-semibold">+${accommodation.pricePerPerson}/person</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="flex justify-between">
                   <Button variant="outline" onClick={() => setCurrentStep(1)}>
