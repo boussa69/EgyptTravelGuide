@@ -27,15 +27,15 @@ export default function PlanningCard({ icon: Icon, title, description }: Plannin
   const getLinkPath = (title: string) => {
     switch (title) {
       case "Best Time to Visit":
-        return "/travel-planning#best-time-to-visit";
+        return "/planning/best-time-to-visit";
       case "Visa & Entry":
         return "/planning/visa-entry";
       case "Packing Guide":
-        return "/travel-planning#packing-guide";
+        return "/planning/packing-guide";
       case "Cultural Etiquette":
-        return "/travel-planning#cultural-etiquette";
+        return "/planning/cultural-etiquette";
       default:
-        return "/travel-planning";
+        return "/planning";
     }
   };
 
