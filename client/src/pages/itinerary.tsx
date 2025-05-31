@@ -185,6 +185,7 @@ export default function Itinerary() {
               <Button 
                 className="w-full mt-6 bg-teal-600 hover:bg-teal-700"
                 onClick={() => {
+                  localStorage.setItem('selectedTour', slug);
                   window.location.href = `/booking?tour=${slug}`;
                 }}
               >
