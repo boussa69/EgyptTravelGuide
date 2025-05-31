@@ -2,10 +2,8 @@ import { useRoute } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star, Syringe, Activity, Pill, Plus, ShoppingBag, Store, Gem, Coins, TrendingUp, Tag, Baby, GraduationCap, Home, Utensils, Car, Zap, UserCheck, Lock, Navigation, Lightbulb } from "lucide-react";
+import { ArrowLeft, Calendar, Thermometer, Users, Camera, AlertTriangle, Plane, CreditCard, FileText, MapPin, CheckCircle2, Clock, Globe, Package, Shirt, Sun, Shield, Heart, MessageCircle, Eye, HandHeart, DollarSign, Calculator, TrendingDown, AlertCircle, Phone, Cross, FileSearch, Smartphone, Wifi, MessageSquare, Settings, Star, Syringe, Activity, Pill, Plus, ShoppingBag, Store, Gem, Coins, TrendingUp, Tag, Baby, GraduationCap, Home, Utensils, Car, Zap, UserCheck, Lock, Navigation } from "lucide-react";
 import { Link } from "wouter";
-import { useQuery } from "@tanstack/react-query";
-import { planningResourcesApi } from "@/lib/api";
 
 const planningData = {
   "best-time-to-visit": {
@@ -3476,23 +3474,9 @@ export default function PlanningResource() {
   const [, params] = useRoute("/planning/:slug");
   const slug = params?.slug;
   
-  const { data: resources, isLoading } = useQuery({
-    queryKey: ["/api/planning-resources"],
-    queryFn: () => planningResourcesApi.getAll(),
-  });
+  const resource = slug ? planningData[slug as keyof typeof planningData] : null;
 
-  const resource = resources?.find(r => r.slug === slug);
-  const localResource = slug ? planningData[slug as keyof typeof planningData] : null;
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-cool-limestone">
-        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" aria-label="Loading"/>
-      </div>
-    );
-  }
-
-  if (!resource && !localResource) {
+  if (!resource) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-cool-limestone">
         <div className="text-center">
@@ -3504,59 +3488,6 @@ export default function PlanningResource() {
               Back to Planning
             </Button>
           </Link>
-        </div>
-      </div>
-    );
-  }
-
-  // For database-driven resources, render a simple layout
-  if (resource) {
-    return (
-      <div className="min-h-screen bg-cool-limestone py-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumbs */}
-          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
-            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Planning</Link>
-            <span>/</span>
-            <span className="text-teal-oasis">{resource.title}</span>
-          </div>
-
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              {resource.title}
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-              {resource.shortDescription}
-            </p>
-            <div className="flex items-center justify-center space-x-4">
-              <Badge variant="secondary" className="bg-teal-100 text-teal-800">
-                {resource.category}
-              </Badge>
-              <span className="text-sm text-gray-500">
-                {resource.updatedAt ? new Date(resource.updatedAt).toLocaleDateString() : 'Recently updated'}
-              </span>
-            </div>
-          </div>
-
-          {/* Content */}
-          <Card className="mb-8">
-            <CardContent className="p-8">
-              <div className="prose prose-lg max-w-none">
-                <div dangerouslySetInnerHTML={{ __html: resource.content }} />
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Back Button */}
-          <div className="text-center">
-            <Link href="/travel-planning">
-              <Button className="bg-teal-oasis hover:bg-teal-700">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Travel Planning
-              </Button>
-            </Link>
-          </div>
         </div>
       </div>
     );
@@ -3687,12 +3618,11 @@ export default function PlanningResource() {
           </Card>
 
           {/* Special Events */}
-          {(resource.content as any)?.specialEvents && (
           <Card className="mb-8">
             <CardContent className="p-6">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Special Events & Considerations</h3>
               <div className="space-y-4">
-                {(resource.content as any)?.specialEvents?.map((event: any, index: number) => (
+                {resource.content.specialEvents?.map((event: any, index: number) => (
                   <div key={index} className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
                     <Calendar className="h-5 w-5 text-teal-oasis mt-0.5 flex-shrink-0" />
                     <div>
@@ -3705,7 +3635,6 @@ export default function PlanningResource() {
               </div>
             </CardContent>
           </Card>
-          )}
 
           {/* Back Button */}
           <div className="text-center">
