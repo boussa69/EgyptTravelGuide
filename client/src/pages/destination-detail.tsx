@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, MapPin, Star, Users, DollarSign, Camera, Plane, Hotel, Utensils, Navigation, Thermometer, Shield, ChevronRight, Play, Pause } from "lucide-react";
 import { Link } from "wouter";
+import DestinationMap from "@/components/destination-map";
 
 export default function DestinationDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -164,6 +165,14 @@ export default function DestinationDetail() {
                   Top Sights
                 </button>
                 <button 
+                  onClick={() => scrollToSection('map')}
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                    activeSection === 'map' ? 'bg-teal-oasis text-white' : 'text-gray-600 hover:text-teal-oasis'
+                  }`}
+                >
+                  Map
+                </button>
+                <button 
                   onClick={() => scrollToSection('practical')}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                     activeSection === 'practical' ? 'bg-teal-oasis text-white' : 'text-gray-600 hover:text-teal-oasis'
@@ -271,23 +280,15 @@ export default function DestinationDetail() {
               </Card>
             </section>
 
-            {/* Interactive Map Placeholder */}
-            <Card className="shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Interactive Map</h2>
-                <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <Navigation className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-                    <p className="text-gray-500">Interactive map with layered toggles</p>
-                    <div className="flex space-x-4 mt-4">
-                      <Button variant="outline" size="sm">Sights</Button>
-                      <Button variant="outline" size="sm">Dining</Button>
-                      <Button variant="outline" size="sm">Hotels</Button>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            {/* Interactive Map */}
+            <section id="map">
+              <Card className="shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+                <CardContent className="p-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Interactive Map</h2>
+                  <DestinationMap destination={destination} />
+                </CardContent>
+              </Card>
+            </section>
 
             {/* Practical Info */}
             <section id="practical">
