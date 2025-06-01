@@ -146,7 +146,10 @@ export default function CultureHistory() {
   const { data: allMuseums = [], isLoading: isLoadingMuseums } = useQuery({
     queryKey: ["/api/museums"],
     queryFn: async () => {
-      const response = await apiRequest("GET", "/api/museums");
+      const response = await fetch("/api/museums");
+      if (!response.ok) {
+        throw new Error("Failed to fetch museums");
+      }
       return response.json();
     },
   });
