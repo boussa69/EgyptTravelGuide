@@ -311,6 +311,66 @@ export default function TravelPlanning() {
         </div>
       </div>
 
+      {/* Emergency & Important Contacts Section */}
+      <div className="bg-gradient-to-r from-teal-oasis to-teal-700 py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-serif">
+              Emergency & Important Contacts
+            </h2>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+              Keep these important numbers handy during your Egyptian adventure for peace of mind
+            </p>
+          </div>
+
+          {/* Emergency Contacts Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            <div className="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+              <h3 className="text-lg font-bold mb-2 text-white">Emergency</h3>
+              <div className="text-3xl font-bold mb-2 text-white">122</div>
+              <p className="text-sm text-white/80">Police Emergency</p>
+            </div>
+            
+            <div className="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+              <h3 className="text-lg font-bold mb-2 text-white">Medical</h3>
+              <div className="text-3xl font-bold mb-2 text-white">123</div>
+              <p className="text-sm text-white/80">Ambulance</p>
+            </div>
+            
+            <div className="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+              <h3 className="text-lg font-bold mb-2 text-white">Tourist Police</h3>
+              <div className="text-3xl font-bold mb-2 text-white">126</div>
+              <p className="text-sm text-white/80">Tourist Assistance</p>
+            </div>
+            
+            <div className="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+              <h3 className="text-lg font-bold mb-2 text-white">Fire</h3>
+              <div className="text-3xl font-bold mb-2 text-white">180</div>
+              <p className="text-sm text-white/80">Fire Department</p>
+            </div>
+          </div>
+          
+          <div className="text-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                className="bg-white text-teal-oasis hover:bg-white/90"
+                onClick={() => window.open('/travel-guide.pdf', '_blank')}
+              >
+                Download Travel Guide PDF
+              </Button>
+              <Link href="/planning/emergency-contacts-safety">
+                <Button 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-teal-oasis"
+                >
+                  View Complete Safety Guide
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Sticky Help Bubble */}
       <div className="fixed bottom-6 right-6 z-50">
         <Button
