@@ -16,6 +16,8 @@ export const destinations = pgTable("destinations", {
   priceFrom: integer("price_from").notNull(), // price per day in USD
   highlights: text("highlights").array().notNull().default([]),
   attractions: text("attractions").array().notNull().default([]),
+  latitude: real("latitude"),
+  longitude: real("longitude"),
   bestTimeToVisit: text("best_time_to_visit"),
   transportInfo: text("transport_info"),
   accommodationInfo: text("accommodation_info"),
