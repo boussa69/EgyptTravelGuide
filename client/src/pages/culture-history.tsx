@@ -1,6 +1,7 @@
-import { BookOpen, Church, Cross, Users, Clock, MapPin } from "lucide-react";
+import { BookOpen, Church, Cross, Users, Clock, MapPin, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useState } from "react";
 
 const historicalPeriods = [
   {
@@ -60,7 +61,7 @@ const culturalAspects = [
   }
 ];
 
-const museumsAndSites = [
+const allMuseumsAndSites = [
   {
     name: "Egyptian Museum, Cairo",
     description: "Home to the world's largest collection of ancient Egyptian artifacts, including Tutankhamun's treasures.",
@@ -84,10 +85,73 @@ const museumsAndSites = [
     description: "Chronicles the city's rich Greco-Roman and Islamic history.",
     highlights: ["Underwater artifacts", "Ptolemaic statues", "Roman mosaics", "Islamic collections"],
     location: "Alexandria"
+  },
+  {
+    name: "Grand Egyptian Museum",
+    description: "The world's largest archaeological museum dedicated to a single civilization, housing over 100,000 artifacts.",
+    highlights: ["Complete Tutankhamun collection", "Solar boat exhibit", "Colossal statues", "Interactive displays"],
+    location: "Giza Plateau"
+  },
+  {
+    name: "Nubia Museum",
+    description: "Dedicated to Nubian history and culture, showcasing the heritage of ancient Nubia.",
+    highlights: ["Nubian artifacts", "Archaeological finds", "Traditional crafts", "Cultural exhibits"],
+    location: "Aswan"
+  },
+  {
+    name: "Luxor Museum",
+    description: "Houses a remarkable collection of ancient Egyptian art from the Theban temples and necropolis.",
+    highlights: ["Pharaonic sculptures", "Temple reliefs", "Mummy exhibits", "Royal artifacts"],
+    location: "Luxor"
+  },
+  {
+    name: "Imhotep Museum",
+    description: "Located at Saqqara, dedicated to the architect of the first pyramid and ancient Egyptian medicine.",
+    highlights: ["Pyramid artifacts", "Medical papyri", "Architectural models", "Saqqara finds"],
+    location: "Saqqara"
+  },
+  {
+    name: "Mummification Museum",
+    description: "Unique museum dedicated to the ancient Egyptian art of mummification.",
+    highlights: ["Mummification tools", "Animal mummies", "Canopic jars", "Preservation techniques"],
+    location: "Luxor"
+  },
+  {
+    name: "Mahmoud Khalil Museum",
+    description: "Fine arts museum featuring one of the finest collections of 19th and 20th-century art in the Middle East.",
+    highlights: ["Impressionist paintings", "Oriental art", "European sculptures", "Decorative arts"],
+    location: "Giza"
+  },
+  {
+    name: "Agricultural Museum",
+    description: "Showcases Egypt's agricultural heritage and the Nile's role in civilization development.",
+    highlights: ["Ancient farming tools", "Irrigation systems", "Crop specimens", "Rural life exhibits"],
+    location: "Dokki, Cairo"
+  },
+  {
+    name: "Textile Museum",
+    description: "Preserves Egypt's rich tradition of textile production from ancient times to modern day.",
+    highlights: ["Ancient fabrics", "Islamic textiles", "Coptic tapestries", "Modern Egyptian cotton"],
+    location: "Cairo"
   }
 ];
 
 export default function CultureHistory() {
+  const [visibleMuseums, setVisibleMuseums] = useState(4);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const loadMoreMuseums = () => {
+    setIsLoading(true);
+    // Simulate loading delay for better UX
+    setTimeout(() => {
+      setVisibleMuseums(prev => Math.min(prev + 4, allMuseumsAndSites.length));
+      setIsLoading(false);
+    }, 500);
+  };
+
+  const museumsToShow = allMuseumsAndSites.slice(0, visibleMuseums);
+  const hasMoreMuseums = visibleMuseums < allMuseumsAndSites.length;
+
   return (
     <div className="py-20">
       {/* Hero Section */}
@@ -260,7 +324,7 @@ export default function CultureHistory() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {museumsAndSites.map((site, index) => (
+            {museumsToShow.map((site, index) => (
               <Card key={site.name} className="border border-cool-limestone card-hover">
                 <CardContent className="p-8">
                   <div className="flex items-start justify-between mb-4">
@@ -292,6 +356,34 @@ export default function CultureHistory() {
               </Card>
             ))}
           </div>
+
+          {/* Load More Button */}
+          {hasMoreMuseums && (
+            <div className="text-center mt-12">
+              <Button
+                onClick={loadMoreMuseums}
+                disabled={isLoading}
+                variant="outline"
+                size="lg"
+                className="px-8 py-3 border-2 border-teal-oasis text-teal-oasis hover:bg-teal-oasis hover:text-white transition-colors"
+              >
+                {isLoading ? (
+                  <div className="flex items-center">
+                    <div className="animate-spin w-5 h-5 border-2 border-current border-t-transparent rounded-full mr-2" />
+                    Loading...
+                  </div>
+                ) : (
+                  <div className="flex items-center">
+                    <span>Discover More Museums</span>
+                    <ChevronDown className="w-5 h-5 ml-2" />
+                  </div>
+                )}
+              </Button>
+              <p className="text-gray-500 text-sm mt-3">
+                Showing {visibleMuseums} of {allMuseumsAndSites.length} museums and cultural sites
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
