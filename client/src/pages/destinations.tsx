@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 
 export default function Destinations() {
-  const [visibleDestinations, setVisibleDestinations] = useState(3);
+  const [visibleDestinations, setVisibleDestinations] = useState(6);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   const { data: allDestinations = [], isLoading, error } = useQuery({
@@ -21,7 +21,7 @@ export default function Destinations() {
   const loadMoreDestinations = () => {
     setIsLoadingMore(true);
     setTimeout(() => {
-      setVisibleDestinations(prev => Math.min(prev + 3, allDestinations.length));
+      setVisibleDestinations(prev => Math.min(prev + 6, allDestinations.length));
       setIsLoadingMore(false);
     }, 800);
   };
