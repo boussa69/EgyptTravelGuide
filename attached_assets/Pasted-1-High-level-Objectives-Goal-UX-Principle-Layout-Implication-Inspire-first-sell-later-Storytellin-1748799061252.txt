@@ -1,0 +1,74 @@
+1 — High-level Objectives
+Goal	UX Principle	Layout Implication
+Inspire first, sell later	Storytelling > pricing on destination pages	Move “Starting From” pricing to Tours & Itineraries section further down
+Help visitors self-qualify	Progressive disclosure	Place the most general info up-top; drill down into details via tabs/anchors
+Drive bespoke enquiries	Single, clear CTA that feels consultative	Sticky “Plan Your Egypt Journey” button feeding a short enquiry modal
+Showcase authority & authenticity	Social proof & deep content	Add expert tips, local insights, and micro-featured reviews/ratings inline
+
+2 — Proposed Desktop Layout
+pgsql
+Copy
+Edit
+┌────────────────────────────── 100% viewport width ──────────────────────────────┐
+│ NAVBAR (logo, Destinations mega-menu, Tours, Trip Planner, Search, Lang)       │
+├──────────────────────────────── HERO (75vh) ────────────────────────────────────┤
+│  • Full-bleed hero image/video of Aswan with subtle map pin overlay            │
+│  • H1: “Aswan — Gateway to Nubia”                                              │
+│  • Sub-tagline: “Islands, warm culture & the slow Nile”                        │
+│  • Breadcrumb & region chip (Upper Egypt)                                      │
+│  • 4-item quick overview (Rating ★5, Typical Stay 2-3 days, Best Season, GMT+2)│
+└─────────────────────────────────────────────────────────────────────────────────┘
+│ Sticky MINI-BAR (appears after hero scroll): [Overview] [Top Sights] [Map]     │
+│                                            [Practical Info] [Tours & Cruises]  │
+├─────────────── MAIN CONTENT (max-width 1280px, 2-col grid) ────────────────────┤
+│ LEFT COLUMN (≈66%)                               │ RIGHT COLUMN (≈34%)         │
+│ ─ Overview section                               │ “Need-to-Know” card:        │
+│   · 2-3 rich paragraphs + micro-reviews          │  • Quick Facts list         │
+│   · Embedded 30-sec silent reel (auto-pause)     │  • Weather widget (live)   │
+│                                                 │  • Safety badge + link      │
+│ ─ Top Highlights grid (icon + 1-sentence each)   │                             │
+│   · Abu Simbel · Philae Temple · Felucca Sunset  │                             │
+│   · Nubian Village · Elephantine Island          │                             │
+│ ─ Interactive Map (leaflet.js) with layered      │  — hidden on mobile         │
+│   toggles: sights / dining / hotels              │                             │
+│ ─ Practical Info accordion                       │                             │
+│   · When to Go                                   │                             │
+│   · Getting There (flight, train, deluxe sleeper)│                             │
+│   · Where to Stay (hotel tiers with 1 photo)     │                             │
+│   · Local Etiquette                              │                             │
+│ ─ Insider Tips strip (horizontal scroll cards)   │                             │
+└─────────────────────────────────────────────────────────────────────────────────┘
+│ FULL-WIDTH SECTION — “Sample Journeys & Cruises Starting in Aswan”             │
+│  • Card carousel (4-6): title, hero thumb, length, high-level cost band (e.g.  │
+│    “from €1,650 pp”), “View itinerary” CTA. Clicking opens journey page        │
+│  • This replaces the old “Starting From $95/day” box                           │
+├────────────────────────────── SOCIAL PROOF STRIP ──────────────────────────────┤
+│  • 3 rotating guest quotes overlaying subtle video b-roll (auto-pause on hover)│
+└──────────────────────────────── FAQ / CONTACT / FOOTER ─────────────────────────┘
+3 — Mobile Adaptation
+Hero drops to 50 vh, sticky mini-bar converts to swipeable pill navigation.
+
+Right-column widgets stack under each main section as collapsible cards.
+
+Carousel becomes horizontal scroll with snap points and 80 %-width cards.
+
+Map launches in full-screen modal to avoid clutter.
+
+4 — Key Content & Visual Details
+Element	Rationale	Tips
+Sticky mini-bar	Lets users jump to what they care about without endless scroll	Use Intersection Observer to swap in after 300 px
+Interactive map	Adds utility & dwell-time, reinforces authority	Cluster markers; preload only when viewport enters
+Sample Journeys carousel	Re-positions monetisation in a context-relevant, non-pushy way	Tag each card with “Family-friendly”, “Luxury”, etc.
+Need-to-Know card	Keeps key facts visible w/out overwhelming hero	Collapse automatically on ≤768 px
+Inline micro-reviews	Builds trust while users read, not only at bottom	Pull last 1-2 lines of 5-star reviews via CMS relations
+Modal enquiry form	Short (name, email, interests); auto-add page slug in hidden field	Use conversational copy: “Tell us what excites you about Aswan”
+
+5 — Implementation Notes
+Structure HTML semantically (<section id="overview"> etc.) so the sticky nav can scroll-spy.
+
+Make the carousel & reels lightweight (lazy-load images, use loading="lazy" on iframes).
+
+Use CSS Grid for the two-column area; switch to single column via @media (max-width: 1000px).
+
+For accessibility, include ARIA labels on sticky nav buttons and alt text on map markers.
+
