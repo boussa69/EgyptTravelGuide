@@ -12,6 +12,7 @@ const navigation = [
   { name: "Travel Guide & Planning", href: "/travel-planning" },
   { name: "Tours", href: "/tours" },
   { name: "Culture", href: "/culture-history" },
+  { name: "Map", href: "/map" },
 ];
 
 export default function Navbar() {

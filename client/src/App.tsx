@@ -17,6 +17,7 @@ import Booking from "@/pages/booking";
 import BookingConfirmation from "@/pages/booking-confirmation";
 import CultureHistory from "@/pages/culture-history";
 import MuseumDetail from "@/pages/museum-detail";
+import MapPage from "@/pages/map";
 
 import Admin from "@/pages/admin";
 import NotFound from "@/pages/not-found";
@@ -39,6 +40,7 @@ function Router() {
           <Route path="/booking-confirmation" component={BookingConfirmation} />
           <Route path="/culture-history" component={CultureHistory} />
           <Route path="/museums/:slug" component={MuseumDetail} />
+          <Route path="/map" component={MapPage} />
 
           <Route path="/admin" component={Admin} />
           <Route component={NotFound} />
