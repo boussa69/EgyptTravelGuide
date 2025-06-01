@@ -191,7 +191,7 @@ export default function MuseumDetail() {
                 <CardContent className="p-8">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif">Featured Collections</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {museum.highlights.map((highlight, index) => (
+                    {museum.highlights.map((highlight: string, index: number) => (
                       <div key={index} className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
                         <div className="w-12 h-12 bg-teal-oasis rounded-full flex items-center justify-center flex-shrink-0">
                           <Camera className="h-6 w-6 text-white" />

@@ -676,6 +676,19 @@ INSTRUCTIONS:
     }
   });
 
+  app.get("/api/museums/slug/:slug", async (req, res) => {
+    try {
+      const slug = req.params.slug;
+      const museum = await museumStorage.getBySlug(slug);
+      if (!museum) {
+        return res.status(404).json({ message: "Museum not found" });
+      }
+      res.json(museum);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch museum" });
+    }
+  });
+
   app.post("/api/museums", async (req, res) => {
     try {
       const museum = await museumStorage.create(req.body);

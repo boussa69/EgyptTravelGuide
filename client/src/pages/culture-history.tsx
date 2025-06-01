@@ -376,7 +376,7 @@ export default function CultureHistory() {
                     <div className="space-y-2 mb-6">
                       <h4 className="font-semibold text-gray-900">Featured Collections:</h4>
                       <div className="grid grid-cols-2 gap-2">
-                        {museum.highlights.map((highlight, idx) => (
+                        {museum.highlights.map((highlight: string, idx: number) => (
                           <div key={idx} className="flex items-center text-gray-600">
                             <span className="w-2 h-2 bg-teal-oasis rounded-full mr-2" />
                             <span className="text-sm">{highlight}</span>
