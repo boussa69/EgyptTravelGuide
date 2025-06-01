@@ -92,6 +92,17 @@ export default function Booking() {
   const handleBookingSubmit = async () => {
     if (!tour) return;
 
+    // Validate required fields
+    if (!bookingData.selectedDate || !bookingData.accommodation || !bookingData.firstName || 
+        !bookingData.lastName || !bookingData.email || !bookingData.phone) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields including accommodation type.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     const accommodationPrices = {
       'Standard': 1299,
       'Deluxe': 1899,
@@ -108,7 +119,7 @@ export default function Booking() {
       tourId: tourData?.id || 1, // Default to tour ID 1 for 7-day-egypt-highlights
       tourName: tourData?.name || '7-Day Egypt Highlights',
       departureDate: bookingData.selectedDate,
-      accommodation: bookingData.accommodation,
+      accommodationType: bookingData.accommodation,
       numberOfTravelers: bookingData.travelers,
       totalPrice,
       customerName: `${bookingData.firstName} ${bookingData.lastName}`,
