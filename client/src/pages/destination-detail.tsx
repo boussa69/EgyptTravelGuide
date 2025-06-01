@@ -21,7 +21,7 @@ export default function DestinationDetail() {
     enabled: !!slug,
   });
 
-  // Handle sticky navigation
+  // Handle sticky navigation and page title
   useEffect(() => {
     const handleScroll = () => {
       setShowStickyNav(window.scrollY > 300);
@@ -29,6 +29,13 @@ export default function DestinationDetail() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Set document title
+  useEffect(() => {
+    if (destination) {
+      document.title = `${destination.name} - Destinations | EgyptTravel`;
+    }
+  }, [destination]);
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
