@@ -154,6 +154,8 @@ export class DbStorage implements IStorage {
           price_from integer NOT NULL,
           highlights text[] DEFAULT '{}' NOT NULL,
           attractions text[] DEFAULT '{}' NOT NULL,
+          latitude real,
+          longitude real,
           best_time_to_visit text,
           transport_info text,
           accommodation_info text,
@@ -261,7 +263,9 @@ export class DbStorage implements IStorage {
           reviewCount: 2847,
           priceFrom: 89,
           highlights: ["Pyramids of Giza", "Egyptian Museum", "Islamic Cairo", "Khan El Khalili Bazaar"],
-          attractions: ["Great Pyramid", "Sphinx", "Citadel of Saladin", "Al-Azhar Mosque", "Coptic Quarter"]
+          attractions: ["Great Pyramid", "Sphinx", "Citadel of Saladin", "Al-Azhar Mosque", "Coptic Quarter"],
+          latitude: 30.0444,
+          longitude: 31.2357
         },
         {
           name: "Luxor",
@@ -274,7 +278,9 @@ export class DbStorage implements IStorage {
           reviewCount: 1943,
           priceFrom: 125,
           highlights: ["Karnak Temple", "Valley of the Kings", "Hot Air Balloon", "Luxor Temple"],
-          attractions: ["Karnak Temple Complex", "Valley of the Kings", "Hatshepsut Temple", "Colossi of Memnon"]
+          attractions: ["Karnak Temple Complex", "Valley of the Kings", "Hatshepsut Temple", "Colossi of Memnon"],
+          latitude: 25.6872,
+          longitude: 32.6396
         },
         {
           name: "Red Sea Coast",
@@ -287,7 +293,9 @@ export class DbStorage implements IStorage {
           reviewCount: 2156,
           priceFrom: 75,
           highlights: ["World-class diving", "Coral reefs", "Beach resorts", "Water sports"],
-          attractions: ["Hurghada", "Sharm El Sheikh", "Marsa Alam", "Dahab"]
+          attractions: ["Hurghada", "Sharm El Sheikh", "Marsa Alam", "Dahab"],
+          latitude: 26.8206,
+          longitude: 33.7963
         },
         {
           name: "Aswan",
@@ -300,7 +308,9 @@ export class DbStorage implements IStorage {
           reviewCount: 1524,
           priceFrom: 95,
           highlights: ["Abu Simbel", "Philae Temple", "Nubian villages", "Felucca sailing"],
-          attractions: ["Abu Simbel Temples", "Philae Temple", "Unfinished Obelisk", "Elephantine Island"]
+          attractions: ["Abu Simbel Temples", "Philae Temple", "Unfinished Obelisk", "Elephantine Island"],
+          latitude: 24.0889,
+          longitude: 32.8998
         },
         {
           name: "Alexandria",
@@ -313,7 +323,9 @@ export class DbStorage implements IStorage {
           reviewCount: 987,
           priceFrom: 65,
           highlights: ["Library of Alexandria", "Qaitbay Citadel", "Roman amphitheater", "Mediterranean coast"],
-          attractions: ["Bibliotheca Alexandrina", "Pompey's Pillar", "Catacombs of Kom el Shoqafa", "Montaza Palace"]
+          attractions: ["Bibliotheca Alexandrina", "Pompey's Pillar", "Catacombs of Kom el Shoqafa", "Montaza Palace"],
+          latitude: 31.2156,
+          longitude: 29.9553
         },
         {
           name: "Desert Oases",
@@ -326,7 +338,9 @@ export class DbStorage implements IStorage {
           reviewCount: 756,
           priceFrom: 145,
           highlights: ["Siwa Oasis", "White Desert", "Desert camping", "Bedouin culture"],
-          attractions: ["White Desert National Park", "Siwa Oasis", "Bahariya Oasis", "Crystal Mountain"]
+          attractions: ["White Desert National Park", "Siwa Oasis", "Bahariya Oasis", "Crystal Mountain"],
+          latitude: 29.2030,
+          longitude: 25.5197
         },
         {
           name: "Kom Ombo",
@@ -339,7 +353,9 @@ export class DbStorage implements IStorage {
           reviewCount: 687,
           priceFrom: 45,
           highlights: ["Dual temple", "Crocodile museum", "Nile views", "Ancient medicine"],
-          attractions: ["Temple of Kom Ombo", "Crocodile Museum", "Nile Corniche", "Daraw Market"]
+          attractions: ["Temple of Kom Ombo", "Crocodile Museum", "Nile Corniche", "Daraw Market"],
+          latitude: 24.4547,
+          longitude: 32.9341
         },
         {
           name: "El Gouna",
