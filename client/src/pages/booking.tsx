@@ -117,18 +117,16 @@ export default function Booking() {
 
     const bookingPayload = {
       tourId: tourData?.id || 1, // Default to tour ID 1 for 7-day-egypt-highlights
-      tourName: tourData?.name || '7-Day Egypt Highlights',
       departureDate: bookingData.selectedDate,
       accommodationType: bookingData.accommodation,
-      numberOfTravelers: bookingData.travelers,
-      totalPrice,
-      customerName: `${bookingData.firstName} ${bookingData.lastName}`,
-      customerEmail: bookingData.email,
-      customerPhone: bookingData.phone,
-      specialRequests: bookingData.specialRequests,
-      emergencyContact: bookingData.emergencyContact,
-      emergencyPhone: bookingData.emergencyPhone,
-      status: 'confirmed'
+      travelers: bookingData.travelers,
+      totalAmount: Math.round(totalPrice * 100), // Convert to cents
+      status: 'confirmed',
+      guestFirstName: bookingData.firstName,
+      guestLastName: bookingData.lastName,
+      guestEmail: bookingData.email,
+      guestPhone: bookingData.phone,
+      specialRequests: bookingData.specialRequests
     };
 
     createBookingMutation.mutate(bookingPayload);
