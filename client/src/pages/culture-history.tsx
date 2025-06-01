@@ -2,6 +2,8 @@ import { BookOpen, Church, Cross, Users, Clock, MapPin, ChevronDown } from "luci
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 
 const historicalPeriods = [
   {
@@ -138,19 +140,27 @@ const allMuseumsAndSites = [
 
 export default function CultureHistory() {
   const [visibleMuseums, setVisibleMuseums] = useState(4);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+
+  // Fetch museums from API
+  const { data: allMuseums = [], isLoading: isLoadingMuseums } = useQuery({
+    queryKey: ["/api/museums"],
+    queryFn: async () => {
+      const response = await apiRequest("GET", "/api/museums");
+      return response.json();
+    },
+  });
 
   const loadMoreMuseums = () => {
-    setIsLoading(true);
-    // Simulate loading delay for better UX
+    setIsLoadingMore(true);
     setTimeout(() => {
-      setVisibleMuseums(prev => Math.min(prev + 4, allMuseumsAndSites.length));
-      setIsLoading(false);
+      setVisibleMuseums(prev => Math.min(prev + 4, allMuseums.length));
+      setIsLoadingMore(false);
     }, 500);
   };
 
-  const museumsToShow = allMuseumsAndSites.slice(0, visibleMuseums);
-  const hasMoreMuseums = visibleMuseums < allMuseumsAndSites.length;
+  const museumsToShow = allMuseums.slice(0, visibleMuseums);
+  const hasMoreMuseums = visibleMuseums < allMuseums.length;
 
   return (
     <div className="py-20">
@@ -323,51 +333,84 @@ export default function CultureHistory() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {museumsToShow.map((site, index) => (
-              <Card key={site.name} className="border border-cool-limestone card-hover">
-                <CardContent className="p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-xl font-bold text-gray-900 font-serif">{site.name}</h3>
-                    <div className="flex items-center text-gray-500">
-                      <MapPin className="w-4 h-4 mr-1" />
-                      <span className="text-sm">{site.location}</span>
+          {isLoadingMuseums ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[...Array(4)].map((_, index) => (
+                <Card key={index} className="border border-cool-limestone">
+                  <CardContent className="p-8">
+                    <div className="animate-pulse">
+                      <div className="h-6 bg-gray-200 rounded mb-4"></div>
+                      <div className="h-4 bg-gray-200 rounded mb-2"></div>
+                      <div className="h-4 bg-gray-200 rounded mb-6"></div>
+                      <div className="space-y-2 mb-6">
+                        <div className="h-4 bg-gray-200 rounded"></div>
+                        <div className="h-4 bg-gray-200 rounded"></div>
+                      </div>
+                      <div className="h-10 bg-gray-200 rounded"></div>
                     </div>
-                  </div>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">{site.description}</p>
-                  
-                  <div className="space-y-2 mb-6">
-                    <h4 className="font-semibold text-gray-900">Featured Collections:</h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      {site.highlights.map((highlight, idx) => (
-                        <div key={idx} className="flex items-center text-gray-600">
-                          <span className="w-2 h-2 bg-teal-oasis rounded-full mr-2" />
-                          <span className="text-sm">{highlight}</span>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {museumsToShow.map((museum, index) => (
+                <Card key={museum.id} className="border border-cool-limestone card-hover">
+                  <CardContent className="p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="text-xl font-bold text-gray-900 font-serif">{museum.name}</h3>
+                      <div className="flex items-center text-gray-500">
+                        <MapPin className="w-4 h-4 mr-1" />
+                        <span className="text-sm">{museum.location}</span>
+                      </div>
+                    </div>
+                    
+                    <p className="text-gray-600 mb-6 leading-relaxed">{museum.description}</p>
+                    
+                    <div className="space-y-2 mb-6">
+                      <h4 className="font-semibold text-gray-900">Featured Collections:</h4>
+                      <div className="grid grid-cols-2 gap-2">
+                        {museum.highlights.map((highlight, idx) => (
+                          <div key={idx} className="flex items-center text-gray-600">
+                            <span className="w-2 h-2 bg-teal-oasis rounded-full mr-2" />
+                            <span className="text-sm">{highlight}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between mb-4">
+                      {museum.openingHours && (
+                        <div className="flex items-center text-gray-500">
+                          <Clock className="w-4 h-4 mr-1" />
+                          <span className="text-sm">{museum.openingHours}</span>
                         </div>
-                      ))}
+                      )}
+                      {museum.entryFee && (
+                        <div className="text-teal-oasis font-semibold">{museum.entryFee}</div>
+                      )}
                     </div>
-                  </div>
-                  
-                  <Button className="w-full bg-teal-oasis text-white hover:bg-accent-coral transition-colors">
-                    Plan Your Visit
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                    
+                    <Button className="w-full bg-teal-oasis text-white hover:bg-accent-coral transition-colors">
+                      Plan Your Visit
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
 
           {/* Load More Button */}
-          {hasMoreMuseums && (
+          {!isLoadingMuseums && hasMoreMuseums && (
             <div className="text-center mt-12">
               <Button
                 onClick={loadMoreMuseums}
-                disabled={isLoading}
+                disabled={isLoadingMore}
                 variant="outline"
                 size="lg"
                 className="px-8 py-3 border-2 border-teal-oasis text-teal-oasis hover:bg-teal-oasis hover:text-white transition-colors"
               >
-                {isLoading ? (
+                {isLoadingMore ? (
                   <div className="flex items-center">
                     <div className="animate-spin w-5 h-5 border-2 border-current border-t-transparent rounded-full mr-2" />
                     Loading...
@@ -380,7 +423,7 @@ export default function CultureHistory() {
                 )}
               </Button>
               <p className="text-gray-500 text-sm mt-3">
-                Showing {visibleMuseums} of {allMuseumsAndSites.length} museums and cultural sites
+                Showing {visibleMuseums} of {allMuseums.length} museums and cultural sites
               </p>
             </div>
           )}

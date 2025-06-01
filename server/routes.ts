@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { museumStorage } from "./museums-storage";
 import { insertNewsletterSubscriptionSchema, insertDestinationSchema, insertTourSchema } from "@shared/schema";
 import { z } from "zod";
 import OpenAI from "openai";
@@ -630,6 +631,83 @@ INSTRUCTIONS:
     } catch (error: any) {
       console.error("Error fetching booking:", error);
       res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Museums API routes
+  app.get("/api/museums", async (req, res) => {
+    try {
+      const museums = await museumStorage.getAll();
+      res.json(museums);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch museums" });
+    }
+  });
+
+  app.get("/api/museums/featured", async (req, res) => {
+    try {
+      const museums = await museumStorage.getFeatured();
+      res.json(museums);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch featured museums" });
+    }
+  });
+
+  app.get("/api/museums/category/:category", async (req, res) => {
+    try {
+      const { category } = req.params;
+      const museums = await museumStorage.getByCategory(category);
+      res.json(museums);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch museums by category" });
+    }
+  });
+
+  app.get("/api/museums/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const museum = await museumStorage.getById(id);
+      if (!museum) {
+        return res.status(404).json({ message: "Museum not found" });
+      }
+      res.json(museum);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch museum" });
+    }
+  });
+
+  app.post("/api/museums", async (req, res) => {
+    try {
+      const museum = await museumStorage.create(req.body);
+      res.status(201).json(museum);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to create museum" });
+    }
+  });
+
+  app.put("/api/museums/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const museum = await museumStorage.update(id, req.body);
+      if (!museum) {
+        return res.status(404).json({ message: "Museum not found" });
+      }
+      res.json(museum);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update museum" });
+    }
+  });
+
+  app.delete("/api/museums/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await museumStorage.delete(id);
+      if (!success) {
+        return res.status(404).json({ message: "Museum not found" });
+      }
+      res.status(204).send();
+    } catch (error) {
+      res.status(500).json({ message: "Failed to delete museum" });
     }
   });
 
