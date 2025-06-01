@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp, jsonb, real } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, jsonb, real, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -148,6 +148,27 @@ export const faqItems = pgTable("faq_items", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+// Museums table
+export const museums = pgTable("museums", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  slug: text("slug").notNull().unique(),
+  description: text("description").notNull(),
+  location: text("location").notNull(),
+  highlights: text("highlights").array().notNull().default([]),
+  imageUrl: text("image_url"),
+  category: text("category").notNull().default("archaeological"), // archaeological, islamic, coptic, modern, specialized
+  openingHours: text("opening_hours"),
+  entryFee: text("entry_fee"),
+  website: text("website"),
+  phone: text("phone"),
+  featured: boolean("featured").notNull().default(false),
+  displayOrder: integer("display_order").notNull().default(0),
+  isActive: boolean("is_active").notNull().default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull()
+});
+
 // Bookings table
 export const bookings = pgTable("bookings", {
   id: serial("id").primaryKey(),
@@ -253,5 +274,14 @@ export const insertBookingSchema = createInsertSchema(bookings).omit({
   updatedAt: true,
 });
 
+export const insertMuseumSchema = createInsertSchema(museums).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
 export type Booking = typeof bookings.$inferSelect;
 export type InsertBooking = z.infer<typeof insertBookingSchema>;
+
+export type Museum = typeof museums.$inferSelect;
+export type InsertMuseum = z.infer<typeof insertMuseumSchema>;

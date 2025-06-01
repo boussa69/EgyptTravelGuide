@@ -98,6 +98,26 @@ export interface IStorage {
   getBookings(): Promise<Booking[]>;
   getBookingByConfirmation(confirmationNumber: string): Promise<Booking | undefined>;
   createBooking(booking: InsertBooking): Promise<Booking>;
+  
+  // Museums
+  getMuseums(): Promise<Museum[]>;
+  getMuseum(id: number): Promise<Museum | undefined>;
+  getMuseumBySlug(slug: string): Promise<Museum | undefined>;
+  getFeaturedMuseums(): Promise<Museum[]>;
+  getMuseumsByCategory(category: string): Promise<Museum[]>;
+  createMuseum(museum: InsertMuseum): Promise<Museum>;
+  updateMuseum(id: number, museum: InsertMuseum): Promise<Museum | undefined>;
+  deleteMuseum(id: number): Promise<boolean>;
+  
+  // Museums
+  getMuseums(): Promise<Museum[]>;
+  getMuseum(id: number): Promise<Museum | undefined>;
+  getMuseumBySlug(slug: string): Promise<Museum | undefined>;
+  getFeaturedMuseums(): Promise<Museum[]>;
+  getMuseumsByCategory(category: string): Promise<Museum[]>;
+  createMuseum(museum: InsertMuseum): Promise<Museum>;
+  updateMuseum(id: number, museum: Partial<InsertMuseum>): Promise<Museum | undefined>;
+  deleteMuseum(id: number): Promise<boolean>;
 }
 
 export class DbStorage implements IStorage {
