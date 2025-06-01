@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { Link } from "wouter";
+import { Museum } from "@shared/schema";
 
 const historicalPeriods = [
   {
@@ -357,9 +359,10 @@ export default function CultureHistory() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {museumsToShow.map((museum, index) => (
-                <Card key={museum.id} className="border border-cool-limestone card-hover">
-                  <CardContent className="p-8">
+              {museumsToShow.map((museum: Museum, index: number) => (
+                <Link key={museum.id} href={`/museums/${museum.slug}`}>
+                  <Card className="border border-cool-limestone card-hover cursor-pointer">
+                    <CardContent className="p-8">
                     <div className="flex items-start justify-between mb-4">
                       <h3 className="text-xl font-bold text-gray-900 font-serif">{museum.name}</h3>
                       <div className="flex items-center text-gray-500">
@@ -399,6 +402,7 @@ export default function CultureHistory() {
                     </Button>
                   </CardContent>
                 </Card>
+                </Link>
               ))}
             </div>
           )}
