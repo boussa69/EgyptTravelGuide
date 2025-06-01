@@ -16,7 +16,7 @@ import Itinerary from "@/pages/itinerary";
 import Booking from "@/pages/booking";
 import BookingConfirmation from "@/pages/booking-confirmation";
 import CultureHistory from "@/pages/culture-history";
-import TravelTips from "@/pages/travel-tips";
+
 import Admin from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 
@@ -37,7 +37,7 @@ function Router() {
           <Route path="/booking" component={Booking} />
           <Route path="/booking-confirmation" component={BookingConfirmation} />
           <Route path="/culture-history" component={CultureHistory} />
-          <Route path="/travel-tips" component={TravelTips} />
+
           <Route path="/admin" component={Admin} />
           <Route component={NotFound} />
         </Switch>

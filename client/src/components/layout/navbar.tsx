@@ -9,10 +9,9 @@ import type { SearchResults } from "@/types";
 
 const navigation = [
   { name: "Destinations", href: "/destinations" },
-  { name: "Travel Planning", href: "/travel-planning" },
+  { name: "Travel Guide & Planning", href: "/travel-planning" },
   { name: "Tours", href: "/tours" },
   { name: "Culture", href: "/culture-history" },
-  { name: "Travel Tips", href: "/travel-tips" },
 ];
 
 export default function Navbar() {

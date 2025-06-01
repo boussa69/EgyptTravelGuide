@@ -7881,6 +7881,203 @@ export default function PlanningResource() {
     );
   }
 
+  if (slug === "emergency-contacts-safety") {
+    return (
+      <div className="min-h-screen bg-cool-limestone py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href="/" className="hover:text-teal-oasis">Home</Link>
+            <span>/</span>
+            <Link href="/travel-planning" className="hover:text-teal-oasis">Travel Planning</Link>
+            <span>/</span>
+            <span className="text-gray-900">Emergency Contacts & Safety</span>
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="bg-accent-coral text-white mb-4">
+              Updated January 2025
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
+              Emergency & Important Contacts
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Keep these important numbers handy during your Egyptian adventure for peace of mind
+            </p>
+          </div>
+
+          {/* Emergency Contacts Grid */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-gradient-to-r from-teal-oasis to-teal-700 text-white">
+            <CardContent className="p-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+                  <h3 className="text-lg font-bold mb-2">Emergency</h3>
+                  <div className="text-3xl font-bold mb-2">122</div>
+                  <p className="text-sm text-white/80">Police Emergency</p>
+                </div>
+                
+                <div className="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+                  <h3 className="text-lg font-bold mb-2">Medical</h3>
+                  <div className="text-3xl font-bold mb-2">123</div>
+                  <p className="text-sm text-white/80">Ambulance</p>
+                </div>
+                
+                <div className="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+                  <h3 className="text-lg font-bold mb-2">Tourist Police</h3>
+                  <div className="text-3xl font-bold mb-2">126</div>
+                  <p className="text-sm text-white/80">Tourist Assistance</p>
+                </div>
+                
+                <div className="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+                  <h3 className="text-lg font-bold mb-2">Fire</h3>
+                  <div className="text-3xl font-bold mb-2">180</div>
+                  <p className="text-sm text-white/80">Fire Department</p>
+                </div>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button 
+                    className="bg-white text-teal-oasis hover:bg-white/90"
+                    onClick={() => window.open('/travel-guide.pdf', '_blank')}
+                  >
+                    Download Travel Guide PDF
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="border-white text-white hover:bg-white hover:text-teal-oasis"
+                  >
+                    Save to Phone
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Additional Safety Information */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+                <Shield className="h-8 w-8 text-teal-oasis mr-3" />
+                Important Safety Guidelines
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <Phone className="h-5 w-5 text-blue-600 mr-2" />
+                    Embassy Contacts
+                  </h3>
+                  <div className="space-y-3 text-sm text-gray-600">
+                    <div className="p-3 bg-blue-50 rounded-lg">
+                      <p className="font-semibold">US Embassy Cairo</p>
+                      <p>+20 2 2797 3300</p>
+                      <p>5 Tawfik Diab Street, Garden City</p>
+                    </div>
+                    <div className="p-3 bg-blue-50 rounded-lg">
+                      <p className="font-semibold">UK Embassy Cairo</p>
+                      <p>+20 2 2791 6000</p>
+                      <p>7 Ahmed Ragheb Street, Garden City</p>
+                    </div>
+                    <div className="p-3 bg-blue-50 rounded-lg">
+                      <p className="font-semibold">Canadian Embassy Cairo</p>
+                      <p>+20 2 2791 8700</p>
+                      <p>26 Kamal El Din Salah Street, Garden City</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <Heart className="h-5 w-5 text-red-600 mr-2" />
+                    Medical Facilities
+                  </h3>
+                  <div className="space-y-3 text-sm text-gray-600">
+                    <div className="p-3 bg-red-50 rounded-lg">
+                      <p className="font-semibold">Cairo International Hospital</p>
+                      <p>+20 2 2524 0077</p>
+                      <p>Corniche El Nile, Maadi</p>
+                    </div>
+                    <div className="p-3 bg-red-50 rounded-lg">
+                      <p className="font-semibold">Cleopatra Hospital</p>
+                      <p>+20 2 2524 9999</p>
+                      <p>Cleopatra Square, Heliopolis</p>
+                    </div>
+                    <div className="p-3 bg-red-50 rounded-lg">
+                      <p className="font-semibold">Luxor International Hospital</p>
+                      <p>+20 95 2380 194</p>
+                      <p>Television Street, Luxor</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Travel Safety Tips */}
+          <Card className="mb-8 shadow-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 font-serif flex items-center">
+                <CheckCircle className="h-8 w-8 text-teal-oasis mr-3" />
+                Essential Safety Tips
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">Before You Call Emergency Services</h3>
+                  <ul className="space-y-3 text-sm text-gray-600">
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Stay calm and assess the situation
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Know your exact location or nearest landmark
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Have your passport and travel documents ready
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Contact your tour guide or hotel first if possible
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">Language Assistance</h3>
+                  <div className="space-y-3 text-sm text-gray-600">
+                    <p className="p-3 bg-yellow-50 rounded-lg">
+                      <span className="font-semibold">Tourist Police (126)</span> - English speaking officers available 24/7
+                    </p>
+                    <p className="p-3 bg-yellow-50 rounded-lg">
+                      <span className="font-semibold">Hotel Reception</span> - Can assist with translation and local emergency coordination
+                    </p>
+                    <p className="p-3 bg-yellow-50 rounded-lg">
+                      <span className="font-semibold">Embassy Services</span> - Provide 24/7 emergency assistance for citizens
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back Button */}
+          <div className="text-center">
+            <Link href="/travel-planning">
+              <Button className="bg-teal-oasis hover:bg-teal-700">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Travel Planning
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (slug === "photography-drone-rules") {
     return (
       <div className="min-h-screen bg-cool-limestone py-12">

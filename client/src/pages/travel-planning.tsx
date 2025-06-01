@@ -48,10 +48,11 @@ const quickGuides = [
   },
   { 
     icon: Shield, 
-    title: "Safety & Insurance", 
-    description: "Important health tips, safety guidelines, and travel insurance recommendations.",
-    category: "Practical",
-    slug: "safety-insurance"
+    title: "Emergency Contacts & Safety", 
+    description: "Essential emergency numbers, embassy contacts, and safety guidelines for Egypt.",
+    category: "Safety",
+    slug: "emergency-contacts-safety",
+    badge: "Essential"
   },
   {
     icon: Car,
@@ -164,7 +165,7 @@ export default function TravelPlanning() {
         {/* Enhanced Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            Plan Your <span className="text-teal-oasis">Perfect</span> Egyptian Journey
+            Travel Guide & <span className="text-teal-oasis">Planning</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
             Hand-picked advice from Egypt-based experts. Everything you need to know for an unforgettable Egyptian adventure.
