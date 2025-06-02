@@ -319,6 +319,195 @@ export default function DestinationDetail() {
           </div>
         </section>
 
+        {/* Culture & History Section */}
+        <section id="culture" className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">
+              Rich Culture & Ancient History
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Immerse yourself in millennia of fascinating Egyptian heritage and living traditions
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Ancient Wonders",
+                description: "Explore pyramids, temples, and tombs that have stood for thousands of years",
+                icon: "🏛️",
+                highlights: ["Pyramids of Giza", "Sphinx", "Ancient Temples"]
+              },
+              {
+                title: "Living Culture", 
+                description: "Experience vibrant markets, traditional crafts, and authentic Egyptian hospitality",
+                icon: "🎭",
+                highlights: ["Local Markets", "Traditional Crafts", "Cultural Events"]
+              },
+              {
+                title: "Culinary Heritage",
+                description: "Savor authentic Egyptian cuisine and traditional dishes passed down through generations",
+                icon: "🍽️", 
+                highlights: ["Traditional Dishes", "Street Food", "Local Restaurants"]
+              }
+            ].map((item, index) => (
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <CardContent className="p-8 text-center">
+                  <div className="text-6xl mb-4">{item.icon}</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{item.title}</h3>
+                  <p className="text-gray-600 mb-6">{item.description}</p>
+                  <div className="space-y-2">
+                    {item.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-center justify-center space-x-2">
+                        <div className="w-2 h-2 bg-teal-oasis rounded-full" />
+                        <span className="text-sm text-gray-700">{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Planning Section */}
+        <section id="planning" className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">
+              Plan Your Perfect Visit
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Essential information to help you make the most of your {destination.name} experience
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Travel Tips */}
+            <Card className="p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Plane className="h-6 w-6 text-teal-oasis mr-3" />
+                Travel Tips
+              </h3>
+              <div className="space-y-4">
+                {[
+                  { icon: Calendar, title: "Best Time to Visit", desc: "October to April for ideal weather" },
+                  { icon: Thermometer, title: "Weather", desc: "Hot summers, mild winters" },
+                  { icon: DollarSign, title: "Budget", desc: "€50-150 per day depending on style" },
+                  { icon: Shield, title: "Safety", desc: "Generally safe with standard precautions" }
+                ].map(({ icon: Icon, title, desc }, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <Icon className="h-5 w-5 text-teal-oasis mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900">{title}</h4>
+                      <p className="text-gray-600">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+
+            {/* Getting Around */}
+            <Card className="p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <Navigation className="h-6 w-6 text-teal-oasis mr-3" />
+                Getting Around
+              </h3>
+              <div className="space-y-4">
+                {[
+                  { icon: Hotel, title: "Accommodation", desc: "Luxury hotels to budget hostels available" },
+                  { icon: Utensils, title: "Dining", desc: "Street food, local restaurants, international cuisine" },
+                  { icon: MapPin, title: "Transportation", desc: "Taxis, metro, buses, and walking tours" },
+                  { icon: Camera, title: "Must-See", desc: "Book major attractions in advance" }
+                ].map(({ icon: Icon, title, desc }, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <Icon className="h-5 w-5 text-teal-oasis mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900">{title}</h4>
+                      <p className="text-gray-600">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
+        </section>
+
+        {/* Tours Section */}
+        <section id="tours" className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">
+              Popular Tours & Experiences
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Carefully curated experiences to help you discover the best of {destination.name}
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                id: 1,
+                name: "Grand Explorer",
+                duration: "3 days",
+                rating: 4.8,
+                priceFrom: "€320",
+                image: destination.imageUrl, 
+                tags: ["Historical", "Cultural"]
+              },
+              {
+                id: 2,
+                name: "Cultural Journey",
+                duration: "5 days", 
+                rating: 4.9,
+                priceFrom: "€650",
+                image: destination.imageUrl, 
+                tags: ["Cultural", "Authentic"]
+              }
+            ].map((tour) => (
+              <Card key={tour.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative h-48">
+                  <img 
+                    src={tour.image} 
+                    alt={tour.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <div className="flex items-center space-x-2 mb-2">
+                      {tour.tags.map((tag, index) => (
+                        <Badge key={index} variant="secondary" className="bg-white/20 text-white backdrop-blur-sm">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="absolute top-4 right-4">
+                    <div className="flex items-center space-x-1 bg-white/20 backdrop-blur-sm rounded-full px-2 py-1">
+                      <Star className="h-4 w-4 text-yellow-400 fill-current" />
+                      <span className="text-white text-sm font-semibold">{tour.rating}</span>
+                    </div>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{tour.name}</h3>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-2 text-gray-600">
+                      <Clock className="h-4 w-4" />
+                      <span>{tour.duration}</span>
+                    </div>
+                    <div className="text-2xl font-bold text-teal-oasis">
+                      from {tour.priceFrom}
+                    </div>
+                  </div>
+                  <Button className="w-full bg-teal-oasis hover:bg-teal-700 text-white">
+                    View Details
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
         {/* Call to Action Section */}
         <section className="text-center bg-gradient-to-r from-teal-oasis to-warm-terracotta rounded-3xl p-12 text-white">
           <h2 className="text-4xl font-bold mb-4 font-serif">
