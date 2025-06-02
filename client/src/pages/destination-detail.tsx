@@ -34,6 +34,9 @@ export default function DestinationDetail() {
   useEffect(() => {
     if (destination) {
       document.title = `${destination.name} - Destinations | EgyptTravel`;
+      // Clear any potential duplicate content
+      const existingDuplicates = document.querySelectorAll('[data-duplicate-city]');
+      existingDuplicates.forEach(el => el.remove());
     }
   }, [destination]);
 
@@ -92,17 +95,30 @@ export default function DestinationDetail() {
     <div className="min-h-screen bg-cool-limestone">
       <style dangerouslySetInnerHTML={{
         __html: `
-          .destination-hero * {
-            box-sizing: border-box !important;
+          /* Specific fix for duplicate city name issue */
+          .destination-hero {
+            position: relative;
+            overflow: hidden;
           }
+          
           .destination-hero::before,
-          .destination-hero::after {
+          .destination-hero::after,
+          .destination-hero *::before,
+          .destination-hero *::after {
             content: none !important;
             display: none !important;
           }
+          
+          /* Hide any text that appears in the top-left corner outside containers */
+          body::before,
+          html::before {
+            display: none !important;
+          }
+          
+          /* Ensure text only appears within intended containers */
           .destination-breadcrumb {
             isolation: isolate;
-            contain: layout style paint;
+            z-index: 20;
           }
         `
       }} />
