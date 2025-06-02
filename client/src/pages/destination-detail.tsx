@@ -33,6 +33,41 @@ export default function DestinationDetail() {
   useEffect(() => {
     if (destination) {
       document.title = `${destination.name} - Destinations | EgyptTravel`;
+      
+      // Clean up any duplicate text elements that might be injected
+      const cleanupDuplicates = () => {
+        // Remove any text nodes that contain the destination name outside main content
+        const walker = document.createTreeWalker(
+          document.body,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode: (node) => {
+              if (node.textContent?.trim() === destination.name && 
+                  !node.parentElement?.closest('.min-h-screen')) {
+                return NodeFilter.FILTER_ACCEPT;
+              }
+              return NodeFilter.FILTER_REJECT;
+            }
+          }
+        );
+        
+        const duplicateNodes = [];
+        let node;
+        while (node = walker.nextNode()) {
+          duplicateNodes.push(node);
+        }
+        
+        duplicateNodes.forEach(node => {
+          if (node.parentElement) {
+            node.parentElement.removeChild(node);
+          }
+        });
+      };
+      
+      // Run cleanup immediately and after a short delay
+      cleanupDuplicates();
+      setTimeout(cleanupDuplicates, 100);
+      setTimeout(cleanupDuplicates, 500);
     }
   }, [destination]);
 
@@ -80,8 +115,22 @@ export default function DestinationDetail() {
           .hero-container::after {
             display: none !important;
           }
-          body > *:not([data-radix-portal]):not(.min-h-screen) {
-            position: relative;
+          /* Hide any rogue text nodes that might appear outside containers */
+          body::before {
+            content: none !important;
+            display: none !important;
+          }
+          html::before {
+            content: none !important;
+            display: none !important;
+          }
+          /* Prevent text from appearing in unexpected positions */
+          * {
+            text-overflow: clip;
+          }
+          /* Ensure clean text rendering for Cairo specifically */
+          .destination-name-${destination.slug} {
+            contain: layout style paint;
           }
         `
       }} />
