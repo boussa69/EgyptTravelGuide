@@ -202,9 +202,9 @@ export default function DestinationDetail() {
         </div>
       </div>
 
-      {/* Sticky Navigation */}
+      {/* Sticky Navigation - Always visible after initial scroll */}
       {showStickyNav && (
-        <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b shadow-sm">
+        <div className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b shadow-sm">
           <div className="max-w-7xl mx-auto px-6">
             <nav className="flex items-center space-x-8 py-4">
               <h2 className="font-bold text-lg text-gray-900">{destination.name}</h2>
@@ -227,6 +227,9 @@ export default function DestinationDetail() {
           </div>
         </div>
       )}
+
+      {/* Add padding when sticky nav is showing */}
+      {showStickyNav && <div className="h-20"></div>}
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-16">
