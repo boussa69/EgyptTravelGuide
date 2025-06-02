@@ -23,7 +23,7 @@ export default function DestinationDetail() {
   // Handle sticky navigation and page title
   useEffect(() => {
     const handleScroll = () => {
-      setShowStickyNav(window.scrollY > 300);
+      setShowStickyNav(window.scrollY > 150);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -75,7 +75,15 @@ export default function DestinationDetail() {
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Account for sticky navigation height when scrolling
+      const headerOffset = 80;
+      const elementPosition = element.offsetTop;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
