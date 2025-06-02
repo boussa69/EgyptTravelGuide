@@ -90,31 +90,42 @@ export default function DestinationDetail() {
 
   return (
     <div className="min-h-screen bg-cool-limestone">
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .destination-hero * {
+            box-sizing: border-box !important;
+          }
+          .destination-hero::before,
+          .destination-hero::after {
+            content: none !important;
+            display: none !important;
+          }
+          .destination-breadcrumb {
+            isolation: isolate;
+            contain: layout style paint;
+          }
+        `
+      }} />
+      
       {/* Hero Section - 75vh */}
-      <div className="relative h-[75vh] overflow-hidden"
-           style={{ 
-             position: 'relative', 
-             isolation: 'isolate',
-             transform: 'translateZ(0)',
-             willChange: 'transform'
-           }}>
-          <img 
-            src={destination.imageUrl} 
-            alt={destination.name}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-30" />
-          
-          {/* Breadcrumbs */}
-          <div className="absolute top-6 left-6 z-10 bg-black/20 rounded px-3 py-2">
-            <nav className="flex items-center space-x-2 text-white/90 text-sm">
-              <Link href="/" className="hover:text-white">Home</Link>
-              <ChevronRight className="h-4 w-4" />
-              <Link href="/destinations" className="hover:text-white">Destinations</Link>
-              <ChevronRight className="h-4 w-4" />
-              <span className="text-white">{destination.name}</span>
-            </nav>
-          </div>
+      <div className="destination-hero relative h-[75vh] overflow-hidden">
+        <img 
+          src={destination.imageUrl} 
+          alt={destination.name}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-30" />
+        
+        {/* Breadcrumbs */}
+        <div className="destination-breadcrumb absolute top-6 left-6 z-10 bg-black/20 rounded px-3 py-2">
+          <nav className="flex items-center space-x-2 text-white/90 text-sm">
+            <Link href="/" className="hover:text-white">Home</Link>
+            <ChevronRight className="h-4 w-4" />
+            <Link href="/destinations" className="hover:text-white">Destinations</Link>
+            <ChevronRight className="h-4 w-4" />
+            <span className="text-white">{destination.name}</span>
+          </nav>
+        </div>
 
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center justify-center">
